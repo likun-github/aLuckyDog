@@ -1,0 +1,60 @@
+.buttom-navigation {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-top: 1rpx solid rgba(0,0,0,0.25);
+    background: #fff;
+    z-index: 999;
+    height: 49px;
+    display: flex;
+}
+
+.buttom-navigation.iPhonex {
+    padding-bottom: 15px;
+}
+
+.buttom-navigation .buttom-navigation-action {
+    flex: 0 0 33.3333%;
+    height: 49px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttom-navigation .buttom-navigation-action .normal-image {
+    display: block;
+    margin: 0 auto;
+    width: 56px;
+    height: 49px;
+}
+
+.buttom-navigation .buttom-navigation-action .checked-image {
+    display: none;
+    margin: 0 auto;
+    width: 56px;
+    height: 49px;
+}
+
+.buttom-navigation .buttom-navigation-action.active .normal-image,.buttom-navigation .buttom-navigation-action.highlight .normal-image {
+    display: none;
+}
+
+.buttom-navigation .buttom-navigation-action.active .checked-image,.buttom-navigation .buttom-navigation-action.highlight .checked-image {
+    display: block;
+}
+
+.buttom-navigation .buttom-navigation-action .buttom-navigation-action-label {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: .2px;
+    color: rgba(0,0,0,0.3);
+    transform: scale(.83);
+    display: block;
+    margin-top: 4px;
+}
+
+.buttom-navigation .buttom-navigation-action .buttom-navigation-action-content {
+    text-align: center;
+}

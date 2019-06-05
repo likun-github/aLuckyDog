@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/profile/profile",
+    "pages/redirectCreate/redirectCreate"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "自定义导航栏",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "navBar": "/components/navBar/navBar"
+  },
+  "tabBar": {
+    "color": "#a8a8a8",
+    "selectedColor": "#cd5f53",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/lottery_list_normal@3x.png",
+        "selectedIconPath": "images/lottery_list_checked@3x.png"
+      },
+      {
+        "pagePath": "pages/redirectCreate/redirectCreate",
+        "text": "发起抽奖",
+        "iconPath": "images/lottery_new_normal@3x.png",
+        "selectedIconPath": "images/lottery_new_checked@3x.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/lottery_mine_noraml@3x.png",
+        "selectedIconPath": "images/lottery_mine_checked@3x.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

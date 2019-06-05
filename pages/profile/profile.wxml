@@ -1,0 +1,4 @@
+<navBar 
+    title-text="我的"
+    background="white"
+    bindback="back"/>
