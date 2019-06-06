@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/award/award",
     "pages/index/index",
     "pages/logs/logs",
     "pages/profile/profile",
     "pages/redirectCreate/redirectCreate"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
