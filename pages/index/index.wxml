@@ -40,10 +40,10 @@
       <image class='img_everyday_view' src='/images/slot-bg@3x.png' mode='aspectFill'></image>
     </view>
 
-    <view>
-      <view>xxx赞助</view>
-      <view>奖品：华为P30 x1</view>
-      <view>06月06日 10:10 自动开奖</view>
+    <view class='Everday_Lottery_text'>
+      <view class='Everday_Lottery_text_1'>海豚家 赞助</view>
+      <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
+      <view class='Everday_Lottery_text_3'>06月06日 10:10 自动开奖</view>
     </view>
 
   </view>
