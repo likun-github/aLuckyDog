@@ -1,5 +1,6 @@
 .navbar{
-    position: relative
+  position: relative;
+
 }
 .back-icon, .home-icon{
     width: 28px;
@@ -32,4 +33,11 @@
     top: 50%;
     font-size: 0;
     font-weight: 500;
+}
+
+.title_view{
+  width: 100%;
+  /* top: 0; */
+  z-index: 1;
+  position: fixed;
 }
