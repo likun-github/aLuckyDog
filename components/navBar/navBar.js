@@ -67,6 +67,8 @@ Component({
                 navHeight: navHeight
             })
         },
+
+        
         setStyle: function() {
             var that  = this
                 , containerStyle

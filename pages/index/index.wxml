@@ -1,27 +1,59 @@
-<navBar 
-    title-text="公共抽奖" 
-    background="white"
-    bindback="back"/>
+<navBar title-text="公共抽奖" background="white" bindback="back" />
 
+<!-- 配置 自定义的title -->
+<view style='height: {{status + navHeight}}px;'></view>
 
+<scroll-view scroll-y='true'>
 
-<scroll-view>
+  <view class='heart_view'>
+    <view class='heart_view_1'>
+      <view>
+        <image src='/images/realtime-icon-small@3x.png' class='img_heart_view'></image>
+      </view>
+      <view class='heart_view_1_text_1'>{{4}}</view>
+      <view class='heart_view_1_text_2'>心愿</view>
+    </view>
 
-  <view>
-  {{4}}心愿
-  <view>去签到</view>
+   
+    <view class='heart_view_2'>
+      <view>去签到</view>
+      <view>
+        <image src='/images/arrow@3x.png' class='img_heart_view'></image>
+      </view>
+    </view>
+
   </view>
 
-  <view>
-    <view>每日福利</view>
-    <view>我要上首页 | 分享</view>
+  <view class='separator'></view>
+
+  <view class='everyday_view'>
+    <view class='everyday_view_1'>每日福利</view>
+    <view class='everyday_view_2'>
+      <text decode="{{true}}">我要上首页&nbsp;&nbsp;&nbsp;</text>
+       <text decode="{{true}}">|&nbsp;&nbsp;&nbsp;</text>
+       <text>分享</text>
+    </view>
   </view>
 
-  <view>
-    <view>xxx赞助</view>
-    <view>奖品：华为P30 x1</view>
+  <view class='Everday_Lottery_view' wx:for="{{5}}">
+    <view>
+      <image class='img_everyday_view' src='/images/slot-bg@3x.png' mode='aspectFill'></image>
+    </view>
+
+    <view>
+      <view>xxx赞助</view>
+      <view>奖品：华为P30 x1</view>
+      <view>06月06日 10:10 自动开奖</view>
+    </view>
+
+  </view>
+
+  <view>自助福利</view>
+
+  <view class='Self_Lottery_view' wx:for="{{10}}">
+    <view> 奖品：首页自助福利免费展示一天 x1</view>
     <view>06月06日 10:10 自动开奖</view>
+    <view>xxx孵化器</view>
   </view>
-
 
 </scroll-view>
