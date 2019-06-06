@@ -12,7 +12,7 @@ page {
 }
 
 .Everday_Lottery_view {
-  height: 470rpx;
+  height: fit-content;
   width: 90%;
   background: white;
   margin: auto;
@@ -122,42 +122,34 @@ page {
   margin: auto;
 }
 
-
-.Everday_Lottery_text{
-  height: 200rpx;
+.Everday_Lottery_text {
+  height: fit-content;
   width: 90%;
   margin: auto;
-  background: blue;
+  /* background: blue; */
 }
 
-
-.Everday_Lottery_text_1{
-  height: 60rpx;
+.Everday_Lottery_text_1 {
+  height: fit-content;
   width: 100%;
-  background: blueviolet;
+  /* background: rgb(71, 63, 78); */
   color: red;
   font-size: 27rpx;
-
-
 }
 
-.Everday_Lottery_text_2{
-  height: 60rpx;
+.Everday_Lottery_text_2 {
+  height: fit-content;
   width: 100%;
-  background: rgb(166, 166, 167);
-  color: red;
+  /* background: rgb(71, 63, 78); *//* color: red; */
   font-size: 27rpx;
-
-
+  margin-top: 10rpx;
 }
 
-
-.Everday_Lottery_text_3{
-  height: 60rpx;
+.Everday_Lottery_text_3 {
+  height: fit-content;
   width: 100%;
-  background: rgb(71, 63, 78);
-  color: red;
-  font-size: 27rpx;
-
-
+  /* background: rgb(71, 63, 78); */
+  color: rgb(66, 66, 66);
+  font-size: 20rpx;
+  margin-top: 10rpx;
 }

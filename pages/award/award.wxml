@@ -2,6 +2,7 @@
 <navBar 
     title-text="抽奖助手" 
     background="white"
+
     bindback="back"/>
     <view class='contaner' style='top:{{status + navHeight}}px'>
 
