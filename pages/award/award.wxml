@@ -16,10 +16,15 @@
   <text class='input11'>奖品名称</text>
   <input class="input1" name="name" bindinput='name' placeholder='请输入奖品名称'></input>
 </view>
-
+<view style='width:95%;height:1px;background:black;margin-left:5%'></view>
 <view style='width:100%;height:100rpx;display:flex;flex-direction:row'>
   <text class='input11'>奖品份数</text>
-  <input class="input1" name="name" bindinput='name' placeholder='请输入奖品名称'></input>
+  <text class="input11" >修改开奖条件</text>
+</view>
+
+<view style='width:100%;height:100rpx;display:flex;flex-direction:row'>
+  <text class='input11'>到达设定时间自动开奖</text>
+  <input class="input1" name="name" bindinput='name' placeholder='份数'></input>
 </view>
 
 <view style='width:100%;height:100rpx;display:flex;flex-direction:row'>
