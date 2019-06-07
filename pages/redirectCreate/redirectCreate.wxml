@@ -1,4 +1,8 @@
-<navBar 
-    title-text="抽奖助手" 
-    background="white"
+
+
+    <navBar 
+    title-text="自定义导航栏" 
+    back-icon="/images/back@3x.png"
+    background="#f2f2f2"
     bindback="back"/>
+  
