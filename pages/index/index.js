@@ -32,7 +32,9 @@ Page({
       status: statusHeight,
       navHeight: navHeight
     })
-    console.log(that.data.status,that.data.navHeight)
+    // console.log(that.data.status,that.data.navHeight)
+    app.globalData.top_height = that.data.status + that.data.navHeight
+    console.log(app.globalData.top_height)
   },
 
   onPullDownRefresh(e) {
@@ -43,6 +45,11 @@ Page({
  
   },
 
-
+  lottery:function(e){
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/lottery_detail/lottery_detail',
+    })
+  }
   
 })

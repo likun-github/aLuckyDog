@@ -35,7 +35,7 @@
     </view>
   </view>
 
-  <view class='Everday_Lottery_view' wx:for="{{5}}">
+  <view class='Everday_Lottery_view' wx:for="{{2}}" bindtap='lottery'>
     <view>
       <image class='img_everyday_view' src='/images/slot-bg@3x.png' mode='aspectFill'></image>
     </view>
@@ -43,21 +43,48 @@
     <view class='Everday_Lottery_text'>
       <view class='Everday_Lottery_text_1'>海豚家 赞助</view>
       <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
-      <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
-     <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
-      <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view><view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
-      <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
+
       <view class='Everday_Lottery_text_3'>06月06日 10:10 自动开奖</view>
+      <view class='Everday_Lottery_text_4'></view>
     </view>
 
   </view>
 
-  <view>自助福利</view>
+  <view class='Self_Lottery_text1'>自助福利</view>
 
-  <view class='Self_Lottery_view' wx:for="{{10}}">
-    <view> 奖品：首页自助福利免费展示一天 x1</view>
-    <view>06月06日 10:10 自动开奖</view>
-    <view>xxx孵化器</view>
+
+  <view class='Self_Lottery_view' >
+    <view>
+      <image src='/images/559-3@3x.png'  class='Self_Lottery_view_img'  mode='aspectFill'></image>
+    </view>
+    <view class='Self_Lottery_view_text_view'>
+      <!-- 最多四行 -->
+      <view class='Self_Lottery_view_text_1'> 奖品：首页自助福利免费展示一天x1</view>
+      <view  class='Self_Lottery_view_text_2'>06月06日 10:10 自动开奖</view>
+      <view class='Self_Lottery_view_text_3_view'>
+        <view  class='Self_Lottery_view_text_3'>xxx孵化器</view>
+        <view  class='Self_Lottery_view_text_4'>商城奖品</view>
+      </view>
+    </view>
   </view>
 
+
+  <view class='Self_Lottery_view_down' wx:for="{{10}}">
+    <view>
+      <image src='/images/avatar_mask.png'  class='Self_Lottery_view_img'  mode='aspectFill'></image>
+    </view>
+    <view class='Self_Lottery_view_text_view'>
+      <!-- 最多四行 -->
+      <view class='Self_Lottery_view_text_1'> 奖品：首页自助福利免费展示一天x1</view>
+      <view  class='Self_Lottery_view_text_2'>06月06日 10:10 自动开奖</view>
+      <view class='Self_Lottery_view_text_3_view'>
+        <view  class='Self_Lottery_view_text_3'>xxx孵化器</view>
+        <view  class='Self_Lottery_view_text_4'>商城奖品</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='Self_Lottery_view_look_All'>查看全部  ></view>
+
+  <view class='contact_worker'>联系客服  ></view>
 </scroll-view>
