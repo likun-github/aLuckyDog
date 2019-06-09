@@ -13,9 +13,11 @@
     "navigationBarTitleText": "自定义导航栏",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
+
   },
   "usingComponents": {
-    "navBar": "/components/navBar/navBar"
+    "navBar": "/components/navBar/navBar",
+    "bottom": "/components/bottom/bottom"
   },
   "tabBar": {
     "color": "#a8a8a8",

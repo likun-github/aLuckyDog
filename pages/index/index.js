@@ -12,7 +12,7 @@ Page({
 
   onLoad: function() {
     this.setNavSize()
-      
+    app.editTabBar();
       
   },
 
