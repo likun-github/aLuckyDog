@@ -10,7 +10,7 @@
 <scroll-view>
 
   <view>
-    <image src='/images/slot-bg@3x.png' mode='aspectFill' class='lottery_detail_img'></image>
+    <image src='/images/phone-690091_640.jpg' mode='aspectFill' class='lottery_detail_img'></image>
   </view>
 
 
