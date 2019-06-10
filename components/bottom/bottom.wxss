@@ -1,33 +1,26 @@
-.tabbar {
+.bottom {
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
+  background: white;
   height: 100rpx;
-  border-top: 0.5px solid #d5d5d5;
+  width: 100%;
+    display: flex;
+  flex-direction: row;
+}
+
+
+.icon_img {
+  width: 33.3%;
+  height: 100%;
   display: flex;
-  font-size: 0;
-  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 24rpx;
+  color: #757575;
 }
-.tabbar-item {
-  flex: 1;
-  text-align: center;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding: 8rpx 10rpx 0;
-  color: #333333;
-}
-.tabbar-item-icon {
-  margin-bottom: 6rpx;
-}
-.tabbar-item-icon image {
-  width: 56rpx;
-  height: 56rpx;
-}
-.tabbar-item-text {
-  font-size: 20rpx;
-  line-height: 20rpx;
-}
-.tabbar-item.active {
-  color: #fdb975;
+
+.icon_ {
+  height: 45rpx;
+  width: 45rpx;
 }

@@ -50,6 +50,10 @@ Page({
     wx.navigateTo({
       url: '/pages/lottery_detail/lottery_detail',
     })
-  }
+  },
+
+  // bottom_tab:function(e){
+  //   console.log(e)
+  // }
   
 })

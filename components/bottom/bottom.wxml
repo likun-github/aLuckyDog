@@ -1,8 +1,19 @@
-<view class='tabbar'>
-  <view wx:if='{{_auth >= item.auth}}' class='tabbar-item {{activeIdx === index ? "active" : ""}}' wx:for='{{tabbarList}}' wx:key='{{item.pagePath}}' bindtap='handleItemTap' data-path='{{item.pagePath}}' data-idx='{{index}}'>
-    <view class='tabbar-item-icon'>
-      <image src='{{activeIdx === index ? item.selectedIconPath : item.iconPath}}'></image>
+<view class="bottom ">
+
+
+    <view class='icon_img' bindtap='one_select'>
+      <image src="{{one_select!=1?'/images/3_no.svg':'/images/3.svg'}}" class='icon_'></image>
+      <view>首页</view>
     </view>
-    <view class='tabbar-item-text'>{{item.text}}</view>
-  </view>
+
+    <view class='icon_img' bindtap='two_select'>
+      <image src="{{two_select!=1?'/images/2_no.svg':'/images/2.svg'}}" class='icon_'></image>
+      <view>发起抽奖</view>
+    </view>
+
+    <view class='icon_img' bindtap='three_select'>
+      <image src="{{three_select!=1?'/images/lottery_mine_noraml@3x.png':'/images/lottery_mine_checked@3x.png'}}" class='icon_'></image>
+      <view>我的</view>
+    </view>
+
 </view>

@@ -45,12 +45,12 @@
 }
 
 
-.bottom{
-  height: 80rpx;
+/* .bottom{
+  height: 115rpx;
   width: 100%;
   bottom: 0;
   z-index: 1;
   position: fixed;
   border-bottom: 1px solid rgba(128, 128, 128, 0.24);
   background: rgb(255, 255, 255);
-}
+} */

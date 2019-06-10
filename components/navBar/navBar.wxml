@@ -25,6 +25,8 @@
             <text style='{{textStyle}}'>{{titleText}}</text>
   </view>
 </view> -->
-<view class='bottom'>
+
+
+<!-- <view class='bottom'>
 2
-</view>
+</view> -->

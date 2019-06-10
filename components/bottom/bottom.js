@@ -1,69 +1,72 @@
-import tabbarList from '../../config/router.js'
 // components/tabbar/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    activeIdx: {
+    one_select: {
       type: Number,
-      value: 0
+      value: 2
     },
-    auth: {
+    two_select: {
       type: Number,
-      value: 0,
-      observer: 'onAuthChanged'
-    }
+      value: 2
+    },
+    three_select: {
+      type: Number,
+      value: 2
+    },
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    tabbarList: tabbarList,
-    _auth: 0
+
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    handleItemTap(e) {
-      const {
-        idx,
-        path
-      } = e.currentTarget.dataset
-
-      if (idx === this.data.activeIdx) {
-        this.trigger('refresh')
-        return
-      }
-
-      wx.switchTab({
-        url: `/${path}`,
-      })
-    },
-    onAuthChanged(newVal) {
-      wx.setStorageSync('__com-tabbar-auth', newVal)
+    one_select: function() {
+      console.log('1')
       this.setData({
-        _auth: newVal
+        one_select: 1,
+        two_select: 2,
+        three_select: 2,
+      })
+
+    },
+    two_select: function() {
+      console.log('2')
+      wx.navigateTo({
+        url: '/pages/award/award',
+      })
+      this.setData({
+        one_select: 2,
+        two_select: 1,
+        three_select: 2,
       })
     },
-    trigger(eventName, value = {}, info) {
-      if (!eventName) {
-        throw new TypeError('没有自定义事件名')
-      }
-      this.triggerEvent(eventName, value)
-      console.log(`发送 ${eventName} 事件,携带的值为 ${typeof value === 'object' ? JSON.stringify(value) : value} ${info ? '   ---   ' + info : ''}`)
-    }
+    three_select: function() {
+      console.log('3')
+      this.setData({
+        one_select: 2,
+        two_select: 2,
+        three_select: 1,
+      })
+
+
+    },
+
+
   },
-  ready() { },
+  ready() {},
   pageLifetimes: {
-    show: function () {
+    show: function() {
       console.log('show')
-      this.setData({
-        _auth: wx.getStorageSync('__com-tabbar-auth')
-      })
+
     }
   }
 })

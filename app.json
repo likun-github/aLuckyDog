@@ -17,7 +17,8 @@
   },
   "usingComponents": {
     "navBar": "/components/navBar/navBar",
-    "bottom": "/components/bottom/bottom"
+    "bottom": "/components/bottom/bottom",
+    "award":"/pages/award/award"
   },
   
   "sitemapLocation": "sitemap.json"
