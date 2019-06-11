@@ -5,6 +5,8 @@
   width: 100%;
 }
 
+
+
 .Self_Lottery_view_text_view {
   width: 90%;
   height: fit-content;
@@ -12,7 +14,7 @@
   margin: auto;
   margin-top: 15rpx;
   margin-bottom: 15rpx;
-    display: flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -320,6 +322,12 @@
   background: #f0f0f0;
 }
 
+.grey_block {
+  height: 300rpx;
+  width: 100%;
+  background: #f0f0f0;
+}
+
 .join {
   height: fit-content;
   width: 80%;
@@ -349,16 +357,66 @@
   margin-bottom: 25rpx;
 }
 
-.join_pic_view{
-   display: flex;
+.join_pic_view {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.join_pic_view_img{
+.join_pic_view_img {
   width: 65rpx;
   height: 65rpx;
   margin-left: 5rpx;
   margin-right: 5rpx;
+}
+
+.bottom {
+  position: fixed;
+  bottom: -50rpx;
+  background: white;
+  height: 150rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 1rpx solid rgba(194, 194, 194, 0.76);
+}
+
+.black_view {
+  width: 90%;
+  height: 50%;
+  margin: auto;
+  background: #575757;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15rpx;
+}
+
+.black_text1 {
+  color: white;
+  font-size: 30rpx;
+}
+
+.black_text2 {
+  color: #7F7F7F;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+
+.linear{
+  height:7rpx;
+  width:100%;
+  background:#f0f0f0;
+  margin: auto;
+  margin-top: 35rpx;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

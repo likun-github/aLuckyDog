@@ -1,4 +1,5 @@
 // pages/award/award.js
+const app = getApp()
 Page({
 
   /**
@@ -96,5 +97,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+
+  back:function(){
+    wx.navigateBack({
+      delta:1
+    })
+    app.globalData.page_index = app.globalData.page_old_index
+    console.log('back', app.globalData.page_index, app.globalData.page_old_index)
   }
 })

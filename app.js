@@ -34,123 +34,16 @@ App({
     })
   },
 
-  editTabBar: function () {
+  
 
-    var _curPageArr = getCurrentPages();
 
-    var _curPage = _curPageArr[_curPageArr.length - 1];
-
-    var _pagePath = _curPage.__route__;
-
-    if (_pagePath.indexOf('/') != 0) {
-
-      _pagePath = '/' + _pagePath;
-
-    }
-
-    var tabBar = this.globalData.tabBar;
-
-    for (var i = 0; i < tabBar.list.length; i++) {
-
-      tabBar.list[i].active = false;
-
-      if (tabBar.list[i].pagePath == _pagePath) {
-
-        tabBar.list[i].active = true;//根据页面地址设置当前页面状态
-
-      }
-
-    }
-
-    _curPage.setData({
-
-      tabBar: tabBar
-
-    });
-
-  },
 
 
   globalData: {
     userInfo: null,
     top_height:0,
-    tabBar: {
-
-      color: "#a9b7b7",
-
-      selectedColor: "#ff8124",
-
-      borderStyle: "white",
-
-      list: [
-        {
-          selectedIconPath: "/pages/image/1-1.png",
-
-          iconPath: "/pages/image/1.png",
-
-          pagePath: "/pages/index/index",
-
-          text: "首页",
-
-          clas: "menu-item",
-
-          selected: false,
-
-        },
-
-        {
-
-          selectedIconPath: "/pages/image/2-1.png",
-
-          iconPath: "/pages/image/2.png",
-
-          pagePath: "/pages/collect/collect",
-
-          text: "收藏",
-
-          clas: "menu-item",
-
-          selected: false
-
-        },
-
-        {
-
-          selectedIconPath: "/pages/image/3-1.png",
-
-          iconPath: "/pages/image/3.png",
-
-          pagePath: "/pages/disses/disses",
-
-          text: "需求填写",
-
-          clas: "menu-item",
-
-          selected: false
-
-        },
-
-        {
-
-          selectedIconPath: "/pages/image/4-1.png",
-
-          iconPath: "/pages/image/4.png",
-
-          pagePath: "/pages/index/index",
-
-          text: "房屋管理",
-
-          clas: "menu-item menu-item2",
-
-          selected: false
-
-        }
-
-      ],
-
-      position: "bottom"
-
-    }
+    page_index:1,
+    page_old_index:1,
 
   }
 })

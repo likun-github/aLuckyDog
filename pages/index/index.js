@@ -12,7 +12,7 @@ Page({
 
   onLoad: function() {
     this.setNavSize()
-    app.editTabBar();
+
       
   },
 
@@ -46,7 +46,7 @@ Page({
   },
 
   lottery:function(e){
-    console.log(e)
+    // console.log(e)
     wx.navigateTo({
       url: '/pages/lottery_detail/lottery_detail',
     })
@@ -55,5 +55,5 @@ Page({
   // bottom_tab:function(e){
   //   console.log(e)
   // }
-  
+
 })

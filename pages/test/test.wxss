@@ -1,0 +1,19 @@
+/* pages/test/test.wxss */
+
+.section{
+  height: 300rpx;
+  width: 600rpx;
+}
+
+
+.btn-area{
+  background: red;
+}
+
+.scroll-view-item {
+ 
+}
+
+.bc_green{
+  background: green;
+}

@@ -1,6 +1,9 @@
 {
   "pages": [
+    
+   
     "pages/index/index",
+    "pages/test/test",
     "pages/lottery_detail/lottery_detail",
     "pages/award/award",
     "pages/logs/logs",
@@ -13,13 +16,11 @@
     "navigationBarTitleText": "自定义导航栏",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
-
   },
   "usingComponents": {
     "navBar": "/components/navBar/navBar",
     "bottom": "/components/bottom/bottom",
-    "award":"/pages/award/award"
+    "award": "/pages/award/award"
   },
-  
   "sitemapLocation": "sitemap.json"
 }
