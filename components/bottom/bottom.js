@@ -52,6 +52,7 @@ Component({
       //   two_select: 1,
       //   three_select: 2,
       // })
+      var page_old_index = app.globalData.page_old_index
       app.globalData.page_old_index = app.globalData.page_index
       app.globalData.page_index = 2
       this.index()
