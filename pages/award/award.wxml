@@ -2,7 +2,7 @@
 <navBar 
     title-text="抽奖助手" 
     background="white"
-
+    back-icon="/images/back@3x.png"
     bindback="back"/>
     <view class='contaner' style='top:{{status + navHeight}}px'>
 
