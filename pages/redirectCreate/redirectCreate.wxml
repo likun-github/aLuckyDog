@@ -1,6 +1,4 @@
-
-
-    <navBar 
+ <navBar 
     title-text="自定义导航栏" 
     back-icon="/images/back@3x.png"
     background="#f2f2f2"

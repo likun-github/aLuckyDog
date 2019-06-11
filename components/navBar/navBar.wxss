@@ -9,7 +9,7 @@
     transform: translateY(-50%);
     top: 50%;
     display: flex;
-    background: black;
+    background: rgba(0, 0, 0, 0);
 }
 .back-icon{
     left: 16px;
@@ -41,5 +41,16 @@
   /* top: 0; */
   z-index: 1;
   position: fixed;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.24);
 }
+
+
+/* .bottom{
+  height: 115rpx;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+  position: fixed;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.24);
+  background: rgb(255, 255, 255);
+} */

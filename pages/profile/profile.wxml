@@ -1,4 +1,9 @@
-<navBar 
+<!-- <navBar 
     title-text="我的"
     background="white"
     bindback="back"/>
+
+
+<bottom></bottom> -->
+
+<view class='me'>我的信息</view>

@@ -1,63 +1,124 @@
-<navBar title-text="公共抽奖" background="white" bindback="back" />
+<navBar title-text="{{page_index==1?'公共抽奖':'我的'}}" background="white" bindback="back" />
 
 <!-- 配置 自定义的title -->
 <view style='height: {{status + navHeight}}px;'></view>
 
-<scroll-view scroll-y='true'>
 
-  <view class='heart_view'>
-    <view class='heart_view_1'>
-      <view>
-        <image src='/images/realtime-icon-small@3x.png' class='img_heart_view'></image>
+<view wx:if="{{page_index==1}}">
+  <scroll-view scroll-y='true'>
+
+    <view class='heart_view'>
+      <view class='heart_view_1'>
+        <view>
+          <image src='/images/realtime-icon-small@3x.png' class='img_heart_view'></image>
+        </view>
+        <view class='heart_view_1_text_1'>{{4}}</view>
+        <view class='heart_view_1_text_2'>心愿</view>
       </view>
-      <view class='heart_view_1_text_1'>{{4}}</view>
-      <view class='heart_view_1_text_2'>心愿</view>
+
+
+      <view class='heart_view_2'>
+        <view>去签到</view>
+        <view>
+          <image src='/images/arrow@3x.png' class='img_heart_view'></image>
+        </view>
+      </view>
+
     </view>
 
-   
-    <view class='heart_view_2'>
-      <view>去签到</view>
-      <view>
-        <image src='/images/arrow@3x.png' class='img_heart_view'></image>
+    <view class='separator'></view>
+
+    <view class='everyday_view'>
+      <view class='everyday_view_1'>每日福利</view>
+      <view class='everyday_view_2'>
+        <text decode="{{true}}">我要上首页&nbsp;&nbsp;&nbsp;</text>
+        <text decode="{{true}}">|&nbsp;&nbsp;&nbsp;</text>
+        <text>分享</text>
       </view>
     </view>
 
-  </view>
+    <view class='Everday_Lottery_view' bindtap='lottery'>
+      <view>
+        <image class='img_everyday_view' src='/images/bmw-1313343_640.jpg' mode='aspectFill'></image>
+      </view>
 
-  <view class='separator'></view>
+      <view class='Everday_Lottery_text'>
+        <view class='Everday_Lottery_text_1'>海豚家 赞助</view>
+        <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
 
-  <view class='everyday_view'>
-    <view class='everyday_view_1'>每日福利</view>
-    <view class='everyday_view_2'>
-      <text decode="{{true}}">我要上首页&nbsp;&nbsp;&nbsp;</text>
-       <text decode="{{true}}">|&nbsp;&nbsp;&nbsp;</text>
-       <text>分享</text>
-    </view>
-  </view>
+        <view class='Everday_Lottery_text_3'>06月06日 10:10 自动开奖</view>
+        <view class='Everday_Lottery_text_4'></view>
+      </view>
 
-  <view class='Everday_Lottery_view' wx:for="{{5}}">
-    <view>
-      <image class='img_everyday_view' src='/images/slot-bg@3x.png' mode='aspectFill'></image>
     </view>
 
-    <view class='Everday_Lottery_text'>
-      <view class='Everday_Lottery_text_1'>海豚家 赞助</view>
-      <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
-      <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
-     <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
-      <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view><view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
-      <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
-      <view class='Everday_Lottery_text_3'>06月06日 10:10 自动开奖</view>
+    <view class='Everday_Lottery_view' bindtap='lottery'>
+      <view>
+        <image class='img_everyday_view' src='/images/phone-690091_640.jpg' mode='aspectFill'></image>
+      </view>
+
+      <view class='Everday_Lottery_text'>
+        <view class='Everday_Lottery_text_1'>海豚家 赞助</view>
+        <view class='Everday_Lottery_text_2'>奖品：华为P30 x1</view>
+
+        <view class='Everday_Lottery_text_3'>06月06日 10:10 自动开奖</view>
+        <view class='Everday_Lottery_text_4'></view>
+      </view>
+
     </view>
 
-  </view>
+    <view class='Self_Lottery_text1'>自助福利</view>
 
-  <view>自助福利</view>
 
-  <view class='Self_Lottery_view' wx:for="{{10}}">
-    <view> 奖品：首页自助福利免费展示一天 x1</view>
-    <view>06月06日 10:10 自动开奖</view>
-    <view>xxx孵化器</view>
-  </view>
+    <view class='Self_Lottery_view' bindtap='lottery'>
+      <view>
+        <image src='/images/559-3@3x.png' class='Self_Lottery_view_img' mode='aspectFill'></image>
+      </view>
+      <view class='Self_Lottery_view_text_view'>
+        <!-- 最多四行 -->
+        <view class='Self_Lottery_view_text_1'> 奖品：首页自助福利免费展示一天x1</view>
+        <view class='Self_Lottery_view_text_2'>06月06日 10:10 自动开奖</view>
+        <view class='Self_Lottery_view_text_3_view'>
+          <view class='Self_Lottery_view_text_3'>xxx孵化器</view>
+          <view class='Self_Lottery_view_text_4'>商城奖品</view>
+        </view>
+      </view>
+    </view>
 
-</scroll-view>
+
+    <view class='Self_Lottery_view_down' wx:for="{{10}}" bindtap='lottery'>
+      <view>
+        <image src='/images/avatar_mask.png' class='Self_Lottery_view_img' mode='aspectFill'></image>
+      </view>
+      <view class='Self_Lottery_view_text_view'>
+        <!-- 最多四行 -->
+        <view class='Self_Lottery_view_text_1'> 奖品：首页自助福利免费展示一天x1</view>
+        <view class='Self_Lottery_view_text_2'>06月06日 10:10 自动开奖</view>
+        <view class='Self_Lottery_view_text_3_view'>
+          <view class='Self_Lottery_view_text_3'>xxx孵化器</view>
+          <view class='Self_Lottery_view_text_4'>商城奖品</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='Self_Lottery_view_look_All'>查看全部 ></view>
+
+    <view class='contact_worker'>联系客服 ></view>
+    <view style='height:200rpx;width:100%;'></view>
+  </scroll-view>
+
+
+</view>
+
+
+
+<view wx:if="{{page_index==3}}">
+  <profile></profile>
+</view>
+
+
+
+
+
+
+<bottom  bindtap='bottom_function'></bottom>

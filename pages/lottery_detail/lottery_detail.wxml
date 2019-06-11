@@ -1,0 +1,109 @@
+<!--pages/lottery_detail/lottery_detail.wxml-->
+<navBar title-text="抽奖详情" back-icon="/images/back@3x.png" background="#f2f2f2" bindback="back" />
+
+
+<!-- 配置 自定义的title -->
+<view style='height: {{height}}px;'></view>
+
+<!-- <view style='height: {{88}}px;'></view> -->
+
+<scroll-view   scroll-y style="height: 627px;"bindscrolltolower="lower"> 
+
+  <view>
+    <image src='/images/phone-690091_640.jpg' mode='aspectFill' class='lottery_detail_img'></image>
+  </view>
+
+
+  <view class='Self_Lottery_view_text_view'>
+    <!-- 最多四行 -->
+    <view class='Self_Lottery_view_text_view_1'> 奖品：首页自助福利免费展示一天 x1</view>
+    <view class='Self_Lottery_view_text_view_2'>06月06日 10:10 自动开奖</view>
+    <view class='Self_Lottery_view_text_view_3'>
+      <view class='Self_Lottery_view_text_view_3_1'>参与条件:</view>
+      <view class='Self_Lottery_view_text_view_3_2'>参加抽奖次数大于100</view>
+    </view>
+  </view>
+
+  <view class='separator'></view>
+
+
+  <view class='week_view'>
+    <view class='week_view_1'>
+      <image src='/images/icn-tuan-small@3x.png' mode='aspectFill' class='week_view_img'></image>
+    </view>
+    <view class='week_view_text1'>周末捡漏福利官</view>
+    <view class='week_view_text2'>去体验</view>
+  </view>
+
+  <view class='grey_line'></view>
+  <view class='Everday_Lottery_view'>
+    <view>
+      <image class=' toast_view_1_img' src='/images/yinghao.svg' mode='aspectFill'></image>
+    </view>
+    <view class='Everday_Lottery_text'>
+      <view class='Everday_Lottery_text_3'>{{text1}}</view>
+    </view>
+  </view>
+  <view class='grey_line'></view>
+
+  <view class='text_much'>
+    <text class='text_much_text_1'>{{text}}</text>
+  </view>
+
+  <view class='text_much_color1'>
+    <view class='text_much_color_view'>
+      <image src='/images/icn-tuan-small@3x.png' mode='aspectFill' class='week_view_img'></image>
+    </view>
+    <view class='text_much_color_text_1_1'>抽奖助手</view>
+    <view class='text_much_color_text_2_1'>去体验 ></view>
+  </view>
+
+  <view class='text_much_color1'>
+    <view class='text_much_color_view'>
+      <image src='/images/icn-tuan-small@3x.png' mode='aspectFill' class='week_view_img'></image>
+    </view>
+    <view class='text_much_color_text_1_1'>周末捡漏福利官</view>
+    <view class='text_much_color_text_2_1'>去体验 ></view>
+  </view>
+
+  <view class='grey_line'></view>
+
+  <view class='join'>
+    <view class='join_img_view' bindtap='join'>
+      <image src="{{could_join?'/images/join.svg':'/images/join_no.svg'}}" class='join_img'></image>
+    </view>
+    <view class='join_text_view'>已有213213人参与，查看全部 ></view>
+
+    <view class='join_pic_view'>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+
+    </view>
+  </view>
+
+
+
+  <view class='grey_block'>
+    <image src='/images/linear.svg' class='linear' mode='aspectFill'></image>
+  </view>
+
+
+</scroll-view>
+
+
+<view class="bottom " animation="{{show_time}}">
+
+
+    <view class='black_view' >
+      <view class='black_text1'>分享</view>
+    </view>
+
+    <view class='black_text2'>继续上滑，更多奖品在等你</view>
+  
+
+</view>

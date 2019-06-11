@@ -6,16 +6,24 @@ Page({
   data: {
     status: 0,
     navHeight:0,
+    page_index:1,
   },
  
 
 
   onLoad: function() {
     this.setNavSize()
-      
+    this.setData({
+      page_index: app.globalData.page_index
+    })
       
   },
 
+  onShow:function(){
+    this.setData({
+      page_index: app.globalData.page_index
+    })
+  },
   // 通过获取系统信息计算导航栏高度
   setNavSize: function () {
     var that = this
@@ -32,7 +40,9 @@ Page({
       status: statusHeight,
       navHeight: navHeight
     })
-    console.log(that.data.status,that.data.navHeight)
+    // console.log(that.data.status,that.data.navHeight)
+    app.globalData.top_height = that.data.status + that.data.navHeight
+    console.log(app.globalData.top_height)
   },
 
   onPullDownRefresh(e) {
@@ -43,6 +53,18 @@ Page({
  
   },
 
+  lottery:function(e){
+    // console.log(e)
+    wx.navigateTo({
+      url: '/pages/lottery_detail/lottery_detail',
+    })
+  },
 
-  
+ 
+  bottom_function:function(){
+    this.setData({
+      page_index: app.globalData.page_index
+    })
+    // console.log("bottom_function")
+  }
 })

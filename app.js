@@ -33,7 +33,17 @@ App({
       }
     })
   },
+
+  
+
+
+
+
   globalData: {
-    userInfo: null
+    userInfo: null,
+    top_height:0,
+    page_index:1,
+    page_old_index:1,
+
   }
 })
