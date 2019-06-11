@@ -1,8 +1,8 @@
 {
   "pages": [
-  
+  "pages/award/award",
     "pages/index/index",
-    "pages/award/award",
+    
     "pages/logs/logs",
     "pages/profile/profile",
     "pages/redirectCreate/redirectCreate"

@@ -1,14 +1,17 @@
 /* pages/award/award.wxss */
-.tab{
+
+.tab {
   width: 100%;
   height: 10vh;
   position: fixed;
   bottom: 0;
   border-top: 1px solid gray;
+  background: white;
 }
-.begin{
+
+.begin {
   width: 94%;
-  height:7vh;
+  height: 7vh;
   margin-left: 3%;
   margin-top: 1.5vh;
   background: red;
@@ -20,13 +23,14 @@
   font-weight: 600;
   line-height: 90rpx;
 }
-.pic{
+
+.pic {
   width: 100%;
   height: 400rpx;
   background: red;
-
 }
-.addIcon{
+
+.addIcon {
   position: absolute;
   top: 10rpx;
   left: 300rpx;
@@ -37,26 +41,86 @@
   font-size: 30rpx;
   line-height: 60rpx;
   font-weight: 500;
-   border-radius: 30rpx;
-   color: white;
-   
+  border-radius: 30rpx;
+  color: white;
 }
-.contaner{
+
+.contaner {
   width: 100%;
   height: 1400rpx;
   position: absolute;
 }
-.input1{
-  height: 100%;
-  margin-left:-20rpx;
-  width: 300rpx;
 
+.input1 {
+  height: 100%;
+  margin-left: -20rpx;
+  width: 300rpx;
 }
-.input11{
+
+.input11 {
   height: 100%;
   line-height: 100rpx;
- margin-left: 20rpx;
+  margin-left: 20rpx;
   font-size: 32rpx;
-width: 500rpx;
+  width: 500rpx;
+}
 
+.maskLayer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: rgba(80, 80, 80, 0.5);
+  color: #333;
+  box-shadow: 0 0 50rpx rgba(0, 0, 0, 0.5);
+  border-top-right-radius: 30rpx;
+  border-top-left-radius: 30rpx;
+  z-index: 10;
+}
+
+.maskLayer .main {
+  width: 80%;
+  height: auto;
+  top: 40vh;
+  left: 10%;
+  background: white;
+  border-radius: 25rpx;
+  position: absolute;
+}
+
+.close {
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 100rpx;
+}
+
+.picker {
+  height: 100rpx;
+  width: 100%;
+  background: black;
+}
+
+.mask1 {
+  width: 100%;
+  height: 300rpx;
+
+}
+.swipper1{
+  height: 90%;
+  width: 40%;
+  margin-left: 5%;
+
+}
+.swipper2{
+  height: 90%;
+  width: 20%;
+  margin-left: 5%;
+}
+.swipper3{
+  height: 90%;
+  width: 20%;
+  margin-left: 5%;
 }
