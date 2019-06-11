@@ -1,7 +1,5 @@
 {
   "pages": [
-    
-   
     "pages/index/index",
     "pages/test/test",
     "pages/lottery_detail/lottery_detail",
@@ -20,7 +18,8 @@
   "usingComponents": {
     "navBar": "/components/navBar/navBar",
     "bottom": "/components/bottom/bottom",
-    "award": "/pages/award/award"
+    "award": "/pages/award/award",
+    "profile":"/pages/profile/profile"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -31,7 +31,7 @@ Component({
    */
   methods: {
     one_select: function() {
-      console.log('1')
+   
       // this.setData({
       //   one_select: 1,
       //   two_select: 2,
@@ -40,15 +40,13 @@ Component({
       
       app.globalData.page_index=1
       this.index()
-      // console.log('1', app.globalData.page_index, app.globalData.page_old_index)
+      console.log('page_index', app.globalData.page_index)
     },
 
 
     two_select: function() {
-      console.log('2')
-      wx.navigateTo({
-        url: '/pages/award/award',
-      })
+      // console.log('2')
+     
       // this.setData({
       //   one_select: 2,
       //   two_select: 1,
@@ -57,19 +55,22 @@ Component({
       app.globalData.page_old_index = app.globalData.page_index
       app.globalData.page_index = 2
       this.index()
-      // console.log('2', app.globalData.page_index, app.globalData.page_old_index)
+      console.log('page_index', app.globalData.page_index)
+      wx.navigateTo({
+        url: '/pages/award/award',
+      })
     },
 
 
     three_select: function() {
-      console.log('3')
+      // console.log('3')
       // this.setData({
       //   one_select: 2,
       //   two_select: 2,
       //   three_select: 1,
       // })
       app.globalData.page_index = 3
-      // console.log('3', app.globalData.page_index, app.globalData.page_old_index)
+      console.log('page_index', app.globalData.page_index)
       this.index()
     },
     

@@ -1,11 +1,21 @@
 /* pages/lottery_detail/lottery_detail.wxss */
 
+page {
+  height: 100%;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+
 .lottery_detail_img {
   height: 350rpx;
   width: 100%;
 }
-
-
 
 .Self_Lottery_view_text_view {
   width: 90%;
@@ -99,11 +109,11 @@
 }
 
 .week_view_text2 {
-  font-size: 29rpx;
+  font-size: 25rpx;
   width: 170rpx;
   font-weight: 600;
   color: rgb(0, 95, 0);
-  height: 58rpx;
+  height: 50rpx;
   border-radius: 35rpx;
   border: 1rpx solid rgb(0, 95, 0);
   display: flex;
@@ -399,7 +409,7 @@
 }
 
 .black_text2 {
-  color: #7F7F7F;
+  color: #7f7f7f;
   font-size: 26rpx;
   display: flex;
   align-items: center;
@@ -408,11 +418,10 @@
   margin-bottom: 15rpx;
 }
 
-
-.linear{
-  height:7rpx;
-  width:100%;
-  background:#f0f0f0;
+.linear {
+  height: 7rpx;
+  width: 100%;
+  background: #f0f0f0;
   margin: auto;
   margin-top: 35rpx;
   position: absolute;

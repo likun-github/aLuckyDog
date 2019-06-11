@@ -1,9 +1,10 @@
-<navBar title-text="公共抽奖" background="white" bindback="back" />
+<navBar title-text="{{page_index==1?'公共抽奖':'我的'}}" background="white" bindback="back" />
 
 <!-- 配置 自定义的title -->
 <view style='height: {{status + navHeight}}px;'></view>
 
-<view>
+
+<view wx:if="{{page_index==1}}">
   <scroll-view scroll-y='true'>
 
     <view class='heart_view'>
@@ -69,7 +70,7 @@
     <view class='Self_Lottery_text1'>自助福利</view>
 
 
-    <view class='Self_Lottery_view'>
+    <view class='Self_Lottery_view' bindtap='lottery'>
       <view>
         <image src='/images/559-3@3x.png' class='Self_Lottery_view_img' mode='aspectFill'></image>
       </view>
@@ -85,7 +86,7 @@
     </view>
 
 
-    <view class='Self_Lottery_view_down' wx:for="{{10}}">
+    <view class='Self_Lottery_view_down' wx:for="{{10}}" bindtap='lottery'>
       <view>
         <image src='/images/avatar_mask.png' class='Self_Lottery_view_img' mode='aspectFill'></image>
       </view>
@@ -109,10 +110,15 @@
 
 </view>
 
-<view>
+
+
+<view wx:if="{{page_index==3}}">
   <profile></profile>
 </view>
 
 
 
-<bottom></bottom>
+
+
+
+<bottom  bindtap='bottom_function'></bottom>
