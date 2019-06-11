@@ -42,8 +42,8 @@ App({
   globalData: {
     userInfo: null,
     top_height:0,
-    page_index:1,
-    page_old_index:1,
+    page_index:3,
+    page_old_index:3,
 
   }
 })
