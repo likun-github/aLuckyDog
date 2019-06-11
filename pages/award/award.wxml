@@ -4,8 +4,6 @@
     background="white"
   back-icon="/images/back@3x.png"
     bindback="back"/>
-
-
     <view class='contaner' style='top:{{status + navHeight}}px'>
 
     <view class='pic'>
@@ -17,12 +15,12 @@
     
 <view style='width:100%;height:100rpx;display:flex;flex-direction:row'>
   <text class='input11'>奖品名称</text>
-  <input class="input1" name="name" bindinput='name' placeholder='请输入奖品名称'></input>
+  <input class="input1" bindinput='jpname' placeholder='请输入奖品名称'></input>
 </view>
 <view style='width:95%;height:1px;background:black;margin-left:5%'></view>
 <view style='width:100%;height:100rpx;display:flex;flex-direction:row'>
   <text class='input11'>奖品份数</text>
-  <input class="input1" name="name" bindinput='name' placeholder='份数'></input>
+  <input class="input1" bindinput='jpnum' placeholder='份数'></input>
   </view>
 
 <view style='width:100%;height:100rpx;display:flex;flex-direction:row'>
@@ -50,8 +48,22 @@
 
 
 
-<view wx:if="{{index==1}}"  style='width:100%;height:auto;display:flex;flex-direction:row'>
-  <text class='input11'>开奖时间</text>
+
+<view wx:if="{{index==2}}" style='width:100%;height:100rpx;display:flex;flex-direction:row;margin-top:-10rpx'>
+ <text class='input11'>开奖人数</text>
+  <input class="input1" name="name" bindinput='name' placeholder='人数'></input>
+</view>
+
+<view wx:if="{{index==3}}" style='width:100%;height:100rpx;display:flex;flex-direction:row;margin-top:-10rpx'>
+ <text class='input11'>即开即中</text>
+</view>
+
+<view wx:if="{{index==3}}" style='width:100%;height:100rpx;display:flex;flex-direction:row;margin-top:-10rpx'>
+ <text class='input11'>最多抽奖人数</text>
+  <input class="input1" name="name" bindinput='name' placeholder='人数'></input>
+</view>
+<view wx:if="{{index==1||index==3}}"  style='width:100%;height:auto;display:flex;flex-direction:row'>
+  <text class='input11'>{{z}}</text>
   <view class="input1" bindtap='select' style='font-size:24rpx;width:400rpx;margin-top:40rpx'>{{date}}{{hour}}:{{min}}{{today}}</view>
 </view>
 <!-- animation='{{animationData}}'  -->
@@ -85,14 +97,8 @@
      <view class='mask1' style=' margin-top: -340rpx;z-index:10'>
      <view style='width:100%;height:100rpx; border-bottom: 1px solid grey;'></view>
      <view style='width:100%;height:100rpx; border-bottom: 1px solid grey;background:rgba(80,80,80,0.5)'></view>
-
      </view>
   </view>
-
-<view style='width:100%;height:100rpx;display:flex;flex-direction:row;margin-top:-10rpx'>
-  <text class='input11'>更多功能</text>
-  <input class="input1" name="name" bindinput='name' placeholder='请输入奖品名称'></input>
-</view>
     </view>
   <view class='tab' style='z-index:10'>
   <view class='begin'>发起新抽奖</view>

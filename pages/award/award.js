@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    z:'开奖时间',
     status: 0,
     navHeight: 0,
     tempFilePaths: '',
@@ -44,6 +45,22 @@ Page({
     idate:0,
     ihour:0,
     imin:0,
+
+//数据统计
+    jpname:'',
+
+
+
+  },
+  //奖品名字
+  jpname:function(e){
+    console.log(e);
+     this.setData({
+       jpname:0
+     })
+  },
+  jpnum: function () {
+
   },
   select: function () {
         var that = this;
@@ -119,19 +136,23 @@ index: index
            })
        var m;
      if (index == 1) {
-          m='到达设定时间自动开奖'
+          m='到达设定时间自动开奖';
+          this.setData({z:'开奖时间'})
+
            }
      else if (index == 2) {
          this.setData({
  select: false
            })
-       m='3天内到达设定人数自动开奖'
+       m='3天内到达设定人数自动开奖';
+       
          }
      else {
          this.setData({
  select: false
            })
-       m='参与者即开即中'
+       m='参与者即开即中';
+       this.setData({ z: '抽奖截止时间' })
          }
      this.setData({
        //  animationData: animation.export(),

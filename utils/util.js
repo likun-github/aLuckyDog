@@ -21,7 +21,7 @@ const m = date => {
 
   const minute = date.getMinutes()
 
-  return [minute]
+  return [minute].map(formatNumber)
 }
 const formatTime1 = date => {
   const year = date.getFullYear()

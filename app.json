@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/award/award",
     "pages/index/index",
     "pages/test/test",
     "pages/lottery_detail/lottery_detail",
-    "pages/award/award",
+    
     "pages/logs/logs",
     "pages/profile/profile",
     "pages/redirectCreate/redirectCreate"
