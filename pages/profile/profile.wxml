@@ -9,7 +9,7 @@
 <scroll-view>
 
 
-  <view class='separator'></view>
+  <view class='separator1'></view>
 
   <view class='user_info'>
     <view class='user_info_img_view'>
@@ -45,7 +45,7 @@
 
   </view>
 
-  <view class='separator'></view>
+  <view class='separator1'></view>
 
   <view class='column_view_1'>
 
@@ -55,7 +55,7 @@
         <image class='column_icon_1_img' src='/images/icn-account@3x.png'></image>
       </view>
       <view class='column_text_1'>余额</view>
-      <view class='column_text_2'>消息</view>
+      <view class='column_text_2'></view>
       <view class='column_icon_2'>
         <image class='user_info_money_img' src='/images/kuohu.svg'></image>
       </view>
@@ -67,12 +67,109 @@
       <view class='column_icon_1'>
         <image class='column_icon_1_img' src='/images/icn-account@3x.png'></image>
       </view>
-      <view class='column_text_1'>余额</view>
-      <view class='column_text_2'>消息</view>
+      <view class='column_text_1'>官方商城</view>
+      <view class='column_text_2'>NoCode Store</view>
       <view class='column_icon_2'>
         <image class='user_info_money_img' src='/images/kuohu.svg'></image>
       </view>
     </view>
 
   </view>
+
+  <view class='separator1'></view>
+
+  <view class='column_view_1'>
+
+
+    <view class='column'>
+      <view class='column_icon_1'>
+        <image class='column_icon_1_img' src='/images/icn-question@3x.png'></image>
+      </view>
+      <view class='column_text_1'>个人主页</view>
+      <view class='column_text_2'></view>
+      <view class='column_icon_2'>
+        <image class='user_info_money_img' src='/images/kuohu.svg'></image>
+      </view>
+    </view>
+
+    <view class='line1'></view>
+
+    <view class='column'>
+      <view class='column_icon_1'>
+        <image class='column_icon_1_img' src='/images/icn-mini-program@3x.png'></image>
+      </view>
+      <view class='column_text_1'>高级版管理</view>
+      <view class='column_text_2'></view>
+      <view class='column_icon_2'>
+        <image class='user_info_money_img' src='/images/kuohu.svg'></image>
+      </view>
+    </view>
+
+  </view>
+
+   <view class='separator1'></view>
+
+  <view class='column_view_1'>
+
+
+    <view class='column'>
+      <view class='column_icon_1'>
+        <image class='column_icon_1_img' src='/images/icn-question@3x.png'></image>
+      </view>
+      <view class='column_text_1'>发起人认证</view>
+      <view class='column_text_2'></view>
+      <view class='column_icon_2'>
+        <image class='user_info_money_img' src='/images/kuohu.svg'></image>
+      </view>
+    </view>
+
+    <view class='line1'></view>
+
+    <view class='column'>
+      <view class='column_icon_1'>
+        <image class='column_icon_1_img' src='/images/icn-mini-program@3x.png'></image>
+      </view>
+      <view class='column_text_1'>推广合作</view>
+      <view class='column_text_2'></view>
+      <view class='column_icon_2'>
+        <image class='user_info_money_img' src='/images/kuohu.svg'></image>
+      </view>
+    </view>
+
+     <view class='line1'></view>
+
+    <view class='column'>
+      <view class='column_icon_1'>
+        <image class='column_icon_1_img' src='/images/icn-mini-program@3x.png'></image>
+      </view>
+      <view class='column_text_1'>小程序推荐</view>
+      <view class='column_text_2'></view>
+      <view class='column_icon_2'>
+        <image class='user_info_money_img' src='/images/kuohu.svg'></image>
+      </view>
+    </view>
+
+     <view class='line1'></view>
+
+    <view class='column'>
+      <view class='column_icon_1'>
+        <image class='column_icon_1_img' src='/images/icn-mini-program@3x.png'></image>
+      </view>
+      <view class='column_text_1'>更多</view>
+      <view class='column_text_2'></view>
+      <view class='column_icon_2'>
+        <image class='user_info_money_img' src='/images/kuohu.svg'></image>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='public'>
+    <view class='public_text1'>
+      — 珞云顶科技出品 —
+    </view>
+    <view class='public_text2'>抽奖超过913,000,000,000人次</view>
+  </view>
+
+  <view class='adopt_bottom'></view>
 </scroll-view>

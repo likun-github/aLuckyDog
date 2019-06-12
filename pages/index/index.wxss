@@ -66,6 +66,8 @@ page {
 .img_heart_view {
   width: 37rpx;
   height: 37rpx;
+  margin-top:7rpx;
+
 }
 
 .heart_view {
@@ -139,7 +141,7 @@ page {
 .separator {
   height: 1.5rpx;
   width: 87%;
-  background: rgb(54, 54, 54);
+  background: #bebebe;
   display: flex;
   align-items: center;
   justify-content: center;

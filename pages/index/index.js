@@ -16,7 +16,7 @@ Page({
     this.setData({
       page_index: app.globalData.page_index
     })
-      
+  
   },
 
   onShow:function(){
