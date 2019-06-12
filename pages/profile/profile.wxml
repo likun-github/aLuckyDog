@@ -11,7 +11,7 @@
 
   <view class='separator1'></view>
 
-  <view class='user_info'>
+  <view class='user_info' bindtap='aspiration'>
     <view class='user_info_img_view'>
       <image src='/images/559-3@3x.png' class='user_info_img'></image>
     </view>

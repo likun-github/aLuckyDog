@@ -31,6 +31,7 @@
   justify-content: flex-start;
   font-size: 27rpx;
   /* border: 0.5rpx solid rgba(228, 228, 228, 0.349); */
+  margin-left: -10rpx;
 }
 
 .user_info_money_view {
@@ -53,6 +54,7 @@
   justify-content: center;
   font-size: 27rpx;
   color: #ba7d3c;
+  font-weight: 700;
 }
 
 .user_info_money_img {

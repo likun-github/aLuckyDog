@@ -1,11 +1,12 @@
 {
   "pages": [
- 
+    
+   
     "pages/index/index",
-      "pages/award/award",
+    "pages/aspiration/aspiration",
+    "pages/award/award",
     "pages/test/test",
     "pages/lottery_detail/lottery_detail",
-    
     "pages/logs/logs",
     "pages/profile/profile",
     "pages/redirectCreate/redirectCreate"
@@ -20,7 +21,7 @@
   "usingComponents": {
     "navBar": "/components/navBar/navBar",
     "bottom": "/components/bottom/bottom",
-    "profile":"/pages/profile/profile"
+    "profile": "/pages/profile/profile"
   },
   "sitemapLocation": "sitemap.json"
 }

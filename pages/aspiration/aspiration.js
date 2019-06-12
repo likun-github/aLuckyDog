@@ -1,17 +1,20 @@
-// pages/profile/profile.js
+// pages/aspiration/aspiration.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    username:'',
+    top_height:88,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // this.setData({
+    //   top_height=app.globalData.top_height
+    // })
    
   },
 
@@ -64,13 +67,7 @@ Page({
 
   },
 
-
-  //心愿--查看
-  aspiration:function(){
-    wx.navigateTo({
-      url: '/pages/aspiration/aspiration',
-    })
+  rule_desc:function(){
+    //说明规则
   }
-
-  
 })
