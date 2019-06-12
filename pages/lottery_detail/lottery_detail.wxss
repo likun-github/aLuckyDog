@@ -385,7 +385,7 @@ page {
   position: fixed;
   bottom: -50rpx;
   background: white;
-  height: 150rpx;
+  height: 200rpx;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -400,7 +400,7 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15rpx;
+  margin-top: 25rpx;
 }
 
 .black_text1 {

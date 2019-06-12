@@ -7,7 +7,7 @@
 
 <!-- <view style='height: {{88}}px;'></view> -->
 
-<scroll-view   scroll-y style="height: 627px;"bindscrolltolower="lower"> 
+<scroll-view   scroll-y style="height: 700px;"bindscrolltolower="lower"> 
 
   <view>
     <image src='/images/phone-690091_640.jpg' mode='aspectFill' class='lottery_detail_img'></image>

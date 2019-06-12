@@ -25,25 +25,54 @@
 
   <view class='lottery'>
     <view class='lottery_info'>
-      <view>10</view>
-      <view>全部抽奖</view>
+      <view class='lottery_info_number'>10</view>
+      <view class='lottery_info_disc'>全部抽奖</view>
     </view>
 
     <view class='line'></view>
 
     <view class='lottery_info'>
-      <view>4</view>
-      <view>发起抽奖</view>
+      <view class='lottery_info_number'>4</view>
+      <view class='lottery_info_disc'>发起抽奖</view>
     </view>
 
     <view class='line'></view>
 
     <view class='lottery_info'>
-      <view>4</view>
-      <view>中奖纪录</view>
+      <view class='lottery_info_number'>4</view>
+      <view class='lottery_info_disc'>中奖纪录</view>
     </view>
 
   </view>
 
+  <view class='separator'></view>
 
+  <view class='column_view_1'>
+
+
+    <view class='column'>
+      <view class='column_icon_1'>
+        <image class='column_icon_1_img' src='/images/icn-account@3x.png'></image>
+      </view>
+      <view class='column_text_1'>余额</view>
+      <view class='column_text_2'>消息</view>
+      <view class='column_icon_2'>
+        <image class='user_info_money_img' src='/images/kuohu.svg'></image>
+      </view>
+    </view>
+
+    <view class='line1'></view>
+
+    <view class='column'>
+      <view class='column_icon_1'>
+        <image class='column_icon_1_img' src='/images/icn-account@3x.png'></image>
+      </view>
+      <view class='column_text_1'>余额</view>
+      <view class='column_text_2'>消息</view>
+      <view class='column_icon_2'>
+        <image class='user_info_money_img' src='/images/kuohu.svg'></image>
+      </view>
+    </view>
+
+  </view>
 </scroll-view>
