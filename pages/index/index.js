@@ -6,7 +6,29 @@ Page({
   data: {
     status: 0,
     navHeight:0,
-    page_index:1,
+    pages_index:1,
+    bindtap_1:1,
+    navData: [
+      {
+        name: "首页",  //文本
+        current: 1,    //是否是当前页，0不是  1是
+        style: 0,     //样式
+        ico: '',  //不同图标
+        fn: 'to_home'   //对应处理函数
+      }, {
+        name: "发起抽奖",
+        current: 0,
+        style: 1,
+        ico: '',
+        fn: 'to_lottery'
+      }, {
+        name: "我的",
+        current: 0,
+        style: 2,
+        ico: '',
+        fn: 'to_me'
+      },
+    ],
   },
  
 
@@ -46,10 +68,19 @@ Page({
   },
 
   onPullDownRefresh(e) {
-    setTimeout(function () { 
-      // 下拉刷新
-      wx.stopPullDownRefresh()
-    }, 2000)
+    if (this.data.navData[0].current==1)
+    {
+      setTimeout(function () {
+        // 下拉刷新
+        wx.stopPullDownRefresh()
+      }, 2000)
+    }else{
+      setTimeout(function () {
+        // 下拉刷新
+        wx.stopPullDownRefresh()
+      }, 1)
+    }
+
  
   },
 
@@ -60,11 +91,66 @@ Page({
     })
   },
 
- 
-  bottom_function:function(){
+
+  to_home:function(){
+    let temp = this.data.navData
+
+    temp[0].current=1
+    temp[1].current = 0
+    temp[2].current = 0
+
     this.setData({
-      page_index: app.globalData.page_index
+      navData:temp,
+      pages_index:1,
     })
-    // console.log("bottom_function")
-  }
+  },
+
+  to_lottery:function(){
+    wx.navigateTo({
+      url: '/pages/award/award',
+    })
+  },
+
+  to_me:function(){
+    let temp = this.data.navData
+
+    temp[0].current = 0
+    temp[1].current = 0
+    temp[2].current = 1
+
+    this.setData({
+      navData: temp,
+      pages_index:3
+    })
+  }, 
+  
+  aspiration: function () {
+    this.setData({
+      bindtap_1:0
+    })
+
+    var timeOut = setTimeout(function () {
+      this.setData({
+        bindtap_1: 1
+      })
+    }, 10)
+    
+    var timeOut = setTimeout(function () {
+      this.setData({
+        bindtap_1: 0
+      })
+    }, 10)
+
+
+    var timeOut = setTimeout(function () {
+      wx.navigateTo({
+        url: '/pages/aspiration/aspiration',
+      })
+    }, 200)
+
+
+  
+  },
+
+
 })

@@ -7,7 +7,7 @@ Component({
   properties: {
     one_select: {
       type: Number,
-      value: 1
+      value:2
     },
     two_select: {
       type: Number,
@@ -23,7 +23,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    page_index:0,
   },
 
   /**
@@ -104,14 +104,21 @@ Component({
     }
 
   },
-  ready() {},
+  ready() {
+
+  },
   pageLifetimes: {
     show: function() {
-      console.log('show')
-      if (app.globalData.page_index==2){
-        app.globalData.page_index = app.globalData.page_old_index
-      }
+
+      this.setData({
+        page_index: app.globalData.page_index
+      })
+      // if (app.globalData.page_index==2){
+      //   app.globalData.page_index = app.globalData.page_old_index
+      // }
+
       console.log('ready',app.globalData.page_index, app.globalData.page_old_index)
+      
       this.index()
 
     }

@@ -66,8 +66,7 @@ page {
 .img_heart_view {
   width: 37rpx;
   height: 37rpx;
-  margin-top:7rpx;
-
+  margin-top: 8rpx;
 }
 
 .heart_view {

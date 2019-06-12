@@ -52,45 +52,360 @@
         <view class='signin_view_cal_day_num_view'>
           <view class='signin_view_cal_day_num'>{{index*4+10}}</view>
         </view>
-        <view class='signin_view_cal_day_flag' wx:if="{{index<=1}}">已领取</view>
-      </view>
-    </view>
-
-
-    <view class='signin_view_btn'>已签到，明日再来</view>
-
-
-  </view>
-
-  <view style='height:30rpx;'></view>
-
-  <view class='everyDay_task'>
-
-    <view class='signin_view_1'>
-      <view class='signin_remained_view'>
-        日任务
-      </view>
-    </view>
-
-    <view class='separator3'></view>
-
-    <view class='everyDay_task_list'>
-      <view class='content_view'>
-        <view class='content_view_text'>观看完整视频 1 次</view>
-        <view class='content_view_2'>
-          <view class='content_view_2_text_1'>+1 心愿</view>
-          <view class='content_view_2_text_2'>每日最多 10 次</view>
+        <view class='signin_view_cal_day_flag'>{{index
+          <=2? '已领取': ''}}</view>
         </view>
       </view>
 
-      <view class='go_to_do'>去完成
+      <!-- <view class='signin_view_btn'>已签到，明日再来</view> -->
+      <view class='signin_view_btn'>签到领取心愿</view>
+
+
+    </view>
+
+    <view style='height:30rpx;'></view>
+
+
+    <!-- 90+n*160 -->
+    <view class='everyDay_task'>
+
+      <view class='signin_view_1'>
+        <view class='signin_remained_view'>
+          日任务
+        </view>
+      </view>
+
+      <view class='separator3'></view>
+
+      <view class='everyDay_task_list'>
+        <view class='content_view'>
+          <view class='content_view_text'>观看完整视频 1 次</view>
+          <view class='content_view_2'>
+            <view class='content_view_2_text_1'>+1 心愿</view>
+            <view class='content_view_2_text_2'>每日最多 10 次</view>
+          </view>
+        </view>
+
+        <view class='go_to_do'>去完成
+        </view>
+
       </view>
 
     </view>
 
-  </view>
+    <view style='height:30rpx;'></view>
+
+    <!-- 90+n*160 -->
+    <view class='week_task'>
+      <view class='signin_view_1'>
+        <view class='signin_remained_view'>
+          日任务
+        </view>
+      </view>
+
+      <view class='separator3'></view>
+
+      <view class='everyDay_task_list'>
+        <view class='content_view'>
+          <view class='content_view_text'>参与每日或资助抽奖 3 次</view>
+          <view class='content_view_2'>
+            <view class='content_view_2_text_1'>+1 心愿</view>
+            <view class='content_view_2_text_2'>
+              完成
+              <text class='content_view_2_text_2' style='color:rgb(150, 104, 45);margin-left:5rpx;'>0</text>/3
+            </view>
+          </view>
+        </view>
+
+        <view class='go_to_do'>去完成
+        </view>
+
+      </view>
+
+      <view class='everyDay_task_list'>
+        <view class='content_view'>
+          <view class='content_view_text'>观看完整视频 1 次</view>
+          <view class='content_view_2'>
+            <view class='content_view_2_text_1'>+1 心愿</view>
+            <view class='content_view_2_text_2'>
+              完成
+              <text class='content_view_2_text_2' style='color:rgb(150, 104, 45);margin-left:5rpx;'>0</text>/7
+            </view>
+          </view>
+        </view>
+
+        <view class='go_to_do'>去完成
+        </view>
+
+      </view>
+
+      <view class='everyDay_task_list'>
+        <view class='content_view'>
+          <view class='content_view_text'>观看完整视频 1 次</view>
+          <view class='content_view_2'>
+            <view class='content_view_2_text_1'>+1 心愿</view>
+            <view class='content_view_2_text_2'>
+              完成
+              <text class='content_view_2_text_2' style='color:rgb(150, 104, 45);margin-left:5rpx;'>0</text>/13
+            </view>
+          </view>
+        </view>
+
+        <view class='go_to_do'>去完成
+        </view>
+
+      </view>
+
+      <view class='everyDay_task_list'>
+        <view class='content_view'>
+          <view class='content_view_text'>观看完整视频 1 次</view>
+          <view class='content_view_2'>
+            <view class='content_view_2_text_1'>+1 心愿</view>
+            <!-- <view class='content_view_2_text_2'>每日最多 10 次</view> -->
+          </view>
+        </view>
+
+        <view class='go_to_do'>去完成
+        </view>
+
+      </view>
+      <view class='everyDay_task_list'>
+        <view class='content_view'>
+          <view class='content_view_text'>参与首页抽奖 20 次以上</view>
+          <view class='content_view_2'>
+            <view class='content_view_2_text_1'>+7 心愿</view>
+            <view class='content_view_2_text_2'>
+              完成
+              <text class='content_view_2_text_2' style='color:rgb(150, 104, 45);margin-left:5rpx;'>0</text>/20
+            </view>
+          </view>
+        </view>
+
+        <view class='go_to_do'>去完成
+        </view>
+
+      </view>
+
+      <view class='everyDay_task_list'>
+        <view class='content_view'>
+          <view class='content_view_text'>作为队长完成 3 次满员组队</view>
+          <view class='content_view_2'>
+            <view class='content_view_2_text_1'>+3 心愿</view>
+            <view class='content_view_2_text_2'>
+              完成
+              <text class='content_view_2_text_2' style='color:rgb(150, 104, 45);margin-left:5rpx;'>0</text>/3
+            </view>
+          </view>
+        </view>
+
+        <view class='go_to_do'>去完成
+        </view>
+
+      </view>
+    </view>
+
+
+    <view style='height:30rpx;'></view>
+
+    <view class='everyDay_task'>
+
+      <view class='signin_view_1'>
+        <view class='signin_remained_view'>
+          心愿兑换商城
+        </view>
+
+        <view class='changed_record'>兑换记录</view>
+        <view class='signin_remained_img'>
+          <image src='/images/arrow@3x.png' class='img_heart_view'></image>
+        </view>
+      </view>
+
+      <view class='separator3'></view>
+
+      <view class='malls'>
+        <view class='malls_img'>
+          <image src='/images/tuan.png' style='height:100rpx;width:100rpx;'></image>
+        </view>
+
+        <view class='malls_text_view'>
+          <view class='malls_text_view_1'>瓜瓜开奖</view>
+          <view class='malls_text_view_2'>5 心愿</view>
+        </view>
+
+        <view class='malls_text_2_view'>
+          剩10次
+        </view>
+
+        <view class='malls_right_img'>
+          <image src='/images/arrow@3x.png' class='img_heart_view' style='margin-top:5rpx;width:60rpx;height:45rpx;'></image>
+        </view>
+      </view>
+      <view class='separator3'></view>
+
+      <view class='malls'>
+        <view class='malls_img'>
+          <image src='/images/tuan.png' style='height:100rpx;width:100rpx;'></image>
+        </view>
+
+        <view class='malls_text_view'>
+          <view class='malls_text_view_1'>瓜瓜开奖</view>
+          <view class='malls_text_view_2'>5 心愿</view>
+        </view>
+
+        <view class='malls_text_2_view'>
+          剩10次
+        </view>
+
+        <view class='malls_right_img'>
+          <image src='/images/arrow@3x.png' class='img_heart_view' style='margin-top:5rpx;width:60rpx;height:45rpx;'></image>
+        </view>
+      </view>
+      <view class='separator3'></view>
+      <view class='malls'>
+        <view class='malls_img'>
+          <image src='/images/dialog-icn-check@3x.png' style='height:100rpx;width:100rpx;'></image>
+        </view>
+
+        <view class='malls_text_view'>
+          <view class='malls_text_view_1'>海苔夹心脆</view>
+          <view class='malls_text_view_2'>15 心愿</view>
+        </view>
+
+        <view class='malls_text_2_view'>
+          剩10次
+        </view>
+
+        <view class='malls_right_img'>
+          <image src='/images/arrow@3x.png' class='img_heart_view' style='margin-top:5rpx;width:60rpx;height:45rpx;'></image>
+        </view>
+      </view>
+      <view class='separator3'></view>
+      <view class='malls'>
+        <view class='malls_img'>
+          <image src='/images/tuan.png' style='height:100rpx;width:100rpx;'></image>
+        </view>
+
+        <view class='malls_text_view'>
+          <view class='malls_text_view_1'>小苏打按压式牙膏</view>
+          <view class='malls_text_view_2'>5 心愿</view>
+        </view>
+
+        <view class='malls_text_2_view'>
+          <!-- 剩10次 -->
+        </view>
+
+        <view class='malls_right_img'>
+          <image src='/images/arrow@3x.png' class='img_heart_view' style='margin-top:5rpx;width:60rpx;height:45rpx;'></image>
+        </view>
+      </view>
+      <view class='separator3'></view>
+      <view class='malls'>
+        <view class='malls_img'>
+          <image src='/images/tuan.png' style='height:100rpx;width:100rpx;'></image>
+        </view>
+
+        <view class='malls_text_view'>
+          <view class='malls_text_view_1'>瓜瓜开奖</view>
+          <view class='malls_text_view_2'>5 心愿</view>
+        </view>
+
+        <view class='malls_text_2_view'>
+          <!-- 剩10次 -->
+        </view>
+
+        <view class='malls_right_img'>
+          <image src='/images/arrow@3x.png' class='img_heart_view' style='margin-top:5rpx;width:60rpx;height:45rpx;'></image>
+        </view>
+      </view>
+      <view class='separator3'></view>
+      <view class='malls'>
+        <view class='malls_img'>
+          <image src='/images/envelop-cover@3x.png' style='height:100rpx;width:100rpx;'></image>
+        </view>
+
+        <view class='malls_text_view'>
+          <view class='malls_text_view_1'>瓜瓜开奖</view>
+          <view class='malls_text_view_2'>5 心愿</view>
+        </view>
+
+        <view class='malls_text_2_view'>
+          剩10次
+        </view>
+
+        <view class='malls_right_img'>
+          <image src='/images/arrow@3x.png' class='img_heart_view' style='margin-top:5rpx;width:60rpx;height:45rpx;'></image>
+        </view>
+      </view>
+      <view class='separator3'></view>
+      <view class='malls'>
+        <view class='malls_img'>
+          <image src='/images/envelop-cover@3x.png' style='height:100rpx;width:100rpx;'></image>
+        </view>
+
+        <view class='malls_text_view'>
+          <view class='malls_text_view_1'>瓜瓜开奖</view>
+          <view class='malls_text_view_2'>5 心愿</view>
+        </view>
+
+        <view class='malls_text_2_view'>
+          剩10次
+        </view>
+
+        <view class='malls_right_img'>
+          <image src='/images/arrow@3x.png' class='img_heart_view' style='margin-top:5rpx;width:60rpx;height:45rpx;'></image>
+        </view>
+      </view>
+      <view class='separator3'></view>
+      <view class='malls'>
+        <view class='malls_img'>
+          <image src='/images/tuan.png' style='height:100rpx;width:100rpx;'></image>
+        </view>
+
+        <view class='malls_text_view'>
+          <view class='malls_text_view_1'>瓜瓜开奖</view>
+          <view class='malls_text_view_2'>5 心愿</view>
+        </view>
+
+        <view class='malls_text_2_view'>
+          <!-- 剩10次 -->
+        </view>
+
+        <view class='malls_right_img'>
+          <image src='/images/arrow@3x.png' class='img_heart_view' style='margin-top:5rpx;width:60rpx;height:45rpx;'></image>
+        </view>
+      </view>
+
+      <view class='separator3'></view>
+      <view class='malls'>
+        <view class='malls_img'>
+          <image src='/images/lottery_list_checked@3x.png' style='height:100rpx;width:100rpx;'></image>
+        </view>
+
+        <view class='malls_text_view'>
+          <view class='malls_text_view_1'>瓜瓜开奖</view>
+          <view class='malls_text_view_2'>5 心愿</view>
+        </view>
+
+        <view class='malls_text_2_view'>
+          <!-- 剩10次 -->
+        </view>
+
+        <view class='malls_right_img'>
+          <image src='/images/arrow@3x.png' class='img_heart_view' style='margin-top:5rpx;width:60rpx;height:45rpx;'></image>
+        </view>
+      </view>
+
+      <view class='separator3'></view>
+
+
+      <view class='malls waiting' >
+        更多心愿兑换敬请期待：）
+      </view>
 
 
 
+    </view>
+
+    <view style='height:100rpx;'></view>
 
 </scroll-view>

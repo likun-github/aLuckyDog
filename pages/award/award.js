@@ -267,11 +267,5 @@ index: index
   },
 
 
-  back:function(){
-    wx.navigateBack({
-      delta:1
-    })
-    app.globalData.page_index = app.globalData.page_old_index
-    console.log('back', app.globalData.page_index, app.globalData.page_old_index)
-  }
+  
 })
