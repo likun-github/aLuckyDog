@@ -139,7 +139,7 @@ Page({
   lower:function(e){
     console.log(e)
      var animation = wx.createAnimation({
-      duration: 920,
+      duration: 720,
       timingFunction: 'linear',
       delay: 0
     });
