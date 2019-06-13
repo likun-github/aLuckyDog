@@ -28,7 +28,8 @@ Page({
       fn: 'to_me'
     }, ],
 
-    gift_list:[],
+    gift_list: [],
+    user_list:[]
   },
 
 
@@ -39,16 +40,16 @@ Page({
       page_index: app.globalData.page_index
     })
 
-    var that =this
+    var that = this
     //test
     wx.request({
-      url: 'http://25t2f65842.wicp.vip:19785/lottery/student/',
+      url: 'http://25t2f65842.wicp.vip:19785/lottery/lottery/',
 
       success: function(res) {
         if (res.statusCode == 200) {
           console.log(res)
           that.setData({
-            gift_list:res.data
+            gift_list: res.data
           })
         } else {
           console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
@@ -61,6 +62,30 @@ Page({
         // complete
       }
     }, )
+
+    wx.request({
+      url: 'http://25t2f65842.wicp.vip:19785/lottery/user/',
+
+      success: function (res) {
+        if (res.statusCode == 200) {
+          console.log(res)
+          that.setData({
+            user_list: res.data
+          })
+          app.globalData.userInfo=res.data
+          console.log(app.globalData.userInfo)
+        } else {
+          console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
+        }
+      },
+      fail: function () {
+        console.log("index.js wx.request CheckCallUser fail");
+      },
+      complete: function () {
+        // complete
+      }
+    })
+
   },
 
   onShow: function() {
@@ -146,30 +171,10 @@ Page({
   },
 
   aspiration: function() {
-    this.setData({
-      bindtap_1: 0
+
+    wx.navigateTo({
+      url: '/pages/aspiration/aspiration',
     })
-
-    var timeOut = setTimeout(function() {
-      this.setData({
-        bindtap_1: 1
-      })
-    }, 10)
-
-    var timeOut = setTimeout(function() {
-      this.setData({
-        bindtap_1: 0
-      })
-    }, 10)
-
-
-    var timeOut = setTimeout(function() {
-      wx.navigateTo({
-        url: '/pages/aspiration/aspiration',
-      })
-    }, 200)
-
-
 
   },
 

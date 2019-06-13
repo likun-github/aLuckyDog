@@ -50,7 +50,7 @@
         <view class='Everday_Lottery_text_1'>{{item.sponsor}} 赞助</view>
         <view class='Everday_Lottery_text_2'>{{item.giftName}} x{{item.giftNumber}}</view>
 
-        <view class='Everday_Lottery_text_3'>{{item.openTimeOfgift}} 自动开奖</view>
+        <view class='Everday_Lottery_text_3'>时间戳：{{item.openTimeOfgift}} 达到{{item.peopleNumberOfgift}}人  自动开奖</view>
         <view class='Everday_Lottery_text_4'></view>
       </view>
 
