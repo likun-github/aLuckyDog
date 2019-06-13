@@ -27,6 +27,8 @@ Page({
       ico: '',
       fn: 'to_me'
     }, ],
+
+    gift_list:[],
   },
 
 
@@ -37,14 +39,17 @@ Page({
       page_index: app.globalData.page_index
     })
 
-
+    var that =this
     //test
     wx.request({
-      url: 'http://25t2f65842.wicp.vip:19785/users/',
+      url: 'http://25t2f65842.wicp.vip:19785/lottery/student/',
 
       success: function(res) {
         if (res.statusCode == 200) {
           console.log(res)
+          that.setData({
+            gift_list:res.data
+          })
         } else {
           console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
         }
