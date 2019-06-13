@@ -98,11 +98,7 @@ Component({
       this.triggerEvent('back', {
         back: 1
       })
-      if (app.globalData.page_index == 2) {
-        app.globalData.page_index = app.globalData.page_old_index
-      }
-      // app.globalData.page_index = app.globalData.page_old_index
-      console.log("page_index", app.globalData.page_index)
+     
     },
     home: function() {
       this.triggerEvent('home', {});
