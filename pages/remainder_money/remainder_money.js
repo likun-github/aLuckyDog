@@ -1,18 +1,21 @@
-// pages/profile/profile.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    username:'',
+    top_height: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    this.setData({
+      top_height: app.globalData.top_height
+    })
+
   },
 
   /**
@@ -62,39 +65,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-
-  //心愿--查看
-  aspiration:function(){
-    wx.navigateTo({
-      url: '/pages/aspiration/aspiration',
-    })
-  },
-
-
-  lottery_view_1:function(){
-    wx.navigateTo({
-      url: '/pages/lottery_view_1/lottery_view_1',
-    })
-  },
-
-  lottery_view_2: function () {
-    wx.navigateTo({
-      url: '/pages/lottery_view_2/lottery_view_2',
-    })
-  },
-
-  lottery_view_3: function () {
-    wx.navigateTo({
-      url: '/pages/lottery_view_3/lottery_view_3',
-    })
-  },
-  
-
-  go_to_remainder_money:function(){
-    wx.navigateTo({
-      url: '/pages/remainder_money/remainder_money',
-    })
   }
 })

@@ -50,11 +50,11 @@
   <view class='column_view_1'>
 
 
-    <view class='column'>
+    <view class='column' bindtap='go_to_remainder_money'>
       <view class='column_icon_1'>
         <image class='column_icon_1_img' src='/images/icn-account@3x.png'></image>
       </view>
-      <view class='column_text_1'>余额</view>
+      <view class='column_text_1' >余额</view>
       <view class='column_text_2'></view>
       <view class='column_icon_2'>
         <image class='user_info_money_img' src='/images/kuohu.svg'></image>

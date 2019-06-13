@@ -1,1 +1,74 @@
-/* pages/lottery_view_3/lottery_view_3.wxss */
+/* pages/lottery_view_1/lottery_view_1.wxss */
+
+page {
+  background: #f0f0f0;
+}
+
+.finished {
+  width: 100%;
+  height: 70rpx;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-left: 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 27rpx;
+  color: darkgrey;
+}
+
+.lottery_list {
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30rpx;
+  background: white;
+}
+
+.seperator4 {
+  height: 20rpx;
+  width: 100%;
+  background: #f0f0f0;
+}
+
+.lottery_list_1 {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lottery_list_2 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.lottery_list_2_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lottery_list_3 {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: gray;
+}
+
+.lottery_list_4 {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -3,3 +3,70 @@
 
 <!-- 配置 自定义的title -->
 <view style='height: {{top_height}}px;'></view>
+
+<scroll-view>
+  <view class='finished'>待开奖</view>
+
+  <view wx:for="{{1}}">
+
+    <view class='lottery_list_wait'>
+      <view>
+        <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
+      </view>
+
+      <view class='lottery_list_1_wait'>奖品：数字棋盘 x1 </view>
+
+      <view class='lottery_list_3_wait'>06月14日 16:32 自动开奖</view>
+    </view>
+
+    <view class='seperator4'></view>
+  </view>
+
+  <view class='finished'>已结束</view>
+
+  <view wx:for="{{2}}">
+    <view class='lottery_list'>
+      <view class='lottery_list_1'>奖品： </view>
+      <view class='lottery_list_2'>南海贝芝 x1</view>
+
+      <view class='lottery_list_3'>6月4日</view>
+      <view class='lottery_list_4'>
+        <image src='/images/arrow@3x.png' style='height:40rpx;width:60rpx;'></image>
+      </view>
+    </view>
+
+    <view class='seperator4'></view>
+  </view>
+  <view wx:for="{{2}}">
+    <view class='lottery_list'>
+      <view class='lottery_list_1'>奖品： </view>
+      <view class='lottery_list_2'>南海贝芝 x1</view>
+
+      <view class='lottery_list_3'>12:37</view>
+      <view class='lottery_list_4'>
+        <image src='/images/arrow@3x.png' style='height:40rpx;width:60rpx;'></image>
+      </view>
+    </view>
+
+    <view class='seperator4'></view>
+  </view>
+
+
+  <view wx:for="{{2}}">
+    <view class='lottery_list'>
+      <view class='lottery_list_1'>奖品： </view>
+      <view class='lottery_list_2'>
+        <text class='lottery_list_2_text'>南海贝芝南海贝芝南海贝芝南海贝芝南海贝芝 x1</text>
+      </view>
+      <view class='lottery_list_3'>2018/12/10</view>
+      <view class='lottery_list_4'>
+        <image src='/images/arrow@3x.png' style='height:40rpx;width:60rpx;'></image>
+      </view>
+    </view>
+
+    <view class='seperator4'></view>
+  </view>
+
+
+  <view style='height:500rpx;width:100%;font-size:28rpx;color:rgb(0, 150, 236);padding-top:50rpx;display: flex;justify-content:center'></view>
+</scroll-view>
