@@ -29,7 +29,7 @@
 
   <view class='week_view'>
     <view class='week_view_1'>
-      <image src='/images/icn-tuan-small@3x.png' mode='aspectFill' class='week_view_img'></image>
+      <image src='/images/tuan.png' mode='aspectFill' class='week_view_img'></image>
     </view>
     <view class='week_view_text1'>周末捡漏福利官</view>
     <view class='week_view_text2'>去体验</view>
@@ -52,7 +52,7 @@
 
   <view class='text_much_color1'>
     <view class='text_much_color_view'>
-      <image src='/images/icn-tuan-small@3x.png' mode='aspectFill' class='week_view_img'></image>
+      <image src='/images/tuan.png' mode='aspectFill' class='week_view_img'></image>
     </view>
     <view class='text_much_color_text_1_1'>抽奖助手</view>
     <view class='text_much_color_text_2_1'>去体验 ></view>
@@ -60,7 +60,7 @@
 
   <view class='text_much_color1'>
     <view class='text_much_color_view'>
-      <image src='/images/icn-tuan-small@3x.png' mode='aspectFill' class='week_view_img'></image>
+      <image src='/images/tuan.png' mode='aspectFill' class='week_view_img'></image>
     </view>
     <view class='text_much_color_text_1_1'>周末捡漏福利官</view>
     <view class='text_much_color_text_2_1'>去体验 ></view>

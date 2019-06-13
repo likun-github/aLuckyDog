@@ -1,0 +1,5 @@
+<!--pages/aspiration/aspiration.wxml-->
+<navBar title-text="我的发起" background="white" back-icon="/images/back@3x.png" bindback="back" />
+
+<!-- 配置 自定义的title -->
+<view style='height: {{top_height}}px;'></view>

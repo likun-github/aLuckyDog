@@ -1,0 +1,16 @@
+<!--pages/aspiration/aspiration.wxml-->
+<navBar title-text="全部抽奖" background="white" back-icon="/images/back@3x.png" bindback="back" />
+
+<!-- 配置 自定义的title -->
+<view style='height: {{top_height}}px;'></view>
+
+
+<scroll-view>
+
+  <view class='finished'>已结束</view>
+  <view>
+    <view class='lottery_list'>
+    </view>
+    <view class='seperator4'></view>
+  </view>
+</scroll-view>

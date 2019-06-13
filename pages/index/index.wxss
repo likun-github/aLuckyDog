@@ -140,7 +140,7 @@ page {
 .separator {
   height: 1.5rpx;
   width: 87%;
-  background: #bebebe;
+  background: #dfdfdf;
   display: flex;
   align-items: center;
   justify-content: center;

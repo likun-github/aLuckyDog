@@ -24,21 +24,21 @@
   </view>
 
   <view class='lottery'>
-    <view class='lottery_info'>
+    <view class='lottery_info' bindtap='lottery_view_1'>
       <view class='lottery_info_number'>10</view>
       <view class='lottery_info_disc'>全部抽奖</view>
     </view>
 
     <view class='line'></view>
 
-    <view class='lottery_info'>
+    <view class='lottery_info' bindtap='lottery_view_2'>
       <view class='lottery_info_number'>4</view>
       <view class='lottery_info_disc'>发起抽奖</view>
     </view>
 
     <view class='line'></view>
 
-    <view class='lottery_info'>
+    <view class='lottery_info' bindtap='lottery_view_3'>
       <view class='lottery_info_number'>4</view>
       <view class='lottery_info_disc'>中奖纪录</view>
     </view>

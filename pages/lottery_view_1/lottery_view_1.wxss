@@ -1,0 +1,25 @@
+/* pages/lottery_view_1/lottery_view_1.wxss */
+
+.finished{
+  width: 100%;
+  height: 70rpx;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-left: 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 27rpx;
+  color: darkgrey;
+}
+
+.lottery_list{
+ height: 100rpx;
+  width: 90%;
+}
+
+.seperator4{
+  height: 20rpx;
+  width: 100%;
+   background: #f0f0f0;
+}
