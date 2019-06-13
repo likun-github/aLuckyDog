@@ -1,32 +1,35 @@
-// pages/profile/profile.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    username:'',
+    top_height: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    this.setData({
+      top_height: app.globalData.top_height
+    })
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
- 
+
   },
 
   /**
@@ -64,51 +67,9 @@ Page({
 
   },
 
-
-  //心愿--查看
-  aspiration:function(){
+  address:function(){
     wx.navigateTo({
-      url: '/pages/aspiration/aspiration',
-    })
-  },
-
-
-  lottery_view_1:function(){
-    wx.navigateTo({
-      url: '/pages/lottery_view_1/lottery_view_1',
-    })
-  },
-
-  lottery_view_2: function () {
-    wx.navigateTo({
-      url: '/pages/lottery_view_2/lottery_view_2',
-    })
-  },
-
-  lottery_view_3: function () {
-    wx.navigateTo({
-      url: '/pages/lottery_view_3/lottery_view_3',
-    })
-  },
-  
-
-  go_to_remainder_money:function(){
-    wx.navigateTo({
-      url: '/pages/remainder_money/remainder_money',
-    })
-  },
-
-  go_to_selfpage:function(){
-    wx.navigateTo({
-      url: '/pages/selfpage/selfpage',
-    })
-  },
-
-
-  go_to_more:function(){
-    wx.navigateTo({
-      url: '/pages/more/more',
+      url: '/pages/address/address',
     })
   }
-
 })

@@ -1,0 +1,28 @@
+<view class='title_view'>
+  <view class='nav' style='height: {{44 + 44}}px;'>
+    <view class='status' style='height: {{44}}px;{{containerStyle}}'></view>
+    <view class='navbar' style='height:{{44}}px;{{containerStyle}}; '>
+      <view class='back-icon'  bindtap='back'>
+        <image src='/images/icn_back@3x.png'></image>
+      </view>
+      
+      
+
+      <view class='nav-title' style=' width:70%;display: flex;justify-content: flex-start; align-items: center;'>
+        <text style='{{textStyle}}'>我的地址</text>
+      </view>
+      
+    </view>
+  </view>
+</view>
+
+<!-- 配置 自定义的title -->
+<view style='height: {{88}}px;'></view>
+<!-- <view style='height: {{top_height}}px;'></view> -->
+
+<view class='item'>
+  <view style='font-size:30rpx;'>李坤, 18008658943</view>
+  <view style='font-size:28rpx;color:gray;margin-top:10rpx;'>湖北省 武汉市 武昌区 梅园六舍</view>
+</view>
+
+<view class='bottom_add'>添</view>

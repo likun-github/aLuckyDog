@@ -151,7 +151,7 @@
 
      <view class='line1'></view>
 
-    <view class='column'>
+    <view class='column' bindtap='go_to_more'>
       <view class='column_icon_1'>
         <image class='column_icon_1_img' src='/images/icn-mini-program@3x.png'></image>
       </view>

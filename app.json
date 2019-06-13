@@ -1,9 +1,7 @@
 {
   "pages": [
-    
-
     "pages/index/index",
-        "pages/selfpage/selfpage",
+    "pages/selfpage/selfpage",
     "pages/aspiration/aspiration",
     "pages/award/award",
     "pages/test/test",
@@ -13,7 +11,9 @@
     "pages/lottery_view_1/lottery_view_1",
     "pages/lottery_view_2/lottery_view_2",
     "pages/lottery_view_3/lottery_view_3",
-    "pages/remainder_money/remainder_money"
+    "pages/remainder_money/remainder_money",
+    "pages/more/more",
+    "pages/address/address"
   ],
   "window": {
     "backgroundTextStyle": "light",
