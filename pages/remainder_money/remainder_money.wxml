@@ -1,8 +1,8 @@
 <navBar title-text="余额" background="white" back-icon="/images/back@3x.png" bindback="back" />
 
 <!-- 配置 自定义的title -->
-<view style='height: {{88}}px;'></view>
-<!-- <view style='height: {{top_height}}px;'></view> -->
+<!-- <view style='height: {{88}}px;'></view> -->
+<view style='height: {{top_height}}px;'></view>
 <scroll-view>
 
   <view style='height:30rpx;'></view>

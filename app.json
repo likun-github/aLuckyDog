@@ -1,6 +1,9 @@
 {
   "pages": [
+    
+
     "pages/index/index",
+        "pages/selfpage/selfpage",
     "pages/aspiration/aspiration",
     "pages/award/award",
     "pages/test/test",

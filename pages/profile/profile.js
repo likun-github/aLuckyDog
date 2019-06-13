@@ -96,5 +96,12 @@ Page({
     wx.navigateTo({
       url: '/pages/remainder_money/remainder_money',
     })
+  },
+
+  go_to_selfpage:function(){
+    wx.navigateTo({
+      url: '/pages/selfpage/selfpage',
+    })
   }
+
 })

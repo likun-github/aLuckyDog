@@ -2,8 +2,8 @@
 <navBar title-text="全部抽奖" background="white" back-icon="/images/back@3x.png" bindback="back" />
 
 <!-- 配置 自定义的title -->
-<!-- <view style='height: {{top_height}}px;'></view> -->
-<view style='height: 88px;'></view>
+<view style='height: {{top_height}}px;'></view>
+<!-- <view style='height: 88px;'></view> -->
 
 
 <scroll-view>

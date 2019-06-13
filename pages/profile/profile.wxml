@@ -81,7 +81,7 @@
   <view class='column_view_1'>
 
 
-    <view class='column'>
+    <view class='column' bindtap='go_to_selfpage'>
       <view class='column_icon_1'>
         <image class='column_icon_1_img' src='/images/icn-question@3x.png'></image>
       </view>
