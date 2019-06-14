@@ -98,6 +98,9 @@ Page({
            success(res){
              if(res.confirm){
                console.log('dianji')
+               wx.navigateTo({
+                 url: '/pages/lottery_create/lottery_create',
+               })
              }
            }
          })

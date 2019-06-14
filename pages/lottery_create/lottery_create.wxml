@@ -27,9 +27,9 @@
       <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
     </view>
 
-    <view class='lottery_list_1_wait'>奖品：数字棋盘 x1 </view>
+    <view class='lottery_list_1'>奖品：数字棋盘 x1 </view>
 
-    <view class='lottery_list_3_wait'>06月14日 16:32 自动开奖</view>
+    <view class='lottery_list_3'>06月14日 16:32 自动开奖</view>
   </view>
 
   <view class='seperator5'></view>
