@@ -1,0 +1,140 @@
+<view class='title_view'>
+  <view class='nav' style='height: {{44 + 44}}px;'>
+    <view class='status' style='height: {{44}}px;{{containerStyle}}'></view>
+    <view class='navbar' style='height:{{44}}px;{{containerStyle}}; '>
+      <view class='back-icon' bindtap='back'>
+        <image src='/images/icn_back@3x.png'></image>
+      </view>
+      <view class='nav-title' style=' width:70%;display: flex;justify-content: flex-start; align-items: center;'>
+        <text style='{{textStyle}}'>抽奖详情</text>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<!-- 配置 自定义的title -->
+<view style='height: {{88}}px;'></view>
+<!-- <view style='height: {{top_height}}px;'></view> -->
+
+<scroll-view>
+  <!-- <view class='width:100%;height:300rpx;'>
+    <image src='/images/default-prize-pi@3x.png' style='height:165px;width:100%;'></image>
+  </view> -->
+
+  <view class='lottery_list_wait'>
+    <view>
+      <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
+    </view>
+
+    <view class='lottery_list_1_wait'>奖品：数字棋盘 x1 </view>
+
+    <view class='lottery_list_3_wait'>06月14日 16:32 自动开奖</view>
+  </view>
+
+  <view class='seperator5'></view>
+
+  <view class='host'>
+    <view class='host_text'>抽奖发起人</view>
+    <view class='host_picture'>
+      <image src='/images/icn-pi-join@3x.png' style='height:50rpx;width:50rpx;'></image>
+    </view>
+    <view class='host_name'>li.kun</view>
+  </view>
+
+  <view style='height:30rpx;width:100%;background:#f0f0f0;'></view>
+
+  <view class='Everday_Lottery_view'>
+    <view>
+      <image class=' toast_view_1_img' src='/images/yinghao.svg' mode='aspectFill'></image>
+    </view>
+    <view class='Everday_Lottery_text'>
+      <view class='Everday_Lottery_text_3'>不包邮费哦~亲！</view>
+    </view>
+  </view>
+
+  <view class='join'>
+    <view class='join_img_view' bindtap='join'>
+      <image src="{{could_join?'/images/join.svg':'/images/join_wait.svg'}}" class='join_img'></image>
+    </view>
+    <view class='join_text_view'>已有213213人参与，查看全部 ></view>
+
+    <view class='join_pic_view'>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+
+    </view>
+  </view>
+
+  <view class='bottom_text'>意见反馈 | 免责声明 | 我要投诉</view>
+
+
+</scroll-view>
+
+<view class='bottom_btn_view' wx:if="{{could_join}}">
+  <button class='btn_1' bindtap='showmodels_tips'>分享该抽奖</button>
+  <button class='btn_2' bindtap='go_to_lotteryCreate'>编辑</button>
+</view>
+
+
+<view class='bottom_btn_view' wx:if="{{!could_join}}">
+  <button class='btn_1_1' bindtap='share_lottery'>分享该抽奖</button>
+</view>
+
+<view class='share_view' wx:if="{{share_flag}}">
+  <view style='height: {{88}}px;'></view>
+  <!-- 配置 自定义的title -->
+
+  <!-- <view style='height: {{top_height}}px;'></view> -->
+  <scroll-view class='canvas_view'>
+    <view class='host_picture_1'>
+      <image src='/images/icn-result-regret@3x.png' style='height:100rpx;width:100rpx;'></image>
+    </view>
+    <view class=' pic_user_name'>li.kun</view>
+    <view class='pic_text_1'>发起了一个抽奖活动</view>
+
+    <view class='lottery_list_wait' style='width:88%;'>
+      <view>
+        <image src='/images/default-prize@3x.jpg' style='height:220rpx;' class='lottery_list_wait_img'></image>
+      </view>
+
+      <view class='lottery_list_1_wait_new'>奖品：数字棋盘 x1 </view>
+
+      <view class='lottery_list_3_wait_new'>06月14日 16:32 自动开奖</view>
+      <view class='seperator_pic'>
+        <view class='left_o'></view>
+        <view style='height:1rpx;width:85%;margin-left:15rpx;margin-right:15rpx;background:rgba(228, 228, 228, 0.527);'></view>
+        <view class='right_o'></view>
+      </view>
+
+      <view class='wxSmallCode_view'>
+
+        <image src='/images/lottery_new_checked@3x.png' class='wxSmallCode'></image>
+      </view>
+
+      <view class='wxSmallCode_text'>长按小程序码，参与抽奖</view>
+    </view>
+
+    <view style='height:1000rpx;width:100%;background:black;margin-top:20rpx;'></view>
+  </scroll-view>
+
+  <view class='share_to'>
+    <view class='share_to_list'>
+      <image src='/images/icn-zu@3x.png' class='share_to_list_img'></image>
+      <image src='/images/icn-zu@3x.png' class='share_to_list_img'></image>
+      <image src='/images/icn-zu@3x.png' class='share_to_list_img'></image>
+    </view>
+    <view class='share_to_list_text_view'>
+      <view class='share_to_list_text'>分享给好友</view>
+      <view  class='share_to_list_text'>分享给好友</view>
+      <view  class='share_to_list_text'>分享给好友</view>
+    </view>
+    <view class='cancel_text'>取消</view>
+  </view>
+
+</view>

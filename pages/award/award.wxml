@@ -101,7 +101,7 @@
   </view>
     </view>
   <view class='tab' style='z-index:10'>
-  <view class='begin'>发起新抽奖</view>
+  <view class='begin' bindtap='createLottery'>发起新抽奖</view>
   </view>
 
   

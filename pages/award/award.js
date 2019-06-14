@@ -267,5 +267,11 @@ index: index
   },
 
 
+  createLottery:function(){
+    wx.navigateTo({
+      url: '/pages/lottery_create/lottery_create',
+    })
+  }
+
   
 })
