@@ -216,7 +216,7 @@
   text-align: center;
   justify-content: center;
   margin: auto;
-  font-size: 37rpx;
+  font-size: 30rpx;
   font-weight: 580;
   color: white;
 }

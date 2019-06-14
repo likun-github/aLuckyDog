@@ -19,14 +19,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+ 
   },
 
   /**
@@ -91,4 +91,24 @@ Page({
     })
   },
   
+
+  go_to_remainder_money:function(){
+    wx.navigateTo({
+      url: '/pages/remainder_money/remainder_money',
+    })
+  },
+
+  go_to_selfpage:function(){
+    wx.navigateTo({
+      url: '/pages/selfpage/selfpage',
+    })
+  },
+
+
+  go_to_more:function(){
+    wx.navigateTo({
+      url: '/pages/more/more',
+    })
+  }
+
 })
