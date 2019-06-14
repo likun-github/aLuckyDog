@@ -7,19 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+   image:['../../static/1.jpg'],
     z:'开奖时间',
     status: 0,
     navHeight: 0,
-    tempFilePaths: '',
-    item: '../../static/1.jpg',
     showModalStatus: false,
     animationData: {},
     methord:'到达设定时间自动开奖',
-    index:1,
-    date:'',
-    hour:'',  
-    min:'', 
-    today:'今天',
     select:false,
     animationData: {},
     date1:[
@@ -45,22 +39,68 @@ Page({
     idate:0,
     ihour:0,
     imin:0,
-
+    dindex:0,
 //数据统计
     jpname:'',
+    jpnum:0,
+    index: 1,//开奖条件三个
 
+    //index=1||index=3
 
+    //开奖时间
+    date: '',//日期
+    hour: '',//小时
+    min: '',//分钟
+    today: '今天',//是否是今天
+    
+    //index=2||index=3
+    kpnum:0,//开奖人数||最多抽奖人数
 
+  },
+  //发起抽奖
+  start:function(){
+    var h = util.h(new Date());
+    var m = util.m(new Date());
+
+    console.log(h,m)
+    console.log(this.data.min)
+       //check
+       if(this.data.jpname&&this.data.jpnum){
+       if(this.data.index==1||this.data.index==3){
+           if(this.data.dindex==1&&(this.data.hour<h||(this.data.hour==h&&this.data.min<m)));
+           wx.showModal({
+           title: '时间信息有误',
+           content: '请仔细检查开奖信息',
+         })
+       }
+         if (this.data.index == 2 || this.data.index == 3) {
+           if (!this.data.kpnum)
+           wx.showModal({
+             title: '时间信息有误',
+             content: '请仔细检查开奖信息',
+           })
+         }
+       }
+       else wx.showModal({
+         title: '信息有误',
+         content: '请仔细检查所填信息',
+       })
   },
   //奖品名字
   jpname:function(e){
-    console.log(e);
      this.setData({
-       jpname:0
+       jpname:e.detail.value
      })
   },
-  jpnum: function () {
-
+  jpnum: function (e) {
+    this.setData({
+      jpnum: e.detail.value
+    })
+  },
+  kpnum: function (e) {
+    this.setData({
+      kpnum: e.detail.value
+    })
   },
   select: function () {
         var that = this;
@@ -93,7 +133,8 @@ Page({
   datef: function(e) {
       var c = e.detail.current + 1;
       this.setData({
- date: this.data.date1[c]
+ date: this.data.date1[c],
+ dindex:c
         })
     let time = util.formatTime(new Date());
     let date = util.getDates(1, time);
@@ -181,14 +222,27 @@ index: index
   },
   choosepic: function () {
     var that = this;
+
     wx.chooseImage({
       count: 1,
-      success: function (res) {
-        var tempFilePaths = res.tempFilePaths;
-        console.log(tempFilePaths, res);
+      success:function(res){
+        wx.showToast({
+          title: '正在上传...',
+          icon: 'loading',
+          mask: true,
+          duration: 1000
+        }) 
+        var tempFilePaths =res.tempFilePaths;
+        console.log(tempFilePaths);
+        var image = that.data.image;
+        image.splice(0, 1);
         that.setData({
-          item: that.data.images.concat(tempFilePaths),
+          image: image
+        })
+        that.setData({
+          image: that.data.image.concat(tempFilePaths),
         });
+        console.log(that.data.image)
       }
     })
   },
