@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/award/award",
     "pages/index/index",
     "pages/selfpage/selfpage",
     "pages/aspiration/aspiration",
-    "pages/award/award",
+   
     "pages/test/test",
     "pages/lottery_detail/lottery_detail",
     "pages/logs/logs",

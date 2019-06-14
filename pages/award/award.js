@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    datem:'',
    image:['../../static/1.jpg'],
     z:'开奖时间',
     status: 0,
@@ -33,8 +34,9 @@ Page({
 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,
       ""
     ],
-    date3:[
-      "","01","02","03","04","05","06","07","08","09","10",11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,""
+
+    date3: [
+      "", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, ""
     ],
     idate:0,
     ihour:0,
@@ -44,7 +46,7 @@ Page({
     jpname:'',
     jpnum:0,
     index: 1,//开奖条件三个
-
+    jpms:'',//奖品描述
     //index=1||index=3
 
     //开奖时间
@@ -55,31 +57,50 @@ Page({
     
     //index=2||index=3
     kpnum:0,//开奖人数||最多抽奖人数
-
+    
   },
   //发起抽奖
   start:function(){
     var h = util.h(new Date());
     var m = util.m(new Date());
-
     console.log(h,m)
+    console.log(this.data.hour)
     console.log(this.data.min)
        //check
        if(this.data.jpname&&this.data.jpnum){
+
        if(this.data.index==1||this.data.index==3){
-           if(this.data.dindex==1&&(this.data.hour<h||(this.data.hour==h&&this.data.min<m)));
+         
+         //选择1，3时间不对
+         console.log(this.data.datem);
+         console.log(this.data.date);
+           if(this.data.today=='今天'){
+             if(this.data.hour < h || (this.data.hour == h && this.data.min < m)){
            wx.showModal({
            title: '时间信息有误',
            content: '请仔细检查开奖信息',
          })
+             }
+           }
        }
+       //选择2 3 开奖时间不对
          if (this.data.index == 2 || this.data.index == 3) {
            if (!this.data.kpnum)
            wx.showModal({
-             title: '时间信息有误',
+             title: '开奖信息有误',
              content: '请仔细检查开奖信息',
            })
          }
+         //这就对了
+         wx.showModal({
+           title: '确定开奖',
+           content: '请确定这么开奖',
+           success(res){
+             if(res.confirm){
+               console.log('dianji')
+             }
+           }
+         })
        }
        else wx.showModal({
          title: '信息有误',
@@ -100,6 +121,11 @@ Page({
   kpnum: function (e) {
     this.setData({
       kpnum: e.detail.value
+    })
+  },
+  jpms: function (e) {
+    this.setData({
+     jpms: e.detail.value
     })
   },
   select: function () {
@@ -271,6 +297,7 @@ index: index
        this.setData({
            date1: temp_date1,
            date: temp_date1[1],
+         datem: temp_date1[1],
            hour: h,
            min: m,
            ihour: h,
