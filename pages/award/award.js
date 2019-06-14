@@ -7,19 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    datem:'',
+   image:['../../static/1.jpg'],
     z:'开奖时间',
     status: 0,
     navHeight: 0,
-    tempFilePaths: '',
-    item: '../../static/1.jpg',
     showModalStatus: false,
     animationData: {},
     methord:'到达设定时间自动开奖',
-    index:1,
-    date:'',
-    hour:'',  
-    min:'', 
-    today:'今天',
     select:false,
     animationData: {},
     date1:[
@@ -39,28 +34,99 @@ Page({
 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,
       ""
     ],
-    date3:[
-      "","01","02","03","04","05","06","07","08","09","10",11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,""
+
+    date3: [
+      "", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, ""
     ],
     idate:0,
     ihour:0,
     imin:0,
-
+    dindex:0,
 //数据统计
     jpname:'',
+    jpnum:0,
+    index: 1,//开奖条件三个
+    jpms:'',//奖品描述
+    //index=1||index=3
 
+    //开奖时间
+    date: '',//日期
+    hour: '',//小时
+    min: '',//分钟
+    today: '今天',//是否是今天
+    
+    //index=2||index=3
+    kpnum:0,//开奖人数||最多抽奖人数
+    
+  },
+  //发起抽奖
+  start:function(){
+    var h = util.h(new Date());
+    var m = util.m(new Date());
+    console.log(h,m)
+    console.log(this.data.hour)
+    console.log(this.data.min)
+       //check
+       if(this.data.jpname&&this.data.jpnum){
 
-
+       if(this.data.index==1||this.data.index==3){
+         
+         //选择1，3时间不对
+         console.log(this.data.datem);
+         console.log(this.data.date);
+           if(this.data.today=='今天'){
+             if(this.data.hour < h || (this.data.hour == h && this.data.min < m)){
+           wx.showModal({
+           title: '时间信息有误',
+           content: '请仔细检查开奖信息',
+         })
+             }
+           }
+       }
+       //选择2 3 开奖时间不对
+         if (this.data.index == 2 || this.data.index == 3) {
+           if (!this.data.kpnum)
+           wx.showModal({
+             title: '开奖信息有误',
+             content: '请仔细检查开奖信息',
+           })
+         }
+         //这就对了
+         wx.showModal({
+           title: '确定开奖',
+           content: '请确定这么开奖',
+           success(res){
+             if(res.confirm){
+               console.log('dianji')
+             }
+           }
+         })
+       }
+       else wx.showModal({
+         title: '信息有误',
+         content: '请仔细检查所填信息',
+       })
   },
   //奖品名字
   jpname:function(e){
-    console.log(e);
      this.setData({
-       jpname:0
+       jpname:e.detail.value
      })
   },
-  jpnum: function () {
-
+  jpnum: function (e) {
+    this.setData({
+      jpnum: e.detail.value
+    })
+  },
+  kpnum: function (e) {
+    this.setData({
+      kpnum: e.detail.value
+    })
+  },
+  jpms: function (e) {
+    this.setData({
+     jpms: e.detail.value
+    })
   },
   select: function () {
         var that = this;
@@ -93,7 +159,8 @@ Page({
   datef: function(e) {
       var c = e.detail.current + 1;
       this.setData({
- date: this.data.date1[c]
+ date: this.data.date1[c],
+ dindex:c
         })
     let time = util.formatTime(new Date());
     let date = util.getDates(1, time);
@@ -181,14 +248,27 @@ index: index
   },
   choosepic: function () {
     var that = this;
+
     wx.chooseImage({
       count: 1,
-      success: function (res) {
-        var tempFilePaths = res.tempFilePaths;
-        console.log(tempFilePaths, res);
+      success:function(res){
+        wx.showToast({
+          title: '正在上传...',
+          icon: 'loading',
+          mask: true,
+          duration: 1000
+        }) 
+        var tempFilePaths =res.tempFilePaths;
+        console.log(tempFilePaths);
+        var image = that.data.image;
+        image.splice(0, 1);
         that.setData({
-          item: that.data.images.concat(tempFilePaths),
+          image: image
+        })
+        that.setData({
+          image: that.data.image.concat(tempFilePaths),
         });
+        console.log(that.data.image)
       }
     })
   },
@@ -217,6 +297,7 @@ index: index
        this.setData({
            date1: temp_date1,
            date: temp_date1[1],
+         datem: temp_date1[1],
            hour: h,
            min: m,
            ihour: h,
