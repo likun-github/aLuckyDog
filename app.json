@@ -2,6 +2,7 @@
   "pages": [
     "pages/award/award",
     "pages/index/index",
+    "pages/lottery_create/lottery_create",
     "pages/selfpage/selfpage",
     "pages/aspiration/aspiration",
     "pages/test/test",

@@ -97,10 +97,10 @@ Page({
            content: '请确定这么开奖',
            success(res){
              if(res.confirm){
+               console.log('dianji')
                wx.navigateTo({
-                 url: '../joinaward/joinaward',
+                 url: '/pages/lottery_create/lottery_create',
                })
-
              }
            }
          })
@@ -350,6 +350,12 @@ index: index
 
   },
 
+
+  createLottery:function(){
+    wx.navigateTo({
+      url: '/pages/lottery_create/lottery_create',
+    })
+  }
 
   
 })
