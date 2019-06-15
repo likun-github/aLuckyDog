@@ -4,7 +4,6 @@
     "pages/index/index",
     "pages/selfpage/selfpage",
     "pages/aspiration/aspiration",
-   
     "pages/test/test",
     "pages/lottery_detail/lottery_detail",
     "pages/logs/logs",
@@ -14,7 +13,8 @@
     "pages/lottery_view_3/lottery_view_3",
     "pages/remainder_money/remainder_money",
     "pages/more/more",
-    "pages/address/address"
+    "pages/address/address",
+    "pages/joinaward/joinaward"
   ],
   "window": {
     "backgroundTextStyle": "light",

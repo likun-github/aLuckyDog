@@ -97,7 +97,10 @@ Page({
            content: '请确定这么开奖',
            success(res){
              if(res.confirm){
-               console.log('dianji')
+               wx.navigateTo({
+                 url: '../joinaward/joinaward',
+               })
+
              }
            }
          })
