@@ -63,19 +63,25 @@ Page({
   start:function(){
     var h = util.h(new Date());
     var m = util.m(new Date());
-    console.log(h,m)
-    console.log(this.data.hour)
-    console.log(this.data.min)
+    var right=true
        //check
        if(this.data.jpname&&this.data.jpnum){
 
        if(this.data.index==1||this.data.index==3){
          
          //选择1，3时间不对
-         console.log(this.data.datem);
-         console.log(this.data.date);
+         var min = this.data.min;
+         min = parseInt(min)
+         m=parseInt(m)
+         var hour = parseInt(this.data.hour);
+         h = parseInt(h);
+         console.log(h, m)
+         console.log(hour,min)
+         
            if(this.data.today=='今天'){
-             if(this.data.hour < h || (this.data.hour == h && this.data.min < m)){
+        
+             if(hour < h || (hour == h && min < m)){
+               right = false
            wx.showModal({
            title: '时间信息有误',
            content: '请仔细检查开奖信息',
@@ -85,13 +91,16 @@ Page({
        }
        //选择2 3 开奖时间不对
          if (this.data.index == 2 || this.data.index == 3) {
-           if (!this.data.kpnum)
+           if (!this.data.kpnum){
            wx.showModal({
              title: '开奖信息有误',
              content: '请仔细检查开奖信息',
            })
+             right = false
+           }
          }
          //这就对了
+         if(right)
          wx.showModal({
            title: '确定开奖',
            content: '请确定这么开奖',
