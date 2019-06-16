@@ -118,7 +118,7 @@
 </view>
 <view wx:if="{{index==1||index==3}}"  style='width:100%;height:auto;display:flex;flex-direction:row'>
   <text class='input11'>{{z}}</text>
-  <view class="input1" bindtap='select' style='font-size:24rpx;width:400rpx;margin-top:40rpx'>{{date}}{{hour}}:{{min}}{{today}}</view>
+  <picker class='input1' style='margin-top:30rpx;font-size:28rpx;' mode="multiSelector" bindchange="bindStartMultiPickerChange" bindtap='pickerTap' bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">{{startDate}}</picker>
 </view>
 <!-- animation='{{animationData}}'  -->
   <!-- <view wx:if="{{select}}" style='width:100%;height:300rpx;overflow:hidden;'>
@@ -153,6 +153,7 @@
      <view style='width:100%;height:100rpx; border-bottom: 1px solid blue;)'></view>
      </view>
   </view> -->
+
   <view style='width:100%;height:100rpx;display:flex;flex-direction:row;background:rgba(80,80,80,0.1)' >
   <text class='input11' style='margin-right:400rpx'>抽奖说明</text>
   <text class='input11'style='float:left'>选填</text>

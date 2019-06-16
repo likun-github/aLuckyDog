@@ -1,12 +1,20 @@
 // pages/award/award.js
 var util = require('../../utils/util.js')
 const app = getApp()
+var date = new Date();
+var currentHours = date.getHours();
+var currentMinute = date.getMinutes();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+//picker
+    startDate: "请选择日期",
+    multiArray: [['今天', '明天', '3-2', '3-3', '3-4', '3-5'], [0, 1, 2, 3, 4, 5, 6], [0, 10, 20]],
+    multiIndex: [0, 0, 0],
+
     s:1,
     np:'奖品名称',
     datem:'',
@@ -42,10 +50,10 @@ Page({
     date3: [
       "", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, ""
     ],
-    idate:0,
-    ihour:0,
-    imin:0,
-    dindex:0,
+    // idate:0,
+    // ihour:0,
+    // imin:0,
+    // dindex:0,
 //数据统计
    
     image1: ['../../static/1.jpg'],
@@ -59,10 +67,13 @@ Page({
     //index=1||index=3
 
     //开奖时间
-    date: '',//日期
-    hour: '',//小时
-    min: '',//分钟
-    today: '今天',//是否是今天
+    // date: '',//日期
+    // hour: '',//小时
+    // min: '',//分钟
+    // today: '今天',//是否是今天
+
+    //monthDay + " " + hours + ":" + minute;
+    startDate: "请选择日期",
     
     //index=2||index=3
     kpnum:0,//开奖人数||最多抽奖人数
@@ -85,7 +96,7 @@ Page({
         s: s,
       })
     }
-    if (s == 0) {
+    if (s == 1) {
       this.setData({
         np:'奖品名称'
       })
@@ -450,7 +461,446 @@ index: index
     wx.navigateTo({
       url: '/pages/lottery_create/lottery_create',
     })
-  }
+  },
+  pickerTap: function () {
+
+    date = new Date();
+
+
+
+    var monthDay = ['今天', '明天'];
+
+    var hours = [];
+
+    var minute = [];
+
+
+
+    currentHours = date.getHours();
+
+    currentMinute = date.getMinutes();
+
+
+
+    // 月-日
+
+    for (var i = 2; i <= 28; i++) {
+
+      var date1 = new Date(date);
+
+      date1.setDate(date.getDate() + i);
+
+      var md = (date1.getMonth() + 1) + "-" + date1.getDate();
+
+      monthDay.push(md);
+
+    }
+
+
+
+    var data = {
+
+      multiArray: this.data.multiArray,
+
+      multiIndex: this.data.multiIndex
+
+    };
+
+
+
+    if (data.multiIndex[0] === 0) {
+
+      if (data.multiIndex[1] === 0) {
+
+        this.loadData(hours, minute);
+
+      } else {
+
+        this.loadMinute(hours, minute);
+
+      }
+
+    } else {
+
+      this.loadHoursMinute(hours, minute);
+
+    }
+
+
+
+    data.multiArray[0] = monthDay;
+
+    data.multiArray[1] = hours;
+
+    data.multiArray[2] = minute;
+
+
+
+    this.setData(data);
+
+  },
+
+
+
+
+
+
+
+
+
+  bindMultiPickerColumnChange: function (e) {
+
+    date = new Date();
+
+
+
+    var that = this;
+
+
+
+    var monthDay = ['今天', '明天'];
+
+    var hours = [];
+
+    var minute = [];
+
+
+
+    currentHours = date.getHours();
+
+    currentMinute = date.getMinutes();
+
+
+
+    var data = {
+
+      multiArray: this.data.multiArray,
+
+      multiIndex: this.data.multiIndex
+
+    };
+
+    // 把选择的对应值赋值给 multiIndex
+
+    data.multiIndex[e.detail.column] = e.detail.value;
+
+
+
+    // 然后再判断当前改变的是哪一列,如果是第1列改变
+
+    if (e.detail.column === 0) {
+
+      // 如果第一列滚动到第一行
+
+      if (e.detail.value === 0) {
+
+
+
+        that.loadData(hours, minute);
+
+
+
+      } else {
+
+        that.loadHoursMinute(hours, minute);
+
+      }
+
+
+
+      data.multiIndex[1] = 0;
+
+      data.multiIndex[2] = 0;
+
+
+
+      // 如果是第2列改变
+
+    } else if (e.detail.column === 1) {
+
+
+
+      // 如果第一列为今天
+
+      if (data.multiIndex[0] === 0) {
+
+        if (e.detail.value === 0) {
+
+          that.loadData(hours, minute);
+
+        } else {
+
+          that.loadMinute(hours, minute);
+
+        }
+
+        // 第一列不为今天
+
+      } else {
+
+        that.loadHoursMinute(hours, minute);
+
+      }
+
+      data.multiIndex[2] = 0;
+
+
+
+      // 如果是第3列改变
+
+    } else {
+
+      // 如果第一列为'今天'
+
+      if (data.multiIndex[0] === 0) {
+
+
+
+        // 如果第一列为 '今天'并且第二列为当前时间
+
+        if (data.multiIndex[1] === 0) {
+
+          that.loadData(hours, minute);
+
+        } else {
+
+          that.loadMinute(hours, minute);
+
+        }
+
+      } else {
+
+        that.loadHoursMinute(hours, minute);
+
+      }
+
+    }
+
+    data.multiArray[1] = hours;
+
+    data.multiArray[2] = minute;
+
+    this.setData(data);
+
+  },
+
+
+
+  loadData: function (hours, minute) {
+
+
+
+    var minuteIndex;
+
+    if (currentMinute > 0 && currentMinute <= 10) {
+
+      minuteIndex = 10;
+
+    } else if (currentMinute > 10 && currentMinute <= 20) {
+
+      minuteIndex = 20;
+
+    } else if (currentMinute > 20 && currentMinute <= 30) {
+
+      minuteIndex = 30;
+
+    } else if (currentMinute > 30 && currentMinute <= 40) {
+
+      minuteIndex = 40;
+
+    } else if (currentMinute > 40 && currentMinute <= 50) {
+
+      minuteIndex = 50;
+
+    } else {
+
+      minuteIndex = 60;
+
+    }
+
+
+
+    if (minuteIndex == 60) {
+
+      // 时
+
+      for (var i = currentHours + 1; i < 24; i++) {
+
+        hours.push(i);
+
+      }
+
+      // 分
+
+      for (var i = 0; i < 60; i += 10) {
+
+        minute.push(i);
+
+      }
+
+    } else {
+
+      // 时
+
+      for (var i = currentHours; i < 24; i++) {
+
+        hours.push(i);
+
+      }
+
+      // 分
+
+      for (var i = minuteIndex; i < 60; i += 10) {
+
+        minute.push(i);
+
+      }
+
+    }
+
+  },
+
+
+
+  loadHoursMinute: function (hours, minute) {
+
+    // 时
+
+    for (var i = 0; i < 24; i++) {
+
+      hours.push(i);
+
+    }
+
+    // 分
+
+    for (var i = 0; i < 60; i += 10) {
+
+      minute.push(i);
+
+    }
+
+  },
+
+
+
+  loadMinute: function (hours, minute) {
+
+    var minuteIndex;
+
+    if (currentMinute > 0 && currentMinute <= 10) {
+
+      minuteIndex = 10;
+
+    } else if (currentMinute > 10 && currentMinute <= 20) {
+
+      minuteIndex = 20;
+
+    } else if (currentMinute > 20 && currentMinute <= 30) {
+
+      minuteIndex = 30;
+
+    } else if (currentMinute > 30 && currentMinute <= 40) {
+
+      minuteIndex = 40;
+
+    } else if (currentMinute > 40 && currentMinute <= 50) {
+
+      minuteIndex = 50;
+
+    } else {
+
+      minuteIndex = 60;
+
+    }
+
+
+
+    if (minuteIndex == 60) {
+
+      // 时
+
+      for (var i = currentHours + 1; i < 24; i++) {
+
+        hours.push(i);
+
+      }
+
+    } else {
+
+      // 时
+
+      for (var i = currentHours; i < 24; i++) {
+
+        hours.push(i);
+
+      }
+
+    }
+
+    // 分
+
+    for (var i = 0; i < 60; i += 10) {
+
+      minute.push(i);
+
+    }
+
+  },
+
+
+
+  bindStartMultiPickerChange: function (e) {
+
+    var that = this;
+
+    var monthDay = that.data.multiArray[0][e.detail.value[0]];
+
+    var hours = that.data.multiArray[1][e.detail.value[1]];
+
+    var minute = that.data.multiArray[2][e.detail.value[2]];
+
+
+
+    if (monthDay === "今天") {
+
+      var month = date.getMonth() + 1;
+
+      var day = date.getDate();
+
+      monthDay = month + "月" + day + "日";
+
+    } else if (monthDay === "明天") {
+
+      var date1 = new Date(date);
+
+      date1.setDate(date.getDate() + 1);
+
+      monthDay = (date1.getMonth() + 1) + "月" + date1.getDate() + "日";
+
+
+
+    } else {
+
+      var month = monthDay.split("-")[0]; // 返回月
+
+      var day = monthDay.split("-")[1]; // 返回日
+
+      monthDay = month + "月" + day + "日";
+
+    }
+
+
+
+    var startDate = monthDay + " " + hours + ":" + minute;
+
+    that.setData({
+
+      startDate: startDate
+
+    })
+
+  },
 
   
 })

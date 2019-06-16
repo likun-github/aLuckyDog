@@ -29,7 +29,10 @@
   height: 400rpx;
   
 }
-
+.time-picker{
+  width: 100%;
+  
+}
 .addIcon {
   position: absolute;
   margin-top: -400rpx;
