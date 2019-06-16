@@ -10,6 +10,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    t:'',
+    monthDay:'',
+    hour:'',
+    minute:'',
 //picker
     startDate: "请选择日期",
     multiArray: [['今天', '明天', '3-2', '3-3', '3-4', '3-5'], [0, 1, 2, 3, 4, 5, 6], [0, 10, 20]],
@@ -60,8 +64,8 @@ Page({
     image2: ['../../static/1.jpg'],
     image3: ['../../static/1.jpg'],
     title:1,//抽奖编号
-    jpname:'',
-    jpnum:0,
+    jpname:["","",""],
+    jpnum:["","",""],
     index: 1,//开奖条件三个
     jpms:'',//奖品描述
     //index=1||index=3
@@ -105,25 +109,60 @@ Page({
   ,
   //发起抽奖
   start:function(){
+ 
+    var s=this.data.s;
+    var that=this;
+    if(s==1){
+      var si=this.data.jpname;
+      var s0=['','',''];
+      s0[0]=si[0];
+      this.setData({
+        jpname:s0
+      })
+    }
+    if (s == 2) {
+      var si = this.data.jpname;
+      var s0 = ['', '', ''];
+      s0[0] = si[0];
+      s0[1] = si[1];
+      this.setData({
+        jpname: s0
+      })
+    }
     var h = util.h(new Date());
     var m = util.m(new Date());
     var right=true
        //check
-       if(this.data.jpname&&this.data.jpnum){
+       
+       if(this.data.jpname[0]==''||this.data.jpnum[0]==''){
+           right=false;
+           wx.showModal({
+             title: '请输入必须信息',
+             content: '未输入奖品信息',
+       })
+       }else right=true
 
+       if(right)
        if(this.data.index==1||this.data.index==3){
-         
+         //monthDay + " " + hours + ":" + minute;
          //选择1，3时间不对
-         var min = this.data.min;
-         min = parseInt(min)
+         if (this.data.startDate == '请选择日期') {
+           wx.showModal({
+             title: '请选择时间',
+             content: '未选择时间',
+           })
+           right = false
+         } else right=true
+         var min = this.data.minute;
+         
          m=parseInt(m)
          var hour = parseInt(this.data.hour);
          h = parseInt(h);
-         console.log(h, m)
-         console.log(hour,min)
-         
-           if(this.data.today=='今天'){
-        
+         console.log(this.data.t)
+         if(right)
+           if(this.data.t=='今天'){
+             console.log(h, m)
+             console.log(hour, min)
              if(hour < h || (hour == h && min < m)){
                right = false
            wx.showModal({
@@ -132,8 +171,9 @@ Page({
          })
              }
            }
-       }
+       } else right=true;
        //选择2 3 开奖时间不对
+       if(right)
          if (this.data.index == 2 || this.data.index == 3) {
            if (!this.data.kpnum){
            wx.showModal({
@@ -142,10 +182,10 @@ Page({
            })
              right = false
            }
-         }
+         } else right=true;
          //这就对了
          var that=this
-         if(right)
+         if(right){
          wx.showModal({
            title: '确定开奖',
            content: '请确定这么开奖',
@@ -154,26 +194,32 @@ Page({
              if(res.confirm){
                console.log('dianji')
                wx.navigateTo({
-                 url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.date + '&hour=' + that.data.hour + '&min=' + that.data.min + '&kpnum=' + that.data.kpnum,
+                 url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum,
                })
              }
            }
          })
        }
-       else wx.showModal({
-         title: '信息有误',
-         content: '请仔细检查所填信息',
-       })
+
   },
   //奖品名字
   jpname:function(e){
-     this.setData({
-       jpname:e.detail.value
+    var that=this;
+    var index=e.target.dataset.index;
+    console.log(index);
+    var jpname=this.data.jpname;
+    jpname[index-1] = e.detail.value
+    console.log(jpname)
+     that.setData({
+       jpname:jpname
      })
   },
   jpnum: function (e) {
+    var index = e.target.dataset.index;
+    var jpnum=this.data.jpnum;
+    jpnum[index-1]=e.detail.value
     this.setData({
-      jpnum: e.detail.value
+      jpnum: jpnum
     })
   },
   kpnum: function (e) {
@@ -860,7 +906,9 @@ index: index
 
     var minute = that.data.multiArray[2][e.detail.value[2]];
 
-
+    this.setData({
+      t:monthDay
+    })
 
     if (monthDay === "今天") {
 
@@ -896,8 +944,10 @@ index: index
 
     that.setData({
 
-      startDate: startDate
-
+      startDate: startDate,
+      monthDay:monthDay,
+      hour:hours,
+      minute:minute
     })
 
   },
