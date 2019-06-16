@@ -12,6 +12,27 @@
 
 /*  */
 
+.lottery_list_1_wait {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20rpx;
+  font-size: 35rpx;
+}
+
+.lottery_list_3_wait {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: gray;
+  margin-left: 20rpx;
+  font-size: 25rpx;
+}
+
 .navbar {
   position: relative;
 }

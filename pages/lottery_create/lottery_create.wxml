@@ -27,11 +27,11 @@
       <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
     </view>
     
-    <view style='width:100%;margin-bottom:20rpx'>奖品：{{jpname}} x{{jpnum}} </view>
+    <view style='width:100%;' class='lottery_list_1_wait' >奖品：{{jpname}} X{{jpnum}} </view>
     
-    <view wx:if='{{index==1}}' style='width:100%;font-size:24rpx'>{{date}} {{hour}}:{{min}} 自动开奖</view>
-    <view wx:if='{{index==2}}' style='width:100%;font-size:24rpx'>3天内参与到达{{kpnum}}自动开奖</view>
-    <view wx:if='{{index==3}}' style='width:100%;font-size:24rpx'>参与者即开即中</view>
+    <view wx:if='{{index==1}}'class='lottery_list_3_wait' >{{date}} {{hour}}:{{min}} 自动开奖</view>
+    <view wx:if='{{index==2}}'class='lottery_list_3_wait' >3天内参与到达{{kpnum}}自动开奖</view>
+    <view wx:if='{{index==3}}' class='lottery_list_3_wait'>参与者即开即中</view>
     
   </view>
 
