@@ -1,1 +1,139 @@
-/* pages/addaddress/addaddress.wxss */
+/* pages/address/address.wxss */
+
+.item {
+  height: 150rpx;
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/*  */
+
+.navbar {
+  position: relative;
+
+}
+
+.back-icon, .home-icon {
+  width: 28px;
+  height: 100%;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  display: flex;
+  background: rgba(0, 0, 0, 0);
+}
+
+.back-icon {
+  left: 16px;
+}
+
+.home-icon {
+  left: 44px;
+}
+
+.back-icon image {
+  width: 18px;
+  height: 18px;
+  margin: auto;
+}
+
+.home-icon image {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+}
+
+.nav-title, .nav-icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  font-size: 0;
+  font-weight: 500;
+}
+
+.title_view {
+  width: 100%;
+  /* top: 0; */
+  z-index: 1;
+  position: fixed;
+  border-bottom: 1px solid rgba(187, 187, 187, 0.24);
+}
+
+
+.bottom_add{
+  position: absolute;
+  bottom:20rpx;
+  right: 20rpx;
+
+  height: 120rpx;
+  width: 120rpx;
+  background: rgba(228, 228, 228, 0.897);
+  border-radius: 100%;
+  color: rgba(199, 146, 31, 0.795);
+  font-size: 60rpx;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0.5rpx 0.5rpx rgba(226, 180, 82, 0.795);
+  
+}
+
+.new_address{
+  width: 90%;
+  margin: auto;
+  height: 500rpx;
+
+}
+
+.block{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+  width: 100%;
+  margin-top: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  font-size: 32rpx;
+}
+
+.left_view{
+  width: 30%;
+  height: 100%;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.right_view{
+   width: 70%;
+  height: 100%;
+    display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+
+.input_text{
+  font-size: 30rpx;
+
+}
+
+.save{
+  width: 200rpx;
+  /* height: 60rpx; */
+  /* border-radius: 30%; */
+  position: fixed;
+  bottom: 10rpx;
+  right: 275rpx;
+  /* padding: auto; */
+  font-size: 30rpx;
+}
