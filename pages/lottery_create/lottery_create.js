@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    height_screen: 0,
     top_height: 0,
     background: 'rgba(255, 255, 255, 1)',
     color: 'rgba(0, 0, 0, 1)',
@@ -21,7 +22,7 @@ Page({
     index: 1,//抽奖方式
     jpname: '',
     jpnum: 0,
-
+    animation:'',
     date: '',//日期
     hour: '',//小时
     min: '',//分钟
@@ -36,6 +37,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that =this
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.windowHeight)
+        that.setData({
+          height_screen: res.windowHeight
+        })
+      }
+    })
+
+
     this.setData({
       top_height: app.globalData.top_height
     })
@@ -51,12 +63,14 @@ Page({
       kpnum:options.kpnum
     })
     console.log(this.data.jpname)
+    this.lower()//动画
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.animation = wx.createAnimation()
 
   },
 
@@ -219,6 +233,27 @@ Page({
     this.setData({
       share_flag:true,
     })
-  }
+    this.translate()
+
+  },
+
+  translate: function () {
+    this.animation.translate(0, -115).step()
+    this.setData({ animation: this.animation.export() })
+  },
+
+
+
+  cancel_share:function(){
+    this.setData({
+      share_flag: false,
+    })
+    this.translate_no()
+  },
+
+  translate_no: function () {
+    this.animation.translate(0, 115).step()
+    this.setData({ animation: this.animation.export() })
+  },
 
 })
