@@ -17,22 +17,22 @@
 <view style='height: {{88}}px;'></view>
 <!-- <view style='height: {{top_height}}px;'></view> -->
 
-<scroll-view>
+<scroll-view  wx:if="{{!share_flag}}">
   <!-- <view class='width:100%;height:300rpx;'>
     <image src='/images/default-prize-pi@3x.png' style='height:165px;width:100%;'></image>
   </view> -->
-    
+
   <view class='lottery_list_wait'>
     <view>
       <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
     </view>
-    
-    <view style='width:100%;' class='lottery_list_1_wait' >奖品：{{jpname}} X{{jpnum}} </view>
-    
-    <view wx:if='{{index==1}}'class='lottery_list_3_wait' >{{date}} {{hour}}:{{min}} 自动开奖</view>
-    <view wx:if='{{index==2}}'class='lottery_list_3_wait' >3天内参与到达{{kpnum}}自动开奖</view>
+
+    <view style='width:100%;' class='lottery_list_1_wait'>奖品：{{jpname}} X{{jpnum}} </view>
+
+    <view wx:if='{{index==1}}' class='lottery_list_3_wait'>{{date}} {{hour}}:{{min}} 自动开奖</view>
+    <view wx:if='{{index==2}}' class='lottery_list_3_wait'>3天内参与到达{{kpnum}}自动开奖</view>
     <view wx:if='{{index==3}}' class='lottery_list_3_wait'>参与者即开即中</view>
-    
+
   </view>
 
   <view class='host'>
@@ -72,7 +72,7 @@
   </view>
 
   <view class='bottom_text'>意见反馈 | 免责声明 | 我要投诉</view>
-
+  <view class='bottom_text'></view>
 
 </scroll-view>
 
@@ -86,19 +86,18 @@
   <button class='btn_1_1' bindtap='share_lottery'>分享该抽奖</button>
 </view>
 
-<view class='share_view' wx:if="{{share_flag}}">
+<scroll-view class='share_view' wx:if="{{share_flag}}" style='height:{{height_screen+100}}px'>
   <view style='height: {{88}}px;'></view>
   <!-- 配置 自定义的title -->
-
   <!-- <view style='height: {{top_height}}px;'></view> -->
-  <scroll-view class='canvas_view'>
+  <scroll-view class='canvas_view' style='height:{{  500}}px'>
     <view class='host_picture_1'>
       <image src='/images/icn-result-regret@3x.png' style='height:100rpx;width:100rpx;'></image>
     </view>
     <view class=' pic_user_name'>li.kun</view>
     <view class='pic_text_1'>发起了一个抽奖活动</view>
 
-    <view class='lottery_list_wait' style='width:88%;'>
+    <view class='lottery_list_share' style='width:88%;'>
       <view>
         <image src='/images/default-prize@3x.jpg' style='height:220rpx;' class='lottery_list_wait_img'></image>
       </view>
@@ -113,17 +112,20 @@
       </view>
 
       <view class='wxSmallCode_view'>
-
         <image src='/images/lottery_new_checked@3x.png' class='wxSmallCode'></image>
       </view>
 
       <view class='wxSmallCode_text'>长按小程序码，参与抽奖</view>
     </view>
 
-    <view style='height:1000rpx;width:100%;background:black;margin-top:20rpx;'></view>
+    <!-- <view style='height:200rpx;width:100%;background:black;margin-top:20rpx;'></view> -->
+
+
   </scroll-view>
 
-  <view class='share_to'>
+
+
+  <view class='share_to' animation="{{animation}}">
     <view class='share_to_list'>
       <image src='/images/icn-zu@3x.png' class='share_to_list_img'></image>
       <image src='/images/icn-zu@3x.png' class='share_to_list_img'></image>
@@ -131,10 +133,11 @@
     </view>
     <view class='share_to_list_text_view'>
       <view class='share_to_list_text'>分享给好友</view>
-      <view  class='share_to_list_text'>分享给好友</view>
-      <view  class='share_to_list_text'>分享给好友</view>
+      <view class='share_to_list_text'>分享给好友</view>
+      <view class='share_to_list_text'>分享给好友</view>
     </view>
-    <view class='cancel_text'>取消</view>
+    <view class='cancel_text' bindtap='cancel_share'>取消</view>
   </view>
 
-</view>
+
+</scroll-view>
