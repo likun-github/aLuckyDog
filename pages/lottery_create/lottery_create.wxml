@@ -21,18 +21,19 @@
   <!-- <view class='width:100%;height:300rpx;'>
     <image src='/images/default-prize-pi@3x.png' style='height:165px;width:100%;'></image>
   </view> -->
-
+    
   <view class='lottery_list_wait'>
     <view>
       <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
     </view>
-
-    <view class='lottery_list_1'>奖品：数字棋盘 x1 </view>
-
-    <view class='lottery_list_3'>06月14日 16:32 自动开奖</view>
+    
+    <view style='width:100%;margin-bottom:20rpx'>奖品：数字棋盘 x1 </view>
+    
+    <view style='width:100%;font-size:24rpx'>06月14日 16:32 自动开奖</view>
+    
   </view>
 
-  <view class='seperator5'></view>
+  <!-- <view class='seperator5'></view> -->
 
   <view class='host'>
     <view class='host_text'>抽奖发起人</view>
