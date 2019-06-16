@@ -7,8 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    s:1,
+    np:'奖品名称',
     datem:'',
-   image:['../../static/1.jpg'],
+    image1:['../../static/1.jpg'],
+    image2: ['../../static/1.jpg'],
+    image3: ['../../static/1.jpg'],
     z:'开奖时间',
     status: 0,
     navHeight: 0,
@@ -44,6 +48,9 @@ Page({
     dindex:0,
 //数据统计
    
+    image1: ['../../static/1.jpg'],
+    image2: ['../../static/1.jpg'],
+    image3: ['../../static/1.jpg'],
     title:1,//抽奖编号
     jpname:'',
     jpnum:0,
@@ -60,6 +67,31 @@ Page({
     //index=2||index=3
     kpnum:0,//开奖人数||最多抽奖人数
   },
+  add:function(){
+    var s=this.data.s;
+    s++;
+    if(s<=3){
+      this.setData({
+        s:s,
+        np:'一等奖名称'
+      })
+    }
+  },
+  cancel:function(){
+    var s = this.data.s;
+    s--;
+    if (s >= 0) {
+      this.setData({
+        s: s,
+      })
+    }
+    if (s == 0) {
+      this.setData({
+        np:'奖品名称'
+      })
+    }
+  }
+  ,
   //发起抽奖
   start:function(){
     var h = util.h(new Date());
@@ -261,7 +293,7 @@ index: index
     })
     console.log(that.data.status, that.data.navHeight)
   },
-  choosepic: function () {
+  choosepic1: function () {
     var that = this;
 
     wx.chooseImage({
@@ -274,16 +306,67 @@ index: index
           duration: 1000
         }) 
         var tempFilePaths =res.tempFilePaths;
-        console.log(tempFilePaths);
-        var image = that.data.image;
+
+        var image = that.data.image1;
         image.splice(0, 1);
         that.setData({
-          image: image
+          image1: image
         })
         that.setData({
-          image: that.data.image.concat(tempFilePaths),
+          image1: that.data.image1.concat(tempFilePaths),
         });
-        console.log(that.data.image)
+      }
+    })
+  },
+  choosepic2: function () {
+    var that = this;
+
+    wx.chooseImage({
+      count: 1,
+      success: function (res) {
+        wx.showToast({
+          title: '正在上传...',
+          icon: 'loading',
+          mask: true,
+          duration: 1000
+        })
+        var tempFilePaths = res.tempFilePaths;
+  
+        var image = that.data.image2;
+        image.splice(0, 1);
+        that.setData({
+          image2: image
+        })
+        that.setData({
+          image2: that.data.image2.concat(tempFilePaths),
+        });
+
+      }
+    })
+  },
+  choosepic3: function () {
+    var that = this;
+
+    wx.chooseImage({
+      count: 1,
+      success: function (res) {
+        wx.showToast({
+          title: '正在上传...',
+          icon: 'loading',
+          mask: true,
+          duration: 1000
+        })
+        var tempFilePaths = res.tempFilePaths;
+
+        var image = that.data.image3;
+        image.splice(0, 1);
+        that.setData({
+          image3: image
+        })
+        that.setData({
+          image3: that.data.image3.concat(tempFilePaths),
+        });
+        
       }
     })
   },
