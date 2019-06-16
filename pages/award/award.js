@@ -43,6 +43,8 @@ Page({
     imin:0,
     dindex:0,
 //数据统计
+   
+    title:1,//抽奖编号
     jpname:'',
     jpnum:0,
     index: 1,//开奖条件三个
@@ -57,7 +59,6 @@ Page({
     
     //index=2||index=3
     kpnum:0,//开奖人数||最多抽奖人数
-    
   },
   //发起抽奖
   start:function(){
@@ -100,15 +101,17 @@ Page({
            }
          }
          //这就对了
+         var that=this
          if(right)
          wx.showModal({
            title: '确定开奖',
            content: '请确定这么开奖',
+          //  & jpnum=this.data.jpnum & date=this.data.date & hour=this.data.hour & min=this.data.min & kpnum=this.data.kpnum
            success(res){
              if(res.confirm){
                console.log('dianji')
                wx.navigateTo({
-                 url: '/pages/lottery_create/lottery_create',
+                 url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.date + '&hour=' + that.data.hour + '&min=' + that.data.min + '&kpnum=' + that.data.kpnum,
                })
              }
            }
@@ -179,16 +182,16 @@ Page({
     var date1 = this.data.date
    date1 = date[0].time + ' ' + date[0].week
         if (this.data.date == date1) this.setData({
- today: '今天'
+  today: '今天'
           })
           else this.setData({
- today: ""
+  today: ""
             })
           },
   hourf: function (e) {
       var c = e.detail.current + 1;
       this.setData({
- hour: this.data.date2[c]
+  hour: this.data.date2[c]
         })
   },
   minf: function (e) {

@@ -27,13 +27,13 @@
       <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
     </view>
     
-    <view style='width:100%;margin-bottom:20rpx'>奖品：数字棋盘 x1 </view>
+    <view style='width:100%;margin-bottom:20rpx'>奖品：{{jpname}} x{{jpnum}} </view>
     
-    <view style='width:100%;font-size:24rpx'>06月14日 16:32 自动开奖</view>
+    <view wx:if='{{index==1}}' style='width:100%;font-size:24rpx'>{{date}} {{hour}}:{{min}} 自动开奖</view>
+    <view wx:if='{{index==2}}' style='width:100%;font-size:24rpx'>3天内参与到达{{kpnum}}自动开奖</view>
+    <view wx:if='{{index==3}}' style='width:100%;font-size:24rpx'>参与者即开即中</view>
     
   </view>
-
-  <!-- <view class='seperator5'></view> -->
 
   <view class='host'>
     <view class='host_text'>抽奖发起人</view>
@@ -44,7 +44,6 @@
   </view>
 
   <view style='height:30rpx;width:100%;background:#f0f0f0;'></view>
-
   <view class='Everday_Lottery_view'>
     <view>
       <image class=' toast_view_1_img' src='/images/yinghao.svg' mode='aspectFill'></image>

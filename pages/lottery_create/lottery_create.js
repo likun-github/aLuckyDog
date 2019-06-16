@@ -17,6 +17,19 @@ Page({
     iconWidth: 58,
     could_join: true,
     share_flag:false,
+
+    index: 1,//抽奖方式
+    jpname: '',
+    jpnum: 0,
+
+    date: '',//日期
+    hour: '',//小时
+    min: '',//分钟
+    kpnum:0,//开奖人数||最多抽奖人数
+      },
+
+        /**
+           * 生命周期函数--监听页面加载
   },
 
   /**
@@ -28,6 +41,16 @@ Page({
     })
     this.attached()
     wx.hideShareMenu();
+    this.setData({
+      index:options.index,
+      jpname:options.jpname,
+      jpnum:options.jpnum,
+      date:options.date,
+      hour:options.hour,
+      min:options.min,
+      kpnum:options.kpnum
+    })
+    console.log(this.data.jpname)
   },
 
   /**
