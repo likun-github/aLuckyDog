@@ -25,4 +25,4 @@
   <view style='font-size:28rpx;color:gray;margin-top:10rpx;'>湖北省 武汉市 武昌区 梅园六舍</view>
 </view>
 
-<view class='bottom_add'>添</view>
+<view class='bottom_add' bindtap='add_address'>添</view>

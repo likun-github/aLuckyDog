@@ -132,4 +132,11 @@ Page({
     that.setNavSize();
     that.setStyle();
   },
+
+
+  add_address:function(){
+    wx.navigateTo({
+      url: '/pages/addaddress/addaddress',
+    })
+  }
 })
