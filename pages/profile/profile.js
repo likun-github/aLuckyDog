@@ -109,6 +109,13 @@ Page({
     wx.navigateTo({
       url: '/pages/more/more',
     })
+  },
+
+
+  common_question:function(){
+    wx.navigateTo({
+      url: '/pages/question/question',
+    })
   }
 
 })

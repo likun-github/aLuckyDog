@@ -31,7 +31,7 @@
   </view>
 </view>
 
-<view class='line1'></view>
+<!-- <view class='line1'></view>
 
 <view class='column'>
   <view class='column_icon_1'>
@@ -42,4 +42,4 @@
   <view class='column_icon_2'>
     <image class='user_info_money_img' src='/images/kuohu.svg'></image>
   </view>
-</view>
+</view> -->

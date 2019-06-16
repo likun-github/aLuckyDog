@@ -205,6 +205,6 @@
 
 .adopt_bottom{
   height: 120rpx;
-  background: rgb(255, 255, 255);
+  background: #f0f0f0;
   width: 100%;
 }
