@@ -11,7 +11,7 @@
 <view wx:if="{{pages_index==1}}">
   <scroll-view scroll-y='true'>
 
-    <view class='heart_view' bindtap='aspiration'>
+    <!-- <view class='heart_view' bindtap='aspiration'>
       <view class='heart_view_1'>
         <view>
           <image src='/images/realtime-icon-small@3x.png' class='img_heart_view'></image>
@@ -30,14 +30,14 @@
 
     </view>
 
-    <view class='separator'></view>
+    <view class='separator'></view> -->
 
     <view class='everyday_view'>
       <view class='everyday_view_1'>每日福利</view>
       <view class='everyday_view_2'>
-        <text decode="{{true}}">我要上首页&nbsp;&nbsp;&nbsp;</text>
+        <!-- <text decode="{{true}}">我要上首页&nbsp;&nbsp;&nbsp;</text>
         <text decode="{{true}}">|&nbsp;&nbsp;&nbsp;</text>
-        <text>分享</text>
+        <text>分享</text> -->
       </view>
     </view>
 

@@ -205,6 +205,13 @@
 
 .adopt_bottom{
   height: 120rpx;
-  background: rgb(255, 255, 255);
+  background: #f0f0f0;
   width: 100%;
+}
+
+.public_toBottom
+{
+  position: fixed;
+  bottom: 200rpx;
+  right: 189.5rpx;
 }

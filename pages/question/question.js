@@ -6,15 +6,38 @@ Page({
    */
   data: {
     top_height: 0,
-    background:'rgba(255, 255, 255, 1)',
+    background: 'rgba(255, 255, 255, 1)',
     color: 'rgba(0, 0, 0, 1)',
-    titleText:'导航栏',
+    titleText: '导航栏',
     titleImg: '',
     backIcon: '',
-    homeIcon:'',
+    homeIcon: '',
     fontSize: 16,
-    iconHeight:19,
+    iconHeight: 19,
     iconWidth: 58,
+    ask_answer:[
+      {
+        ask:'如何让发起的抽奖展示在首页？',
+        answer: '请关注公众号 《活动抽奖》，点击底部菜单栏[自助首页]，购买后可自助.上首页。如有疑问，或需上首页「推荐福利」，请联系商务人员。',
+        look:false,
+      }, 
+      {
+        ask: '如何让发起的抽奖展示在首页？',
+        answer: '请关注公众号 《活动抽奖》，点击底部菜单栏[自助首页]，购买后可自助.上首页。如有疑问，或需上首页「推荐福利」，请联系商务人员。',
+        look: false,
+      },
+      {
+        ask: '如何让发起的抽奖展示在首页？',
+        answer: '请关注公众号 《活动抽奖》，点击底部菜单栏[自助首页]，购买后可自助.上首页。如有疑问，或需上首页「推荐福利」，请联系商务人员。',
+        look: false,
+      },
+      {
+        ask: '如何让发起的抽奖展示在首页？',
+        answer: '请关注公众号 《活动抽奖》，点击底部菜单栏[自助首页]，购买后可自助.上首页。如有疑问，或需上首页「推荐福利」，请联系商务人员。',
+        look: false,
+      },
+    
+    ]
   },
 
   /**
@@ -133,10 +156,13 @@ Page({
     that.setStyle();
   },
 
-
-  add_address:function(){
-    wx.navigateTo({
-      url: '/pages/addaddress/addaddress',
+  show_answer:function(res){
+    console.log(res.currentTarget.dataset.index)
+    var index = res.currentTarget.dataset.index
+    let temp = this.data.ask_answer
+    temp[index].look = !temp[index].look
+    this.setData({
+      ask_answer:temp
     })
   }
 })
