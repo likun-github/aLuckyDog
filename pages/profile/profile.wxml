@@ -11,6 +11,7 @@
 
   <view class='separator1'></view>
 
+  <!-- <view class='user_info' bindtap='aspiration'> -->
   <view class='user_info' bindtap='aspiration'>
     <view class='user_info_img_view'>
       <image src='/images/559-3@3x.png' class='user_info_img'></image>
@@ -18,8 +19,9 @@
     <view class='user_info_name_view'> li.kun</view>
 
     <view class='user_info_money_view'>
-      <text class='user_info_money_text'>心愿 4</text>
-      <image class='user_info_money_img' src='/images/kuohu.svg'></image>
+      <!-- <text class='user_info_money_text'>心愿 4</text> -->
+      <text class='user_info_money_text'></text>
+      <!-- <image class='user_info_money_img' src='/images/kuohu.svg'></image> -->
     </view>
   </view>
 
@@ -49,7 +51,7 @@
 
   <view class='column_view_1'>
 
-  <!-- <view class='column' bindtap='go_to_selfpage'>
+    <!-- <view class='column' bindtap='go_to_selfpage'>
       <view class='column_icon_1'>
         <image class='column_icon_1_img' src='/images/icn-question@3x.png'></image>
       </view>
@@ -70,7 +72,7 @@
         <image class='user_info_money_img' src='/images/kuohu.svg'></image>
       </view>
     </view> -->
-   
+
     <!-- <view class='line1'></view> -->
 
     <!-- <view class='column'>
@@ -101,30 +103,30 @@
 
     <view class='line1'></view>
 
-   <view class='column' bindtap='address'>
-  <view class='column_icon_1'>
-    <image class='column_icon_1_img' src='/images/icn-question@3x.png'></image>
-  </view>
-  <view class='column_text_1'>收获地址</view>
-  <view class='column_text_2'></view>
-  <view class='column_icon_2'>
-    <image class='user_info_money_img' src='/images/kuohu.svg'></image>
-  </view>
-</view>
+    <view class='column' bindtap='address'>
+      <view class='column_icon_1'>
+        <image class='column_icon_1_img' src='/images/icn-question@3x.png'></image>
+      </view>
+      <view class='column_text_1'>收获地址</view>
+      <view class='column_text_2'></view>
+      <view class='column_icon_2'>
+        <image class='user_info_money_img' src='/images/kuohu.svg'></image>
+      </view>
+    </view>
 
-<view class='line1'></view>
+    <view class='line1'></view>
 
-<view class='column'>
-  <view class='column_icon_1'>
-    <image class='column_icon_1_img' src='/images/icn-mini-program@3x.png'></image>
-  </view>
-  <view class='column_text_1'>投诉管理</view>
-  <view class='column_text_2'></view>
-  <view class='column_icon_2'>
-    <image class='user_info_money_img' src='/images/kuohu.svg'></image>
-  </view>
-</view>
-    
+    <view class='column'>
+      <view class='column_icon_1'>
+        <image class='column_icon_1_img' src='/images/icn-mini-program@3x.png'></image>
+      </view>
+      <view class='column_text_1'>投诉管理</view>
+      <view class='column_text_2'></view>
+      <view class='column_icon_2'>
+        <image class='user_info_money_img' src='/images/kuohu.svg'></image>
+      </view>
+    </view>
+
 
 
   </view>
@@ -215,14 +217,17 @@
       </view>
     </view>
   </view> -->
-
-
-  <view class='public'>
-    <view class='public_text1'>
-      — 珞云顶科技出品 —
+  
+  <view class='public_toBottom'>
+    <view class='public'>
+      <view class='public_text1'>
+        — 珞云顶科技出品 —
+      </view>
+      <view class='public_text2'>抽奖超过 913,000,000,000 人次</view>
     </view>
-    <view class='public_text2'>抽奖超过 913,000,000,000 人次</view>
   </view>
+
+
 
   <view class='adopt_bottom'></view>
 </scroll-view>

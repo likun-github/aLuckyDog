@@ -15,12 +15,15 @@ Page({
     fontSize: 16,
     iconHeight: 19,
     iconWidth: 58,
+    user_name:'',
+    user_tel:'',
+    user_address:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData({
       top_height: app.globalData.top_height
     })
@@ -31,53 +34,53 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
   // 返回事件
-  back: function () {
+  back: function() {
     wx.navigateBack({
       delta: 1
     })
@@ -88,7 +91,7 @@ Page({
   },
 
 
-  setNavSize: function () {
+  setNavSize: function() {
     var that = this,
       sysinfo = wx.getSystemInfoSync(),
       statusHeight = sysinfo.statusBarHeight,
@@ -106,7 +109,7 @@ Page({
   },
 
 
-  setStyle: function () {
+  setStyle: function() {
     var that = this,
       containerStyle, textStyle, iconStyle;
     containerStyle = [
@@ -127,12 +130,69 @@ Page({
     })
   },
 
-  attached: function () {
+  attached: function() {
     var that = this;
     that.setNavSize();
     that.setStyle();
   },
 
 
- 
+  validatemobile: function() {
+    var mobile = this.data.user_tel
+    if (mobile.length == 0) {
+      wx.showToast({
+        title: '请输入手机号！',
+        icon: 'fail',
+        duration: 1500
+      })
+      return false;
+    }
+    if (mobile.length != 11) {
+      wx.showToast({
+        title: '手机号长度有误！',
+        icon: 'fail',
+        duration: 1500
+      })
+      return false;
+    }
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    if (!myreg.test(mobile)) {
+      wx.showToast({
+        title: '手机号有误！',
+        icon: 'fail',
+        duration: 1500
+      })
+      return false;
+    }
+    return true;
+  },
+
+
+  bindReplaceInput1: function(e) {
+    var value = e.detail.value
+    console.log(value)
+    this.setData({
+      user_name: value
+    })
+  },
+
+  bindReplaceInput2: function(e) {
+    var value = e.detail.value
+    console.log(value)
+    this.setData({
+      user_tel: value
+    })
+  },
+
+  bindReplaceInput3: function(e) {
+    var value = e.detail.value
+    console.log(value)
+    this.setData({
+      user_address: value
+    })
+  },
+
+
+
+
 })

@@ -23,20 +23,20 @@
 <view class='new_address'>
   <view class='block'>
     <view class='left_view'>收货人</view>
-    <input class='right_view' placeholder='姓名'></input>
+    <input  bindinput="bindReplaceInput1"  class='right_view' placeholder='姓名'></input>
   </view>
 
   <view class='block'>
     <view class='left_view'>手机号</view>
-    <input class='right_view' placeholder='11位手机号'></input>
+    <input  bindinput="bindReplaceInput2" class='right_view' placeholder='11位手机号' type='number'></input>
   </view>
 
   <view class='block'>
     <view class='left_view'>收件地</view>
-    <input class='right_view' placeholder='收件地址' placeholder-class='input_text'></input>
+    <input bindinput="bindReplaceInput3" class='right_view' placeholder='收件地址' placeholder-class='input_text'></input>
   </view>
  
 </view>
 
-<button class='save'>保存</button>
+<button class='save' bindtap='validatemobile' >保存</button>
 <!-- <view class='bottom_add' bindtap='add_address'>添</view> -->
