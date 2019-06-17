@@ -3,9 +3,22 @@ App({
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
+    var that =this
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    wx.getStorage({
+      key: "information",
+      success:function(res){
+        console.log("information",res.data)
+        that.globalData.userid = res.data.userid
+        that.globalData.name = res.data.name
+        that.globalData.avatarUrl = res.data.avatarUrl
+        that.globalData.nickname = res.data.nickname
+        that.globalData.teamname = res.data.teamname
+        that.globalData.account = res.data.account
+       
+      }
+    })
     // 登录
     wx.login({
       success: res => {
@@ -35,6 +48,44 @@ App({
   },
 
   
+  getuserinformation: function () {
+    var information = wx.getStorageSync('information')
+
+    if (information) {
+      this.globalData.login = true;
+      //   this.setData({
+      //     hq: false,
+      //   })
+      // } else {
+      //   wx.hideTabBar({})
+    }
+    else {
+      this.globalData.login = false;
+    }
+    if (information.status == 2) {
+
+      this.globalData.nickname = information.nickname;
+      this.globalData.avatarUrl = information.avatarUrl;
+
+
+      this.globalData.status = information.status;
+      this.globalData.userid = information.userid;
+      this.globalData.name = information.name;
+
+      this.globalData.time = information.number;
+      this.globalData.teamname = information.teamname;
+      this.globalData.account = information.account;
+
+    }
+    else {
+      this.globalData.status = information.status;
+      this.globalData.userid = information.userid;
+      this.globalData.avatarUrl = information.avatarUrl;
+      this.globalData.nickname = information.nickname;
+
+
+    }
+  },
 
 
 
@@ -42,8 +93,26 @@ App({
   globalData: {
     userInfo: null,
     top_height:0,
-    page_index:1,
-    page_old_index:1,
-    
+ 
+    login: '',
+    userid: '',
+    nickname: '',
+    avatarUrl: '',
+    gender: 0,
+
+    account: '',
+    name: '',
+
+    time: '',
+    status: '',
+    time: '',
+
+    height: '',
+
+    country: '',
+    city: '',
+    province: '',
+    language: "zh_CN",
+
   }
 })

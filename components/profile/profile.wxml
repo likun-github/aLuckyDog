@@ -12,11 +12,11 @@
   <view class='separator1'></view>
 
   <!-- <view class='user_info' bindtap='aspiration'> -->
-  <view class='user_info' bindtap='aspiration'>
+  <view class='user_info' >
     <view class='user_info_img_view'>
-      <image src='/images/559-3@3x.png' class='user_info_img'></image>
+      <image src='{{avatarUrl}}' class='user_info_img'></image>
     </view>
-    <view class='user_info_name_view'> li.kun</view>
+    <view class='user_info_name_view'>{{nickname}}</view>
 
     <view class='user_info_money_view'>
       <!-- <text class='user_info_money_text'>心愿 4</text> -->

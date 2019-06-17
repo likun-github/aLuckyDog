@@ -127,3 +127,22 @@
       <template is="nav" data="{{...item}}"/>
   </block>
   </view> 
+
+
+
+  <!-- <view class="container">
+ 3   <view class="userinfo">
+ 4     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+ 5
+ 6       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+ 7       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+ 
+ 9   </view>
+10   <view class="usermotto">
+11     <text class="user-motto">{{motto}}</text>
+12   </view>
+13   <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+14 </view> -->
+
+
+<shouquan></shouquan>
