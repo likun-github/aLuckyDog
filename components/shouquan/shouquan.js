@@ -39,6 +39,7 @@ Component({
       if (e.detail.errMsg) {
         app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
         app.globalData.nickname = e.detail.userInfo.nickName;
+        app.globalData.gender=e.detail.userInfo.gender;
         var that = this
         wx.login({
           success: res => {

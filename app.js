@@ -21,7 +21,7 @@ App({
 
 
   globalData: {
-    url: 'http://1397608894-qq.vicp.io:42685/lottery/',
+    url: 'http://25t2f65842.wicp.vip:19785/lottery/',
     userInfo: null,
     top_height:0,
  
@@ -29,6 +29,7 @@ App({
     nickname: '',
     avatarUrl: '',
     status:'',
+    gender:'',
 
     height: '',
 
