@@ -48,7 +48,7 @@
 }
 .c{
   font-size: 28rpx;
-  margin-left: 20rpx;
+  
 }
 .contaner {
   width: 100%;
@@ -60,6 +60,8 @@
   height: 100%;
   margin-left: -20rpx;
   width: 300rpx;
+  text-align: right;
+  margin-right: 40rpx;
 }
 .textArea{
   height: 400rpx;
