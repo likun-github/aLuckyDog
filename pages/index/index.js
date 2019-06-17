@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+var common = require("../../common/common.js")
 Page({
   data: {
     status: 0,

@@ -91,7 +91,35 @@ Component({
       avatarUrl: app.globalData.avatarUrl,
       nickname: app.globalData.nickname,
     })
-  }
+
+    wx.showLoading({
+      title: '加载中',
+    })
+  
+
+    wx.request({
+      url: app.globalData.url+'mysaward',
+      method: 'get',
+      data: {
+        userid: 1
+      },
+      success: function (res) {
+        wx.hideLoading();
+        return typeof cb == "function" && cb(res.data)
+      },
+      fail: function () {
+        wx.hideLoading();
+        wx.showModal({
+          title: '网络错误',
+          content: '网络出错，请刷新重试',
+          showCancel: false
+        })
+        return typeof cb == "function" && cb(false)
+      }
+    })
+
+   
+  },
 
 })
 

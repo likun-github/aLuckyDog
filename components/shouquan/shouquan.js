@@ -51,7 +51,7 @@ Component({
           success: res => {
             console.log("微信小程序用户登录：", res)
             wx.request({
-              url: 'https://xiaoyibang.top:8001/dajia/login',
+              url: app.globalData.url+'login',
               data: {
                 'nickname': app.globalData.nickname,
                 'gender': app.globalData.gender,
