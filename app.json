@@ -12,7 +12,6 @@
     "pages/lottery_view_2/lottery_view_2",
     "pages/lottery_view_3/lottery_view_3",
     "pages/remainder_money/remainder_money",
-    "pages/address/address",
     "pages/joinaward/joinaward"
   ],
   "window": {
