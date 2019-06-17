@@ -106,7 +106,7 @@ Component({
       url: app.globalData.url+'mysaward',
       method: 'get',
       data: {
-        userid: 1
+        userid: app.globalData.userid
       },
       success: function (res) {
         wx.hideLoading();
