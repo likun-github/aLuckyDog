@@ -5,30 +5,30 @@
   back-icon="/images/back@3x.png"
     bindback="back"/>
     <view class='contaner' style='top:{{status + navHeight}}px'>
-    <view style='width:100%;height:80rpx;background:rgba(80,80,80,0.1);font-size:28rpx;line-height:80rpx;padding-left:30rpx;'>设置奖项</view>
+    <view style='width:100%;height:80rpx;color:rgb(100,100,100);background:rgba(240,240,240,1);font-size:24rpx;line-height:80rpx;padding-left:25rpx;'>设置奖项</view>
 
     <view wx:if="{{s>=1}}">
     <view class='pic'>
     <image src="{{image1}}" mode="aspectFill"style='width:100%;height:100%' />
-    <view class='addIcon' bindtap="choosepic1" style='background:white'>
+    <view class='addIcon' bindtap="choosepic1" style='background:white;'>
    上传奖品照片
     </view>
     </view>
 
 <view style='width:100%;height:100rpx;display:flex;flex-direction:row'>
-  <text class='input11'>{{np}}</text>
+  <text class='input11'style='margin-left:25rpx;'>{{np}}</text>
   <input class="input1" bindinput='jpname' placeholder='请输入{{np}}'data-index='1' placeholder-class='c'></input>
 </view>
-<view style='width:95%;height:1px;background:rgba(80,80,80,0.3);margin-left:5%'></view>
+<view style='width:725rpx;height:1px;background:rgba(80,80,80,0.3);margin-left:25rpx'></view>
 <view style='width:100%;height:100rpx;display:flex;flex-direction:row'>
-  <text class='input11'style='margin-right:200rpx'>奖品份数</text>
+  <text class='input11'style='margin-right:200rpx;margin-left:25rpx;'>奖品份数</text>
   <input class="input1"style='width:100rpx' bindinput='jpnum' data-index='1'  placeholder-class='c' type='number' placeholder='份数'></input>
    <text class='input11' style='width:100rpx'>份</text>
   </view>
 </view>
 
 <view wx:if="{{s>=2}}">
- <view style='width:100%;height:80rpx;background:rgba(80,80,80,0.1);font-size:28rpx;line-height:80rpx;padding-left:30rpx;'>设置奖项</view>
+ <view style='width:100%;height:80rpx;color:rgb(100,100,100);background:rgba(240,240,240,1);font-size:24rpx;line-height:80rpx;padding-left:25rpx;'>设置奖项</view>
   <view class='pic'>
     <image src="{{image2}}" mode="aspectFill"style='width:100%;height:100%' />
 
@@ -44,14 +44,14 @@
 </view>
 <view style='width:95%;height:1px;background:rgba(80,80,80,0.3);margin-left:5%'></view>
 <view style='width:100%;height:100rpx;display:flex;flex-direction:row'>
-  <text class='input11'style='margin-right:200rpx'>奖品份数</text>
+  <text class='input11'style='margin-right:200rpx;margin-left:100rpx;'>奖品份数</text>
   <input class="input1"style='width:100rpx' data-index='2' bindinput='jpnum'   placeholder-class='c' type='number' placeholder='份数'></input>
    <text class='input11' style='width:100rpx'>份</text>
   </view>
 </view>
 
 <view wx:if="{{s>=3}}">
- <view style='width:100%;height:80rpx;background:rgba(80,80,80,0.1);font-size:28rpx;line-height:80rpx;padding-left:30rpx;'>设置奖项</view>
+  <view style='width:100%;height:80rpx;color:rgb(100,100,100);background:rgba(240,240,240,1);font-size:24rpx;line-height:80rpx;padding-left:25rpx;'>设置奖项</view>
   <view class='pic'>
     <image src="{{image3}}" mode="aspectFill"style='width:100%;height:100%' />
 
@@ -67,18 +67,18 @@
 </view>
 <view style='width:95%;height:1px;background:rgba(80,80,80,0.3);margin-left:5%'></view>
 <view style='width:100%;height:100rpx;display:flex;flex-direction:row'>
-  <text class='input11'style='margin-right:200rpx'>奖品份数</text>
+  <text class='input11'style='margin-right:200rpx;margin-left:100rpx;'>奖品份数</text>
   <input class="input1"style='width:100rpx'data-index='3' bindinput='jpnum'   placeholder-class='c' type='number' placeholder='份数'></input>
    <text class='input11' style='width:100rpx'>份</text>
   </view>
 </view>
 
-<view style='width:100%;height:70rpx;border-top:1px solid rgba(80,80,80,0.3);font-size:30rpx;text-align:center;line-height:70rpx;color:blue' bindtap='add'>+添加奖品</view>
+<view style='width:100%;height:70rpx;border-top:1px solid rgba(80,80,80,0.3);font-size:24rpx;text-align:center;line-height:70rpx;color:rgb(107,170,223)' bindtap='add'>+ 添加奖品</view>
 
 
-<view style='width:100%;height:100rpx;display:flex;flex-direction:row;background:rgba(80,80,80,0.1)'>
-  <text class='input11' style='font-size:28rpx'>{{methord}}</text>
-    <view class='input1' bindtap='showModal' style='margin-top:30rpx;font-size:28rpx;color:blue'>修改开奖条件 ></view>
+<view style='width:100%;height:80rpx;display:flex;flex-direction:row;background:rgba(80,80,80,0.1)'>
+  <text class='input11' style='font-size:24rpx;color:rgb(100,100,100);line-height:80rpx;'>{{methord}}</text>
+    <view class='input1' bindtap='showModal' style='font-size:24rpx;color:rgb(107,170,223);line-height:80rpx;'>修改开奖条件 ></view>
 <!--弹框-->
 <view class='maskLayer' wx:if="{{showModalStatus}}">
 <view bindtap='hideModal' style='width:100%;height:100%;position:absolute;top:0;left:0'></view>
@@ -118,12 +118,12 @@
 </view>
 <view wx:if="{{index==1||index==3}}"  style='width:100%;height:auto;display:flex;flex-direction:row'>
   <text class='input11'>{{z}}</text>
-  <picker class='input1' style='margin-top:30rpx;font-size:28rpx;' mode="multiSelector" bindchange="bindStartMultiPickerChange" bindtap='pickerTap' bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">{{startDate}}</picker>
+  <picker class='input1' style='margin-top:30rpx;font-size:28rpx;color:rgb(100,100,100)' mode="multiSelector" bindchange="bindStartMultiPickerChange" bindtap='pickerTap' bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">{{startDate}} ></picker>
 </view>
-  <view style='width:100%;height:100rpx;display:flex;flex-direction:row;background:rgba(80,80,80,0.1)' >
-  <text class='input11' style='margin-right:400rpx'>抽奖说明</text>
-  <text class='input11'style='float:left'>选填</text>
-</view>
+<view style='width:100%;height:80rpx;display:flex;flex-direction:row;background:rgba(80,80,80,0.1)'>
+  <text class='input11' style='font-size:24rpx;color:rgb(100,100,100);line-height:80rpx;'>抽奖说明</text>
+    <view class='input1' bindtap='showModal' style='font-size:24rpx;color:rgb(100,100,100);line-height:80rpx;'>选填</view>
+    </view>
  <textarea class="textArea" bindinput='jpms' placeholder='请输入奖品说明' placeholder-class='c' type='number'></textarea>
     </view>
   <view class='tab' style='z-index:10'>

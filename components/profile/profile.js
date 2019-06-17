@@ -20,6 +20,8 @@ Component({
     create_lottery:[],
     all_lottery_length:0,
     create_lottery_length:0,
+    bingo_lottery_record:[],
+    bingo_lottery_record_length:0,
   },
 
   /**
@@ -119,7 +121,7 @@ Component({
       url: app.globalData.url+'mysaward',
       method: 'get',
       data: {
-        userid: 1
+        userid: app.globalData.userid
       },
       success: function (res) {
         wx.hideLoading();
@@ -130,6 +132,8 @@ Component({
           create_lottery:res.two,
           all_lottery_length: res.one.length,
           create_lottery_length: res.two.length,
+          bingo_lottery_record: res.three,
+          bingo_lottery_record_length: res.three.length,
         })
         console.log(that.data.all_lottery_length, that.data.create_lottery_length)
       },

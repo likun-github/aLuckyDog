@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/index/index",
     "pages/lottery_create/lottery_create",
     "pages/award/award",

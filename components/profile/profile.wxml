@@ -41,7 +41,7 @@
     <view class='line'></view>
 
     <view class='lottery_info' bindtap='lottery_view_3'>
-      <view class='lottery_info_number'>4</view>
+      <view class='lottery_info_number'>{{bingo_lottery_record_length}}</view>
       <view class='lottery_info_disc'>中奖纪录</view>
     </view>
 
