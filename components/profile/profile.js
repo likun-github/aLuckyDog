@@ -16,6 +16,10 @@ Component({
 
     avatarUrl: '',
     nickname: '',
+    all_lottery:[],
+    create_lottery:[],
+    all_lottery_length:0,
+    create_lottery_length:0,
   },
 
   /**
@@ -86,6 +90,7 @@ Component({
   },
 
   ready:function(){
+    var that = this
     console.log("ready")
     this.setData({
       avatarUrl: app.globalData.avatarUrl,
@@ -105,7 +110,15 @@ Component({
       },
       success: function (res) {
         wx.hideLoading();
+        console.log(res.data)
         return typeof cb == "function" && cb(res.data)
+        that.setData({
+          all_lottery:res.one,
+          create_lottery:res.two,
+          all_lottery_length: res.one.length,
+          create_lottery_length: res.two.length,
+        })
+        console.log(that.data.all_lottery_length, that.data.create_lottery_length)
       },
       fail: function () {
         wx.hideLoading();
