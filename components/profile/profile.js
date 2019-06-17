@@ -84,11 +84,7 @@ Component({
     },
 
 
-<<<<<<< HEAD
-    address: function() {
-      wx.navigateTo({
-        url: '/pages/address/address',
-=======
+
     address: function () {
       // wx.navigateTo({
       //   url: '/pages/address/address',
@@ -104,7 +100,7 @@ Component({
           console.log(res.nationalCode)
           console.log(res.telNumber)
         }
->>>>>>> 0e146f35f712bce888ef4008857e979819a0081c
+
       })
       
     }
