@@ -101,7 +101,7 @@ Page({
   ,
   //发起抽奖
   start:function(){
- 
+    var images=[this.data.image1,this.data.image2,this.data.image3]
     var s=this.data.s;
     var that=this;
     if(s==1){
@@ -204,10 +204,22 @@ Page({
              if(res.confirm){
 
             //上传
-            
+             wx:wx.request({
+               url: app.globalData.url +'startaward',
+               data: {
+                 'userid': app.globalData.userid,
 
 
+               },
+               method: 'GET',
+               success: function(res){
 
+               },
+               fail: function(res) {
+                 console.log('fail')
+               },
+
+             })
 
                wx.navigateTo({
                  url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum+'&s='+that.data.s,
