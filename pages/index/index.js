@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+var common = require("../../common/common.js")
 Page({
   data: {
     status: 0,
@@ -29,69 +29,32 @@ Page({
     }, ],
 
     gift_list: [],
-    user_list:[]
+    user_list: [],
+
+    avatarUrl: '',
+    nickname: '',
   },
 
 
 
   onLoad: function() {
-    this.setNavSize()
+    console.log(app.globalData,'index')
     this.setData({
-      page_index: app.globalData.page_index
+      avatarUrl: app.globalData.avatarUrl,
+      nickname: app.globalData.nickname,
     })
+    this.setNavSize()
 
-    var that = this
-    //test
-    wx.request({
-      url: 'http://25t2f65842.wicp.vip:19785/lottery/lottery/',
+  
 
-      success: function(res) {
-        if (res.statusCode == 200) {
-          console.log(res)
-          that.setData({
-            gift_list: res.data
-          })
-        } else {
-          console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
-        }
-      },
-      fail: function() {
-        console.log("index.js wx.request CheckCallUser fail");
-      },
-      complete: function() {
-        // complete
-      }
-    }, )
-
-    wx.request({
-      url: 'http://25t2f65842.wicp.vip:19785/lottery/user/',
-
-      success: function (res) {
-        if (res.statusCode == 200) {
-          console.log(res)
-          that.setData({
-            user_list: res.data
-          })
-          app.globalData.userInfo=res.data
-          console.log(app.globalData.userInfo)
-        } else {
-          console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
-        }
-      },
-      fail: function () {
-        console.log("index.js wx.request CheckCallUser fail");
-      },
-      complete: function () {
-        // complete
-      }
-    })
+   
 
   },
 
   onShow: function() {
-    this.setData({
-      page_index: app.globalData.page_index
-    })
+    // this.setData({
+    //   page_index: app.globalData.page_index
+    // })
   },
   // 通过获取系统信息计算导航栏高度
   setNavSize: function() {
@@ -171,12 +134,15 @@ Page({
   },
 
   aspiration: function() {
-
     wx.navigateTo({
       url: '/pages/aspiration/aspiration',
     })
-
   },
+
+
+
+ 
+
 
 
 })
