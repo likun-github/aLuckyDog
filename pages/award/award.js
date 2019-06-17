@@ -68,17 +68,9 @@ Page({
     jpnum:["","",""],
     index: 1,//开奖条件三个
     jpms:'',//奖品描述
-    //index=1||index=3
-
-    //开奖时间
-    // date: '',//日期
-    // hour: '',//小时
-    // min: '',//分钟
-    // today: '今天',//是否是今天
-
     //monthDay + " " + hours + ":" + minute;
     startDate: "请选择日期",
-    
+    s: 1,//开奖个数
     //index=2||index=3
     kpnum:0,//开奖人数||最多抽奖人数
   },
@@ -210,7 +202,13 @@ Page({
           //  & jpnum=this.data.jpnum & date=this.data.date & hour=this.data.hour & min=this.data.min & kpnum=this.data.kpnum
            success(res){
              if(res.confirm){
-               console.log('dianji')
+
+            //上传
+            
+
+
+
+
                wx.navigateTo({
                  url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum+'&s='+that.data.s,
                })

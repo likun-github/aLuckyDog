@@ -11,7 +11,7 @@
 
 .begin {
   width: 94%;
-  height: 7vh;
+  height: 100rpx;
   margin-left: 3%;
   margin-top: 1.5vh;
   background: red;
@@ -21,7 +21,7 @@
   justify-content: center;
   letter-spacing: 10rpx;
   font-weight: 600;
-  line-height: 90rpx;
+  line-height: 100rpx;
 }
 
 .pic {
