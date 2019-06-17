@@ -1,21 +1,23 @@
 {
   "pages": [
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 3ae011ce584e39c68644b1a0c82634ddcddb71e9
     "pages/index/index",
         "pages/award/award",
     "pages/lottery_create/lottery_create",
+    "pages/award/award",
     "pages/selfpage/selfpage",
     "pages/aspiration/aspiration",
     "pages/test/test",
     "pages/lottery_detail/lottery_detail",
     "pages/logs/logs",
-    "pages/profile/profile",
     "pages/lottery_view_1/lottery_view_1",
     "pages/lottery_view_2/lottery_view_2",
     "pages/lottery_view_3/lottery_view_3",
     "pages/remainder_money/remainder_money",
-    "pages/more/more",
-    "pages/address/address",
     "pages/joinaward/joinaward"
   ],
   "window": {
@@ -28,7 +30,8 @@
   "usingComponents": {
     "navBar": "/components/navBar/navBar",
     "bottom": "/components/bottom/bottom",
-    "profile": "/pages/profile/profile"
+    "profile": "/components/profile/profile",
+    "shouquan":"/components/shouquan/shouquan"
   },
   "sitemapLocation": "sitemap.json"
 }

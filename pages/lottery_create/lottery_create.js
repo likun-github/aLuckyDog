@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    height_screen: 0,
     top_height: 0,
     background: 'rgba(255, 255, 255, 1)',
     color: 'rgba(0, 0, 0, 1)',
@@ -17,23 +18,65 @@ Page({
     iconWidth: 58,
     could_join: true,
     share_flag:false,
+
+    index: 1,//抽奖方式
+    jpname: '',
+    jpnum: 0,
+    animation:'',
+    date: '',//日期
+    s:1,
+    kpnum:0,//开奖人数||最多抽奖人数
+      },
+
+        /**
+           * 生命周期函数--监听页面加载
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that =this
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.windowHeight)
+        that.setData({
+          height_screen: res.windowHeight
+        })
+      }
+    })
+
+
     this.setData({
       top_height: app.globalData.top_height
     })
     this.attached()
     wx.hideShareMenu();
+
+    var jpname=options.jpname;
+    var jpnum= options.jpnum;
+
+    jpname=jpname.split(",");
+    jpnum=jpnum.split(",");
+    this.setData({
+      index:options.index,
+      jpname:jpname,
+      jpnum:jpnum,
+      date:options.date,
+      kpnum:options.kpnum,
+      s:options.s
+    })
+    console.log(this.data.jpname)
+    console.log(this.data.jpnum)
+    console.log(this.data.s)
+    // this.lower()//动画
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.animation = wx.createAnimation()
 
   },
 
@@ -196,6 +239,27 @@ Page({
     this.setData({
       share_flag:true,
     })
-  }
+    this.translate()
+
+  },
+
+  translate: function () {
+    this.animation.translate(0, -115).step()
+    this.setData({ animation: this.animation.export() })
+  },
+
+
+
+  cancel_share:function(){
+    this.setData({
+      share_flag: false,
+    })
+    this.translate_no()
+  },
+
+  translate_no: function () {
+    this.animation.translate(0, 115).step()
+    this.setData({ animation: this.animation.export() })
+  },
 
 })
