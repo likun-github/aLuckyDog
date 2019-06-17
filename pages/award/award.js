@@ -142,6 +142,24 @@ Page({
        })
        }else right=true
 
+ if(right)
+    if (this.data.s == 2 && (this.data.jpname[1] == '' || this.data.jpnum[1] == '')){
+      right = false;
+      wx.showModal({
+        title: '请输入必须信息',
+        content: '未输入奖品信息',
+      })
+    }else right=true
+
+    if (right)
+      if (this.data.s == 3 && (this.data.jpname[0] == '' || this.data.jpnum[0] == '' || this.data.jpname[1] == '' || this.data.jpnum[1] == '' || this.data.jpname[2] == '' || this.data.jpnum[2] == '')) {
+        right = false;
+        wx.showModal({
+          title: '请输入必须信息',
+          content: '未输入奖品信息',
+        })
+      } else right = true
+
        if(right)
        if(this.data.index==1||this.data.index==3){
          //monthDay + " " + hours + ":" + minute;
@@ -194,7 +212,7 @@ Page({
              if(res.confirm){
                console.log('dianji')
                wx.navigateTo({
-                 url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum,
+                 url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum+'&s='+that.data.s,
                })
              }
            }

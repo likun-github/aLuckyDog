@@ -22,14 +22,20 @@
     <image src='/images/default-prize-pi@3x.png' style='height:165px;width:100%;'></image>
   </view> -->
 
-  <view class='lottery_list_wait'>
-    <view>
+  <view class='lottery_list_wait' style='height:{{500+(s-1)*100}}rpx'>
+    <view style='height:350rpx;width:100%;'>
       <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
     </view>
+    
+    <view wx:if='{{s==1}}' style='width:100%;' class='lottery_list_1_wait'>奖品：{{jpname[0]}} X{{jpnum[0]}} </view>
+ <view wx:if='{{s==2}}' class='lottery_list_1_wait' style='width:100%;'>一等奖奖品:{{jpname[0]}} X{{jpnum[0]}} </view>
+ <view wx:if='{{s==2}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}}X{{jpnum[1]}} </view>
+  <view wx:if='{{s==3}}'class='lottery_list_1_wait'style='width:100%;'>一等奖奖品：{{jpname[0]}} X{{jpnum[0]}}</view>
+  <view wx:if='{{s==3}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}} X{{jpnum[1]}}</view>
+  <view wx:if='{{s==3}}' style='width:100%;' class='lottery_list_1_wait'>三等奖奖品:{{jpname[2]}} X{{jpnum[2]}} </view>
+  
 
-    <view style='width:100%;' class='lottery_list_1_wait'>奖品：{{jpname}} X{{jpnum}} </view>
-
-    <view wx:if='{{index==1}}' class='lottery_list_3_wait'>{{date}} {{hour}}:{{min}} 自动开奖</view>
+    <view wx:if='{{index==1}}' class='lottery_list_3_wait'>{{date}} 自动开奖</view>
     <view wx:if='{{index==2}}' class='lottery_list_3_wait'>3天内参与到达{{kpnum}}自动开奖</view>
     <view wx:if='{{index==3}}' class='lottery_list_3_wait'>参与者即开即中</view>
 

@@ -110,8 +110,9 @@
 }
 
 .lottery_list_1_wait {
+  margin-top: 20rpx;
   width: 100%;
-  height: 100%;
+  height: 100rpx;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -120,8 +121,9 @@
 }
 
 .lottery_list_3_wait {
+  margin-top: 10rpx;
   width: 100%;
-  height: 100%;
+  height: 100rpx;
   display: flex;
   justify-content: flex-start;
   align-items: center;

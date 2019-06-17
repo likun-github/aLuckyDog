@@ -24,8 +24,7 @@ Page({
     jpnum: 0,
     animation:'',
     date: '',//日期
-    hour: '',//小时
-    min: '',//分钟
+    s:1,
     kpnum:0,//开奖人数||最多抽奖人数
       },
 
@@ -53,17 +52,24 @@ Page({
     })
     this.attached()
     wx.hideShareMenu();
+
+    var jpname=options.jpname;
+    var jpnum= options.jpnum;
+
+    jpname=jpname.split(",");
+    jpnum=jpnum.split(",");
     this.setData({
       index:options.index,
-      jpname:options.jpname,
-      jpnum:options.jpnum,
+      jpname:jpname,
+      jpnum:jpnum,
       date:options.date,
-      hour:options.hour,
-      min:options.min,
-      kpnum:options.kpnum
+      kpnum:options.kpnum,
+      s:options.s
     })
     console.log(this.data.jpname)
-    this.lower()//动画
+    console.log(this.data.jpnum)
+    console.log(this.data.s)
+    // this.lower()//动画
   },
 
   /**
