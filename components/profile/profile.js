@@ -84,10 +84,29 @@ Component({
     },
 
 
+<<<<<<< HEAD
     address: function() {
       wx.navigateTo({
         url: '/pages/address/address',
+=======
+    address: function () {
+      // wx.navigateTo({
+      //   url: '/pages/address/address',
+      // })
+      wx.chooseAddress({
+        success(res) {
+          console.log(res.userName)
+          console.log(res.postalCode)
+          console.log(res.provinceName)
+          console.log(res.cityName)
+          console.log(res.countyName)
+          console.log(res.detailInfo)
+          console.log(res.nationalCode)
+          console.log(res.telNumber)
+        }
+>>>>>>> 0e146f35f712bce888ef4008857e979819a0081c
       })
+      
     }
 
   },
