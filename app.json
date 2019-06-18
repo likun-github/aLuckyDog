@@ -1,7 +1,12 @@
 {
   "pages": [
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> 3ae011ce584e39c68644b1a0c82634ddcddb71e9
     "pages/index/index",
+        "pages/award/award",
     "pages/lottery_create/lottery_create",
     "pages/award/award",
     "pages/selfpage/selfpage",
