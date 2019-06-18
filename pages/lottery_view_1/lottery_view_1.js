@@ -1,5 +1,6 @@
 const app = getApp()
 var common = require("../../common/common.js")
+var util = require('../../utils/util.js')
 Page({
 
   /**
@@ -10,6 +11,7 @@ Page({
     data:[],
     data_wait:[],
     data_over:[],
+    
   },
 
   /**
@@ -33,8 +35,19 @@ Page({
     let temp = data
     for (var i =0 ; i<data.length;i++){
       if(data[i].level==0){
+
+        data[i].award.pic1 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
+        data[i].award.pic2 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
+        data[i].award.pic3 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
+        data[i].award.time = util.tsFormatTime(data[i].award.time *1000, 'Y-M-D h:m:s')
+        console.log(data[i].award.time)
         data_wait_temp.push(data[i])
       }else{
+        data[i].award.pic1 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
+        data[i].award.pic2 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
+        data[i].award.pic3 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
+        data[i].award.time = util.tsFormatTime(data[i].award.time * 1000, 'Y-M-D h:m:s')
+        console.log(data[i].award.time)
         data_over_temp.push(data[i])
       }
     }

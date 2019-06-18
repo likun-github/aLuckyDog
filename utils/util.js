@@ -1,99 +1,36 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-
-  return [year, month, day].map(formatNumber).join('-') 
-}
-const d = date => {
-  const day = date.getDate()
-
-
-  return [day]
-}
-const h = date => {
-  const hour = date.getHours()
- 
-
-  return [hour]
-}
-const m = date => {
-
-  const minute = date.getMinutes()
-
-  return [minute].map(formatNumber)
-}
-const formatTime1 = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  return [month] + '月' + [day] + '日' + [hour] + ':' + [minute]
-}
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+/**
+ * 时间戳转化为年 月 日 时 分 秒
+ * ts: 传入时间戳
+ * format：返回格式，支持自定义，但参数必须与formateArr里保持一致
+*/
+function tsFormatTime(timestamp, format) {
 
-//todate默认参数是当前日期，可以传入对应时间 todate格式为2018-10-05
+  const formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
+  let returnArr = [];
 
-function getDates(days, todate) {
+  let date = new Date(timestamp);
+  let year = date.getFullYear()
+  let month = date.getMonth() + 1
+  let day = date.getDate()
+  let hour = date.getHours()
+  let minute = date.getMinutes()
+  let second = date.getSeconds()
+  returnArr.push(year, month, day, hour, minute, second);
 
-  var dateArry = [];
+  returnArr = returnArr.map(formatNumber);
 
-  for (var i = 0; i < days; i++) {
-
-    var dateObj = dateLater(todate, i);
-
-    dateArry.push(dateObj)
-
+  for (var i in returnArr) {
+    format = format.replace(formateArr[i], returnArr[i]);
   }
-
-  return dateArry;
-
-}
-
-function dateLater(dates, later) {
-
-  let dateObj = {};
-
-  let show_day = new Array('周日', '周一', '周二', '周三', '周四', '周五', '周六');
-
-  let date = new Date(dates);
-
-  date.setDate(date.getDate() + later);
-
-  let day = date.getDay();
-
-  let yearDate = date.getFullYear();
-
-  let month = ((date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth() + 1);
-
-  let dayFormate = (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate());
-
-  dateObj.time = month + '月' + dayFormate+'日'+'';
-
-  dateObj.week = show_day[day];
-
-  return dateObj;
+  return format;
 
 }
 
-const formatDate = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  return [month] + '月' + [day] + '日'
-}
 
-module.exports = {
-  formatTime: formatTime,
-  formatTime1: formatTime1,
-  formatDate: formatDate,
-  getDates:getDates,
-  h:h,
-  m:m,
-  d:d
-
+module.exports={
+  tsFormatTime: tsFormatTime
 }

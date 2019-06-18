@@ -17,58 +17,23 @@
 
     <view class='lottery_list_wait'>
       <view>
-        <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
+        <image src="{{item.award.pic1}}" style='height:350rpx;width:100%;'></image>
       </view>
 
-      <view class='lottery_list_1_wait'>奖品：{{item.award.name1}} X {{item.award.num1}}</view>
+      <view class='lottery_list_1_wait'>{{item.award.number>1?'一等奖':'奖品'}}：{{item.award.name1}} X {{item.award.num1}}</view>
+      <view class='lottery_list_1_wait' wx:if="{{item.award.number>=2}}">二等奖：{{item.award.name2}} X {{item.award.num2}}</view>
+      <view class='lottery_list_1_wait' wx:if="{{item.award.number>=3}}">三等奖：{{item.award.name3}} X {{item.award.num3}}</view>
 
-
-      <view class='lottery_list_3_wait'>{{item.award.time}}自动开奖</view>
+      <view class='lottery_list_3_wait' wx:if="{{item.award.way==0}}">{{item.award.time}} 自动开奖</view>
+      <view class='lottery_list_3_wait' wx:if="{{item.award.way==1}}">满{{item.award.num}}人 自动开奖</view>
+       <!-- <view class='lottery_list_3_wait'>{{item.award.way==0?'item.award.time':'满 {{item.award.num}} 人'}} 自动开奖</view> -->
       <view class='seperator4'></view>
     </view>
 
-    <view class='lottery_list_wait'>
-      <view>
-        <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
-      </view>
-
-      <view class='lottery_list_1_wait'>奖品：{{item.award.name2}} X {{item.award.num2}}</view>
-
-
-      <view class='lottery_list_3_wait'>{{item.award.time}}自动开奖</view>
-      <view class='seperator4'></view>
-    </view>
-
-    <view class='lottery_list_wait'>
-      <view>
-        <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
-      </view>
-
-      <view class='lottery_list_1_wait'>奖品：{{item.award.name3}} X {{item.award.num3}}</view>
-
-
-      <view class='lottery_list_3_wait'>{{item.award.time}}自动开奖</view>
-      <view class='seperator4'></view>
-    </view>
+    
 
     <view class='seperator4'></view>
   </view>
-  <!--     
-  <view wx:for="{{1}}">
-
-    <view class='lottery_list_wait'>
-      <view>
-        <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
-      </view>  
-      
-      <view class='lottery_list_1_wait'>奖品：南海贝芝 x1 </view>
-      
-      <view class='lottery_list_3_wait'>参与人数达到 2 人时自动开奖</view>
-    </view>
-
-    <view class='seperator4'></view>
-  </view> -->
-
 
   <view class='finished'>已结束</view>
 
