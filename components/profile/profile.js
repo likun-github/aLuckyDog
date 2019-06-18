@@ -91,14 +91,33 @@ Component({
       // })
       wx.chooseAddress({
         success(res) {
-          console.log(res.userName)
-          console.log(res.postalCode)
-          console.log(res.provinceName)
-          console.log(res.cityName)
-          console.log(res.countyName)
-          console.log(res.detailInfo)
-          console.log(res.nationalCode)
-          console.log(res.telNumber)
+          var address=res;
+          wx.login({
+            success: res => {
+              console.log("微信小程序用户登录：", res)
+              wx.request({
+                url: app.globalData.url + 'addresschange',
+                data: {
+                  'userid': app.globalData.userid,
+                  'userName': address.userName,
+                  'postalCode': address.postalCode,
+                  'provinceName': address.provinceName,
+                  'cityName': address.cityName,
+                  'countyName': address.countyName,
+                  'detailInfo': address.detailInfo,
+                  'telNumber': address.telNumber,
+                },
+                success: (res) => {
+                  console.log("地址添加成功");
+                
+
+
+                },
+              })
+            }
+          })
+          
+          
         }
 
       })
