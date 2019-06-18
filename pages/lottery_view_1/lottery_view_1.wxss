@@ -108,3 +108,14 @@ page {
   justify-content: center;
   align-items: center;
 }
+
+
+.toast1{
+  width: 100%;
+  height: 100rpx;
+  font-size: 30rpx;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
