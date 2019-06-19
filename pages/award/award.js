@@ -205,7 +205,20 @@ Page({
           //  & jpnum=this.data.jpnum & date=this.data.date & hour=this.data.hour & min=this.data.min & kpnum=this.data.kpnum
            success(res){
              if(res.confirm){
-               
+               var year = that.data.year
+               var m = that.data.month
+               var d = that.data.day
+               m = parseInt(m)
+               d = parseInt(d)
+               var hour = that.data.hour
+               var min = that.data.minute
+               var monday = that.data.monthDay
+               console.log(year, m, d, hour, min, monday)
+               var sec = 0;
+               var da = year + '/' + m + '/' + d + ' ' + hour + ':' + min + ':' + sec;
+               var timestamp = Math.round(new Date(da).getTime() / 1000)
+               console.log(timestamp)
+
 
 
             //上传
@@ -231,27 +244,25 @@ Page({
              }
              else{
               // monthDay + " " + hours + ":" + minute;
-               console.log(that.data.startDate)
-             var year=that.data.year
-             var m=that.data.month
-             var d=that.data.day
+               //console.log(that.data.startDate)
+               var year = that.data.year
+               var m = that.data.month
+               var d = that.data.day
                m = parseInt(m)
                d = parseInt(d)
-        
-
-
-             var hour=that.data.hour
-             var min=that.data.minute
-             var monday=that.data.monthDay
+               var hour = that.data.hour
+               var min = that.data.minute
+               var monday = that.data.monthDay
                console.log(year, m, d, hour, min, monday)
-               var sec=0;
-              var da=year+'/'+m+'/'+d+' '+hour+':'+min+':'+sec;
-              console.log(da)
-               var timestamp = Math.round(new Date(da).getTime()/ 1000)
+               var sec = 0;
+               var da = year + '/' + m + '/' + d + ' ' + hour + ':' + min + ':' + sec;
+               console.log(da)
+               var timestamp = Math.round(new Date(da).getTime() / 1000)
                console.log(timestamp)
+
                
-               var timestamp1 = Date.parse(new Date());
-               console.log(timestamp1/1000)
+              //  var timestamp1 = Date.parse(new Date());
+              //  console.log(timestamp1/1000)
              }
            }
          })
@@ -327,16 +338,16 @@ Page({
  date: this.data.date1[c],
  dindex:c
         })
-    let time = util.formatTime(new Date());
-    let date = util.getDates(1, time);
-    var date1 = this.data.date
-   date1 = date[0].time + ' ' + date[0].week
-        if (this.data.date == date1) this.setData({
-  today: '今天'
-          })
-          else this.setData({
-  today: ""
-            })
+  //   let time = util.formatTime(new Date());
+  //   let date = util.getDates(1, time);
+  //   var date1 = this.data.date
+  //  date1 = date[0].time + ' ' + date[0].week
+  //       if (this.data.date == date1) this.setData({
+  // today: '今天'
+  //         })
+  //         else this.setData({
+  // today: ""
+  //           })
           },
   hourf: function (e) {
       var c = e.detail.current + 1;
@@ -502,24 +513,24 @@ index: index
    */
   onReady: function () {
    
-        let time = util.formatTime(new Date());
-       let date = util.getDates(7, time);
-        let temp_date1 = this.data.date1;
-        console.log(date);
-       for (var i = 0; i < 7; i++) {
-           temp_date1[i + 1] = date[i].time + ' ' + date[i].week
-           }
-       var h = util.h(new Date());
-       var m = util.m(new Date());
-       this.setData({
-           date1: temp_date1,
-           date: temp_date1[1],
-         datem: temp_date1[1],
-           hour: h,
-           min: m,
-           ihour: h,
-           imin: m - 1
-         })
+      //   let time = util.formatTime(new Date());
+      //  let date = util.getDates(7, time);
+      //   let temp_date1 = this.data.date1;
+      //   console.log(date);
+      //  for (var i = 0; i < 7; i++) {
+      //      temp_date1[i + 1] = date[i].time + ' ' + date[i].week
+      //      }
+      //  var h = util.h(new Date());
+      //  var m = util.m(new Date());
+      //  this.setData({
+      //      date1: temp_date1,
+      //      date: temp_date1[1],
+      //    datem: temp_date1[1],
+      //      hour: h,
+      //      min: m,
+      //      ihour: h,
+      //      imin: m - 1
+      //    })
    },
 
   /**

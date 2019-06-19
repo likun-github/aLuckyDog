@@ -29,8 +29,20 @@ function tsFormatTime(timestamp, format) {
   return format;
 
 }
+const h = date => {
+  const hour = date.getHours()
+  
+  return [hour]
+}
+const m = date => {
 
+  const minute = date.getMinutes()
+
+  return [minute].map(formatNumber)
+}
 
 module.exports={
-  tsFormatTime: tsFormatTime
+  tsFormatTime: tsFormatTime,
+  h: h,
+  m: m
 }
