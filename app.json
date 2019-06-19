@@ -1,10 +1,10 @@
 {
   "pages": [
-    
+      "pages/index/index",
     "pages/award/award",
     "pages/awardprofile/awardprofile",
     "pages/lottery_create/lottery_create",
-    "pages/index/index",
+ 
     "pages/selfpage/selfpage",
     "pages/aspiration/aspiration",
     "pages/test/test",
