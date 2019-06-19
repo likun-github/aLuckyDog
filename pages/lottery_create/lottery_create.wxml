@@ -36,8 +36,8 @@
   
 
     <view wx:if='{{index==1}}' class='lottery_list_3_wait'>{{date}} 自动开奖</view>
-    <view wx:if='{{index==2}}' class='lottery_list_3_wait'>3天内参与到达{{kpnum}}自动开奖</view>
-    <view wx:if='{{index==3}}' class='lottery_list_3_wait'>参与者即开即中</view>
+    <view wx:if='{{index==2}}' class='lottery_list_3_wait'>3天内参与者到达{{kpnum}}人 自动开奖</view>
+    <view wx:if='{{index==3}}' class='lottery_list_3_wait'>参与者 即开即中</view>
 
   </view>
 
