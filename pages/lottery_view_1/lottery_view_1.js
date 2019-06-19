@@ -1,4 +1,6 @@
 const app = getApp()
+var common = require("../../common/common.js")
+var util = require('../../utils/util.js')
 Page({
 
   /**
@@ -6,6 +8,10 @@ Page({
    */
   data: {
     top_height: 0,
+    data:[],
+    data_wait:[],
+    data_over:[],
+    
   },
 
   /**
@@ -13,11 +19,44 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      top_height: app.globalData.top_height
+      top_height: app.globalData.top_height,
+      data:common.all_lottery,
     })
+    console.log(this.data.data)
 
+    this.divide(this.data.data)
+    console.log(this.data)
   },
 
+//0 未开奖，4 未中奖
+  divide:function(data){
+    let data_wait_temp = []
+    let data_over_temp = []
+    let temp = data
+    for (var i =0 ; i<data.length;i++){
+      if(data[i].level==0){
+
+        data[i].award.pic1 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
+        data[i].award.pic2 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
+        data[i].award.pic3 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
+        data[i].award.time = util.tsFormatTime(data[i].award.time *1000, 'Y-M-D h:m:s')
+        console.log(data[i].award.time)
+        data_wait_temp.push(data[i])
+      }else{
+        data[i].award.pic1 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
+        data[i].award.pic2 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
+        data[i].award.pic3 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
+        data[i].award.time = util.tsFormatTime(data[i].award.time * 1000, 'Y-M-D h:m:s')
+        console.log(data[i].award.time)
+        data_over_temp.push(data[i])
+      }
+    }
+    this.setData({
+      data_wait: data_wait_temp,
+      data_over: data_over_temp,
+    })
+    console.log(this.data)
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -5,80 +5,55 @@
 <view style='height: {{top_height}}px;'></view>
 <!-- <view style='height: 88px;'></view> -->
 
+<view class='lottery_list_1_wait' wx:if="{{item.award.name2}}">二等奖：{{item.award.name2}}</view>
+<view class='lottery_list_1_wait' wx:if="{{item.award.name3}}">三等奖：{{item.award.name3}}</view>
+
 
 <scroll-view>
 
   <view class='finished'>待开奖</view>
+  <view class='toast1'  wx:if="{{data_wait.length<1}}">没有正在进行的抽奖信息~</view>
 
-  <view wx:for="{{1}}">
+  <view wx:for="{{data_wait}}">
 
     <view class='lottery_list_wait'>
       <view>
-        <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
-      </view>  
-      
-      <view class='lottery_list_1_wait'>奖品：数字棋盘 x1 </view>
-      
-      <view class='lottery_list_3_wait'>06月14日 16:32 自动开奖</view>
+        <image src="{{item.award.pic1}}" style='height:350rpx;width:100%;'></image>
+      </view>
+
+      <view class='lottery_list_1_wait'>{{item.award.number>1?'一等奖':'奖品'}}：{{item.award.name1}} ✕ {{item.award.num1}}</view>
+      <view class='lottery_list_1_wait' wx:if="{{item.award.number>=2}}">二等奖：{{item.award.name2}} ✕ {{item.award.num2}}</view>
+      <view class='lottery_list_1_wait' wx:if="{{item.award.number>=3}}">三等奖：{{item.award.name3}} ✕ {{item.award.num3}}</view>
+
+      <view class='lottery_list_3_wait' wx:if="{{item.award.way==1}}">{{item.award.time}} 自动开奖</view>
+      <view class='lottery_list_3_wait' wx:if="{{item.award.way==2}}">满{{item.award.num}}人 自动开奖</view>
+       <!-- <view class='lottery_list_3_wait'>{{item.award.way==0?'item.award.time':'满 {{item.award.num}} 人'}} 自动开奖</view> -->
+      <view class='seperator4'></view>
     </view>
 
-    <view class='seperator4'></view>
-  </view>
     
-  <view wx:for="{{1}}">
-
-    <view class='lottery_list_wait'>
-      <view>
-        <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
-      </view>  
-      
-      <view class='lottery_list_1_wait'>奖品：南海贝芝 x1 </view>
-      
-      <view class='lottery_list_3_wait'>参与人数达到 2 人时自动开奖</view>
-    </view>
 
     <view class='seperator4'></view>
   </view>
-
 
   <view class='finished'>已结束</view>
-
-  <view wx:for="{{2}}">
+  <view class='toast1'  wx:if="{{data_over.length<1}}">没有已经结束的抽奖信息~</view>
+  <view wx:for="{{data_over}}">
     <view class='lottery_list'>
+     
+     
       <view class='lottery_list_1'>奖品： </view>
-      <view class='lottery_list_2'>南海贝芝 x1</view>
+      <view class='lottery_list_2' >{{item.award.name1}} X {{item.award.num1}}、{{item.award.name2}} X {{item.award.num2}}、{{item.award.name3}} X {{item.award.num3}}</view>
 
-      <view class='lottery_list_3'>6月4日</view>
-      <view class='lottery_list_4'>
-        <image src='/images/arrow@3x.png' style='height:40rpx;width:60rpx;'></image>
-      </view>
-    </view>
+      <!-- <view class='lottery_list_1'>二等奖： </view>
+      <view class='lottery_list_2' wx:if="{{item.award.name2}}">{{item.award.name2}} X {{item.award.num2}}</view>
 
-    <view class='seperator4'></view>
-  </view>
-  <view wx:for="{{2}}">
-    <view class='lottery_list'>
-      <view class='lottery_list_1'>奖品： </view>
-      <view class='lottery_list_2'>南海贝芝 x1</view>
-
-      <view class='lottery_list_3'>12:37</view>
-      <view class='lottery_list_4'>
-        <image src='/images/arrow@3x.png' style='height:40rpx;width:60rpx;'></image>
-      </view>
-    </view>
-
-    <view class='seperator4'></view>
-  </view>
+      <view class='lottery_list_1'>三等将： </view>
+      <view class='lottery_list_2' wx:if="{{item.award.name3}}">{{item.award.name3}} X {{item.award.num3}}</view> -->
 
 
-  <view wx:for="{{2}}">
-    <view class='lottery_list'>
-      <view class='lottery_list_1'>奖品： </view>
-      <view class='lottery_list_2'>
-        <text class='lottery_list_2_text'>南海贝芝南海贝芝南海贝芝南海贝芝南海贝芝 x1</text>
-      </view>
 
-      <view class='lottery_list_3'>2018/12/10</view>
+      <view class='lottery_list_3'>{{item.time}}</view>
       <view class='lottery_list_4'>
         <image src='/images/arrow@3x.png' style='height:40rpx;width:60rpx;'></image>
       </view>
@@ -88,5 +63,7 @@
   </view>
 
 
-  <view style='height:80rpx;width:100%;font-size:28rpx;color:rgb(0, 150, 236);padding-top:50rpx;display: flex;justify-content:center'>点击加载历史抽奖</view>
+
+
+  <!-- <view style='height:80rpx;width:100%;font-size:28rpx;color:rgb(0, 150, 236);padding-top:50rpx;display: flex;justify-content:center'>点击加载历史抽奖</view> -->
 </scroll-view>

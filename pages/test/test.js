@@ -1,31 +1,66 @@
-var order = ['red', 'yellow', 'blue', 'green', 'red']
+const app=getApp()
 Page({
   data: {
-    toView: 'red',
-    scrollTop: 100
+    image:[],
+
+    image1: [],
+    image2: [],
+    image3: [],
+
   },
-  upper: function (e) {
-    console.log(e)
+  
+  onLoad:function(){
+    
+
   },
-  lower: function (e) {
-    console.log(e)
-  },
-  scroll: function (e) {
-    console.log(e)
-  },
-  tap: function (e) {
-    for (var i = 0; i < order.length; ++i) {
-      if (order[i] === this.data.toView) {
-        this.setData({
-          toView: order[i + 1]
+
+  choosepic1: function () {
+    var that = this;
+
+    wx.chooseImage({
+      count: 1,
+      success: function (res) {
+        wx.showToast({
+          title: '正在上传...',
+          icon: 'loading',
+          mask: true,
+          duration: 1000
         })
-        break
+        var tempFilePaths = res.tempFilePaths;
+
+        var image = that.data.image1;
+        image.splice(0, 1);
+        that.setData({
+          image1: image
+        })
+        that.setData({
+          image1: that.data.image1.concat(tempFilePaths),
+        });
       }
-    }
+    })
   },
-  tapMove: function (e) {
-    this.setData({
-      scrollTop: this.data.scrollTop + 10
+ 
+
+  upload:function(){
+    var that =this
+    wx.request({
+      url: app.globalData.url + 'startaward',
+      data: {
+        userid: 1,
+        award_number:3,
+        name: ['都1', '都2', '都3'],
+        num: [1, 32, 421],
+        way: 2,
+        information: 'hhhhh',
+        overtime: '',
+        overnum: 30,
+        pic: that.data.image1,
+
+      },
+      success: (res) => {
+        console.log(res)
+
+      },
     })
   }
 })

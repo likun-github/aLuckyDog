@@ -1,5 +1,6 @@
 // components/profile/profile.js
-const app =getApp()
+const app = getApp()
+var common = require("../../common/common.js")
 Component({
   /**
    * 组件的属性列表
@@ -16,12 +17,12 @@ Component({
 
     avatarUrl: '',
     nickname: '',
-    all_lottery:[],
-    create_lottery:[],
-    all_lottery_length:0,
-    create_lottery_length:0,
-    bingo_lottery_record:[],
-    bingo_lottery_record_length:0,
+    all_lottery: [],
+    create_lottery: [],
+    bingo_lottery_record: [],
+    all_lottery_length: 0,
+    create_lottery_length: 0,
+    bingo_lottery_record_length: 0,
   },
 
   /**
@@ -30,68 +31,102 @@ Component({
   methods: {
 
     //心愿--查看
-    aspiration: function () {
+    aspiration: function() {
       wx.navigateTo({
         url: '/pages/aspiration/aspiration',
       })
     },
 
 
-    lottery_view_1: function () {
+    lottery_view_1: function() {
       wx.navigateTo({
         url: '/pages/lottery_view_1/lottery_view_1',
       })
     },
 
-    lottery_view_2: function () {
+    lottery_view_2: function() {
       wx.navigateTo({
         url: '/pages/lottery_view_2/lottery_view_2',
       })
     },
 
-    lottery_view_3: function () {
+    lottery_view_3: function() {
       wx.navigateTo({
         url: '/pages/lottery_view_3/lottery_view_3',
       })
     },
 
 
-    go_to_remainder_money: function () {
+    go_to_remainder_money: function() {
       wx.navigateTo({
         url: '/pages/remainder_money/remainder_money',
       })
     },
 
-    go_to_selfpage: function () {
+    go_to_selfpage: function() {
       wx.navigateTo({
         url: '/pages/selfpage/selfpage',
       })
     },
 
 
-    go_to_more: function () {
+    go_to_more: function() {
       wx.navigateTo({
         url: '/pages/more/more',
       })
     },
 
 
-    common_question: function () {
+    common_question: function() {
       wx.navigateTo({
         url: '/pages/question/question',
       })
     },
 
 
+
     address: function () {
-      wx.navigateTo({
-        url: '/pages/address/address',
+      // wx.navigateTo({
+      //   url: '/pages/address/address',
+      // })
+      wx.chooseAddress({
+        success(res) {
+          var address=res;
+          wx.login({
+            success: res => {
+              console.log("微信小程序用户登录：", res)
+              wx.request({
+                url: app.globalData.url + 'addresschange',
+                data: {
+                  'userid': app.globalData.userid,
+                  'userName': address.userName,
+                  'postalCode': address.postalCode,
+                  'provinceName': address.provinceName,
+                  'cityName': address.cityName,
+                  'countyName': address.countyName,
+                  'detailInfo': address.detailInfo,
+                  'telNumber': address.telNumber,
+                },
+                success: (res) => {
+                  console.log("地址添加成功");
+                
+
+
+                },
+              })
+            }
+          })
+          
+          
+        }
+
       })
+      
     }
 
   },
 
-  ready:function(){
+  ready: function() {
     var that = this
     console.log("ready")
     this.setData({
@@ -102,29 +137,36 @@ Component({
     wx.showLoading({
       title: '加载中',
     })
-  
+
 
     wx.request({
-      url: app.globalData.url+'mysaward',
+      url: app.globalData.url + 'mysaward',
       method: 'get',
       data: {
         userid: app.globalData.userid
       },
-      success: function (res) {
+      success: function(res) {
         wx.hideLoading();
         console.log(res.data)
-        return typeof cb == "function" && cb(res.data)
+        // return typeof cb == "function" && cb(res.data)
         that.setData({
-          all_lottery:res.one,
-          create_lottery:res.two,
-          all_lottery_length: res.one.length,
-          create_lottery_length: res.two.length,
-          bingo_lottery_record: res.three,
-          bingo_lottery_record_length: res.three.length,
+          all_lottery: res.data.one,
+          create_lottery: res.data.two,
+          bingo_lottery_record: res.data.three,
         })
-        console.log(that.data.all_lottery_length, that.data.create_lottery_length)
+
+        that.setData({
+          all_lottery_length: res.data.one.length,
+          create_lottery_length: res.data.two.length,
+          bingo_lottery_record_length: res.data.three.length,
+        })
+
+        common.all_lottery = res.data.one
+        common.create_lottery = res.data.two
+        common.bingo_lottery_record = res.data.three
+
       },
-      fail: function () {
+      fail: function() {
         wx.hideLoading();
         wx.showModal({
           title: '网络错误',
@@ -135,12 +177,7 @@ Component({
       }
     })
 
-   
+
   },
 
 })
-
-  
-
-
-

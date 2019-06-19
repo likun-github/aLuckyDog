@@ -5,7 +5,7 @@
   height: 10vh;
   position: fixed;
   bottom: 0;
-  border-top: 1px solid gray;
+  border-top: 1px solid rgb(214, 214, 214);
   background: white;
 }
 
