@@ -5,35 +5,37 @@ var date = new Date();
 var currentHours = date.getHours();
 var currentMinute = date.getMinutes();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    t: '',
-    monthDay: '',
-    hour: '',
-    minute: '',
-    //picker
+    t:'',
+    monthDay:'',
+    year:'',
+    month:'',
+    day:'',
+    hour:'',
+    minute:'',
+//picker
     startDate: "请选择日期",
     multiArray: [['今天', '明天', '3-2', '3-3', '3-4', '3-5'], [0, 1, 2, 3, 4, 5, 6], [0, 10, 20]],
     multiIndex: [0, 0, 0],
 
-   
-    np: '奖品名称',
-    datem: '',
-    image1: ['../../static/1.jpg'],
+    s:1,
+    np:'奖品名称',
+    datem:'',
+    image1:['../../static/1.jpg'],
     image2: ['../../static/1.jpg'],
     image3: ['../../static/1.jpg'],
-    z: '开奖时间',
+    z:'开奖时间',
     status: 0,
     navHeight: 0,
     showModalStatus: false,
     animationData: {},
-    methord: '到达设定时间自动开奖',
-    select: false,
+    methord:'到达设定时间自动开奖',
+    select:false,
     animationData: {},
-    date1: [
+    date1:[
       "",
       "",
       "",
@@ -47,7 +49,7 @@ Page({
     date2: [
 
       "",
-      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
+0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,
       ""
     ],
 
@@ -58,34 +60,34 @@ Page({
     // ihour:0,
     // imin:0,
     // dindex:0,
-    //数据统计
-
-    image1: ['../../static/1.jpg'],
-    image2: ['../../static/1.jpg'],
-    image3: ['../../static/1.jpg'],
-
-    title: 1,//抽奖编号
-    jpname: ["", "", ""],//奖项名称
-    jpnum: ["", "", ""],//奖项数量
-    index: 1,//开奖条件三个按时间 //index=2按人数||index=3即开即中
-    jpms: '',//奖品描述
-    //monthDay + " " + hours + ":" + minute;
-    startDate: "请选择日期",//按实践和即开即中都用到时间
-    s: 1,//开奖个数
+    color:'rgba(80,80,80,0.6)',
+//数据统计
    
-    kpnum: 0,//开奖人数||最多抽奖人数
+    image1: ['/images/default-prize@3x.jpg'],
+    image2: ['/images/default-prize@3x.jpg'],
+    image3: ['/images/default-prize@3x.jpg'],
+    title:1,//抽奖编号
+    jpname:["","",""],
+    jpnum:["","",""],
+    index: 1,//开奖条件三个
+    jpms:'',//奖品描述
+    //monthDay + " " + hours + ":" + minute;
+    startDate: "请选择日期",
+    s: 1,//开奖个数
+    //index=2||index=3
+    kpnum:0,//开奖人数||最多抽奖人数
   },
-  add: function () {
-    var s = this.data.s;
+  add:function(){
+    var s=this.data.s;
     s++;
-    if (s <= 3) {
+    if(s<=3){
       this.setData({
-        s: s,
-        np: '一等奖名称'
+        s:s,
+        np:'一等奖名称'
       })
     }
   },
-  cancel: function () {
+  cancel:function(){
     var s = this.data.s;
     s--;
     if (s >= 0) {
@@ -95,22 +97,22 @@ Page({
     }
     if (s == 1) {
       this.setData({
-        np: '奖品名称'
+        np:'奖品名称'
       })
     }
   }
   ,
   //发起抽奖
-  start: function () {
-    var images = [this.data.image1, this.data.image2, this.data.image3]//图片
-    var s = this.data.s;
-    var that = this;
-    if (s == 1) {
-      var si = this.data.jpname;
-      var s0 = ['', '', ''];
-      s0[0] = si[0];
+  start:function(){
+    var images=[this.data.image1,this.data.image2,this.data.image3]
+    var s=this.data.s;
+    var that=this;
+    if(s==1){
+      var si=this.data.jpname;
+      var s0=['','',''];
+      s0[0]=si[0];
       this.setData({
-        jpname: s0
+        jpname:s0
       })
     }
     if (s == 2) {
@@ -124,25 +126,25 @@ Page({
     }
     var h = util.h(new Date());
     var m = util.m(new Date());
-    var right = true
-    //check
+    var right=true
+       //check
+       
+       if(this.data.jpname[0]==''||this.data.jpnum[0]==''){
+           right=false;
+           wx.showModal({
+             title: '请输入必须信息',
+             content: '未输入奖品信息',
+       })
+       }else right=true
 
-    if (this.data.jpname[0] == '' || this.data.jpnum[0] == '') {
+ if(right)
+    if (this.data.s == 2 && (this.data.jpname[1] == '' || this.data.jpnum[1] == '')){
       right = false;
       wx.showModal({
         title: '请输入必须信息',
         content: '未输入奖品信息',
       })
-    } else right = true
-
-    if (right)
-      if (this.data.s == 2 && (this.data.jpname[1] == '' || this.data.jpnum[1] == '')) {
-        right = false;
-        wx.showModal({
-          title: '请输入必须信息',
-          content: '未输入奖品信息',
-        })
-      } else right = true
+    }else right=true
 
     if (right)
       if (this.data.s == 3 && (this.data.jpname[0] == '' || this.data.jpnum[0] == '' || this.data.jpname[1] == '' || this.data.jpnum[1] == '' || this.data.jpname[2] == '' || this.data.jpnum[2] == '')) {
@@ -153,100 +155,125 @@ Page({
         })
       } else right = true
 
-    if (right)
-      if (this.data.index == 1 || this.data.index == 3) {
-        //monthDay + " " + hours + ":" + minute;
-        //选择1，3时间不对
-        if (this.data.startDate == '请选择日期') {
-          wx.showModal({
-            title: '请选择时间',
-            content: '未选择时间',
-          })
-          right = false
-        } else right = true
-        var min = this.data.minute;
+       if(right)
+       if(this.data.index==1||this.data.index==3){
+         //monthDay + " " + hours + ":" + minute;
+         //选择1，3时间不对
+         if (this.data.startDate == '请选择日期') {
+           wx.showModal({
+             title: '请选择时间',
+             content: '未选择时间',
+           })
+           right = false
+         } else right=true
+         var min = this.data.minute;
+         
+         m=parseInt(m)
+         var hour = parseInt(this.data.hour);
+         h = parseInt(h);
+         console.log(this.data.t)
+         if(right)
+           if(this.data.t=='今天'){
+             console.log(h, m)
+             console.log(hour, min)
+             if(hour < h || (hour == h && min < m)){
+               right = false
+           wx.showModal({
+           title: '时间信息有误',
+           content: '请仔细检查开奖信息',
+         })
+             }
+           }
+       } else right=true;
+       //选择2 3 开奖时间不对
+       if(right)
+         if (this.data.index == 2 || this.data.index == 3) {
+           if (!this.data.kpnum){
+           wx.showModal({
+             title: '开奖信息有误',
+             content: '请仔细检查开奖信息',
+           })
+             right = false
+           }
+         } else right=true;
+         //这就对了
+         var that=this
+         if(right){
+         wx.showModal({
+           title: '确定开奖',
+           content: '请确定这么开奖',
+          //  & jpnum=this.data.jpnum & date=this.data.date & hour=this.data.hour & min=this.data.min & kpnum=this.data.kpnum
+           success(res){
+             if(res.confirm){
+               
 
-        m = parseInt(m)
-        var hour = parseInt(this.data.hour);
-        h = parseInt(h);
-        console.log(this.data.t)
-        if (right)
-          if (this.data.t == '今天') {
-            console.log(h, m)
-            console.log(hour, min)
-            if (hour < h || (hour == h && min < m)) {
-              right = false
-              wx.showModal({
-                title: '时间信息有误',
-                content: '请仔细检查开奖信息',
-              })
-            }
-          }
-      } else right = true;
-    //选择2 3 开奖时间不对
-    if (right)
-      if (this.data.index == 2 || this.data.index == 3) {
-        if (!this.data.kpnum) {
-          wx.showModal({
-            title: '开奖信息有误',
-            content: '请仔细检查开奖信息',
-          })
-          right = false
-        }
-      } else right = true;
-    //这就对了
-    var that = this
-    if (right) {
-      wx.showModal({
-        title: '确定开奖',
-        content: '请确定这么开奖',
-        //  & jpnum=this.data.jpnum & date=this.data.date & hour=this.data.hour & min=this.data.min & kpnum=this.data.kpnum
-        success(res) {
-          if (res.confirm) {
 
             //上传
-            wx: wx.request({
-              url: app.globalData.url + 'startaward',
-              data: {
-                'userid': app.globalData.userid,
+            //  wx:wx.request({
+            //    url: app.globalData.url +'startaward',
+            //    data: {
+            //      'userid': app.globalData.userid,
+
+            //    },
+            //    method: 'GET',
+            //    success: function(res){
+
+            //    },
+            //    fail: function(res) {
+            //      console.log('fail')
+            //    },
+
+            //  })
+
+               wx.navigateTo({
+                 url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum+'&s='+that.data.s,
+               })
+             }
+             else{
+              // monthDay + " " + hours + ":" + minute;
+               console.log(that.data.startDate)
+             var year=that.data.year
+             var m=that.data.month
+             var d=that.data.day
+               m = parseInt(m)
+               d = parseInt(d)
+        
 
 
-              },
-              method: 'GET',
-              success: function (res) {
-
-              },
-              fail: function (res) {
-                console.log('fail')
-              },
-
-            })
-
-            wx.navigateTo({
-              url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum + '&s=' + that.data.s,
-            })
-          }
-        }
-      })
-    }
+             var hour=that.data.hour
+             var min=that.data.minute
+             var monday=that.data.monthDay
+               console.log(year, m, d, hour, min, monday)
+               var sec=0;
+              var da=year+'/'+m+'/'+d+' '+hour+':'+min+':'+sec;
+              console.log(da)
+               var timestamp = Math.round(new Date(da).getTime()/ 1000)
+               console.log(timestamp)
+               
+               var timestamp1 = Date.parse(new Date());
+               console.log(timestamp1/1000)
+             }
+           }
+         })
+       }
 
   },
   //奖品名字
-  jpname: function (e) {
-    var that = this;
-    var index = e.target.dataset.index;
+  jpname:function(e){
+    var that=this;
+    var index=e.target.dataset.index;
     console.log(index);
-    var jpname = this.data.jpname;
-    jpname[index - 1] = e.detail.value
+    var jpname=this.data.jpname;
+    jpname[index-1] = e.detail.value
     console.log(jpname)
-    that.setData({
-      jpname: jpname
-    })
+     that.setData({
+       jpname:jpname
+     })
   },
   jpnum: function (e) {
     var index = e.target.dataset.index;
-    var jpnum = this.data.jpnum;
-    jpnum[index - 1] = e.detail.value
+    var jpnum=this.data.jpnum;
+    jpnum[index-1]=e.detail.value
     this.setData({
       jpnum: jpnum
     })
@@ -256,112 +283,117 @@ Page({
       kpnum: e.detail.value
     })
   },
-  jpms: function (e) {
+  jpms: function () {
+      var m=this.data.jpms;
+      var color=this.data.color;
+      wx.navigateTo({
+        url: '../awardprofile/awardprofile',
+      })
     this.setData({
-      jpms: e.detail.value
+      jpms: app.globalData.awardprofile
     })
   },
   select: function () {
-    var that = this;
-    // 鍒涘缓涓€涓ª鍔ㄧ敾瀹炰緥
-    var animation = wx.createAnimation({
+        var that = this;
+        // 鍒涘缓涓€涓ª鍔ㄧ敾瀹炰緥
+         var animation = wx.createAnimation({
       // 鍔ㄧ敾鎸佺画鏃堕棿
-      duration: 200,
-      // 瀹氫箟鍔ㄧ敾鏁堟灉锛屽綋鍓嶆槸鍖€閫
-      timingFunction: 'linear'
-    })
-    // 灏嗚¯ュ彉閲忚祴鍊肩粰褰撳墠鍔ㄧ敾
-    that.animation = animation
-    // 鍏堝湪y杞村亸绉伙紝鐒跺悗鐢╯tep()瀹屾垚涓€涓ª鍔ㄧ敾
-    animation.translateY(-100).step()
-    // 鐢╯etData鏀瑰彉褰撳墠鍔ㄧ敾
-    that.setData({
+              duration: 200,
+              // 瀹氫箟鍔ㄧ敾鏁堟灉锛屽綋鍓嶆槸鍖€閫
+              timingFunction: 'linear'
+            })
+      // 灏嗚¯ュ彉閲忚祴鍊肩粰褰撳墠鍔ㄧ敾
+      that.animation = animation
+        // 鍏堝湪y杞村亸绉伙紝鐒跺悗鐢╯tep()瀹屾垚涓€涓ª鍔ㄧ敾
+        animation.translateY(-100).step()
+        // 鐢╯etData鏀瑰彉褰撳墠鍔ㄧ敾
+        that.setData({
       // 閫氳繃export()鏂规硶瀵煎嚭鏁版嵁
-      animationData: animation.export(),
-      select: !that.data.select
-    })
-    console.log(this.data.animationData)
-    // 璁剧疆setTimeout鏉ユ敼鍙榶杞村亸绉婚噺锛屽疄鐜版湁鎰熻§夌殑婊戝姩
-    setTimeout(function () {
-      animation.translateY(0).step()
-      that.setData({
-        animationData: animation.export(),
-      })
-    }, 200)
+            animationData: animation.export(),
+            select: !that.data.select
+          })
+     console.log(this.data.animationData)
+        // 璁剧疆setTimeout鏉ユ敼鍙榶杞村亸绉婚噺锛屽疄鐜版湁鎰熻§夌殑婊戝姩
+        setTimeout(function () {
+            animation.translateY(0).step()
+         that.setData({
+ animationData: animation.export(),
+                })
+        }, 200)
   },
-  datef: function (e) {
-    var c = e.detail.current + 1;
-    this.setData({
-      date: this.data.date1[c],
-      dindex: c
-    })
+  datef: function(e) {
+      var c = e.detail.current + 1;
+      this.setData({
+ date: this.data.date1[c],
+ dindex:c
+        })
     let time = util.formatTime(new Date());
     let date = util.getDates(1, time);
     var date1 = this.data.date
-    date1 = date[0].time + ' ' + date[0].week
-    if (this.data.date == date1) this.setData({
-      today: '今天'
-    })
-    else this.setData({
-      today: ""
-    })
-  },
+   date1 = date[0].time + ' ' + date[0].week
+        if (this.data.date == date1) this.setData({
+  today: '今天'
+          })
+          else this.setData({
+  today: ""
+            })
+          },
   hourf: function (e) {
-    var c = e.detail.current + 1;
-    this.setData({
-      hour: this.data.date2[c]
-    })
+      var c = e.detail.current + 1;
+      this.setData({
+  hour: this.data.date2[c]
+        })
   },
   minf: function (e) {
-    var c = e.detail.current + 1;
-    this.setData({
-      min: this.data.date3[c]
-    })
+      var c = e.detail.current + 1;
+      this.setData({
+ min: this.data.date3[c]
+        })
   },
   // 閫夋嫨棰滆壊--寮规¡ 
-  showModal: function () {
-
-    this.setData({
+    showModal: function() {
+    
+          this.setData({
       // animationData: animation.export(),
-      showModalStatus: true
-    })
+              showModalStatus: true
+            })
 
-  },
+   },
   hideModal: function (e) {
+    
+      
+           var index = e.currentTarget.dataset.index;
+         this.setData({
+index: index
+           })
+       var m;
+     if (index == 1) {
+          m='到达设定时间自动开奖';
+          this.setData({z:'开奖时间'})
 
-
-    var index = e.currentTarget.dataset.index;
-    this.setData({
-      index: index
-    })
-    var m;
-    if (index == 1) {
-      m = '到达设定时间自动开奖';
-      this.setData({ z: '开奖时间' })
-
-    }
-    else if (index == 2) {
-      this.setData({
-        select: false
-      })
-      m = '3天内到达设定人数自动开奖';
-
-    }
-    else {
-      this.setData({
-        select: false
-      })
-      m = '参与者即开即中';
-      this.setData({ z: '抽奖截止时间' })
-    }
-    this.setData({
-      //  animationData: animation.export(),
-      showModalStatus: false,
-      methord: m
-
-    })
-    // }.bind(this), 200)
-  },
+           }
+     else if (index == 2) {
+         this.setData({
+ select: false
+           })
+       m='3天内到达设定人数自动开奖';
+       
+         }
+     else {
+         this.setData({
+ select: false
+           })
+       m='参与者即开即中';
+       this.setData({ z: '抽奖截止时间' })
+         }
+     this.setData({
+       //  animationData: animation.export(),
+         showModalStatus: false,
+         methord: m
+  
+       })
+       // }.bind(this), 200)
+     },
   setNavSize: function () {
     var that = this
       , sysinfo = wx.getSystemInfoSync()
@@ -384,14 +416,14 @@ Page({
 
     wx.chooseImage({
       count: 1,
-      success: function (res) {
+      success:function(res){
         wx.showToast({
           title: '正在上传...',
           icon: 'loading',
           mask: true,
           duration: 1000
-        })
-        var tempFilePaths = res.tempFilePaths;
+        }) 
+        var tempFilePaths =res.tempFilePaths;
 
         var image = that.data.image1;
         image.splice(0, 1);
@@ -417,7 +449,7 @@ Page({
           duration: 1000
         })
         var tempFilePaths = res.tempFilePaths;
-
+  
         var image = that.data.image2;
         image.splice(0, 1);
         that.setData({
@@ -452,7 +484,7 @@ Page({
         that.setData({
           image3: that.data.image3.concat(tempFilePaths),
         });
-
+        
       }
     })
   },
@@ -469,31 +501,34 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    let time = util.formatTime(new Date());
-    let date = util.getDates(7, time);
-    let temp_date1 = this.data.date1;
-    console.log(date);
-    for (var i = 0; i < 7; i++) {
-      temp_date1[i + 1] = date[i].time + ' ' + date[i].week
-    }
-    var h = util.h(new Date());
-    var m = util.m(new Date());
-    this.setData({
-      date1: temp_date1,
-      date: temp_date1[1],
-      datem: temp_date1[1],
-      hour: h,
-      min: m,
-      ihour: h,
-      imin: m - 1
-    })
-  },
+   
+        let time = util.formatTime(new Date());
+       let date = util.getDates(7, time);
+        let temp_date1 = this.data.date1;
+        console.log(date);
+       for (var i = 0; i < 7; i++) {
+           temp_date1[i + 1] = date[i].time + ' ' + date[i].week
+           }
+       var h = util.h(new Date());
+       var m = util.m(new Date());
+       this.setData({
+           date1: temp_date1,
+           date: temp_date1[1],
+         datem: temp_date1[1],
+           hour: h,
+           min: m,
+           ihour: h,
+           imin: m - 1
+         })
+   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      jpms: app.globalData.awardprofile
+    })
   },
 
   /**
@@ -532,7 +567,7 @@ Page({
   },
 
 
-  createLottery: function () {
+  createLottery:function(){
     wx.navigateTo({
       url: '/pages/lottery_create/lottery_create',
     })
@@ -936,7 +971,7 @@ Page({
     var minute = that.data.multiArray[2][e.detail.value[2]];
 
     this.setData({
-      t: monthDay
+      t:monthDay
     })
 
     if (monthDay === "今天") {
@@ -944,6 +979,10 @@ Page({
       var month = date.getMonth() + 1;
 
       var day = date.getDate();
+      that.setData({
+        month:month,
+        day:day
+      })
 
       monthDay = month + "月" + day + "日";
 
@@ -952,6 +991,10 @@ Page({
       var date1 = new Date(date);
 
       date1.setDate(date.getDate() + 1);
+      that.setData({
+        month: date1.getMonth() + 1,
+        day: date1.getDate()
+      })
 
       monthDay = (date1.getMonth() + 1) + "月" + date1.getDate() + "日";
 
@@ -962,24 +1005,32 @@ Page({
       var month = monthDay.split("-")[0]; // 返回月
 
       var day = monthDay.split("-")[1]; // 返回日
+      
+      that.setData({
+        month: month,
+        day: day
+      })
 
       monthDay = month + "月" + day + "日";
 
     }
 
 
-
+    var year=date.getFullYear();
     var startDate = monthDay + " " + hours + ":" + minute;
-
+    
+    
     that.setData({
 
       startDate: startDate,
-      monthDay: monthDay,
-      hour: hours,
-      minute: minute
+      monthDay:monthDay,
+      year:year,
+     
+      hour:hours,
+      minute:minute
     })
 
   },
 
-
+  
 })

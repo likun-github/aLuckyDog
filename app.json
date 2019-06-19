@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/award/award",
-    "pages/index/index",
-    "pages/lottery_create/lottery_create",
     
+    "pages/award/award",
+    "pages/awardprofile/awardprofile",
+    "pages/lottery_create/lottery_create",
+    "pages/index/index",
     "pages/selfpage/selfpage",
     "pages/aspiration/aspiration",
     "pages/test/test",
@@ -13,7 +14,9 @@
     "pages/lottery_view_2/lottery_view_2",
     "pages/lottery_view_3/lottery_view_3",
     "pages/remainder_money/remainder_money",
+    "pages/address/address",
     "pages/joinaward/joinaward"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,7 +29,7 @@
     "navBar": "/components/navBar/navBar",
     "bottom": "/components/bottom/bottom",
     "profile": "/components/profile/profile",
-    "shouquan":"/components/shouquan/shouquan"
+    "shouquan": "/components/shouquan/shouquan"
   },
   "sitemapLocation": "sitemap.json"
 }

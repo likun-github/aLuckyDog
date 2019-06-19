@@ -8,10 +8,7 @@ App({
       this.globalData.nickname=information.nickname;
       this.globalData.avatarUrl=information.avatarUrl;
       this.globalData.status=information.status;
-
     }
-   
-   
   },
 
   
@@ -21,7 +18,7 @@ App({
 
 
   globalData: {
-    url: 'http://1397608894-qq.vicp.io:42685/lottery/',
+    url: 'http://25t2f65842.wicp.vip:19785/lottery/',
     userInfo: null,
     top_height:0,
  
@@ -37,6 +34,6 @@ App({
     city: '',
     province: '',
     language: "zh_CN",
-   
+    awardprofile:'请输入本次抽奖活动的说明'
   }
 })

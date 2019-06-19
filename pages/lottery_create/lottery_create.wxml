@@ -44,9 +44,9 @@
   <view class='host'>
     <view class='host_text'>抽奖发起人</view>
     <view class='host_picture'>
-      <image src='/images/icn-pi-join@3x.png' style='height:50rpx;width:50rpx;'></image>
+      <image src='{{pic}}' style='height:50rpx;width:50rpx;'></image>
     </view>
-    <view class='host_name'>li.kun</view>
+    <view class='host_name'>{{name}}</view>
   </view>
 
   <view style='height:30rpx;width:100%;background:#f0f0f0;'></view>
@@ -96,7 +96,8 @@
   <view style='height: {{88}}px;'></view>
   <!-- 配置 自定义的title -->
   <!-- <view style='height: {{top_height}}px;'></view> -->
-  <scroll-view class='canvas_view' style='height:{{  500}}px'>
+  
+  <scroll-view class='canvas_view' style='height:{{1000+(s-1)*100}}rpx'>
     <view class='host_picture_1'>
       <image src='/images/icn-result-regret@3x.png' style='height:100rpx;width:100rpx;'></image>
     </view>
@@ -108,9 +109,18 @@
         <image src='/images/default-prize@3x.jpg' style='height:220rpx;' class='lottery_list_wait_img'></image>
       </view>
 
-      <view class='lottery_list_1_wait_new'>奖品：数字棋盘 x1 </view>
+     <view wx:if='{{s==1}}' style='width:100%;' class='lottery_list_1_wait'>奖品：{{jpname[0]}} X{{jpnum[0]}} </view>
+     <view wx:if='{{s==2}}' class='lottery_list_1_wait' style='width:100%;'>一等奖奖品:{{jpname[0]}} X{{jpnum[0]}} </view>
+     <view wx:if='{{s==2}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}}X{{jpnum[1]}} </view>
+     <view wx:if='{{s==3}}'class='lottery_list_1_wait'style='width:100%;'>一等奖奖品：{{jpname[0]}} X{{jpnum[0]}}</view>
+     <view wx:if='{{s==3}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}} X{{jpnum[1]}}</view>
+     <view wx:if='{{s==3}}' style='width:100%;' class='lottery_list_1_wait'>三等奖奖品:{{jpname[2]}} X{{jpnum[2]}} </view>
+  
 
-      <view class='lottery_list_3_wait_new'>06月14日 16:32 自动开奖</view>
+    <view wx:if='{{index==1}}' class='lottery_list_3_wait'>{{date}} 自动开奖</view>
+    <view wx:if='{{index==2}}' class='lottery_list_3_wait'>3天内参与到达{{kpnum}}自动开奖</view>
+    <view wx:if='{{index==3}}' class='lottery_list_3_wait'>参与者即开即中</view>
+
       <view class='seperator_pic'>
         <view class='left_o'></view>
         <view style='height:1rpx;width:85%;margin-left:15rpx;margin-right:15rpx;background:rgba(228, 228, 228, 0.527);'></view>
@@ -120,7 +130,6 @@
       <view class='wxSmallCode_view'>
         <image src='/images/lottery_new_checked@3x.png' class='wxSmallCode'></image>
       </view>
-
       <view class='wxSmallCode_text'>长按小程序码，参与抽奖</view>
     </view>
 

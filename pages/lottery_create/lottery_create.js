@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    name:'',
+    pic:'',
     height_screen: 0,
     top_height: 0,
     background: 'rgba(255, 255, 255, 1)',
@@ -76,8 +78,11 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.animation = wx.createAnimation()
-
+    this.animation = wx.createAnimation();
+    this.setData({
+      name: app.globalData.nickname,
+      pic: app.globalData.avatarUrl,
+    })
   },
 
   /**
@@ -206,12 +211,10 @@ Page({
   },
 
   go_to_lotteryCreate:function(){
-    wx.navigateTo({
-      url: '/pages/award/award',
-    })
+  wx.navigateBack({
+    delt:1
+  })
   },
-
-
   showmodels_tips:function(){
     var that = this
     wx.showModal({
@@ -258,7 +261,7 @@ Page({
   },
 
   translate_no: function () {
-    this.animation.translate(0, 115).step()
+    this.animation.translate(0, 120).step()
     this.setData({ animation: this.animation.export() })
   },
 

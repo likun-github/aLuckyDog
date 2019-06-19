@@ -22,6 +22,7 @@
   letter-spacing: 10rpx;
   font-weight: 600;
   line-height: 100rpx;
+  border-radius: 50rpx;
 }
 
 .pic {
@@ -50,6 +51,20 @@
   font-size: 28rpx;
   
 }
+.c1{
+  font-size: 28rpx;
+  text-align: center;
+  padding-left: 100rpx;
+}
+.textArea{
+  height: 400rpx;
+  width: 750rpx;
+  padding: 25rpx 25rpx; 
+
+  font-size: 30rpx;
+  
+  
+}
 .contaner {
   width: 100%;
   height: 1400rpx;
@@ -63,11 +78,7 @@
   text-align: right;
   margin-right: 40rpx;
 }
-.textArea{
-  height: 400rpx;
-  
-  width: 750rpx;
-}
+
 .input11 {
   height: 100%;
   line-height: 100rpx;
@@ -134,4 +145,8 @@
   height: 90%;
   width: 20%;
   margin-left: 5%;
+}
+.button-hover{
+ opacity: 0.9;
+ background: #f7f7f7;
 }
