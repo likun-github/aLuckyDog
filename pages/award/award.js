@@ -5,13 +5,15 @@ var date = new Date();
 var currentHours = date.getHours();
 var currentMinute = date.getMinutes();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     t:'',
     monthDay:'',
+    year:'',
+    month:'',
+    day:'',
     hour:'',
     minute:'',
 //picker
@@ -58,11 +60,12 @@ Page({
     // ihour:0,
     // imin:0,
     // dindex:0,
+    color:'rgba(80,80,80,0.6)',
 //数据统计
    
-    image1: ['../../static/1.jpg'],
-    image2: ['../../static/1.jpg'],
-    image3: ['../../static/1.jpg'],
+    image1: ['/images/default-prize@3x.jpg'],
+    image2: ['/images/default-prize@3x.jpg'],
+    image3: ['/images/default-prize@3x.jpg'],
     title:1,//抽奖编号
     jpname:["","",""],
     jpnum:["","",""],
@@ -202,28 +205,53 @@ Page({
           //  & jpnum=this.data.jpnum & date=this.data.date & hour=this.data.hour & min=this.data.min & kpnum=this.data.kpnum
            success(res){
              if(res.confirm){
+               
+
 
             //上传
-             wx:wx.request({
-               url: app.globalData.url +'startaward',
-               data: {
-                 'userid': app.globalData.userid,
+            //  wx:wx.request({
+            //    url: app.globalData.url +'startaward',
+            //    data: {
+            //      'userid': app.globalData.userid,
 
+            //    },
+            //    method: 'GET',
+            //    success: function(res){
 
-               },
-               method: 'GET',
-               success: function(res){
+            //    },
+            //    fail: function(res) {
+            //      console.log('fail')
+            //    },
 
-               },
-               fail: function(res) {
-                 console.log('fail')
-               },
-
-             })
+            //  })
 
                wx.navigateTo({
                  url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum+'&s='+that.data.s,
                })
+             }
+             else{
+              // monthDay + " " + hours + ":" + minute;
+               console.log(that.data.startDate)
+             var year=that.data.year
+             var m=that.data.month
+             var d=that.data.day
+               m = parseInt(m)
+               d = parseInt(d)
+        
+
+
+             var hour=that.data.hour
+             var min=that.data.minute
+             var monday=that.data.monthDay
+               console.log(year, m, d, hour, min, monday)
+               var sec=0;
+              var da=year+'/'+m+'/'+d+' '+hour+':'+min+':'+sec;
+              console.log(da)
+               var timestamp = Math.round(new Date(da).getTime()/ 1000)
+               console.log(timestamp)
+               
+               var timestamp1 = Date.parse(new Date());
+               console.log(timestamp1/1000)
              }
            }
          })
@@ -255,9 +283,14 @@ Page({
       kpnum: e.detail.value
     })
   },
-  jpms: function (e) {
+  jpms: function () {
+      var m=this.data.jpms;
+      var color=this.data.color;
+      wx.navigateTo({
+        url: '../awardprofile/awardprofile',
+      })
     this.setData({
-     jpms: e.detail.value
+      jpms: app.globalData.awardprofile
     })
   },
   select: function () {
@@ -468,6 +501,7 @@ index: index
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+   
         let time = util.formatTime(new Date());
        let date = util.getDates(7, time);
         let temp_date1 = this.data.date1;
@@ -492,7 +526,9 @@ index: index
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      jpms: app.globalData.awardprofile
+    })
   },
 
   /**
@@ -943,6 +979,10 @@ index: index
       var month = date.getMonth() + 1;
 
       var day = date.getDate();
+      that.setData({
+        month:month,
+        day:day
+      })
 
       monthDay = month + "月" + day + "日";
 
@@ -951,6 +991,10 @@ index: index
       var date1 = new Date(date);
 
       date1.setDate(date.getDate() + 1);
+      that.setData({
+        month: date1.getMonth() + 1,
+        day: date1.getDate()
+      })
 
       monthDay = (date1.getMonth() + 1) + "月" + date1.getDate() + "日";
 
@@ -961,19 +1005,27 @@ index: index
       var month = monthDay.split("-")[0]; // 返回月
 
       var day = monthDay.split("-")[1]; // 返回日
+      
+      that.setData({
+        month: month,
+        day: day
+      })
 
       monthDay = month + "月" + day + "日";
 
     }
 
 
-
+    var year=date.getFullYear();
     var startDate = monthDay + " " + hours + ":" + minute;
-
+    
+    
     that.setData({
 
       startDate: startDate,
       monthDay:monthDay,
+      year:year,
+     
       hour:hours,
       minute:minute
     })

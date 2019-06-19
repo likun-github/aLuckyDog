@@ -8,10 +8,7 @@ App({
       this.globalData.nickname=information.nickname;
       this.globalData.avatarUrl=information.avatarUrl;
       this.globalData.status=information.status;
-
     }
-   
-   
   },
 
   
@@ -37,6 +34,6 @@ App({
     city: '',
     province: '',
     language: "zh_CN",
-   
+    awardprofile:'请输入本次抽奖活动的说明'
   }
 })

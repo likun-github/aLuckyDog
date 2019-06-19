@@ -1,0 +1,104 @@
+/* pages/address/address.wxss */
+
+.item {
+  height: 150rpx;
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/*  */
+
+.navbar {
+  position: relative;
+
+}
+
+.back-icon, .home-icon {
+  width: 28px;
+  height: 100%;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  display: flex;
+  background: rgba(0, 0, 0, 0);
+}
+
+.back-icon {
+  left: 16px;
+}
+
+.home-icon {
+  left: 44px;
+}
+
+.back-icon image {
+  width: 18px;
+  height: 18px;
+  margin: auto;
+}
+
+.home-icon image {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+}
+
+.nav-title, .nav-icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  font-size: 0;
+  font-weight: 500;
+}
+
+.title_view {
+  width: 100%;
+  /* top: 0; */
+  z-index: 1;
+  position: fixed;
+  
+}
+
+
+.bottom_add{
+  position: absolute;
+  bottom:20rpx;
+  right: 20rpx;
+
+  height: 120rpx;
+  width: 120rpx;
+  background: rgba(228, 228, 228, 0.897);
+  border-radius: 100%;
+  color: rgba(199, 146, 31, 0.795);
+  font-size: 60rpx;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0.5rpx 0.5rpx rgba(226, 180, 82, 0.795);
+  
+}
+.text{
+
+  width: 100%;
+  height: 500rpx;
+  margin-bottom: 50rpx;
+  margin-top: 20rpx;
+  background: white;
+}
+.botn{
+  width:90%;
+  margin-left: 5%;
+  height: 100rpx;
+  background: red;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  border-radius: 50rpx;
+  color: white;
+}

@@ -124,10 +124,10 @@
   <text class='input11' style='font-size:24rpx;color:rgb(100,100,100);line-height:80rpx;'>抽奖说明</text>
     <view class='input1' bindtap='showModal' style='font-size:24rpx;color:rgb(100,100,100);line-height:80rpx;'>选填</view>
     </view>
- <textarea class="textArea" bindinput='jpms' placeholder='请输入奖品说明' placeholder-class='c' type='number'></textarea>
+ <view class="textArea" bindtap='jpms'  style='color:{{color}};'>{{jpms}}</view>
     </view>
   <view class='tab' style='z-index:10'>
-  <view class='begin'bindtap='start'>发起新抽奖</view>
+  <view class='begin'bindtap='start' hover-class="button-hover" hover-stay-time="10">发起新抽奖</view>
   </view>
 
   
