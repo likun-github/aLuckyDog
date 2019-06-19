@@ -4,15 +4,57 @@
 <!-- 配置 自定义的title -->
 <view style='height: {{top_height}}px;'></view>
 
-<scroll-view>
-  <view class='finished'>待开奖</view>
 
-  
+
+
+<scroll-view>
+
+  <view class='finished'>待开奖</view>
+  <view class='toast1'  wx:if="{{data_wait.length<1}}">没有正在进行的抽奖信息~</view>
+
+  <view wx:for="{{data_wait}}">
+
+    <view class='lottery_list_wait'>
+      <view>
+        <image src="{{item.pic1}}" style='height:350rpx;width:100%;'></image>
+      </view>
+
+      <view class='lottery_list_1_wait'>{{item.number>1?'一等奖':'奖品'}}：{{item.name1}} ✕ {{item.num1}}</view>
+      <view class='lottery_list_1_wait' wx:if="{{item.number>=2}}">二等奖：{{item.name2}} ✕ {{item.num2}}</view>
+      <view class='lottery_list_1_wait' wx:if="{{item.number>=3}}">三等奖：{{item.name3}} ✕ {{item.num3}}</view>
+
+      <view class='lottery_list_3_wait' wx:if="{{item.way==1}}">{{item.time}} 自动开奖</view>
+      <view class='lottery_list_3_wait' wx:if="{{item.way==2}}">满{{item.num}}人 自动开奖</view>
+       <!-- <view class='lottery_list_3_wait'>{{item.award.way==0?'item.award.time':'满 {{item.award.num}} 人'}} 自动开奖</view> -->
+      <view class='seperator4'></view>
+    </view>
+
+    
+
+    <view class='seperator4'></view>
+  </view>
 
   <view class='finished'>已结束</view>
+  <view class='toast1'  wx:if="{{data_over.length<1}}">没有已经结束的抽奖信息~</view>
+  <view wx:for="{{data_over}}">
+    <view class='lottery_list'>
+     
+     
+      <view class='lottery_list_1'>奖品： </view>
+      <view class='lottery_list_2' >{{item.name1}} X {{item.num1}}、{{item.name2}} X {{item.num2}}、{{item.name3}} X {{item.num3}}</view>
 
-  
+      <view class='lottery_list_3'>{{item.time}}</view>
+      <view class='lottery_list_4'>
+        <image src='/images/arrow@3x.png' style='height:40rpx;width:60rpx;'></image>
+      </view>
+    </view>
+
+    <view class='seperator4'></view>
+  </view>
 
 
-  <view style='height:500rpx;width:100%;font-size:28rpx;color:rgb(0, 150, 236);padding-top:50rpx;display: flex;justify-content:center'></view>
+
+
+  <view style='height:80rpx;width:100%;font-size:28rpx;color:rgb(0, 150, 236);padding-top:50rpx;display: flex;justify-content:center'>(待开奖+已开奖）</view>
+  <!-- <view style='height:500rpx;width:100%;font-size:28rpx;color:rgb(0, 150, 236);padding-top:50rpx;display: flex;justify-content:center'></view> -->
 </scroll-view>

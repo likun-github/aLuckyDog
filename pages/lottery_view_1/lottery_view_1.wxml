@@ -5,9 +5,6 @@
 <view style='height: {{top_height}}px;'></view>
 <!-- <view style='height: 88px;'></view> -->
 
-<view class='lottery_list_1_wait' wx:if="{{item.award.name2}}">二等奖：{{item.award.name2}}</view>
-<view class='lottery_list_1_wait' wx:if="{{item.award.name3}}">三等奖：{{item.award.name3}}</view>
-
 
 <scroll-view>
 
