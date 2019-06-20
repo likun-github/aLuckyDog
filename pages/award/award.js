@@ -102,6 +102,36 @@ Page({
     }
   }
   ,
+  //上传图片
+  uploadDIY(filePaths, successUp, failUp, i, length,awardid) {
+    console.log("保存图片")
+    console.log(filePaths)
+    console.log(filePaths[0])
+    wx.uploadFile({
+      url: app.globalData.url+'savepic',
+      filePath: filePaths[i][0],
+      name: 'file',
+      formData: {
+        'awardid': awardid,
+        'i': i,
+      },
+      success: (resp) => {
+        successUp++;
+      },
+      fail: (res) => {
+        failUp++;
+      },
+      complete: () => {
+        i++;
+        if (i == length) {
+          wx.showToast('总共' + successUp + '张上传成功,' + failUp + '张上传失败！');
+        }
+        else {  //递归调用uploadDIY函数
+          this.uploadDIY(filePaths, successUp, failUp, i, length,awardid);
+        }
+      },
+    });
+  },
   //发起抽奖
   start:function(){
     var images=[this.data.image1,this.data.image2,this.data.image3]
@@ -249,7 +279,7 @@ Page({
                },
                method: 'GET',
                success: function(res){
-
+                 that.uploadDIY(images,0,0,0,that.data.s,res.data.awardid);
                },
                fail: function(res) {
                  console.log('fail')
@@ -257,9 +287,9 @@ Page({
 
              })
 
-              //  wx.navigateTo({
-              //    url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum+'&s='+that.data.s,
-              //  })
+               wx.navigateTo({
+                 url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum+'&s='+that.data.s,
+               })
              }
              else{
               // monthDay + " " + hours + ":" + minute;
