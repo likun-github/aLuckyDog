@@ -218,29 +218,48 @@ Page({
                var da = year + '/' + m + '/' + d + ' ' + hour + ':' + min + ':' + sec;
                var timestamp = Math.round(new Date(da).getTime() / 1000)
                console.log(timestamp)
+               console.log(timestamp)
+               console.log(that.data.jpname)
+               console.log(that.data.jpnum)
+               console.log(that.data.index)
+               console.log(that.data.jpms)
+               console.log(timestamp)
+               console.log(that.data.s)
+               console.log(that.data.kpnum)
+               console.log(images)
 
 
 
-            //上传
-            //  wx:wx.request({
-            //    url: app.globalData.url +'startaward',
-            //    data: {
-            //      'userid': app.globalData.userid,
 
-            //    },
-            //    method: 'GET',
-            //    success: function(res){
+            
+             wx:wx.request({
+               url: app.globalData.url +'startaward',
+               data: {
+                 'userid': app.globalData.userid,
+                 'jpname':that.data.jpname,
+                 'jpnum':that.data.jpnum,
+                 'way':that.data.index,
+                 'time':timestamp,
+                 'information':that.data.s,
+                 'num':that.data.kpnum,
+                 'images':images,
+                
 
-            //    },
-            //    fail: function(res) {
-            //      console.log('fail')
-            //    },
 
-            //  })
+               },
+               method: 'GET',
+               success: function(res){
 
-               wx.navigateTo({
-                 url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum+'&s='+that.data.s,
-               })
+               },
+               fail: function(res) {
+                 console.log('fail')
+               },
+
+             })
+
+              //  wx.navigateTo({
+              //    url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum+'&s='+that.data.s,
+              //  })
              }
              else{
               // monthDay + " " + hours + ":" + minute;
@@ -258,7 +277,7 @@ Page({
                var da = year + '/' + m + '/' + d + ' ' + hour + ':' + min + ':' + sec;
                console.log(da)
                var timestamp = Math.round(new Date(da).getTime() / 1000)
-               console.log(timestamp)
+               
 
                
               //  var timestamp1 = Date.parse(new Date());
