@@ -134,6 +134,8 @@ Page({
   },
   //发起抽奖
   start:function(){
+    var jpms=this.data.jpms;
+    if(jpms=='请输入本次抽奖活动的说明')this.setData({jpms:''})
     var images=[this.data.image1,this.data.image2,this.data.image3]
     var s=this.data.s;
     var that=this;
@@ -278,7 +280,10 @@ Page({
                    awardid:res.data.awardid
                  })
                  that.uploadDIY(images,0,0,0,that.data.s,res.data.awardid);
-                 console.log(that.data.awardid)
+                 console.log(that.data.awardid);
+                 wx.navigateTo({
+                   url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum + '&s=' + that.data.s + '&jpms=' + that.data.jpms + '&jmages=' + images + '&awardid=' + that.data.awardid,
+                 })
                },
                fail: function(res) {
                  console.log('fail')
@@ -286,9 +291,7 @@ Page({
 
              })
            
-               wx.navigateTo({
-                 url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum+'&s='+that.data.s+'&jpms='+that.data.jpms+'&jmages='+images+'&awardid='+that.data.awardid,
-               })
+              
              }
              else{
               // monthDay + " " + hours + ":" + minute;

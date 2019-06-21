@@ -20,7 +20,17 @@ Page({
     iconWidth: 58,
     could_join: true,
     share_flag:false,
-
+    cd:7,
+    canyu: ["/images/icn-zu@3x.png", 
+      "/images/icn-zu@3x.png", 
+      "/images/icn-zu@3x.png", 
+      "/images/icn-zu@3x.png", 
+      "/images/icn-zu@3x.png", 
+      "/images/icn-zu@3x.png", 
+      "/images/icn-zu@3x.png", 
+    
+     ],
+    state:'',//个人对于奖项的状态
     awardid:'',
     imgurls:[],
     jpms:'',
@@ -30,6 +40,7 @@ Page({
     animation:'',
     date: '',//日期
     s:1,
+    level:0,//奖项状态
     kpnum:0,//开奖人数||最多抽奖人数
       },
 
@@ -86,6 +97,37 @@ Page({
     console.log(this.data.jpname)
     console.log(this.data.awardid)
     console.log(images)
+   var that=this
+
+    wx.request({
+      url: app.globalData.url + 'getAwardPeople',
+      data: {
+        'id': that.data.awardid
+      },
+      method: 'GET',
+      success: function (res) {
+       
+        var cd=[];
+        for (var i = 0; i < res.data.data.length;i++){
+          cd[i] = res.data.data[i].user__picture
+        }
+        
+        that.setData({
+          canyu: cd,
+        })
+        if (cd.length<=7)
+        that.setData({
+          cd: cd.length
+        })
+        else that.setData({
+          cd: 7
+        })
+        console.log(that.data.canyu)
+      },
+      fail: function (res) {
+        console.log('fail')
+      },
+    })
     // this.lower()//动画
   },
 
@@ -93,8 +135,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   
-    
    
     this.animation = wx.createAnimation();
     this.setData({
@@ -107,7 +147,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+        
   },
 
   /**
@@ -203,6 +243,7 @@ Page({
 
   join: function () {
     var that = this
+    if (that.data.state != 'success')
     wx.showModal({
       title: '提示',
       content: '有人参与抽奖后，你将无法再编辑抽奖信息，是否确认参与该抽奖？',
@@ -212,10 +253,33 @@ Page({
       cancelColor: 'darkgray',
       success(res) {
         if (res.confirm) {
+         wx.request({
+           url: app.globalData.url +'intoLottery',
+           data:{
+             'userid': app.globalData.userid,
+             'id': that.data.awardid
+           },
+           method: 'GET',
+           success:function(res){
+             console.log(res.data.state)
+                that.setData({
+                  state: res.data.state,
+                  level: res.data.data[0].level
+                })
+             if (that.data.state == 'success')
+               that.setData({
+                 could_join: false
+               })
+           },
+            fail: function (res) {
+             console.log('fail')
+           },
+         })
+
+
+
           console.log('用户点击确定分享')
-          that.setData({
-            could_join: !that.data.could_join
-          })
+       
 
         } else if (res.cancel) {
           console.log('用户点击取消')
@@ -235,6 +299,7 @@ Page({
   },
   showmodels_tips:function(){
     var that = this
+    if (that.data.state != 'success')
     wx.showModal({
       title: '提示',
       content: '有人参与抽奖后，你将无法再编辑抽奖信息，是否确认分享该抽奖？',
@@ -245,14 +310,24 @@ Page({
       success(res) {
         if (res.confirm) {
         
-
-
-
-
-          console.log('用户点击确定分享')
-          that.setData({
-            could_join: !that.data.could_join
+          wx.request({
+            url: app.globalData.url + 'intoShare',
+            data: {
+              'id': that.data.awardid
+            },
+            method: 'GET',
+            success: function (res) {
+              console.log(res.data.state)
+              that.setData({
+                state: res.data.state
+              })
+              if (that.data.state == 'success')
+                that.setData({
+                  could_join: false
+                })
+            }
           })
+         
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
