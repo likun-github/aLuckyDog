@@ -83,7 +83,12 @@ Component({
       })
     },
 
-
+    go_to_advice: function (e) {
+      console.log(e)
+      wx.navigateTo({
+        url: '/pages/advice/advice',
+      })
+    },
 
     address: function () {
       // wx.navigateTo({
@@ -179,5 +184,10 @@ Component({
 
 
   },
+
+
+ 
+
+
 
 })

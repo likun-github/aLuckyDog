@@ -1,11 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/award/award",
-      "pages/index/index",
-    
     "pages/awardprofile/awardprofile",
     "pages/lottery_create/lottery_create",
- 
     "pages/selfpage/selfpage",
     "pages/aspiration/aspiration",
     "pages/test/test",
@@ -16,8 +14,8 @@
     "pages/lottery_view_3/lottery_view_3",
     "pages/remainder_money/remainder_money",
     "pages/address/address",
-    "pages/joinaward/joinaward"
-    
+    "pages/joinaward/joinaward",
+    "pages/advice/advice"
   ],
   "window": {
     "backgroundTextStyle": "light",
