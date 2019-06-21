@@ -21,6 +21,9 @@ Page({
     could_join: true,
     share_flag:false,
 
+    awardid:'',
+    imgurls:[],
+    jpms:'',
     index: 1,//抽奖方式
     jpname: '',
     jpnum: 0,
@@ -57,20 +60,32 @@ Page({
 
     var jpname=options.jpname;
     var jpnum= options.jpnum;
-
+    var images = options.jmages;
+    images=images.split(",");
     jpname=jpname.split(",");
     jpnum=jpnum.split(",");
+
+    var s = options.s;
+    console.log(s);
+    console.log(images);
+    if(s==1)images=[images[0]];
+    else if(s==2)images=[images[0],images[1]];
+    else images=[images[0],images[1],images[2]];
+    console.log(images);
     this.setData({
       index:options.index,
       jpname:jpname,
       jpnum:jpnum,
       date:options.date,
       kpnum:options.kpnum,
-      s:options.s
+      s:options.s,
+      jpms:options.jpms,
+      imgurls:images,
+      awardid:options.awardid
     })
     console.log(this.data.jpname)
-    console.log(this.data.jpnum)
-    console.log(this.data.s)
+    console.log(this.data.awardid)
+    console.log(images)
     // this.lower()//动画
   },
 
@@ -78,6 +93,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+   
+    
+   
     this.animation = wx.createAnimation();
     this.setData({
       name: app.globalData.nickname,
@@ -226,6 +244,11 @@ Page({
       cancelColor:'darkgray',
       success(res) {
         if (res.confirm) {
+        
+
+
+
+
           console.log('用户点击确定分享')
           that.setData({
             could_join: !that.data.could_join

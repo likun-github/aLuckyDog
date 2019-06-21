@@ -62,7 +62,7 @@ Page({
     // dindex:0,
     color:'rgba(80,80,80,0.6)',
 //数据统计
-   
+   awardid:'',
     image1: ['/images/default-prize@3x.jpg'],
     image2: ['/images/default-prize@3x.jpg'],
     image3: ['/images/default-prize@3x.jpg'],
@@ -258,10 +258,6 @@ Page({
                console.log(that.data.kpnum)
                console.log(images)
 
-
-
-
-            
              wx:wx.request({
                url: app.globalData.url +'startaward',
                data: {
@@ -275,20 +271,23 @@ Page({
                  'images':images,
                 
 
-
                },
                method: 'GET',
                success: function(res){
+                 that.setData({
+                   awardid:res.data.awardid
+                 })
                  that.uploadDIY(images,0,0,0,that.data.s,res.data.awardid);
+                 console.log(that.data.awardid)
                },
                fail: function(res) {
                  console.log('fail')
                },
 
              })
-
+           
                wx.navigateTo({
-                 url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum+'&s='+that.data.s,
+                 url: '/pages/lottery_create/lottery_create?index=' + that.data.index + '&jpname=' + that.data.jpname + '&jpnum=' + that.data.jpnum + '&date=' + that.data.startDate + '&kpnum=' + that.data.kpnum+'&s='+that.data.s+'&jpms='+that.data.jpms+'&jmages='+images+'&awardid='+that.data.awardid,
                })
              }
              else{

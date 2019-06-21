@@ -2,13 +2,10 @@
   <view class='nav' style='height: {{44 + 44}}px;'>
     <view class='status' style='height: {{44}}px;{{containerStyle}}'></view>
     <view class='navbar' style='height:{{44}}px;{{containerStyle}}; '>
-      <view class='back-icon' bindtap='back'>
-        <image src='/images/icn_back@3x.png'></image>
-      </view>
+ 
       <view class='nav-title' style=' width:70%;display: flex;justify-content: flex-start; align-items: center;'>
         <text style='{{textStyle}}'>抽奖详情</text>
       </view>
-
     </view>
   </view>
 </view>
@@ -24,9 +21,14 @@
 
   <view class='lottery_list_wait' style='height:{{500+(s-1)*100}}rpx'>
     <view style='height:350rpx;width:100%;'>
-      <image src='/images/default-prize@3x.jpg' style='height:350rpx;width:100%;'></image>
+    <swiper style='height:350rpx;width:100%;'indicator-dots='true' autoplay='true'>
+    <block wx:for="{{imgurls}}">
+    <swiper-item>
+      <image src="{{item}}" style='height:100%;width:100%;'/>
+    </swiper-item>
+    </block>
+    </swiper>
     </view>
-    
     <view wx:if='{{s==1}}' style='width:100%;' class='lottery_list_1_wait'>奖品：{{jpname[0]}} X{{jpnum[0]}} </view>
  <view wx:if='{{s==2}}' class='lottery_list_1_wait' style='width:100%;'>一等奖奖品:{{jpname[0]}} X{{jpnum[0]}} </view>
  <view wx:if='{{s==2}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}}X{{jpnum[1]}} </view>
@@ -55,7 +57,7 @@
       <image class=' toast_view_1_img' src='/images/yinghao.svg' mode='aspectFill'></image>
     </view>
     <view class='Everday_Lottery_text'>
-      <view class='Everday_Lottery_text_3'>不包邮费哦~亲！</view>
+      <view class='Everday_Lottery_text_3'>{{jpms}}</view>
     </view>
   </view>
 
