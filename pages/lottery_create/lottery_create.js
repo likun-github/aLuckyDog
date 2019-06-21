@@ -40,6 +40,8 @@ Page({
     animation:'',
     date: '',//日期
     s:1,
+    status: 0,
+    navHeight: 0,
     level:0,//奖项状态
     kpnum:0,//开奖人数||最多抽奖人数
       },
@@ -61,7 +63,7 @@ Page({
         })
       }
     })
-
+    this.setNavSize()
 
     this.setData({
       top_height: app.globalData.top_height
