@@ -248,7 +248,9 @@ Page({
                console.log(year, m, d, hour, min, monday)
                var sec = 0;
                var da = year + '/' + m + '/' + d + ' ' + hour + ':' + min + ':' + sec;
+
                var timestamp = Math.round(new Date(da).getTime() / 1000)
+
                console.log(timestamp)
                console.log(timestamp)
                console.log(that.data.jpname)
@@ -309,9 +311,6 @@ Page({
                var da = year + '/' + m + '/' + d + ' ' + hour + ':' + min + ':' + sec;
                console.log(da)
                var timestamp = Math.round(new Date(da).getTime() / 1000)
-               
-
-               
               //  var timestamp1 = Date.parse(new Date());
               //  console.log(timestamp1/1000)
              }
@@ -424,9 +423,10 @@ Page({
   hideModal: function (e) {
     
       
-           var index = e.currentTarget.dataset.index;
+        var index = e.currentTarget.dataset.index;
+        if(!index)index=this.data.index
          this.setData({
-index: index
+         index: index
            })
        var m;
      if (index == 1) {

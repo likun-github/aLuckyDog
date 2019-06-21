@@ -362,5 +362,20 @@ Page({
     this.animation.translate(0, 120).step()
     this.setData({ animation: this.animation.export() })
   },
-
+  share1:function(res){
+    if(this.data.awardid){
+    if (res.from === 'button') {
+    }
+    return {
+      title: '转发',
+      path: '/pages/awardconfirm/awardconfirm?awardid='+this.data.awardid,
+      success: function (res) {
+        console.log('成功', res)
+      }
+    }
+    }else wx.showModal({
+      title: '请稍后重试',
+      content: '网络出现异常请稍后重试',
+    })
+  }
 })

@@ -86,11 +86,11 @@
 
 <view class='bottom_btn_view' wx:if="{{could_join}}">
   <button class='btn_1' bindtap='showmodels_tips'>分享该抽奖</button>
-  <button class='btn_2' bindtap='go_to_lotteryCreate'>编辑</button>
+  <button class='btn_2' bindtap='go_to_lotteryCreate'>更多抽奖福利</button>
 </view>
 
 
-<view class='bottom_btn_view' wx:if="{{!could_join}}">
+<view class='bottom_btn_view' wx:if="{{share_flag}}">
   <button class='btn_1_1' bindtap='share_lottery'>分享该抽奖</button>
 </view>
 
@@ -149,12 +149,14 @@
       <image src='/images/icn-zu@3x.png' class='share_to_list_img'></image>
     </view>
     <view class='share_to_list_text_view'>
-      <button class='share_to_list_text' open-type="share" bindtap='share1' >分享给好友</button>
-      <button class='share_to_list_text' open-type="share">分享给好友</button>
-      <button class='share_to_list_text' open-type="share">分享给好友</button>
+      <view class='share_to_list_text'>分享给好友</view>
+      <view class='share_to_list_text'>分享给好友</view>
+      <view class='share_to_list_text'>分享给好友</view>
     </view>
     <view class='cancel_text' bindtap='cancel_share'>取消</view>
   </view>
 
 
 </scroll-view>
+
+<shouquan></shouquan>
