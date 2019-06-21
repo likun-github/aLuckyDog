@@ -11,8 +11,8 @@
 </view>
 
 <!-- 配置 自定义的title -->
-<view style='height: {{88}}px;'></view>
-<!-- <view style='height: {{top_height}}px;'></view> -->
+<!-- <view style='height: {{88}}px;'></view> -->
+<view style='height: {{top_height}}px;'></view>
 
 <scroll-view  wx:if="{{!share_flag}}">
   <!-- <view class='width:100%;height:300rpx;'>

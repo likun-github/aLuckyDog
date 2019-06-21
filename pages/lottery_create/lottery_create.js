@@ -270,7 +270,7 @@ Page({
   },
 
   translate: function () {
-    this.animation.translate(0, -115).step()
+    this.animation.translate(0, -120).step()
     this.setData({ animation: this.animation.export() })
   },
 
