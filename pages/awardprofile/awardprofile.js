@@ -7,7 +7,7 @@ Page({
   data: {
     top_height: 0,
     background: 'rgba(255, 255, 255, 1)',
-    color: 'rgba(0, 0, 0, 1)',
+    color: 'rgba(0, 0,0, 1)',
     titleText: '导航栏',
     titleImg: '',
     backIcon: '',
@@ -16,6 +16,8 @@ Page({
     iconHeight: 19,
     iconWidth: 58,
     jpms:'',
+    status: 0,
+    navHeight: 0,
   },
 jpms:function(e){
  var m= e.detail.value
@@ -35,8 +37,29 @@ save:function(){
     })
     this.attached()
     wx.hideShareMenu();
+    this.setNavSize()
   },
 
+  // 通过获取系统信息计算导航栏高度
+  setNavSize: function () {
+    var that = this,
+      sysinfo = wx.getSystemInfoSync(),
+      statusHeight = sysinfo.statusBarHeight,
+      isiOS = sysinfo.system.indexOf('iOS') > -1,
+      navHeight;
+    if (!isiOS) {
+      navHeight = 48;
+    } else {
+      navHeight = 44;
+    }
+    that.setData({
+      status: statusHeight,
+      navHeight: navHeight
+    })
+    // console.log(that.data.status,that.data.navHeight)
+    app.globalData.top_height = that.data.status + that.data.navHeight
+    console.log(app.globalData.top_height)
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
