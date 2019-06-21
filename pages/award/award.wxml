@@ -4,6 +4,8 @@
     background="white"
   back-icon="/images/back@3x.png"
     bindback="back"/>
+
+    
     <view class='contaner' style='top:{{status + navHeight}}px'>
     <view style='width:100%;height:80rpx;color:rgb(100,100,100);background:rgba(240,240,240,1);font-size:24rpx;line-height:80rpx;padding-left:25rpx;'>设置奖项</view>
 
