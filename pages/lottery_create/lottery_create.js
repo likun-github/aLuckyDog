@@ -347,7 +347,7 @@ Page({
   },
 
   translate: function () {
-    this.animation.translate(0, -120).step()
+    this.animation.translate(0, -110.5).step()
     this.setData({ animation: this.animation.export() })
   },
 
@@ -361,7 +361,7 @@ Page({
   },
 
   translate_no: function () {
-    this.animation.translate(0, 120).step()
+    this.animation.translate(0, -110.5).step()
     this.setData({ animation: this.animation.export() })
   },
   share1:function(res){
@@ -378,6 +378,12 @@ Page({
     }else wx.showModal({
       title: '请稍后重试',
       content: '网络出现异常请稍后重试',
+    })
+  },
+
+  go_to_advice:function(){
+    wx.navigateTo({
+      url: '/pages/advice/advice',
     })
   }
 })
