@@ -85,7 +85,7 @@
 
   </view>
 
-  <view class='bottom_text'>意见反馈 | 免责声明 | 我要投诉</view>
+  <view class='bottom_text' bindtap='go_to_advice'>意见反馈 | 免责声明 | 我要投诉</view>
   <view class='bottom_text'></view>
 
 </scroll-view>
@@ -107,14 +107,14 @@
   
   <scroll-view class='canvas_view' style='height:{{1000+(s-1)*100}}rpx'>
     <view class='host_picture_1'>
-      <image src='/images/icn-result-regret@3x.png' style='height:100rpx;width:100rpx;'></image>
+      <image  src='{{pic}}' style='height:100rpx;width:100rpx;'></image>
     </view>
-    <view class=' pic_user_name'>li.kun</view>
+    <view class=' pic_user_name'>{{name}}</view>
     <view class='pic_text_1'>发起了一个抽奖活动</view>
 
     <view class='lottery_list_share' style='width:88%;'>
       <view>
-        <image src='/images/default-prize@3x.jpg' style='height:220rpx;' class='lottery_list_wait_img'></image>
+        <image src="{{canyu[0]}}" style='height:220rpx;' class='lottery_list_wait_img'></image>
       </view>
 
      <view wx:if='{{s==1}}' style='width:100%;' class='lottery_list_1_wait'>奖品：{{jpname[0]}} X{{jpnum[0]}} </view>

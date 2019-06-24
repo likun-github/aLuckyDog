@@ -2,10 +2,10 @@
 
 .tab {
   width: 100%;
-  height: 10vh;
+  height: 9vh;
   position: fixed;
   bottom: 0;
-  border-top: 1px solid rgb(214, 214, 214);
+  border-top: 1px solid rgba(235, 235, 235, 0.521);
   background: white;
 }
 
@@ -74,7 +74,7 @@
 .input1 {
   height: 100%;
   margin-left: -20rpx;
-  width: 300rpx;
+  width: 600rpx;
   text-align: right;
   margin-right: 40rpx;
 }
@@ -149,4 +149,30 @@
 .button-hover{
  opacity: 0.9;
  background: #f7f7f7;
+}
+
+.bottom_text_1{
+  height: 50rpx;
+  width: 100%;
+  color: gray;
+  font-size: 37rpx;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f0f0;
+
+}
+
+.bottom_text_2{
+  height: 40rpx;
+  width: 100%;
+  color: rgb(161, 161, 161);
+  font-size: 18rpx;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f0f0;
+  
 }

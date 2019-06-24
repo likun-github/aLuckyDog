@@ -1094,5 +1094,9 @@ Page({
 
   },
 
-  
+  input_id:function(){
+    wx.navigateTo({
+      url: '/pages/input_id/input_id',
+    })
+  }
 })
