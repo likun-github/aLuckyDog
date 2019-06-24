@@ -273,7 +273,8 @@ Page({
                  'information':that.data.s,
                  'num':that.data.kpnum,
                  'images':images,
-                
+                 'wechat_inform':'wechat_inform',
+                 'wechat_name':'wechat_name0',
 
                },
                method: 'GET',
