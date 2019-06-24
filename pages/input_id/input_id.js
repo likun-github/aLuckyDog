@@ -15,7 +15,8 @@ Page({
     fontSize: 16,
     iconHeight: 19,
     iconWidth: 58,
-   
+    status: 0,
+    navHeight: 0,
   },
 
   /**
@@ -27,7 +28,55 @@ Page({
     })
     this.attached()
     wx.hideShareMenu();
+
   },
+
+  setNavSize: function () {
+    var that = this,
+      sysinfo = wx.getSystemInfoSync(),
+      statusHeight = sysinfo.statusBarHeight,
+      isiOS = sysinfo.system.indexOf('iOS') > -1,
+      navHeight;
+    if (!isiOS) {
+      navHeight = 48;
+    } else {
+      navHeight = 44;
+    }
+    that.setData({
+      status: statusHeight,
+      navHeight: navHeight
+    })
+  },
+
+
+  setStyle: function () {
+    var that = this,
+      containerStyle, textStyle, iconStyle;
+    containerStyle = [
+      'background:' + that.data.background
+    ].join(';');
+    textStyle = [
+      'color:' + that.data.color,
+      'font-size:' + that.data.fontSize + 'px'
+    ].join(';');
+    iconStyle = [
+      'width: ' + that.data.iconWidth + 'px',
+      'height: ' + that.data.iconHeight + 'px'
+    ].join(';');
+    that.setData({
+      containerStyle: containerStyle,
+      textStyle: textStyle,
+      iconStyle: iconStyle
+    })
+  },
+
+  attached: function () {
+    var that = this;
+    that.setNavSize();
+    that.setStyle();
+  },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

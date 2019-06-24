@@ -1,15 +1,15 @@
 <view class='title_view'>
-  <view class='nav' style='height: {{44 + 44}}px;'>
-    <view class='status' style='height: {{44}}px;{{containerStyle}}'></view>
-    <view class='navbar' style='height:{{44}}px;{{containerStyle}}; '>
+  <view class='nav' style='height: {{status + navHeight}}px;'>
+    <view class='status' style='height: {{status}}px;{{containerStyle}};'></view>
+    <view class='navbar' style='height:{{navHeight}}px;{{containerStyle}};'>
       <view class='back-icon' bindtap='back'>
-        <image src='/images/icn_back@3x.png'></image>
+        <image src='/images/back@3x.png'></image>
       </view>
 
 
 
       <view class='nav-title' style=' width:70%;display: flex;justify-content: flex-start; align-items: center;'>
-        <text style='{{textStyle}}'>添加发起人信息</text>
+        <text style='{{textStyle}}'>抽奖详情</text>
       </view>
 
     </view>
