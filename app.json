@@ -1,10 +1,10 @@
 {
   "pages": [
     
-    "pages/awardconfirm/awardconfirm",
     "pages/index/index",
+    "pages/awardconfirm/awardconfirm",
     "pages/awardprofile/awardprofile",
-    "pages/award/award",
+
     "pages/lottery_create/lottery_create",
     "pages/selfpage/selfpage",
     "pages/aspiration/aspiration",
@@ -16,7 +16,8 @@
     "pages/lottery_view_3/lottery_view_3",
     "pages/remainder_money/remainder_money",
     "pages/joinaward/joinaward",
-    "pages/input_id/input_id"
+    "pages/input_id/input_id",
+    "pages/chakanrenshu/chakanrenshu"
   ],
   "window": {
     "backgroundTextStyle": "light",

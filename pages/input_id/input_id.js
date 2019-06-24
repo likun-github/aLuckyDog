@@ -15,9 +15,20 @@ Page({
     fontSize: 16,
     iconHeight: 19,
     iconWidth: 58,
-   
+    status: 0,
+    navHeight: 0,
+    v1:'',
+    v2:''
   },
-
+fuzhi:function(e){
+   console.log(e);
+   var index=e.target.dataset.index;
+   var value=e.detail.value;
+   if(index==1){
+     app.globalData.awardprofile1 = value;
+   }
+   else app.globalData.awardprofile2 = value;
+},
   /**
    * 生命周期函数--监听页面加载
    */
@@ -27,7 +38,55 @@ Page({
     })
     this.attached()
     wx.hideShareMenu();
+
   },
+
+  setNavSize: function () {
+    var that = this,
+      sysinfo = wx.getSystemInfoSync(),
+      statusHeight = sysinfo.statusBarHeight,
+      isiOS = sysinfo.system.indexOf('iOS') > -1,
+      navHeight;
+    if (!isiOS) {
+      navHeight = 48;
+    } else {
+      navHeight = 44;
+    }
+    that.setData({
+      status: statusHeight,
+      navHeight: navHeight
+    })
+  },
+
+
+  setStyle: function () {
+    var that = this,
+      containerStyle, textStyle, iconStyle;
+    containerStyle = [
+      'background:' + that.data.background
+    ].join(';');
+    textStyle = [
+      'color:' + that.data.color,
+      'font-size:' + that.data.fontSize + 'px'
+    ].join(';');
+    iconStyle = [
+      'width: ' + that.data.iconWidth + 'px',
+      'height: ' + that.data.iconHeight + 'px'
+    ].join(';');
+    that.setData({
+      containerStyle: containerStyle,
+      textStyle: textStyle,
+      iconStyle: iconStyle
+    })
+  },
+
+  attached: function () {
+    var that = this;
+    that.setNavSize();
+    that.setStyle();
+  },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -40,7 +99,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+     this.setData({
+       v1: app.globalData.awardprofile1,
+       v2: app.globalData.awardprofile2
+     })
   },
 
   /**

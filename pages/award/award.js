@@ -266,15 +266,16 @@ Page({
                url: app.globalData.url +'startaward',
                data: {
                  'userid': app.globalData.userid,
+                 'number':that.data.s,//奖项个数
                  'jpname':that.data.jpname,
                  'jpnum':that.data.jpnum,
                  'way':that.data.index,
                  'time':timestamp,
-                 'information':that.data.s,
-                 'num':that.data.kpnum,
+                 'information':that.data.jpms,
                  'images':images,
-                
-
+                 'knum': that.data.kpnum,
+                 'wechat_inform': app.globalData.awardprofile1,
+                 'wechat_name': app.globalData.awardprofile2
                },
                method: 'GET',
                success: function(res){
