@@ -66,11 +66,10 @@ Page({
     })
     this.attached()
     wx.hideShareMenu();
-    
+
     var awardid= options.awardid;
     var that = this;
-    
-
+    var userid = app.globalData.userid
 
 wx:wx.request({
   url: app.globalData.url + 'intoAward',
@@ -83,11 +82,8 @@ wx:wx.request({
    var jpname=[f.name1,f.name2,f.name3];
    var jpnum=[f.num1,f.num2,f.num3];
    var images=[f.pic1,f.pic2,f.pic3];
-
    var date=f.time;
    date = util.tsFormatTime(date, 'Y/M/D h:m:s');
-
-
     that.setData({
        index: f.way,//开奖方式
        jpname: jpname,
@@ -104,7 +100,30 @@ wx:wx.request({
   fail: function (res) {
     console.log('fail')
   },
+})
 
+//判断是否可以抽奖
+wx.request({
+  url: app.globalData.url +'intoLottery',
+  data: {
+    'userid': userid ,
+    'id': awardid
+  },
+  method: 'GET',
+  success:function(res){
+    console.log(res.data.state)
+    that.setData({
+      state: res.data.state,
+      level: res.data.data[0].level
+    })
+    if (that.data.state == 'success')
+      that.setData({
+        could_join: false
+      })
+  },
+  fail:function(){
+    console.log('fail')
+  }
 })
 
   },

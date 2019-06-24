@@ -50,7 +50,7 @@
     </view>
     <view class='host_name'>{{name}}</view>
   </view>
-
+  
   <view style='height:30rpx;width:100%;background:#f0f0f0;'></view>
   <view class='Everday_Lottery_view'>
     <view>
