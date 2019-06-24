@@ -540,7 +540,11 @@
   font-size: 20rpx;
   margin: auto;
   margin-top: 0rpx;
-  border: none;
+
+}
+
+button::after {
+  border: none
 }
 
 .share_to_list_text_view {

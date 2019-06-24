@@ -4,6 +4,7 @@
 <!-- 配置 自定义的title -->
 <view style='height: {{top_height}}px;'></view>
 
+<view style='height:20rpx;background:#f0f0f0;'></view>
 <view class="opinion_wrap">
     <view class="wrap">
         <form bindsubmit="formSubmit">
