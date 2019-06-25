@@ -1,5 +1,7 @@
 /* pages/address/address.wxss */
-
+page{
+  background: #f0f0f0;
+}
 .item {
   height: 150rpx;
   width: 85%;
