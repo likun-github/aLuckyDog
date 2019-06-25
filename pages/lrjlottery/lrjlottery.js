@@ -31,7 +31,6 @@ Page({
       "/images/icn-zu@3x.png",
       "/images/icn-zu@3x.png",
     ],
-    level:'',//几等奖
     state: '', //个人对于奖项的状态
     awardid: '',
     imgurls: [],
@@ -42,13 +41,13 @@ Page({
     animation: '',
     date: '', //日期
     s: 1,
-    status: 0, //奖项状态
+    level: 0, //奖项状态
     kpnum: 0, //开奖人数||最多抽奖人数
     userid: '' //用户登录
   },
-  whole: function() {
+  whole: function () {
     wx.navigateTo({
-      url: '/pages/chakanrenshu/chakanrenshu?awardid='+this.data.awardid,
+      url: '/pages/chakanrenshu/chakanrenshu?awardid=' + this.data.awardid,
     })
   },
   /**
@@ -58,10 +57,10 @@ Page({
 /**
 * 生命周期函数--监听页面加载
 */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var that = this;
     wx.getSystemInfo({
-      success: function(res) {
+      success: function (res) {
         console.log(res.windowHeight)
         that.setData({
           height_screen: res.windowHeight
@@ -74,7 +73,7 @@ Page({
     this.attached()
     wx.hideShareMenu();
     //options.awardid
-    var awardid = 28;
+    var awardid = options.awardid;
     var userid = app.globalData.userid;
     that.setData({
       awardid: awardid
@@ -86,7 +85,8 @@ Page({
         'id': awardid
       },
       method: 'GET',
-      success: function(res) {
+      success: function (res) {
+
         var cd = [];
         for (var i = 0; i < res.data.data.length; i++) {
           cd[i] = res.data.data[i].user__picture
@@ -97,7 +97,7 @@ Page({
           cd: cd.length
         })
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log('fail')
       },
     })
@@ -113,8 +113,7 @@ Page({
         var f3 = res.data.user_data;
         var f1 = res.data.award_data;
         var f2 = res.data.interpret;
-        var f4 = res.data.userWithaward;
-        console.log(f1, f2, f3,f4)
+        console.log(f1, f2, f3)
 
         var jpname = [f1[0].name1, f1[0].name2, f1[0].name3];
         var jpnum = [f1[0].num1, f1[0].num2, f1[0].num3];
@@ -132,8 +131,7 @@ Page({
           imgurls: images,
           status: f1[0].status, //抽奖状态
           name: f3.nickname,
-          pic: f3.picture,
-          level:f4[0].level
+          pic: f3.picture
         })
         var s = f1[0].number;
         var image = that.data.imgurls;
@@ -161,23 +159,18 @@ Page({
       success: function (res) {
         console.log(res.data)
         state = res.data.state;
-        that.setData({
-          state: state,
-        })
         if (state == 0)
           that.setData({
-            could_join: false,
+            could_join: false
           })
       },
       fail: function (res) {
         console.log('fail');
       },
     })
-    var timer = setInterval(function() 
-    {
-      userid=app.globalData.userid
-      if (that.data.jpname == '')
-      {
+    var timer = setInterval(function () {
+      userid = app.globalData.userid
+      if (that.data.jpname == '') {
 
         wx: wx.request({
           url: app.globalData.url + 'getUserAwardState',
@@ -237,12 +230,9 @@ Page({
           success: function (res) {
             console.log(res)
             state = res.data.state;
-            that.setData({
-              state: state,
-            })
             if (state == 0)
               that.setData({
-                could_join: false,
+                could_join: false
               })
           },
           fail: function (res) {
@@ -250,7 +240,7 @@ Page({
           },
         })
       }
-     
+
       else clearInterval(timer);
     }, 2500);
 
@@ -261,54 +251,54 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
     this.animation = wx.createAnimation();
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
   // 返回事件
 
-  setNavSize: function() {
+  setNavSize: function () {
     var that = this,
       sysinfo = wx.getSystemInfoSync(),
       statusHeight = sysinfo.statusBarHeight,
@@ -326,7 +316,7 @@ Page({
   },
 
 
-  setStyle: function() {
+  setStyle: function () {
     var that = this,
       containerStyle, textStyle, iconStyle;
     containerStyle = [
@@ -347,16 +337,13 @@ Page({
     })
   },
 
-  attached: function() {
+  attached: function () {
     var that = this;
     that.setNavSize();
     that.setStyle();
   },
-
-  join: function() {
+  join: function () {
     var that = this
-    var state=that.data.state;
-    console.log(state);
     wx.request({
       url: app.globalData.url + 'intoLottery',
       data: {
@@ -364,14 +351,15 @@ Page({
         'id': that.data.awardid
       },
       method: 'GET',
-      success: function(res) {
+      success: function (res) {
         console.log(res)
         wx.showModal({
           title: res.data.interpret,
           content: '',
         })
+
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log('fail')
       },
     })
@@ -379,28 +367,64 @@ Page({
 
   },
 
-
-  go_to_lotteryCreate: function() {
+  showmodels_tips: function () {
+    var that = this
+    //     wx.request({
+    //       url: app.globalData.url + 'intoShare',
+    //       data: {
+    //         'id': that.data.awardid
+    //       },
+    //       method: 'GET',
+    //       success: function (res) {
+    //         console.log(res.data.state)
+    //         that.setData({
+    //           state: res.data.state
+    //         })
+    //         if (that.data.state == 'success')
+    //           that.setData({
+    //             could_join: false
+    //           })
+    // }
+    //})
+    that.setData({
+      share_flag: true
+    })
+    this.translate()
+  },
+  go_to_lotteryCreate: function () {
     wx.navigateTo({
       url: '/pages/index/index',
     })
   },
-  share_lottery: function(res) {
-    if (this.data.awardid) {
-      if (res.from === 'button') {
-      }
-      return {
-        title: '转发',
-        path: '/pages/awardconfirm/awardconfirm?awardid=' + this.data.awardid,
-        success: function (res) {
-          console.log('成功', res)
-        }
-      }
-    } else wx.showModal({
-      title: '请稍后重试',
-      content: '网络出现异常请稍后重试',
+  share_lottery: function () {
+    this.setData({
+      share_flag: true,
+    })
+    this.translate()
+
+  },
+
+  translate: function () {
+    this.animation.translate(0, -120).step()
+    this.setData({
+      animation: this.animation.export()
     })
   },
 
+
+
+  cancel_share: function () {
+    this.setData({
+      share_flag: false,
+    })
+    this.translate_no()
+  },
+
+  translate_no: function () {
+    this.animation.translate(0, 120).step()
+    this.setData({
+      animation: this.animation.export()
+    })
+  },
 
 })

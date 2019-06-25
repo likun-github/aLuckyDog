@@ -42,6 +42,7 @@ Page({
         for (var i = 0; i < res.data.two.length; i++) {
           var middle = {};
           middle.pic1 = app.globalData.url_uploads + res.data.two[i].pic1;
+          middle.id = res.data.two[i].id;
           middle.number = res.data.two[i].number;
           middle.name1 = res.data.two[i].name1;
           middle.name2 = res.data.two[i].name2;
