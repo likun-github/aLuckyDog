@@ -1,5 +1,4 @@
-<navBar title-text="我的发起" background="white" back-icon="/images/back@3x.png" bindback="back" />
-
+<navBar title-text='公共抽奖' background="white" bindback="back" wx:if="{{pages_index==1}}" />
 <view style='height: {{status + navHeight}}px;'></view>
 
 <scroll-view scroll-y='true'>
