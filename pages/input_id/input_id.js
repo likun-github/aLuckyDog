@@ -151,6 +151,15 @@ fuzhi:function(e){
   },
 
 
+  save:function(){
+    wx.navigateBack({
+      delta: 1
+    })
+    this.triggerEvent('back', {
+      back: 1
+    })
+  },
+
   setNavSize: function () {
     var that = this,
       sysinfo = wx.getSystemInfoSync(),

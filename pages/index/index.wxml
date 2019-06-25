@@ -11,6 +11,8 @@
 <view wx:if="{{pages_index==1}}">
   <scroll-view scroll-y='true'>
 
+
+    <!-- 这一段代码实现了心愿的功能，但是逻辑未实现，慎删！！！！！！！！！ -->
     <!-- <view class='heart_view' bindtap='aspiration'>
       <view class='heart_view_1'>
         <view>
@@ -31,6 +33,10 @@
     </view>
 
     <view class='separator'></view> -->
+      <!-- 以上 ---这一段代码实现了心愿的功能，但是逻辑未实现，慎删！！！！！！！！！ -->
+
+
+
 
     <view class='everyday_view'>
       <view class='everyday_view_1'>每日福利</view>
@@ -41,16 +47,21 @@
       </view>
     </view>
 
-    <view class='Everday_Lottery_view' bindtap='lottery' wx:for="{{gift_list}}" wx:key="PK">
+    <view class='Everday_Lottery_view' bindtap='lottery' wx:for="{{home_show_data}}" wx:key="PK" data-id='{{item.id}}'>
       <view>
-        <image class='img_everyday_view' src='/images/bmw-1313343_640.jpg' mode='aspectFill'></image>
+        <image class='img_everyday_view' src='{{item.pic1}}' mode='aspectFill'></image>
       </view>
 
       <view class='Everday_Lottery_text'>
-        <view class='Everday_Lottery_text_1'>{{item.sponsor}} 赞助</view>
-        <view class='Everday_Lottery_text_2'>{{item.giftName}} x{{item.giftNumber}}</view>
+        <view class='Everday_Lottery_text_1'>{{item.wechat_name}} 赞助</view>
 
-        <view class='Everday_Lottery_text_3'>时间戳：{{item.openTimeOfgift}} 达到{{item.peopleNumberOfgift}}人  自动开奖</view>
+        <view class='Everday_Lottery_text_2' wx:if="{{item.number>=1}}">{{item.name1}} x{{item.num1}}</view>
+        <view class='Everday_Lottery_text_2' wx:if="{{item.number>=2}}">{{item.name2}} x{{item.num2}}</view>
+        <view class='Everday_Lottery_text_2' wx:if="{{item.number>=3}}">{{item.name3}} x{{item.num3}}</view>
+
+        <view class='Everday_Lottery_text_3' wx:if="{{item.way==1}}">{{item.time}} 自动开奖</view>
+        <view class='Everday_Lottery_text_3' wx:if="{{item.way==2}}"> 达到{{item.num}}人 自动开奖</view>  
+        <view class='Everday_Lottery_text_3' wx:if="{{item.way==3}}"> 发起人 手动开奖</view>  
         <view class='Everday_Lottery_text_4'></view>
       </view>
 
@@ -72,15 +83,15 @@
 
     </view> -->
 
-    <view class='Self_Lottery_text1'>自助福利</view>
+    <!-- <view class='Self_Lottery_text1'>自助福利</view> -->
 
 
-    <view class='Self_Lottery_view' bindtap='lottery'>
+    <!-- <view class='Self_Lottery_view' bindtap='lottery'>
       <view>
         <image src='/images/559-3@3x.png' class='Self_Lottery_view_img' mode='aspectFill'></image>
       </view>
       <view class='Self_Lottery_view_text_view'>
-        <!-- 最多四行 -->
+       
         <view class='Self_Lottery_view_text_1'> 奖品：首页自助福利免费展示一天x1</view>
         <view class='Self_Lottery_view_text_2'>06月06日 10:10 自动开奖</view>
         <view class='Self_Lottery_view_text_3_view'>
@@ -88,15 +99,15 @@
           <view class='Self_Lottery_view_text_4'>商城奖品</view>
         </view>
       </view>
-    </view>
+    </view> -->
 
 
-    <view class='Self_Lottery_view_down' wx:for="{{10}}" bindtap='lottery'>
+    <!-- <view class='Self_Lottery_view_down' wx:for="{{10}}" bindtap='lottery'>
       <view>
         <image src='/images/avatar_mask.png' class='Self_Lottery_view_img' mode='aspectFill'></image>
       </view>
       <view class='Self_Lottery_view_text_view'>
-        <!-- 最多四行 -->
+        
         <view class='Self_Lottery_view_text_1'> 奖品：首页自助福利免费展示一天x1</view>
         <view class='Self_Lottery_view_text_2'>06月06日 10:10 自动开奖</view>
         <view class='Self_Lottery_view_text_3_view'>
@@ -104,9 +115,9 @@
           <view class='Self_Lottery_view_text_4'>商城奖品</view>
         </view>
       </view>
-    </view>
+    </view> -->
 
-    <view class='Self_Lottery_view_look_All'>查看全部 ></view>
+    <!-- <view class='Self_Lottery_view_look_All'>查看全部 ></view> -->
 
     <view class='contact_worker'>联系客服 ></view>
     <view style='height:200rpx;width:100%;'></view>

@@ -87,7 +87,7 @@
   </view> -->
 
 
-  <view style='height:80rpx;width:100%;font-size:28rpx;color:rgb(0, 150, 236);padding-top:50rpx;display: flex;justify-content:center'>意见反馈 ></view>
+  <view  bindtap='go_to_advice' style='height:80rpx;width:100%;font-size:28rpx;color:rgb(0, 150, 236);padding-top:50rpx;display: flex;justify-content:center'>意见反馈 ></view>
 
 
 

@@ -71,7 +71,7 @@
     <view class='join_img_view' bindtap='join'>
       <image src="{{could_join?'/images/join.svg':'/images/join_wait.svg'}}" class='join_img'></image>
     </view>
-    <view class='join_text_view'>已有{{cd1}}人参与，查看全部 ></view>
+    <view class='join_text_view' >已有{{into_number}}人参与，查看全部 ></view>
 
     <view class='join_pic_view'>
      <swiper style='height:100%;width:100%;' display-multiple-items='{{cd}}'>
@@ -107,14 +107,14 @@
   
   <scroll-view class='canvas_view' style='height:{{1000+(s-1)*100}}rpx'>
     <view class='host_picture_1'>
-      <image  src='{{pic}}' style='height:100rpx;width:100rpx;'></image>
+      <image  src='{{pic}}' style='height:100rpx;width:100rpx;' class='user_pic'></image>
     </view>
     <view class=' pic_user_name'>{{name}}</view>
     <view class='pic_text_1'>发起了一个抽奖活动</view>
 
     <view class='lottery_list_share' style='width:88%;'>
       <view>
-        <image src="{{canyu[0]}}" style='height:220rpx;' class='lottery_list_wait_img'></image>
+        <image src="{{imgurls[0]}}" style='height:220rpx;' class='lottery_list_wait_img'></image>
       </view>
 
      <view wx:if='{{s==1}}' style='width:100%;' class='lottery_list_1_wait'>奖品：{{jpname[0]}} X{{jpnum[0]}} </view>
@@ -150,14 +150,14 @@
 
   <view class='share_to' animation="{{animation}}">
     <view class='share_to_list'>
-      <image src='/images/icn-zu@3x.png' class='share_to_list_img'></image>
-      <image src='/images/icn-zu@3x.png' class='share_to_list_img'></image>
-      <image src='/images/icn-zu@3x.png' class='share_to_list_img'></image>
+      <image src='/images/weixin.svg' class='share_to_list_img' ></image>
+      <image src='/images/pengyouquan.svg' class='share_to_list_img'></image>
+      <image src='/images/ren.svg' class='share_to_list_img'></image>
     </view>
     <view class='share_to_list_text_view'>
       <button class='share_to_list_text' open-type="share" bindtap='share1' >分享给好友</button>
-      <button class='share_to_list_text' open-type="share">分享给好友</button>
-      <button class='share_to_list_text' open-type="share">分享给好友</button>
+      <button class='share_to_list_text' open-type="share">保存分享图</button>
+      <button class='share_to_list_text' open-type="share">嵌入公众号</button>
     </view>
     <view class='cancel_text' bindtap='cancel_share'>取消</view>
   </view>

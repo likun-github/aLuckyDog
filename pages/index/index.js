@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 var common = require("../../common/common.js")
+var util = require('../../utils/util.js')
 Page({
   data: {
     status: 0,
@@ -28,7 +29,7 @@ Page({
       fn: 'to_me'
     }, ],
 
-    gift_list: [],
+    home_show_data: [],
     user_list: [],
 
     avatarUrl: '',
@@ -45,17 +46,47 @@ Page({
     })
     this.setNavSize()
 
-  
+    //获取
+    var that =this
+    wx.request({
+      url: app.globalData.url +'getHomeShow',
+      success: function (res) {
+        
+        for (var i = 0; i < res.data.award_data.length;i++)
+        {
+          if (res.data.award_data[i].time!='')
+            {
+            res.data.award_data[i].time = util.tsFormatTime(res.data.award_data[i].time * 1000, 'Y-M-D h:m:s')
+            }
+          res.data.award_data[i].pic1 =app.globalData.url_uploads+res.data.award_data[i].pic1
+
+        }
+
+        common.home_lottery = res.data.award_data
+        console.log(common.home_lottery )
+
+
+        that.setData({
+          home_show_data: res.data.award_data
+        })
+
+      }
+    })
+
 
    
 
   },
 
   onShow: function() {
-    // this.setData({
-    //   page_index: app.globalData.page_index
-    // })
+
+
+
   },
+
+
+
+
   // 通过获取系统信息计算导航栏高度
   setNavSize: function() {
     var that = this,
@@ -94,12 +125,11 @@ Page({
   },
 
   lottery: function(e) {
-    // console.log(e)
+    console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/lottery_detail/lottery_detail',
+      url: '/pages/lottery_detail/lottery_detail?'+'id='+e.currentTarget.dataset.id,
     })
   },
-
 
   to_home: function() {
     let temp = this.data.navData
@@ -136,13 +166,9 @@ Page({
   aspiration: function() {
     wx.navigateTo({
       url: '/pages/aspiration/aspiration',
+     
     })
-  },
-
-
-
- 
-
+  },//心愿
 
 
 })

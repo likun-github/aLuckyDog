@@ -532,7 +532,7 @@
   width: 90rpx;
   height: 90rpx;
   margin: auto;
-  border: 1rpx solid #cacaca;
+  border: 1rpx solid #ececec56;
   border-radius: 15rpx;
 }
 
@@ -540,7 +540,12 @@
   font-size: 20rpx;
   margin: auto;
   margin-top: 0rpx;
-  border: none;
+  background:none;
+
+}
+
+button::after {
+  border: none
 }
 
 .share_to_list_text_view {
@@ -625,4 +630,9 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0.5rpx 0.5rpx rgba(226, 180, 82, 0.795);
+}
+
+
+.user_pic{
+  border-radius: 50rpx;
 }

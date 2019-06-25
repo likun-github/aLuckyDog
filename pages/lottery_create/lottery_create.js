@@ -45,10 +45,10 @@ Page({
     navHeight: 0,
     level:0,//奖项状态
     kpnum:0,//开奖人数||最多抽奖人数
-      },
+    into_number:0,    //参与抽奖人数
 
-        /**
-           * 生命周期函数--监听页面加载
+      
+          
   },
 
   /**
@@ -265,12 +265,13 @@ Page({
            },
            method: 'GET',
            success:function(res){
-             console.log(res.data.state)
+             console.log(res.data)
                 that.setData({
+                  into_number:res.data.award_data[0].into_number,
                   state: res.data.state,
                   level: res.data.data[0].level
                 })
-             if (that.data.state == 'success')
+             if (that.data.state == '1')
                that.setData({
                  could_join: false
                })
@@ -363,7 +364,7 @@ Page({
   },
 
   translate_no: function () {
-    this.animation.translate(0, -110.5).step()
+    this.animation.translate(0, 110.5).step()
     this.setData({ animation: this.animation.export() })
   },
   share1:function(res){
