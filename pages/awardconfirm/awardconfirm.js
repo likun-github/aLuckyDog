@@ -191,7 +191,8 @@ Page({
             var f3 = res.data.user_data;
             var f1 = res.data.award_data;
             var f2 = res.data.interpret;
-            console.log(f1, f2, f3)
+            var f4 = res.data.userWithaward;
+            console.log(f1, f2, f3, f4)
 
             var jpname = [f1[0].name1, f1[0].name2, f1[0].name3];
             var jpnum = [f1[0].num1, f1[0].num2, f1[0].num3];
@@ -209,7 +210,8 @@ Page({
               imgurls: images,
               status: f1[0].status, //抽奖状态
               name: f3.nickname,
-              pic: f3.picture
+              pic: f3.picture,
+              level: f4[0].level
             })
             var s = f1[0].number;
             var image = that.data.imgurls;
@@ -290,6 +292,59 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+
+    var awardid=this.data.awardid;
+    var userid=app.globalData.userid;
+    var that=this;
+    console.log(awardid,userid);
+    wx: wx.request({
+      url: app.globalData.url + 'getUserAwardState',
+      data: {
+        'awardid': awardid,
+        "userid": userid
+      },
+      method: 'GET',
+      success: function (res) {
+        var join = false;
+        var f3 = res.data.user_data;
+        var f1 = res.data.award_data;
+        var f2 = res.data.interpret;
+        var f4 = res.data.userWithaward;
+        console.log(f1, f2, f3, f4)
+
+        var jpname = [f1[0].name1, f1[0].name2, f1[0].name3];
+        var jpnum = [f1[0].num1, f1[0].num2, f1[0].num3];
+        var images = [f1[0].pic1, f1[0].pic2, f1[0].pic3];
+        var date = f1[0].time * 1000;
+        date = util.tsFormatTime(date, 'Y/M/D h:m:s');
+        that.setData({
+          index: f1[0].way, //开奖方式
+          jpname: jpname,
+          jpnum: jpnum,
+          date: date, //开奖时间
+          kpnum: f1[0].maxnum, //开奖人数
+          s: f1[0].number, //奖品个数
+          jpms: f1[0].information,
+          imgurls: images,
+          status: f1[0].status, //抽奖状态
+          name: f3.nickname,
+          pic: f3.picture,
+          level: f4[0].level
+        })
+        var s = f1[0].number;
+        var image = that.data.imgurls;
+        if (s == 1) image = [app.globalData.iurl + image[0]];
+        else if (s == 2) image = [app.globalData.iurl + image[0], app.globalData.iurl + image[1]];
+        else image = [app.globalData.iurl + image[0], app.globalData.iurl + image[1], app.globalData.iurl + image[2]];
+        that.setData({
+          imgurls: image
+        })
+      },
+      fail: function (res) {
+        console.log('fail')
+      },
+
+    })
 
   },
 
@@ -379,7 +434,45 @@ Page({
 
   },
 
+  handopen:function(){
+    var that=this;
+    wx.showModal({
+      title: '提示',
+      content: '你确定你要开奖了？',
+      confirmText: '确认开奖',
+      cancelText: '我再看看',
+      confirmColor: 'darkred',
+      cancelColor: 'darkgray',
+      success(res) {
+        if (res.confirm) {
 
+          wx.request({
+            url: app.globalData.url + 'openlottery',
+            data: {
+              'awardid': that.data.awardid
+            },
+            method: 'GET',
+            success: function (res) {
+              console.log(res)
+              wx.startPullDownRefresh();
+              setTimeout(function(){
+
+
+
+
+                wx.stopPullDownRefresh();
+               
+
+              },800)
+            }
+          })
+
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   go_to_lotteryCreate: function() {
     wx.navigateTo({
       url: '/pages/index/index',
