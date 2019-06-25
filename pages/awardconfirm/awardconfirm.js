@@ -403,4 +403,10 @@ Page({
   },
 
 
+  go_to_advice:function(){
+    wx.navigateTo({
+      url: '/pages/advice/advice',
+    })
+  }
+
 })

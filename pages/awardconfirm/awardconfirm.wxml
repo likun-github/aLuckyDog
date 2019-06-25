@@ -77,8 +77,8 @@
 
   </view>
 
-  <view class='bottom_text'>意见反馈 | 免责声明 | 我要投诉</view>
-  <view class='bottom_text'></view>
+  <view class='bottom_text' bindtap='go_to_advice'>意见反馈 | 免责声明 | 我要投诉</view>
+   <view class='bottom_text'></view>
 
 </scroll-view>
 
