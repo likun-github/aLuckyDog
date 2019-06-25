@@ -1,109 +1,121 @@
+//index.js
+//获取应用实例
 const app = getApp()
 var common = require("../../common/common.js")
 var util = require('../../utils/util.js')
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    top_height: 0,
-    data: [],
-    data_wait: [],
-    data_over: [],
+    status: 0,
+    navHeight: 0,
+    pages_index: 1,
+    bindtap_1: 1,
 
+
+    home_show_data: [],
+    user_list: [],
+
+    avatarUrl: '',
+    nickname: '',
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+
+
+  onLoad: function () {
+    console.log(app.globalData, 'index')
     this.setData({
-      top_height: app.globalData.top_height,
-      data: common.create_lottery,
+      avatarUrl: app.globalData.avatarUrl,
+      nickname: app.globalData.nickname,
     })
-    console.log('我发起的:',this.data.data)
+    this.setNavSize()
 
-    this.divide(this.data.data)
-    console.log(this.data)
-  },
+    //获取
+    var that = this
+    wx.request({
+      url: app.globalData.url + 'mysaward',
+      data: {
+        userid: app.globalData.userid,
 
-  //0 未开奖，4 未中奖
-  divide: function (data) {
-    let data_wait_temp = []
-    let data_over_temp = []
-    let temp = data
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].status == 0) {
+      },
+      success: function (res) {
+        console.log(res.data.two)
+        var data = [];
+        for (var i = 0; i < res.data.two.length; i++) {
+          var middle = {};
+          middle.pic1 = app.globalData.url_uploads + res.data.two[i].pic1;
+          middle.number = res.data.two[i].number;
+          middle.name1 = res.data.two[i].name1;
+          middle.name2 = res.data.two[i].name2;
+          middle.name3 = res.data.two[i].name3;
+          middle.num1 = res.data.two[i].num1;
+          middle.num2 = res.data.two[i].num2;
+          middle.num3 = res.data.two[i].num3;
+          middle.status = res.data.two[i].status;
+          middle.way = res.data.two[i].way;
+          middle.time = res.data.two[i].time;
+          if (middle.way == 1) {
+            middle.time = util.tsFormatTime(middle.time * 1000, 'Y-M-D h:m:s')
+          }
+          else {
+            middle.num = res.data.two[i].num;
+          }
 
-        data[i].pic1 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
-        data[i].pic2 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
-        data[i].pic3 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
-        data[i].time = util.tsFormatTime(data[i].time * 1000, 'Y-M-D h:m:s')
-        console.log(data[i].time)
-        data_wait_temp.push(data[i])
-      } else {
-        data[i].pic1 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
-        data[i].pic2 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
-        data[i].pic3 = "https://images2017.cnblogs.com/blog/1274477/201801/1274477-20180109191501941-2145316830.png"
-        data[i].time = util.tsFormatTime(data[i].time * 1000, 'Y-M-D h:m:s')
-        console.log(data[i].time)
-        data_over_temp.push(data[i])
+          data.push(middle);
+        }
+        that.setData({
+          home_show_data: data,
+        })
+
+
+
       }
-    }
-    this.setData({
-      data_wait: data_wait_temp,
-      data_over: data_over_temp,
     })
-    console.log(this.data)
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+
+
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
-  },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
 
+
+
+  // 通过获取系统信息计算导航栏高度
+  setNavSize: function () {
+    var that = this,
+      sysinfo = wx.getSystemInfoSync(),
+      statusHeight = sysinfo.statusBarHeight,
+      isiOS = sysinfo.system.indexOf('iOS') > -1,
+      navHeight;
+    if (!isiOS) {
+      navHeight = 48;
+    } else {
+      navHeight = 44;
+    }
+    that.setData({
+      status: statusHeight,
+      navHeight: navHeight
+    })
+    // console.log(that.data.status,that.data.navHeight)
+    app.globalData.top_height = that.data.status + that.data.navHeight
+    console.log(app.globalData.top_height)
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
 
-  },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
-  },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
-  }
+
+
+
+
+
+
+
+
 })
