@@ -1,15 +1,40 @@
-/* pages/chakanrenshu/chakanrenshu.wxss */
+/* pages/address/address.wxss */
 
-.join_pic_view {
-  width: 100%;
-  height: 100rpx;
+page{
+  background: #f0f0f0;
 }
 
-.join_pic_view_img {
-  width: 65rpx;
-  height: 65rpx;
-  margin-left: 5rpx;
-  margin-right: 5rpx;
+.item {
+  height: 150rpx;
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/*  */
+
+.lottery_list_1_wait {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20rpx;
+  font-size: 35rpx;
+}
+
+.lottery_list_3_wait {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: gray;
+  margin-left: 20rpx;
+  font-size: 25rpx;
 }
 
 .navbar {
@@ -61,4 +86,39 @@
   z-index: 1;
   position: fixed;
   border-bottom: 1px solid rgba(187, 187, 187, 0.24);
+}
+
+
+.text1{
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25rpx;
+  color:gray;
+}
+
+.text2{
+  height: fit-content;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;  
+  display: flex;
+  flex-direction: row;
+}
+
+
+.img_class_view{
+  height: 70rpx;
+  width: 70rpx;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.img_class{
+  height: 60rpx;
+  width: 60rpx;
+  
 }
