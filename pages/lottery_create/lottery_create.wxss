@@ -529,11 +529,15 @@
 }
 
 .share_to_list_img {
-  width: 90rpx;
+  width: 130rpx;
   height: 90rpx;
   margin: auto;
   border: 1rpx solid #ececec56;
   border-radius: 15rpx;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .share_to_list_text {

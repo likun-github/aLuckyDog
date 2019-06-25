@@ -111,8 +111,10 @@ Page({
       success: function (res) {
        
         var cd=[];
+
         for (var i = 0; i < res.data.data.length;i++){
-          cd[i] = res.data.data[i].user__picture
+          cd[i] = app.globalData.user__picture+res.data.data[i].user__picture
+
         }
         
         that.setData({
@@ -257,6 +259,28 @@ Page({
       cancelColor: 'darkgray',
       success(res) {
         if (res.confirm) {
+          wx.request({
+            url: app.globalData.url + 'getAwardPeople',
+            data: {
+              'id': that.data.awardid
+            },
+            method: 'GET',
+            success: function (res) {
+
+              var cd = [];
+              for (var i = 0; i < res.data.data.length; i++) {
+                cd[i] = res.data.data[i].user__picture
+              }
+              //先默认为7
+              that.setData({
+                canyu: cd,
+                cd: cd.length
+              })
+            },
+            fail: function (res) {
+              console.log('fail')
+            },
+          })
          wx.request({
            url: app.globalData.url +'intoLottery',
            data:{
