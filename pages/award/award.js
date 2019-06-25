@@ -273,7 +273,7 @@ Page({
                  'time':timestamp,
                  'information':that.data.jpms,
                  'images':images,
-                 'knum': that.data.kpnum,
+                 'num': that.data.kpnum,
                  'wechat_inform': app.globalData.awardprofile1,
                  'wechat_name': app.globalData.awardprofile2,
                },
