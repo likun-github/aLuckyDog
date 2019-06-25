@@ -269,7 +269,7 @@ Page({
                   state: res.data.state,
                   level: res.data.data[0].level
                 })
-             if (that.data.state == 'success')
+             if (that.data.state == '1')
                that.setData({
                  could_join: false
                })

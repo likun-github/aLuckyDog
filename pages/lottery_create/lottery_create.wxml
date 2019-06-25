@@ -107,14 +107,14 @@
   
   <scroll-view class='canvas_view' style='height:{{1000+(s-1)*100}}rpx'>
     <view class='host_picture_1'>
-      <image  src='{{pic}}' style='height:100rpx;width:100rpx;'></image>
+      <image  src='{{pic}}' style='height:100rpx;width:100rpx;' class='user_pic'></image>
     </view>
     <view class=' pic_user_name'>{{name}}</view>
     <view class='pic_text_1'>发起了一个抽奖活动</view>
 
     <view class='lottery_list_share' style='width:88%;'>
       <view>
-        <image src="{{canyu[0]}}" style='height:220rpx;' class='lottery_list_wait_img'></image>
+        <image src="{{imgurls[0]}}" style='height:220rpx;' class='lottery_list_wait_img'></image>
       </view>
 
      <view wx:if='{{s==1}}' style='width:100%;' class='lottery_list_1_wait'>奖品：{{jpname[0]}} X{{jpnum[0]}} </view>
@@ -150,7 +150,7 @@
 
   <view class='share_to' animation="{{animation}}">
     <view class='share_to_list'>
-      <image src='/images/weixin.svg' class='share_to_list_img'></image>
+      <image src='/images/weixin.svg' class='share_to_list_img' ></image>
       <image src='/images/pengyouquan.svg' class='share_to_list_img'></image>
       <image src='/images/ren.svg' class='share_to_list_img'></image>
     </view>

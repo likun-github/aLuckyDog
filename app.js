@@ -13,6 +13,7 @@ App({
 
   globalData: {
     url: 'http://25t2f65842.wicp.vip:19785/lottery/',
+    url_uploads: 'http://25t2f65842.wicp.vip:19785/uploads/',
     userInfo: null,
     top_height:0,
  

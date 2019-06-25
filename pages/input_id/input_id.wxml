@@ -24,7 +24,9 @@
 </view>
 
 
-<view class='id_input'> 需要被展示的名称 </view>
+<view class='id_input'> 需要被展示的账号名称 </view>
 <view class='input_view'>
 <input placeholder='可输入需要引流账号名(最多30位)' class='input' maxlength='30' placeholder-style='font-size:15rpx;'bindinput='fuzhi' data-index='2' value='{{v2}}'></input>
 </view>
+<view style='height:100rpx;'></view>
+ <view class='botn' bindtap='save'>保存</view>
