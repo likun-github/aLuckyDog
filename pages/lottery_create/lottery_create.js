@@ -50,7 +50,11 @@ Page({
       
           
   },
-
+  whole: function () {
+    wx.navigateTo({
+      url: '/pages/chakanrenshu/chakanrenshu?awardid=' + this.data.awardid,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -257,6 +261,36 @@ Page({
       cancelColor: 'darkgray',
       success(res) {
         if (res.confirm) {
+          wx.request({
+            url: app.globalData.url + 'getAwardPeople',
+            data: {
+              'id': that.data.awardid
+            },
+            method: 'GET',
+            success: function (res) {
+
+              var cd = [];
+              for (var i = 0; i < res.data.data.length; i++) {
+                cd[i] = res.data.data[i].user__picture
+              }
+
+              that.setData({
+                canyu: cd,
+                cd1: cd.length
+              })
+              if (cd.length <= 7)
+                that.setData({
+                  cd: cd.length
+                })
+              else that.setData({
+                cd: 7
+              })
+              console.log(that.data.canyu)
+            },
+            fail: function (res) {
+              console.log('fail')
+            },
+          })
          wx.request({
            url: app.globalData.url +'intoLottery',
            data:{

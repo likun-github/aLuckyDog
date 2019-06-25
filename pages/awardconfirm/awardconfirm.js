@@ -47,7 +47,7 @@ Page({
   },
   whole: function() {
     wx.navigateTo({
-      url: '',
+      url: '/pages/chakanrenshu/chakanrenshu?awardid='+this.data.awardid,
     })
   },
   /**
@@ -157,7 +157,7 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-        console.log(res.data.state)
+        console.log(res.data)
         state = res.data.state;
         if (state == 0)
           that.setData({
@@ -230,7 +230,7 @@ Page({
           },
           method: 'GET',
           success: function (res) {
-            console.log(res.data.state)
+            console.log(res)
             state = res.data.state;
             if (state == 0)
               that.setData({
@@ -239,7 +239,6 @@ Page({
           },
           fail: function (res) {
             console.log('fail');
-
           },
         })
       }

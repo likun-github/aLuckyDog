@@ -63,7 +63,7 @@
 
   <view class='join'>
     <view class='join_img_view' bindtap='join'>
-      <image src="{{could_join?'/images/join.svg':'/images/join_wait.svg'}}" class='join_img'></image>
+      <image src="{{!could_join?'/images/join.svg':'/images/join_wait.svg'}}" class='join_img'></image>
     </view>
     <view class='join_text_view' bindtap='whole'>已有{{cd}}人参与，查看全部 ></view>
 
