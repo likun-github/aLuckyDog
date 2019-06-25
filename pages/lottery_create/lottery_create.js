@@ -21,6 +21,7 @@ Page({
     could_join: true,
     share_flag:false,
     cd:7,
+    cd1:0,
     canyu: ["/images/icn-zu@3x.png", 
       "/images/icn-zu@3x.png", 
       "/images/icn-zu@3x.png", 
@@ -116,6 +117,7 @@ Page({
         
         that.setData({
           canyu: cd,
+          cd1:cd.length
         })
         if (cd.length<=7)
         that.setData({

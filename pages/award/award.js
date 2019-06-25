@@ -275,7 +275,7 @@ Page({
                  'images':images,
                  'knum': that.data.kpnum,
                  'wechat_inform': app.globalData.awardprofile1,
-                 'wechat_name': app.globalData.awardprofile2
+                 'wechat_name': app.globalData.awardprofile2,
                },
                method: 'GET',
                success: function(res){

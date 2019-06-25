@@ -21,6 +21,7 @@ Page({
     iconWidth: 58,
     could_join: true,
     share_flag: false,
+    join:false,
     cd: 7,
     canyu: ["/images/icn-zu@3x.png",
       "/images/icn-zu@3x.png",
@@ -72,9 +73,12 @@ Page({
     this.attached()
     wx.hideShareMenu();
 //options.awardid
-    var awardid=10;
+    var awardid=12;
     
     var userid = app.globalData.userid;
+    that.setData({
+      awardid:awardid
+    })
     console.log(userid)
     //获取参与人员
     wx.request({
@@ -84,7 +88,7 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-
+        
         var cd = [];
         for (var i = 0; i < res.data.data.length; i++) {
           cd[i] = res.data.data[i].user__picture
@@ -99,62 +103,77 @@ Page({
         console.log('fail')
       },
     })
-// wx:wx.request({
-//   url: app.globalData.url + 'getUserAwardState',
-//   data: {
-//     'id': awardid,
-//     "userid": userid
-//   },
-//   method: 'GET',
-//   success: function (res) {
-//    var f=res.data.data;
-//    console.log(f)
-//   //  var jpname=[f[0].name1,f[0].name2,f[0].name3];
-//   //  var jpnum=[f[0].num1,f[0].num2,f[0].num3];
-//   //  var images=[f[0].pic1,f[0].pic2,f[0].pic3];
-//   //  var date=f[0].time;
-//   //  date = util.tsFormatTime(date, 'Y/M/D h:m:s');
-//   //   that.setData({
-//   //      index: f[0].way,//开奖方式
-//   //      jpname: jpname,
-//   //      jpnum: jpnum,
-//   //      date: date,//开奖时间
-//   //      kpnum: f[0].maxnum,//开奖人数
-//   //      s: f[0].number,//奖品个数
-//   //      jpms: f[0].information,
-//   //      imgurls: images,
-//   //      status:f[0].status,//抽奖状态
-//   //   })
+    //获取当前状态
+wx:wx.request({
+  url: app.globalData.url + 'getUserAwardState',
+  data: {
+    'awardid': awardid,
+    "userid": userid
+  },
+  method: 'GET',
+  success: function (res) {
+    var join=false;
+    var f3 = res.data.user_data;
+    var f1=res.data.award_data;
+    var f2 = res.data.interpret;
+    console.log(f1,f2,f3)
+    
+   var jpname=[f1[0].name1,f1[0].name2,f1[0].name3];
+   var jpnum=[f1[0].num1,f1[0].num2,f1[0].num3];
+   var images=[f1[0].pic1,f1[0].pic2,f1[0].pic3];
+   var date=f1[0].time*1000;
+   date = util.tsFormatTime(date, 'Y/M/D h:m:s');
+    that.setData({
+       index: f1[0].way,//开奖方式
+       jpname: jpname,
+       jpnum: jpnum,
+       date: date,//开奖时间
+       kpnum: f1[0].maxnum,//开奖人数
+       s: f1[0].number,//奖品个数
+       jpms: f1[0].information,
+       imgurls: images,
+       status:f1[0].status,//抽奖状态
+       name:f3.nickname,
+       pic:f3.picture
+    })
+    var s = f1[0].number;
+    var image = that.data.imgurls;
+    if (s == 1) image = [app.globalData.iurl+image[0]];
+    else if (s == 2) image = [app.globalData.iurl + image[0], app.globalData.iurl +image[1]];
+    else image = [app.globalData.iurl + image[0], app.globalData.iurl + image[1], app.globalData.iurl +image[2]];
+    that.setData({
+      imgurls:image
+    })
+  },
+  fail: function (res) {
+    console.log('fail')
+  },
 
-//   },
-//   fail: function (res) {
-//     console.log('fail')
-//   },
-// })
-
+})
+    
 //判断是否可以抽奖
-// wx.request({
-//   url: app.globalData.url +'intoLottery',
-//   data: {
-//     'userid': userid ,
-//     'id': awardid
-//   },
-//   method: 'GET',
-//   success:function(res){
-//     console.log(res.data.state)
-//     // that.setData({
-//     //   state: res.data.state,
-//     //   level: res.data.data[0].level
-//     // })
-//     if (that.data.state == 'success')
-//       that.setData({
-//         could_join: false
-//       })
-//   },
-//   fail:function(){
-//     console.log('fail')
-//   }
-// })
+var state=0;
+
+    wx.request({
+      url: app.globalData.url + 'checkLottery',
+      data: {
+        'userid': userid,
+        'id': awardid
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data.state)
+        state=res.data.state;
+if(state==0)
+       that.setData({
+         could_join:false
+       })
+      },
+      fail: function (res) {
+        console.log('fail');
+     
+      },
+    })
 
   },
 
@@ -197,7 +216,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+  
   },
 
   /**
@@ -252,19 +271,8 @@ Page({
     that.setNavSize();
     that.setStyle();
   },
-
   join: function () {
     var that = this
-    if (that.data.state != 'success')
-      wx.showModal({
-        title: '提示',
-        content: '有人参与抽奖后，你将无法再编辑抽奖信息，是否确认参与该抽奖？',
-        confirmText: '确认参与',
-        cancelText: '我再看看',
-        confirmColor: 'darkred',
-        cancelColor: 'darkgray',
-        success(res) {
-          if (res.confirm) {
             wx.request({
               url: app.globalData.url + 'intoLottery',
               data: {
@@ -273,31 +281,17 @@ Page({
               },
               method: 'GET',
               success: function (res) {
-                console.log(res.data.state)
-                that.setData({
-                  state: res.data.state,
-                  level: res.data.data[0].level
+                console.log(res)
+                wx.showModal({
+                  title: res.data.interpret,
+                  content: '',
                 })
-                if (that.data.state == 'success')
-                  that.setData({
-                    could_join: false
-                  })
+         
               },
               fail: function (res) {
                 console.log('fail')
               },
             })
-
-            console.log('用户点击确定分享')
-
-
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
-
-      })
-
 
 
   },
