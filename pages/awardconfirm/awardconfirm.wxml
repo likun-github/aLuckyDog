@@ -61,7 +61,7 @@
     </view>
   </view>
 
-  <view class='join'>
+  <view wx:if='{{status==1}}' class='join'>
     <view class='join_img_view' bindtap='join'>
       <image src="{{!could_join?'/images/join.svg':'/images/join_wait.svg'}}" class='join_img'></image>
     </view>
@@ -76,7 +76,13 @@
        </block>
     </swiper>
   </view>
+  </view>
 
+  <view wx:if='{{status==2}}' class='join'>
+       <view wx:if='{{level==1}}'>恭喜你中了一等奖</view>
+       <view wx:if='{{level==2}}'>恭喜你中了二等奖</view>
+       <view wx:if='{{level==3}}'>恭喜你中了三等奖</view>
+       <view wx:if='{{level==4}}'>很遗憾你没有中奖</view>
   </view>
 
   <view class='bottom_text'>意见反馈 | 免责声明 | 我要投诉</view>
@@ -85,13 +91,13 @@
 </scroll-view>
 
 <view class='bottom_btn_view' wx:if="{{could_join}}">
-  <button class='btn_1' bindtap='showmodels_tips'>分享该抽奖</button>
+  <button class='btn_1' bindtap='share_lottery' open-type="share">分享该抽奖</button>
   <button class='btn_2' bindtap='go_to_lotteryCreate'>更多抽奖福利</button>
 </view>
 
 
-<view class='bottom_btn_view' wx:if="{{share_flag}}">
-  <button class='btn_1_1' bindtap='share_lottery'>分享该抽奖</button>
+<view class='bottom_btn_view'wx:if="{{!could_join}}">
+  <button class='btn_1_1' bindtap='share_lottery'open-type="share">分享该抽奖</button>
 </view>
 
 <shouquan></shouquan>

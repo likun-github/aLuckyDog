@@ -31,6 +31,7 @@ Page({
       "/images/icn-zu@3x.png",
       "/images/icn-zu@3x.png",
     ],
+    level:'',//几等奖
     state: '', //个人对于奖项的状态
     awardid: '',
     imgurls: [],
@@ -41,7 +42,7 @@ Page({
     animation: '',
     date: '', //日期
     s: 1,
-    level: 0, //奖项状态
+    status: 0, //奖项状态
     kpnum: 0, //开奖人数||最多抽奖人数
     userid: '' //用户登录
   },
@@ -86,7 +87,6 @@ Page({
       },
       method: 'GET',
       success: function(res) {
-
         var cd = [];
         for (var i = 0; i < res.data.data.length; i++) {
           cd[i] = res.data.data[i].user__picture
@@ -113,7 +113,8 @@ Page({
         var f3 = res.data.user_data;
         var f1 = res.data.award_data;
         var f2 = res.data.interpret;
-        console.log(f1, f2, f3)
+        var f4 = res.data.userWithaward;
+        console.log(f1, f2, f3,f4)
 
         var jpname = [f1[0].name1, f1[0].name2, f1[0].name3];
         var jpnum = [f1[0].num1, f1[0].num2, f1[0].num3];
@@ -131,7 +132,8 @@ Page({
           imgurls: images,
           status: f1[0].status, //抽奖状态
           name: f3.nickname,
-          pic: f3.picture
+          pic: f3.picture,
+          level:f4[0].level
         })
         var s = f1[0].number;
         var image = that.data.imgurls;
@@ -159,9 +161,12 @@ Page({
       success: function (res) {
         console.log(res.data)
         state = res.data.state;
+        that.setData({
+          state: state,
+        })
         if (state == 0)
           that.setData({
-            could_join: false
+            could_join: false,
           })
       },
       fail: function (res) {
@@ -232,9 +237,12 @@ Page({
           success: function (res) {
             console.log(res)
             state = res.data.state;
+            that.setData({
+              state: state,
+            })
             if (state == 0)
               that.setData({
-                could_join: false
+                could_join: false,
               })
           },
           fail: function (res) {
@@ -344,8 +352,11 @@ Page({
     that.setNavSize();
     that.setStyle();
   },
+
   join: function() {
     var that = this
+    var state=that.data.state;
+    console.log(state);
     wx.request({
       url: app.globalData.url + 'intoLottery',
       data: {
@@ -359,7 +370,6 @@ Page({
           title: res.data.interpret,
           content: '',
         })
-
       },
       fail: function(res) {
         console.log('fail')
@@ -369,64 +379,28 @@ Page({
 
   },
 
-  showmodels_tips: function() {
-    var that = this
-    //     wx.request({
-    //       url: app.globalData.url + 'intoShare',
-    //       data: {
-    //         'id': that.data.awardid
-    //       },
-    //       method: 'GET',
-    //       success: function (res) {
-    //         console.log(res.data.state)
-    //         that.setData({
-    //           state: res.data.state
-    //         })
-    //         if (that.data.state == 'success')
-    //           that.setData({
-    //             could_join: false
-    //           })
-    // }
-    //})
-    that.setData({
-      share_flag: true
-    })
-    this.translate()
-  },
+
   go_to_lotteryCreate: function() {
     wx.navigateTo({
       url: '/pages/index/index',
     })
   },
-  share_lottery: function() {
-    this.setData({
-      share_flag: true,
-    })
-    this.translate()
-
-  },
-
-  translate: function() {
-    this.animation.translate(0, -120).step()
-    this.setData({
-      animation: this.animation.export()
-    })
-  },
-
-
-
-  cancel_share: function() {
-    this.setData({
-      share_flag: false,
-    })
-    this.translate_no()
-  },
-
-  translate_no: function() {
-    this.animation.translate(0, 120).step()
-    this.setData({
-      animation: this.animation.export()
+  share_lottery: function(res) {
+    if (this.data.awardid) {
+      if (res.from === 'button') {
+      }
+      return {
+        title: '转发',
+        path: '/pages/awardconfirm/awardconfirm?awardid=' + this.data.awardid,
+        success: function (res) {
+          console.log('成功', res)
+        }
+      }
+    } else wx.showModal({
+      title: '请稍后重试',
+      content: '网络出现异常请稍后重试',
     })
   },
+
 
 })
