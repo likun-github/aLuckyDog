@@ -311,7 +311,11 @@
 
 .join_pic_view {
   width: 100%;
-  height: 100rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .join_pic_view_img {
@@ -571,4 +575,15 @@
   justify-content: center;
   align-items: center;
   margin-top: 10rpx;
+}
+
+.swiper_view{
+  width: 100%;
+  height: 60rpx;
+}
+
+.image_view{
+  height: 60rpx;
+  width: 60rpx;
+  padding:auto;
 }
