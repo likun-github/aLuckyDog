@@ -8,7 +8,7 @@
     <view class='everyday_view_2'>
     </view>
   </view>
-  <view class='Everday_Lottery_view' bindtap='lottery' wx:for="{{home_show_data}}" wx:key="PK" data-id='{{item.id}}'>
+  <view class='Everday_Lottery_view' bindtap='lottery' data-awardid="{{item.id}}" wx:for="{{home_show_data}}" wx:key="PK" data-id='{{item.id}}'>
     <view>
       <image class='img_everyday_view' src='{{item.pic1}}' mode='aspectFill'></image>
     </view>
