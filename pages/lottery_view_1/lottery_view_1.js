@@ -38,22 +38,34 @@ Page({
       },
       success: function (res) {
         console.log(res.data.one)
+        var data=[];
+        for(var i=0;i<res.data.one.length;i++){
+          var middle={};
+          middle.pic1 = app.globalData.url_uploads + res.data.one[i].award__pic1;
+          middle.number = res.data.one[i].award__number;
+          middle.name1 = res.data.one[i].award__name1;
+          middle.name2 = res.data.one[i].award__name2;
+          middle.name3 = res.data.one[i].award__name3;
+          middle.num1 = res.data.one[i].award__num1;
+          middle.num2 = res.data.one[i].award__num2;
+          middle.num3 = res.data.one[i].award__num3;
+          middle.level = res.data.one[i].level;
+          middle.way = res.data.one[i].award__way;
+          middle.time = res.data.one[i].award__time;
+          if(middle.way==1){
+            middle.time = util.tsFormatTime(middle.time * 1000, 'Y-M-D h:m:s')
+          }
+          else{
+            middle.num = res.data.one[i].award__num;
+          }
 
-        // for (var i = 0; i < res.data.award_data.length; i++) {
-        //   if (res.data.award_data[i].time != '') {
-        //     res.data.award_data[i].time = util.tsFormatTime(res.data.award_data[i].time * 1000, 'Y-M-D h:m:s')
-        //   }
-        //   res.data.award_data[i].pic1 = app.globalData.url_uploads + res.data.award_data[i].pic1
+          data.push(middle);
+        }
+        that.setData({
+          home_show_data:data,
+        })
 
-        // }
-
-        // common.home_lottery = res.data.award_data
-        // console.log(common.home_lottery)
-
-
-        // that.setData({
-        //   home_show_data: res.data.award_data
-        // })
+        
 
       }
     })
