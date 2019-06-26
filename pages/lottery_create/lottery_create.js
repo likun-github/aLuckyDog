@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    a:false,
     name:'',
     pic:'',
     height_screen: 0,
@@ -102,6 +103,7 @@ Page({
       imgurls:images,
       awardid:options.awardid
     })
+
     console.log(this.data.jpname)
     console.log(this.data.awardid)
     console.log(images)
@@ -139,7 +141,48 @@ Page({
     })
     // this.lower()//动画
   },
+  handopen: function () {
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '你确定你要开奖了？',
+      confirmText: '确认开奖',
+      cancelText: '我再看看',
+      confirmColor: 'darkred',
+      cancelColor: 'darkgray',
+      success(res) {
+        if (res.confirm) {
 
+          wx.request({
+            url: app.globalData.url + 'openlottery',
+            data: {
+              'awardid': that.data.awardid
+            },
+            method: 'GET',
+            success: function (res) {
+              wx.navigateTo({
+                url: '/pages/awardconfirm/awardconfirm?awardid=' + that.data.awardid
+              })
+              console.log(res)
+              wx.startPullDownRefresh();
+              setTimeout(function () {
+
+
+
+
+                wx.stopPullDownRefresh();
+
+
+              }, 800)
+            }
+          })
+
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -259,52 +302,23 @@ wx.navigateTo({
       cancelColor: 'darkgray',
       success(res) {
         if (res.confirm) {
+          console.log(res)
 
-          wx.request({
+          wx:wx.request({
             url: app.globalData.url + 'getAwardPeople',
             data: {
               id: that.data.awardid
             },
-            success: function (res) {
-              console.log(res.data)
+            success: function (re) {
+              console.log(re.data)
               that.setData({
                 could_change:false
               })
 
-              console.log(res.data.data)
+      
             }
           })
-          // wx.request({
-          //   url: app.globalData.url + 'getAwardPeople',
-          //   data: {
-          //     'id': that.data.awardid
-          //   },
-          //   method: 'GET',
-          //   success: function (res) {
-          //     console.log(res)
-          //     console.log(that.data.awardid)
-          //     var cd = [];
-          //     for (var i = 0; i < res.data.data.length; i++) {
-          //       cd[i] = res.data.data[i].user__picture
-          //     }
-          //     that.setData({
-          //       canyu: cd,
-          //       cd1: cd.length
-          //     })
-          //     if (cd.length <= 7)
-          //       that.setData({
-          //         cd: cd.length
-          //       })
-          //     else that.setData({
-          //       cd: 7
-          //     })
-          //     console.log(that.data.canyu)
-          //   },
-          //   fail: function (res) {
-          //     console.log('fail')
-          //   },
-          // })
-
+     
 
          wx.request({
            url: app.globalData.url +'intoLottery',
@@ -324,6 +338,11 @@ wx.navigateTo({
                that.setData({
                  could_join: false
                })
+             if (that.data.into_number != 0&&that.data.index == 3){
+               that.setData({
+                 a:true
+               })
+             }
            },
             fail: function (res) {
              console.log('fail')

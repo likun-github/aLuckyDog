@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    a:true,
     name: '',
     pic: '',
     height_screen: 0,
@@ -77,7 +78,7 @@ Page({
     this.attached()
     wx.hideShareMenu();
     //options.awardid
-    var awardid = 5;
+    var awardid = options.awardid;
     var userid = app.globalData.userid;
     
     that.setData({
@@ -139,6 +140,12 @@ Page({
           name: f3.nickname,
           pic: f3.picture,
         })
+       var index=that.data.index;
+       var status=that.data.status;
+       var fuser=f3.userid;
+        if (index == 3 && status == 1 && fuser == userid)that.setData({a:false});
+        else that.setData({ a: true });
+
         if(f4!='')
         that.setData({
           level: f4[0].level
@@ -223,6 +230,11 @@ Page({
               name: f3.nickname,
               pic: f3.picture,
             })
+            var index = that.data.index;
+            var status = that.data.status;
+            var fuser = f3.userid;
+            if (index == 3 && status == 1 && fuser == userid) that.setData({ a: false });
+            else that.setData({ a: true });
             if (f4 != '')
               that.setData({
                 level: f4[0].level
@@ -489,7 +501,8 @@ Page({
             },
             method: 'GET',
             success: function (res) {
-              console.log(res)
+
+              console.log('lalalalalalal'+res)
               wx.startPullDownRefresh();
               setTimeout(function(){
 

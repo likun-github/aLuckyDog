@@ -124,7 +124,7 @@ Page({
       complete: () => {
         i++;
         if (i == length) {
-          wx.showToast('总共' + successUp + '张上传成功,' + failUp + '张上传失败！');
+          // wx.showToast('总共' + successUp + '张上传成功,' + failUp + '张上传失败！');
         }
         else {  //递归调用uploadDIY函数
           this.uploadDIY(filePaths, successUp, failUp, i, length,awardid);
@@ -446,7 +446,7 @@ Page({
          this.setData({
  select: false
            })
-       m='参与者即开即中';
+       m='手动开奖';
        this.setData({ z: '抽奖截止时间' })
          }
      this.setData({
@@ -480,12 +480,12 @@ Page({
     wx.chooseImage({
       count: 1,
       success:function(res){
-        wx.showToast({
-          title: '正在上传...',
-          icon: 'loading',
-          mask: true,
-          duration: 1000
-        }) 
+        // wx.showToast({
+        //   title: '正在上传...',
+        //   icon: 'loading',
+        //   mask: true,
+        //   duration: 1000
+        // }) 
         var tempFilePaths =res.tempFilePaths;
 
         var image = that.data.image1;
@@ -505,12 +505,12 @@ Page({
     wx.chooseImage({
       count: 1,
       success: function (res) {
-        wx.showToast({
-          title: '正在上传...',
-          icon: 'loading',
-          mask: true,
-          duration: 1000
-        })
+        // wx.showToast({
+        //   title: '正在上传...',
+        //   icon: 'loading',
+        //   mask: true,
+        //   duration: 1000
+        // })
         var tempFilePaths = res.tempFilePaths;
   
         var image = that.data.image2;
@@ -531,12 +531,12 @@ Page({
     wx.chooseImage({
       count: 1,
       success: function (res) {
-        wx.showToast({
-          title: '正在上传...',
-          icon: 'loading',
-          mask: true,
-          duration: 1000
-        })
+        // wx.showToast({
+        //   title: '正在上传...',
+        //   icon: 'loading',
+        //   mask: true,
+        //   duration: 1000
+        // })
         var tempFilePaths = res.tempFilePaths;
 
         var image = that.data.image3;
