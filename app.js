@@ -12,9 +12,9 @@ App({
   },
 
   globalData: {
-    iurl:'http://25t2f65842.wicp.vip:19785/uploads/',
-    url: 'http://25t2f65842.wicp.vip:19785/lottery/',
-    url_uploads: 'http://25t2f65842.wicp.vip:19785/uploads/',
+    iurl:'http://1397608894-qq.vicp.io:42685/uploads/',
+    url: 'http://1397608894-qq.vicp.io:42685/lottery/',
+    url_uploads: 'http://1397608894-qq.vicp.io:42685/uploads/',
     userInfo: null,
     top_height:0,
  
