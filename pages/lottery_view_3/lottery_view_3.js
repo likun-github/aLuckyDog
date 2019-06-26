@@ -81,6 +81,14 @@ Page({
 
 
   },
+  lottery: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/lrjlottery/lrjlottery?awardid=' + id,
+    })
+
+  },
 
 
 

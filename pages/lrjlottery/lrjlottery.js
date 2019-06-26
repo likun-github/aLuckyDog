@@ -77,7 +77,7 @@ Page({
     this.attached()
     wx.hideShareMenu();
     //options.awardid
-    var awardid = 5;
+    var awardid = options.awardid;
     var userid = app.globalData.userid;
 
     that.setData({
