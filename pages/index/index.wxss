@@ -297,3 +297,11 @@ page {
   align-items: center;
   justify-content: center;
 }
+
+
+button{
+  background-color: transparent;
+}
+button::after {
+  border: 0;
+}  
