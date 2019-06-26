@@ -19,6 +19,7 @@ Page({
     iconHeight: 19,
     iconWidth: 58,
     could_join: true,
+    could_change:true,
     share_flag:false,
     cd:7,
     cd1:0,
@@ -104,7 +105,7 @@ Page({
     console.log(this.data.jpname)
     console.log(this.data.awardid)
     console.log(images)
-   var that=this
+    var that=this
 
     wx.request({
       url: app.globalData.url + 'getAwardPeople',
@@ -113,7 +114,7 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-       
+       console.log(res.data)
         var cd=[];
         for (var i = 0; i < res.data.data.length;i++){
           cd[i] = res.data.data[i].user__picture
@@ -194,12 +195,9 @@ Page({
   },
   // 返回事件
   back: function () {
-    wx.navigateBack({
-      delta: 1
-    })
-    this.triggerEvent('back', {
-      back: 1
-    })
+wx.navigateTo({
+  url: '/pages/index/index',
+})
 
   },
 
@@ -248,10 +246,10 @@ Page({
     that.setNavSize();
     that.setStyle();
   },
-
+  
   join: function () {
     var that = this
-    if (that.data.state != 'success')
+    if (that.data.could_join)
     wx.showModal({
       title: '提示',
       content: '有人参与抽奖后，你将无法再编辑抽奖信息，是否确认参与该抽奖？',
@@ -261,36 +259,53 @@ Page({
       cancelColor: 'darkgray',
       success(res) {
         if (res.confirm) {
+
           wx.request({
             url: app.globalData.url + 'getAwardPeople',
             data: {
-              'id': that.data.awardid
+              id: that.data.awardid
             },
-            method: 'GET',
             success: function (res) {
-
-              var cd = [];
-              for (var i = 0; i < res.data.data.length; i++) {
-                cd[i] = res.data.data[i].user__picture
-              }
-
+              console.log(res.data)
               that.setData({
-                canyu: cd,
-                cd1: cd.length
+                could_change:false
               })
-              if (cd.length <= 7)
-                that.setData({
-                  cd: cd.length
-                })
-              else that.setData({
-                cd: 7
-              })
-              console.log(that.data.canyu)
-            },
-            fail: function (res) {
-              console.log('fail')
-            },
+
+              console.log(res.data.data)
+            }
           })
+          // wx.request({
+          //   url: app.globalData.url + 'getAwardPeople',
+          //   data: {
+          //     'id': that.data.awardid
+          //   },
+          //   method: 'GET',
+          //   success: function (res) {
+          //     console.log(res)
+          //     console.log(that.data.awardid)
+          //     var cd = [];
+          //     for (var i = 0; i < res.data.data.length; i++) {
+          //       cd[i] = res.data.data[i].user__picture
+          //     }
+          //     that.setData({
+          //       canyu: cd,
+          //       cd1: cd.length
+          //     })
+          //     if (cd.length <= 7)
+          //       that.setData({
+          //         cd: cd.length
+          //       })
+          //     else that.setData({
+          //       cd: 7
+          //     })
+          //     console.log(that.data.canyu)
+          //   },
+          //   fail: function (res) {
+          //     console.log('fail')
+          //   },
+          // })
+
+
          wx.request({
            url: app.globalData.url +'intoLottery',
            data:{
@@ -328,12 +343,12 @@ Page({
     })
    
 
-
+    
   },
 
   go_to_lotteryCreate:function(){
   wx.navigateBack({
-    delt:1
+    delt:0
   })
   },
   showmodels_tips:function(){
@@ -362,7 +377,7 @@ Page({
               })
               if (that.data.state == 'success')
                 that.setData({
-                  could_join: false
+                  could_change: false
                 })
             }
           })

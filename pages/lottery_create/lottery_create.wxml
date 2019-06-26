@@ -20,28 +20,28 @@
 <!-- <view style='height: {{88}}px;'></view> -->
 <view style='height: {{top_height}}px;'></view>
 
-<scroll-view  wx:if="{{!share_flag}}">
+<scroll-view wx:if="{{!share_flag}}">
   <!-- <view class='width:100%;height:300rpx;'>
     <image src='/images/default-prize-pi@3x.png' style='height:165px;width:100%;'></image>
   </view> -->
 
   <view class='lottery_list_wait' style='height:{{500+(s-1)*100}}rpx'>
     <view style='height:350rpx;width:100%;'>
-    <swiper style='height:350rpx;width:100%;'indicator-dots='true' autoplay='true'>
-    <block wx:for="{{imgurls}}">
-    <swiper-item>
-      <image src="{{item}}" style='height:100%;width:100%;'/>
-    </swiper-item>
-    </block>
-    </swiper>
+      <swiper style='height:350rpx;width:100%;' indicator-dots='true' autoplay='true'>
+        <block wx:for="{{imgurls}}">
+          <swiper-item>
+            <image src="{{item}}" style='height:100%;width:100%;' />
+          </swiper-item>
+        </block>
+      </swiper>
     </view>
     <view wx:if='{{s==1}}' style='width:100%;' class='lottery_list_1_wait'>奖品：{{jpname[0]}} X{{jpnum[0]}} </view>
- <view wx:if='{{s==2}}' class='lottery_list_1_wait' style='width:100%;'>一等奖奖品:{{jpname[0]}} X{{jpnum[0]}} </view>
- <view wx:if='{{s==2}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}}X{{jpnum[1]}} </view>
-  <view wx:if='{{s==3}}'class='lottery_list_1_wait'style='width:100%;'>一等奖奖品：{{jpname[0]}} X{{jpnum[0]}}</view>
-  <view wx:if='{{s==3}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}} X{{jpnum[1]}}</view>
-  <view wx:if='{{s==3}}' style='width:100%;' class='lottery_list_1_wait'>三等奖奖品:{{jpname[2]}} X{{jpnum[2]}} </view>
-  
+    <view wx:if='{{s==2}}' class='lottery_list_1_wait' style='width:100%;'>一等奖奖品:{{jpname[0]}} X{{jpnum[0]}} </view>
+    <view wx:if='{{s==2}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}}X{{jpnum[1]}} </view>
+    <view wx:if='{{s==3}}' class='lottery_list_1_wait' style='width:100%;'>一等奖奖品：{{jpname[0]}} X{{jpnum[0]}}</view>
+    <view wx:if='{{s==3}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}} X{{jpnum[1]}}</view>
+    <view wx:if='{{s==3}}' style='width:100%;' class='lottery_list_1_wait'>三等奖奖品:{{jpname[2]}} X{{jpnum[2]}} </view>
+
 
     <view wx:if='{{index==1}}' class='lottery_list_3_wait'>{{date}} 自动开奖</view>
     <view wx:if='{{index==2}}' class='lottery_list_3_wait'>3天内参与者到达{{kpnum}}人 自动开奖</view>
@@ -66,7 +66,7 @@
       <view class='Everday_Lottery_text_3'>{{jpms}}</view>
     </view>
   </view>
-
+  
   <view class='join'>
     <view class='join_img_view' bindtap='join'>
       <image src="{{could_join?'/images/join.svg':'/images/join_wait.svg'}}" class='join_img'></image>
@@ -74,14 +74,12 @@
     <view class='join_text_view' bindtap='whole'>已有{{into_number}}人参与，查看全部 ></view>
 
     <view class='join_pic_view'>
-     <swiper style='height:100%;width:100%;' display-multiple-items='{{cd}}'>
-       <block wx:for="{{canyu}}">
-           <swiper-item>
-             <image src="{{item}}" style='width:100%;height:100%;' mode='aspectFit'/>
-           </swiper-item>
-       </block>
-    </swiper>
-  </view>
+      
+      <view class='image_view' wx:for="{{canyu}}">
+        <image src="{{item}}" style='height:50rpx;width:50rpx;'></image>
+      </view>
+
+    </view>
 
   </view>
 
@@ -90,13 +88,13 @@
 
 </scroll-view>
 
-<view class='bottom_btn_view' wx:if="{{could_join}}">
+<view class='bottom_btn_view' wx:if="{{could_change}}">
   <button class='btn_1' bindtap='showmodels_tips'>分享该抽奖</button>
   <button class='btn_2' bindtap='go_to_lotteryCreate'>编辑</button>
 </view>
 
 
-<view class='bottom_btn_view' wx:if="{{!could_join}}">
+<view class='bottom_btn_view' wx:if="{{!could_change}}">
   <button class='btn_1_1' bindtap='share_lottery'>分享该抽奖</button>
 </view>
 
@@ -104,10 +102,10 @@
   <view style='height: {{88}}px;'></view>
   <!-- 配置 自定义的title -->
   <!-- <view style='height: {{top_height}}px;'></view> -->
-  
+
   <scroll-view class='canvas_view' style='height:{{1000+(s-1)*100}}rpx'>
     <view class='host_picture_1'>
-      <image  src='{{pic}}' style='height:100rpx;width:100rpx;' class='user_pic'></image>
+      <image src='{{pic}}' style='height:100rpx;width:100rpx;' class='user_pic'></image>
     </view>
     <view class=' pic_user_name'>{{name}}</view>
     <view class='pic_text_1'>发起了一个抽奖活动</view>
@@ -117,17 +115,17 @@
         <image src="{{imgurls[0]}}" style='height:220rpx;' class='lottery_list_wait_img'></image>
       </view>
 
-     <view wx:if='{{s==1}}' style='width:100%;' class='lottery_list_1_wait'>奖品：{{jpname[0]}} X{{jpnum[0]}} </view>
-     <view wx:if='{{s==2}}' class='lottery_list_1_wait' style='width:100%;'>一等奖奖品:{{jpname[0]}} X{{jpnum[0]}} </view>
-     <view wx:if='{{s==2}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}}X{{jpnum[1]}} </view>
-     <view wx:if='{{s==3}}'class='lottery_list_1_wait'style='width:100%;'>一等奖奖品：{{jpname[0]}} X{{jpnum[0]}}</view>
-     <view wx:if='{{s==3}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}} X{{jpnum[1]}}</view>
-     <view wx:if='{{s==3}}' style='width:100%;' class='lottery_list_1_wait'>三等奖奖品:{{jpname[2]}} X{{jpnum[2]}} </view>
-  
+      <view wx:if='{{s==1}}' style='width:100%;' class='lottery_list_1_wait'>奖品：{{jpname[0]}} X{{jpnum[0]}} </view>
+      <view wx:if='{{s==2}}' class='lottery_list_1_wait' style='width:100%;'>一等奖奖品:{{jpname[0]}} X{{jpnum[0]}} </view>
+      <view wx:if='{{s==2}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}}X{{jpnum[1]}} </view>
+      <view wx:if='{{s==3}}' class='lottery_list_1_wait' style='width:100%;'>一等奖奖品：{{jpname[0]}} X{{jpnum[0]}}</view>
+      <view wx:if='{{s==3}}' style='width:100%;' class='lottery_list_1_wait'>二等奖奖品:{{jpname[1]}} X{{jpnum[1]}}</view>
+      <view wx:if='{{s==3}}' style='width:100%;' class='lottery_list_1_wait'>三等奖奖品:{{jpname[2]}} X{{jpnum[2]}} </view>
 
-    <view wx:if='{{index==1}}' class='lottery_list_3_wait'>{{date}} 自动开奖</view>
-    <view wx:if='{{index==2}}' class='lottery_list_3_wait'>3天内参与到达{{kpnum}}自动开奖</view>
-    <view wx:if='{{index==3}}' class='lottery_list_3_wait'>参与者即开即中</view>
+
+      <view wx:if='{{index==1}}' class='lottery_list_3_wait'>{{date}} 自动开奖</view>
+      <view wx:if='{{index==2}}' class='lottery_list_3_wait'>3天内参与到达{{kpnum}}自动开奖</view>
+      <view wx:if='{{index==3}}' class='lottery_list_3_wait'>参与者即开即中</view>
 
       <view class='seperator_pic'>
         <view class='left_o'></view>
@@ -150,12 +148,12 @@
 
   <view class='share_to' animation="{{animation}}">
     <view class='share_to_list'>
-      <image src='/images/weixin.svg' class='share_to_list_img' ></image>
+      <image src='/images/weixin.svg' class='share_to_list_img'></image>
       <image src='/images/pengyouquan.svg' class='share_to_list_img'></image>
       <image src='/images/ren.svg' class='share_to_list_img'></image>
     </view>
     <view class='share_to_list_text_view'>
-      <button class='share_to_list_text' open-type="share" bindtap='share1' >分享给好友</button>
+      <button class='share_to_list_text' open-type="share" bindtap='share1'>分享给好友</button>
       <button class='share_to_list_text' open-type="share">保存分享图</button>
       <button class='share_to_list_text' open-type="share">嵌入公众号</button>
     </view>
