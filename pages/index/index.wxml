@@ -118,8 +118,8 @@
     </view> -->
 
     <!-- <view class='Self_Lottery_view_look_All'>查看全部 ></view> -->
-
-    <view class='contact_worker'>联系客服 ➤</view>
+    <button open-type="contact" class="contact_worker"> 联系客服 ➤</button>
+    <!-- <view class='contact_worker'>联系客服 ➤</view> -->
     <view style='height:200rpx;width:100%;'></view>
   </scroll-view>
 
