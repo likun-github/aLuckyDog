@@ -105,6 +105,7 @@ Page({
         console.log('fail')
       },
     })
+
     wx: wx.request({
       url: app.globalData.url + 'getUserAwardState',
       data: {
@@ -119,7 +120,7 @@ Page({
         var f2 = res.data.interpret;
         var f4 = res.data.userWithaward;
         console.log(f1, f2, f3,f4)
-
+        
         var jpname = [f1[0].name1, f1[0].name2, f1[0].name3];
         var jpnum = [f1[0].num1, f1[0].num2, f1[0].num3];
         var images = [f1[0].pic1, f1[0].pic2, f1[0].pic3];
@@ -137,7 +138,13 @@ Page({
           status: f1[0].status, //抽奖状态
           name: f3.nickname,
           pic: f3.picture,
-          level:f4[0].level
+        })
+        if(f4!='')
+        that.setData({
+          level: f4[0].level
+        })
+        else that.setData({
+          level: 0
         })
         var s = f1[0].number;
         var image = that.data.imgurls;
@@ -215,7 +222,14 @@ Page({
               status: f1[0].status, //抽奖状态
               name: f3.nickname,
               pic: f3.picture,
-              level: f4[0].level
+         
+            })
+            if (f4 != '')
+              that.setData({
+                level: f4[0].level
+              })
+            else that.setData({
+              level: 0
             })
             var s = f1[0].number;
             var image = that.data.imgurls;
