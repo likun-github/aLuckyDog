@@ -6,8 +6,6 @@
         <image src='/images/back@3x.png'></image>
       </view>
 
-
-
       <view class='nav-title' style=' width:70%;display: flex;justify-content: flex-start; align-items: center;'>
         <text style='{{textStyle}}'>抽奖详情</text>
       </view>
@@ -93,9 +91,9 @@
   <button class='btn_2' bindtap='go_to_lotteryCreate'>编辑</button>
 </view>
 
-
 <view class='bottom_btn_view' wx:if="{{!could_change}}">
-  <button class='btn_1_1' bindtap='share_lottery'>分享该抽奖</button>
+  <button class='btn_1' bindtap='share_lottery'>分享该抽奖</button>
+  <button  wx:if="{{a}}" class='btn_2' bindtap='handopen'>开奖</button>
 </view>
 
 <scroll-view class='share_view' wx:if="{{share_flag}}" style='height:{{height_screen+100}}px'>

@@ -90,7 +90,7 @@
         </view>
         <view style='width:100%;height:1px;background:gray'></view>
         <view class='close' bindtap='hideModal' data-index='3'>
-          即开即中
+          手动开奖
         </view>
       </view>
     </view>
