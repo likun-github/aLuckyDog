@@ -207,6 +207,7 @@ page{
   align-items: center;
   height: 100rpx;
   width: 100%;
+  background: white;
 }
 
 .host_text {

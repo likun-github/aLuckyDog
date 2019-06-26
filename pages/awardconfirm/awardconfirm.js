@@ -131,7 +131,7 @@ Page({
           jpname: jpname,
           jpnum: jpnum,
           date: date, //开奖时间
-          kpnum: f1[0].maxnum, //开奖人数
+          kpnum: f1[0].num, //开奖人数
           s: f1[0].number, //奖品个数
           jpms: f1[0].information,
           imgurls: images,
@@ -215,14 +215,13 @@ Page({
               jpname: jpname,
               jpnum: jpnum,
               date: date, //开奖时间
-              kpnum: f1[0].maxnum, //开奖人数
+              kpnum: f1[0].num, //开奖人数
               s: f1[0].number, //奖品个数
               jpms: f1[0].information,
               imgurls: images,
               status: f1[0].status, //抽奖状态
               name: f3.nickname,
               pic: f3.picture,
-         
             })
             if (f4 != '')
               that.setData({
