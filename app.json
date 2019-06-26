@@ -1,8 +1,12 @@
 {
   "pages": [
-    "pages/list/list",
-    "pages/index/index",
     "pages/awardconfirm/awardconfirm",
+    "pages/index/index",
+    "pages/question/question",
+    "pages/advice/advice",
+    "pages/list/list",
+    "pages/try/try",
+    
     "pages/lottery_view_1/lottery_view_1",
     "pages/award/award",
     "pages/awardprofile/awardprofile",
@@ -19,7 +23,6 @@
     "pages/input_id/input_id",
     "pages/chakanrenshu/chakanrenshu",
     "pages/lrjlottery/lrjlottery"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
