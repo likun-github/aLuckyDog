@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/awardconfirm/awardconfirm",
+
     "pages/index/index",
+        "pages/awardconfirm/awardconfirm",
     "pages/question/question",
     "pages/advice/advice",
     "pages/list/list",

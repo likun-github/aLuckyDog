@@ -1,4 +1,4 @@
-<navBar title-text="抽奖详情" background="white" bindback="back" />
+<navBar title-text="抽奖详情" background="white"  back-icon="/images/back@3x.png" bindback="back" />
 
 <!-- 配置 自定义的title -->
 
