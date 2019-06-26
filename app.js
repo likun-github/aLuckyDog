@@ -2,6 +2,8 @@
 App({
   onLaunch: function () {
    var that=this;
+   wx.clearStorage()
+
    var information=wx.getStorageSync('information');
     if(information){
       this.globalData.userid=information.userid;

@@ -15,7 +15,7 @@ Page({
     could_join: true,
     scrollHeight: 0,
     data_lottery: [],
-    pic:[],
+    pic: [],
   },
 
   /**
@@ -23,27 +23,27 @@ Page({
    */
   onLoad: function(options) {
     // let scrollHeight = wx.getSystemInfoSync().windowHeight;
-   
+
     this.setData({
       height: app.globalData.top_height,
       //   scrollHeight: scrollHeight + app.globalData.top_height
     })
     console.log(options.id)
-    var that =this
+    var that = this
     wx.request({
       url: app.globalData.url + 'intoAward',
-      data:{
+      data: {
         id: options.id
       },
-      success: function (res) {
+      success: function(res) {
 
 
         console.log(res)
         var data = res.data.data[0]
-        var pic_data=[]
+        var pic_data = []
 
-        if (data.pic1!=''){
-          data.pic1 = app.globalData.url_uploads+data.pic1
+        if (data.pic1 != '') {
+          data.pic1 = app.globalData.url_uploads + data.pic1
           pic_data.push(data.pic1)
         }
         if (data.pic2 != '') {
@@ -57,13 +57,13 @@ Page({
 
         data.time = util.tsFormatTime(data.time * 1000, 'Y-M-D h:m:s')
         that.setData({
-          pic:pic_data,
+          pic: pic_data,
           data_lottery: data,
         })
       }
     })
 
-      
+
 
 
   },
@@ -113,7 +113,21 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function(res) {
+    let users = wx.getStorageSync('user');
+    
+    var that =this;
+
+    return {
+      // title: '转发',
+      path: '/pages/lottery_detail/lottery_detail?awardid=' +that.data.data_lottery.id,
+      title: that.data.data_lottery.name1+'等你来抽',
+      imgUrl: '/images/share.jpg',
+
+      // success: function(res) {}
+
+    }
+
 
   },
 
