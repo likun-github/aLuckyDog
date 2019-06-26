@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/list/list",
     "pages/index/index",
     "pages/awardconfirm/awardconfirm",
     "pages/lottery_view_1/lottery_view_1",
@@ -18,6 +19,7 @@
     "pages/input_id/input_id",
     "pages/chakanrenshu/chakanrenshu",
     "pages/lrjlottery/lrjlottery"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
