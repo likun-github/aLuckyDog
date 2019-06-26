@@ -1,13 +1,21 @@
+<!-- <view class='title_view'>
+  <view class='nav' style='height: {{44 + 44}}px;'>
+    <view class='status' style='height: {{44}}px;{{containerStyle}}'></view>
+    <view class='navbar' style='height:{{44}}px;{{containerStyle}}; '>
+ 
+      <view class='nav-title' style=' width:70%;display: flex;justify-content: flex-start; align-items: center;'>
+        <text style='{{textStyle}}'>抽奖详情</text>
+      </view>
+    </view>
+  </view>
+</view> -->
+
 <navBar title-text="抽奖详情" background="white" bindback="back" />
 
 
-
-
 <!-- 配置 自定义的title -->
-<!-- 配置 自定义的title -->
-<view style='height: {{status + navHeight}}px;'></view>
-
-
+<!-- <view style='height: {{88}}px;'></view> -->
+<view style='height: {{top_height}}px;'></view>
 
 <scroll-view  wx:if="{{!share_flag}}">
   <!-- <view class='width:100%;height:300rpx;'>
@@ -89,7 +97,7 @@
 
 <view class='bottom_btn_view' >
   <button class='btn_1' bindtap='share_lottery' open-type="share">分享该抽奖</button>
-  <button wx:if='{{status!=1&&index!=3}}' class='btn_2' bindtap='go_to_lotteryCreate'>更多抽奖福利</button>
+  <button wx:if='{{status!=1}}' class='btn_2' bindtap='go_to_lotteryCreate'>更多抽奖福利</button>
   <button wx:if='{{status==1&&index==3}}' class='btn_2' bindtap='handopen'>手动开奖</button>
 </view>
 <!-- 
