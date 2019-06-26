@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name:'',
-    pic:'',
+    name: '',
+    pic: '',
     height_screen: 0,
     top_height: 0,
     background: 'rgba(255, 255, 255, 1)',
@@ -19,38 +19,38 @@ Page({
     iconHeight: 19,
     iconWidth: 58,
     could_join: true,
-    share_flag:false,
-    cd:7,
-    cd1:0,
-    canyu: ["/images/icn-zu@3x.png", 
-      "/images/icn-zu@3x.png", 
-      "/images/icn-zu@3x.png", 
-      "/images/icn-zu@3x.png", 
-      "/images/icn-zu@3x.png", 
-      "/images/icn-zu@3x.png", 
-      "/images/icn-zu@3x.png", 
-    
-     ],
-    state:'',//个人对于奖项的状态
-    awardid:'',
-    imgurls:[],
-    jpms:'',
-    index: 1,//抽奖方式
+    share_flag: false,
+    cd: 7,
+    cd1: 0,
+    canyu: ["/images/icn-zu@3x.png",
+      "/images/icn-zu@3x.png",
+      "/images/icn-zu@3x.png",
+      "/images/icn-zu@3x.png",
+      "/images/icn-zu@3x.png",
+      "/images/icn-zu@3x.png",
+      "/images/icn-zu@3x.png",
+
+    ],
+    state: '', //个人对于奖项的状态
+    awardid: '',
+    imgurls: [],
+    jpms: '',
+    index: 1, //抽奖方式
     jpname: '',
     jpnum: 0,
-    animation:'',
-    date: '',//日期
-    s:1,
+    animation: '',
+    date: '', //日期
+    s: 1,
     status: 0,
     navHeight: 0,
-    level:0,//奖项状态
-    kpnum:0,//开奖人数||最多抽奖人数
-    into_number:0,    //参与抽奖人数
+    level: 0, //奖项状态
+    kpnum: 0, //开奖人数||最多抽奖人数
+    into_number: 0, //参与抽奖人数
 
-      
-          
+
+
   },
-  whole: function () {
+  whole: function() {
     wx.navigateTo({
       url: '/pages/chakanrenshu/chakanrenshu?awardid=' + this.data.awardid,
     })
@@ -58,10 +58,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var that =this
+  onLoad: function(options) {
+    var that = this
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         console.log(res.windowHeight)
         that.setData({
           height_screen: res.windowHeight
@@ -76,35 +76,35 @@ Page({
     this.attached()
     wx.hideShareMenu();
 
-    var jpname=options.jpname;
-    var jpnum= options.jpnum;
+    var jpname = options.jpname;
+    var jpnum = options.jpnum;
     var images = options.jmages;
-    images=images.split(",");
-    jpname=jpname.split(",");
-    jpnum=jpnum.split(",");
+    images = images.split(",");
+    jpname = jpname.split(",");
+    jpnum = jpnum.split(",");
 
     var s = options.s;
     console.log(s);
     console.log(images);
-    if(s==1)images=[images[0]];
-    else if(s==2)images=[images[0],images[1]];
-    else images=[images[0],images[1],images[2]];
+    if (s == 1) images = [images[0]];
+    else if (s == 2) images = [images[0], images[1]];
+    else images = [images[0], images[1], images[2]];
     console.log(images);
     this.setData({
-      index:options.index,
-      jpname:jpname,
-      jpnum:jpnum,
-      date:options.date,
-      kpnum:options.kpnum,
-      s:options.s,
-      jpms:options.jpms,
-      imgurls:images,
-      awardid:options.awardid
+      index: options.index,
+      jpname: jpname,
+      jpnum: jpnum,
+      date: options.date,
+      kpnum: options.kpnum,
+      s: options.s,
+      jpms: options.jpms,
+      imgurls: images,
+      awardid: options.awardid
     })
     console.log(this.data.jpname)
     console.log(this.data.awardid)
     console.log(images)
-   var that=this
+    var that = this
 
     wx.request({
       url: app.globalData.url + 'getAwardPeople',
@@ -112,27 +112,27 @@ Page({
         'id': that.data.awardid
       },
       method: 'GET',
-      success: function (res) {
-       
-        var cd=[];
-        for (var i = 0; i < res.data.data.length;i++){
+      success: function(res) {
+
+        var cd = [];
+        for (var i = 0; i < res.data.data.length; i++) {
           cd[i] = res.data.data[i].user__picture
         }
-        
+
         that.setData({
           canyu: cd,
-          cd1:cd.length
+          cd1: cd.length
         })
-        if (cd.length<=7)
-        that.setData({
-          cd: cd.length
-        })
+        if (cd.length <= 7)
+          that.setData({
+            cd: cd.length
+          })
         else that.setData({
           cd: 7
         })
         console.log(that.data.canyu)
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log('fail')
       },
     })
@@ -142,8 +142,8 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-   
+  onReady: function() {
+
     this.animation = wx.createAnimation();
     this.setData({
       name: app.globalData.nickname,
@@ -154,46 +154,46 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-        
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
   // 返回事件
-  back: function () {
+  back: function() {
     wx.navigateBack({
       delta: 1
     })
@@ -204,7 +204,7 @@ Page({
   },
 
 
-  setNavSize: function () {
+  setNavSize: function() {
     var that = this,
       sysinfo = wx.getSystemInfoSync(),
       statusHeight = sysinfo.statusBarHeight,
@@ -222,7 +222,7 @@ Page({
   },
 
 
-  setStyle: function () {
+  setStyle: function() {
     var that = this,
       containerStyle, textStyle, iconStyle;
     containerStyle = [
@@ -243,182 +243,189 @@ Page({
     })
   },
 
-  attached: function () {
+  attached: function() {
     var that = this;
     that.setNavSize();
     that.setStyle();
   },
 
-  join: function () {
+  join: function() {
     var that = this
     if (that.data.state != 'success')
-    wx.showModal({
-      title: '提示',
-      content: '有人参与抽奖后，你将无法再编辑抽奖信息，是否确认参与该抽奖？',
-      confirmText: '确认参与',
-      cancelText: '我再看看',
-      confirmColor: 'darkred',
-      cancelColor: 'darkgray',
-      success(res) {
-        if (res.confirm) {
-          wx.request({
-            url: app.globalData.url + 'getAwardPeople',
-            data: {
-              'id': that.data.awardid
-            },
-            method: 'GET',
-            success: function (res) {
+      wx.showModal({
+        title: '提示',
+        content: '有人参与抽奖后，你将无法再编辑抽奖信息，是否确认参与该抽奖？',
+        confirmText: '确认参与',
+        cancelText: '我再看看',
+        confirmColor: 'darkred',
+        cancelColor: 'darkgray',
+        success(res) {
+          if (res.confirm) {
+            wx.request({
+              url: app.globalData.url + 'getAwardPeople',
+              data: {
+                'id': that.data.awardid
+              },
+              method: 'GET',
+              success: function(res) {
 
-              var cd = [];
-              for (var i = 0; i < res.data.data.length; i++) {
-                cd[i] = res.data.data[i].user__picture
-              }
+                var cd = [];
+                for (var i = 0; i < res.data.data.length; i++) {
+                  cd[i] = res.data.data[i].user__picture
+                }
 
-              that.setData({
-                canyu: cd,
-                cd1: cd.length
-              })
-              if (cd.length <= 7)
                 that.setData({
-                  cd: cd.length
+                  canyu: cd,
+                  cd1: cd.length
                 })
-              else that.setData({
-                cd: 7
-              })
-              console.log(that.data.canyu)
-            },
-            fail: function (res) {
-              console.log('fail')
-            },
-          })
-         wx.request({
-           url: app.globalData.url +'intoLottery',
-           data:{
-             'userid': app.globalData.userid,
-             'id': that.data.awardid
-           },
-           method: 'GET',
-           success:function(res){
-             console.log(res.data)
+                if (cd.length <= 7)
+                  that.setData({
+                    cd: cd.length
+                  })
+                else that.setData({
+                  cd: 7
+                })
+                console.log(that.data.canyu)
+              },
+              fail: function(res) {
+                console.log('fail')
+              },
+            })
+
+
+            wx.request({
+              url: app.globalData.url + 'intoLottery',
+              data: {
+                'userid': app.globalData.userid,
+                'id': that.data.awardid
+              },
+              method: 'GET',
+              success: function(res) {
+                console.log(res.data)
                 that.setData({
-                  into_number:res.data.award_data[0].into_number,
+                  into_number: res.data.award_data[0].into_number,
                   state: res.data.state,
                   level: res.data.data[0].level
                 })
-             if (that.data.state == '1')
-               that.setData({
-                 could_join: false
-               })
-           },
-            fail: function (res) {
-             console.log('fail')
-           },
-         })
+                if (that.data.state == '1')
+                  that.setData({
+                    could_join: false
+                  })
+              },
+              fail: function(res) {
+                console.log('fail')
+              },
+            })
 
 
 
-          console.log('用户点击确定分享')
-       
+            console.log('用户点击确定分享')
 
-        } else if (res.cancel) {
-          console.log('用户点击取消')
+
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
         }
-      }
 
+      })
+
+
+
+  },
+
+  go_to_lotteryCreate: function() {
+    wx.navigateBack({
+      delt: 1
     })
-   
-
-
   },
 
-  go_to_lotteryCreate:function(){
-  wx.navigateBack({
-    delt:1
-  })
-  },
-  showmodels_tips:function(){
+
+  showmodels_tips: function() {
     var that = this
     if (that.data.state != 'success')
-    wx.showModal({
-      title: '提示',
-      content: '有人参与抽奖后，你将无法再编辑抽奖信息，是否确认分享该抽奖？',
-      confirmText:'确认分享',
-      cancelText:'我再看看',
-      confirmColor:'darkred',
-      cancelColor:'darkgray',
-      success(res) {
-        if (res.confirm) {
-        
-          wx.request({
-            url: app.globalData.url + 'intoShare',
-            data: {
-              'id': that.data.awardid
-            },
-            method: 'GET',
-            success: function (res) {
-              console.log(res.data.state)
-              that.setData({
-                state: res.data.state
-              })
-              if (that.data.state == 'success')
+      wx.showModal({
+        title: '提示',
+        content: '有人参与抽奖后，你将无法再编辑抽奖信息，是否确认分享该抽奖？',
+        confirmText: '确认分享',
+        cancelText: '我再看看',
+        confirmColor: 'darkred',
+        cancelColor: 'darkgray',
+        success(res) {
+          if (res.confirm) {
+
+            wx.request({
+              url: app.globalData.url + 'intoShare',
+              data: {
+                'id': that.data.awardid
+              },
+              method: 'GET',
+              success: function(res) {
+                console.log(res.data.state)
                 that.setData({
-                  could_join: false
+                  state: res.data.state
                 })
-            }
-          })
-         
-        } else if (res.cancel) {
-          console.log('用户点击取消')
+                if (that.data.state == 'success')
+                  that.setData({
+                    could_join: false
+                  })
+              }
+            })
+
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
         }
-      }
-    })
+      })
 
   },
 
-  share_lottery:function(){
+  share_lottery: function() {
     this.setData({
-      share_flag:true,
+      share_flag: true,
     })
     this.translate()
 
   },
 
-  translate: function () {
+  translate: function() {
     this.animation.translate(0, -110.5).step()
-    this.setData({ animation: this.animation.export() })
+    this.setData({
+      animation: this.animation.export()
+    })
   },
 
 
 
-  cancel_share:function(){
+  cancel_share: function() {
     this.setData({
       share_flag: false,
     })
     this.translate_no()
   },
 
-  translate_no: function () {
+  translate_no: function() {
     this.animation.translate(0, 110.5).step()
-    this.setData({ animation: this.animation.export() })
+    this.setData({
+      animation: this.animation.export()
+    })
   },
-  share1:function(res){
-    if(this.data.awardid){
-    if (res.from === 'button') {
-    }
-    return {
-      title: '转发',
-      path: '/pages/awardconfirm/awardconfirm?awardid='+this.data.awardid,
-      success: function (res) {
-        console.log('成功', res)
+  share1: function(res) {
+    if (this.data.awardid) {
+      if (res.from === 'button') {}
+      return {
+        title: '转发',
+        path: '/pages/awardconfirm/awardconfirm?awardid=' + this.data.awardid,
+        success: function(res) {
+          console.log('成功', res)
+        }
       }
-    }
-    }else wx.showModal({
+    } else wx.showModal({
       title: '请稍后重试',
       content: '网络出现异常请稍后重试',
     })
   },
 
-  go_to_advice:function(){
+  go_to_advice: function() {
     wx.navigateTo({
       url: '/pages/advice/advice',
     })
