@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/awardconfirm/awardconfirm",
-    "pages/award/award",
-    "pages/index/index",
+  
    
+    "pages/index/index",
+    "pages/award/award",
+    "pages/awardconfirm/awardconfirm",
     "pages/lottery_view_1/lottery_view_1",
     
     "pages/awardprofile/awardprofile",
