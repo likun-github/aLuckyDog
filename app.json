@@ -1,12 +1,10 @@
 {
   "pages": [
-    
-    "pages/awardconfirm/awardconfirm",
+    "pages/list/list",
     "pages/index/index",
-    "pages/award/award",
-    
+    "pages/awardconfirm/awardconfirm",
     "pages/lottery_view_1/lottery_view_1",
-    
+    "pages/award/award",
     "pages/awardprofile/awardprofile",
     "pages/lottery_create/lottery_create",
     "pages/selfpage/selfpage",
@@ -14,16 +12,14 @@
     "pages/test/test",
     "pages/lottery_detail/lottery_detail",
     "pages/logs/logs",
-    "pages/advice/advice",
     "pages/lottery_view_2/lottery_view_2",
     "pages/lottery_view_3/lottery_view_3",
     "pages/remainder_money/remainder_money",
     "pages/joinaward/joinaward",
     "pages/input_id/input_id",
     "pages/chakanrenshu/chakanrenshu",
-    "pages/lrjlottery/lrjlottery",
-    "pages/question/question",
-    "pages/try/try"
+    "pages/lrjlottery/lrjlottery"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
