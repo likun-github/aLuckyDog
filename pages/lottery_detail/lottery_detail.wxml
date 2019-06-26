@@ -41,12 +41,12 @@
   <view class='separator'></view>
 
 
-  <view class='week_view'>
+  <view class='week_view' bindtap='copy_count'>
     <view class='week_view_1'>
       <image src='/images/tuan.png' mode='aspectFill' class='week_view_img'></image>
     </view>
-    <view class='week_view_text1'>{{data_lottery.wechat_name}}</view>
-    <view class='week_view_text2'>去体验</view>
+    <view class='week_view_text1'>{{data_lottery.wechat_name}}({{data_lottery.wechat_inform}})</view>
+    <view class='week_view_text2' >去关注</view>
   </view>
 
   <view class='grey_line'></view>

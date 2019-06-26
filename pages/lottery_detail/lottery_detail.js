@@ -115,13 +115,13 @@ Page({
    */
   onShareAppMessage: function(res) {
     let users = wx.getStorageSync('user');
-    
-    var that =this;
+
+    var that = this;
 
     return {
       // title: '转发',
-      path: '/pages/lottery_detail/lottery_detail?awardid=' +that.data.data_lottery.id,
-      title: that.data.data_lottery.name1+'等你来抽',
+      path: '/pages/lottery_detail/lottery_detail?awardid=' + that.data.data_lottery.id,
+      title: that.data.data_lottery.name1 + '等你来抽',
       imgUrl: '/images/share.jpg',
 
       // success: function(res) {}
@@ -199,6 +199,22 @@ Page({
     this.setData({
       show_time: animation.export()
     })
-  }
+  },
+
+  copy_count: function() {
+    var that = this
+    wx.setClipboardData({　　　　　　
+      data: that.data.data_lottery.wechat_inform,
+      success: function(res) {　　　　　　　　
+        wx.getClipboardData({　　　　　　　　　　
+          success: function(res) {　　　　　　　　　　　　
+            wx.showToast({　　　　　　　　　　　　　　
+              title: '复制成功'　　　　　　　　　　　　
+            })　　　　　　　　　　
+          }　　　　　　　　
+        })　　　　　　
+      }　　　　
+    })
+  },
 
 })
