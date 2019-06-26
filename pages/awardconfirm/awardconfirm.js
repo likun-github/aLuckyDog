@@ -167,6 +167,7 @@ Page({
       },
 
     })
+
     //判断是否可以抽奖
     var state = 0;
     wx.request({
@@ -460,6 +461,7 @@ Page({
     var that = this
     var state=that.data.state;
     console.log(state);
+    
     wx.request({
       url: app.globalData.url + 'intoLottery',
       data: {
