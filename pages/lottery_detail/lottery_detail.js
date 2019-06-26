@@ -120,7 +120,7 @@ Page({
 
     return {
       // title: '转发',
-      path: '/pages/lottery_detail/lottery_detail?awardid=' + that.data.data_lottery.id,
+      path: '/pages/awardconfirm/awardconfirm?awardid=' + that.data.data_lottery.id,
       title: that.data.data_lottery.name1 + '等你来抽',
       imgUrl: '/images/share.jpg',
 
