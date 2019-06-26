@@ -76,7 +76,7 @@ Page({
     })
     this.attached()
     wx.hideShareMenu();
-    //options.awardid
+    
     var awardid = options.awardid;
     var userid = app.globalData.userid;
 
@@ -391,9 +391,23 @@ Page({
   },
 
   /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  * 用户点击右上角分享
+  */
+  onShareAppMessage: function (res) {
+    let users = wx.getStorageSync('user');
+
+    var that = this;
+
+    return {
+      // title: '转发',
+      path: '/pages/awardconfirm/awardconfirm?awardid=' + that.data.data_lottery.id,
+      title: that.data.data_lottery.name1 + '等你来抽',
+      imgUrl: '/images/share.jpg',
+
+      // success: function(res) {}
+
+    }
+
 
   },
   // 返回事件
