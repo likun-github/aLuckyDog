@@ -40,7 +40,7 @@
   </view>
 
   <view style='height:30rpx;width:100%;background:#f0f0f0;'></view>
-  <view class='Everday_Lottery_view'>
+  <view class='Everday_Lottery_view' wx:if='{{jpms}}'>
     <view>
       <image class=' toast_view_1_img' src='/images/yinghao.svg' mode='aspectFill'></image>
     </view>

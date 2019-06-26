@@ -12,15 +12,24 @@ Page({
     height: 0,
     text: "如果你想安安静静抽奖，期待成为幸运儿 — — 抽奖助手就是你需要的大型福利池。\n\n在这里，你可以每天来参与免费的抽奖：从口红到包包，从新品手机到黑科技......大量持续更新，一定有你所爱。\n\n同时，抽奖助手也是一个强大的互动工具。\n\n如果你想跟好友互动、分享闲置品：\n\n用一个抽奖来解决！亦或用「皮一下」功能，代替不好意思的邀请，找个人买单，抽个人周末一起看电影....朋友圈里，应该多一些参与的温度。\n\n如果你是公众号主：\n\n由什么比一个抽奖，更适合活跃粉丝，运营活动？来绑定抽奖助手小程序，多功能任你选择，灵巧派发福利~\n\n对企业品牌、小程序主......这里是你需要的宣发地。\n\n",
     text1: "",
-    could_join: true,
+    could_join: false,
     scrollHeight: 0,
     data_lottery: [],
     pic: [],
+    cd:'',
+    canyu:[],
+    state:0,
+    awardid:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  whole: function () {
+    wx.navigateTo({
+      url: '/pages/chakanrenshu/chakanrenshu?awardid=' + this.data.awardid,
+    })
+  },
   onLoad: function(options) {
     // let scrollHeight = wx.getSystemInfoSync().windowHeight;
 
@@ -30,14 +39,71 @@ Page({
     })
     console.log(options.id)
     var that = this
+    var awardid=options.id;
+    that.setData({
+      awardid:awardid
+    })
+    var userid=app.globalData.userid;
+
+    //判断是否可以抽奖
+    var state = 0;
+    wx.request({
+      url: app.globalData.url + 'checkLottery',
+      data: {
+        'userid': userid,
+        'id': awardid
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data)
+        state = res.data.state;
+        that.setData({
+          state: state,
+        })
+        console.log(state)
+        if (state == 1){
+          that.setData({
+            could_join: true,
+          })}
+          else {
+          that.setData({
+            could_join: false,
+          })
+          }
+      },
+      fail: function (res) {
+        console.log('fail');
+      },
+    })
+
+    wx.request({
+      url: app.globalData.url + 'getAwardPeople',
+      data: {
+        'id': awardid
+      },
+      method: 'GET',
+      success: function (res) {
+        var cd = [];
+        for (var i = 0; i < res.data.data.length; i++) {
+          cd[i] = res.data.data[i].user__picture
+        }
+        //先默认为7
+        that.setData({
+          canyu: cd,
+          cd: cd.length
+        })
+      },
+      fail: function (res) {
+        console.log('fail')
+      },
+    })
+
     wx.request({
       url: app.globalData.url + 'intoAward',
       data: {
         id: options.id
       },
       success: function(res) {
-
-
         console.log(res)
         var data = res.data.data[0]
         var pic_data = []
@@ -62,6 +128,7 @@ Page({
         })
       }
     })
+
 
 
 
@@ -133,8 +200,26 @@ Page({
 
 
   join: function() {
-    this.setData({
-      could_join: !this.data.could_join
+    var that = this;
+
+
+    wx.request({
+      url: app.globalData.url + 'intoLottery',
+      data: {
+        'userid': app.globalData.userid,
+        'id': that.data.awardid
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res)
+        wx.showModal({
+          title: res.data.interpret,
+          content: '',
+        })
+      },
+      fail: function (res) {
+        console.log('fail')
+      },
     })
 
   },

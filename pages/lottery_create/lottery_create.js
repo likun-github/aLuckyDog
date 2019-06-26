@@ -302,8 +302,8 @@ wx.navigateTo({
       cancelColor: 'darkgray',
       success(res) {
         if (res.confirm) {
-          console.log(res)
-
+     
+          console.log(that.data.awardid)
           wx:wx.request({
             url: app.globalData.url + 'getAwardPeople',
             data: {

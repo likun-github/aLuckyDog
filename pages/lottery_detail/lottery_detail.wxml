@@ -84,23 +84,25 @@
   
   <view class='grey_line'></view>
 
-  <view class='join'>
+
+
+  <view  class='join'>
     <view class='join_img_view' bindtap='join'>
-      <image src="{{could_join?'/images/join.svg':'/images/join_no.svg'}}" class='join_img'></image>
+      <image src="{{could_join?'/images/join.svg':'/images/join_wait.svg'}}" class='join_img'></image>
     </view>
-    <view class='join_text_view'>已有213213人参与，查看全部 ></view>
+    <view class='join_text_view' bindtap='whole'>已有{{cd}}人参与，查看全部 ></view>
 
     <view class='join_pic_view'>
-      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
-      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
-      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
-      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
-      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
-      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
-      <image src="/images/icn-zu@3x.png" class='join_pic_view_img'></image>
+      
+      <view class='image_view' wx:for="{{canyu}}">
+        <image src="{{item}}" style='height:50rpx;width:50rpx;'></image>
+      </view>
 
     </view>
+
   </view>
+
+
 
 
 
