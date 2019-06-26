@@ -44,7 +44,9 @@ Page({
     s: 1,
     status: 0, //奖项状态
     kpnum: 0, //开奖人数||最多抽奖人数
-    userid: '' //用户登录
+    userid: '', //用户登录
+    status: 0,
+    navHeight: 0,
   },
   whole: function() {
     wx.navigateTo({
@@ -59,6 +61,7 @@ Page({
 * 生命周期函数--监听页面加载
 */
   onLoad: function(options) {
+    this.setNavSize()
     var that = this;
     wx.getSystemInfo({
       success: function(res) {
@@ -74,8 +77,9 @@ Page({
     this.attached()
     wx.hideShareMenu();
     //options.awardid
-    var awardid = 28;
+    var awardid = options.awardid;
     var userid = app.globalData.userid;
+    
     that.setData({
       awardid: awardid
     })
@@ -260,6 +264,25 @@ Page({
   },
 
 
+  // 通过获取系统信息计算导航栏高度
+  setNavSize: function () {
+    var that = this,
+      sysinfo = wx.getSystemInfoSync(),
+      statusHeight = sysinfo.statusBarHeight,
+      isiOS = sysinfo.system.indexOf('iOS') > -1,
+      navHeight;
+    if (!isiOS) {
+      navHeight = 48;
+    } else {
+      navHeight = 44;
+    }
+    that.setData({
+      status: statusHeight,
+      navHeight: navHeight
+    })
+
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -292,7 +315,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    
     var awardid=this.data.awardid;
     var userid=app.globalData.userid;
     var that=this;
