@@ -55,9 +55,9 @@
       <view class='Everday_Lottery_text'>
         <view class='Everday_Lottery_text_1'>{{item.wechat_name}} 赞助</view>
 
-        <view class='Everday_Lottery_text_2' wx:if="{{item.number>=1}}">{{item.name1}} x{{item.num1}}</view>
-        <view class='Everday_Lottery_text_2' wx:if="{{item.number>=2}}">{{item.name2}} x{{item.num2}}</view>
-        <view class='Everday_Lottery_text_2' wx:if="{{item.number>=3}}">{{item.name3}} x{{item.num3}}</view>
+        <view class='Everday_Lottery_text_2' wx:if="{{item.number>=1}}">{{item.number==1?'奖项':'一等奖'}}：{{item.name1}} x{{item.num1}}</view>
+        <view class='Everday_Lottery_text_2' wx:if="{{item.number>=2}}">二等奖：{{item.name2}} x{{item.num2}}</view>
+        <view class='Everday_Lottery_text_2' wx:if="{{item.number>=3}}">三等奖：{{item.name3}} x{{item.num3}}</view>
 
         <view class='Everday_Lottery_text_3' wx:if="{{item.way==1}}">{{item.time}} 自动开奖</view>
         <view class='Everday_Lottery_text_3' wx:if="{{item.way==2}}"> 达到{{item.num}}人 自动开奖</view>  
@@ -119,7 +119,7 @@
 
     <!-- <view class='Self_Lottery_view_look_All'>查看全部 ></view> -->
 
-    <view class='contact_worker'>联系客服 ></view>
+    <view class='contact_worker'>联系客服 ➤</view>
     <view style='height:200rpx;width:100%;'></view>
   </scroll-view>
 

@@ -92,7 +92,7 @@
 
     <view class='column' bindtap='common_question'>
       <view class='column_icon_1'>
-        <image class='column_icon_1_img' src='/images/icn-mini-program@3x.png'></image>
+        <image class='column_icon_1_img' src='/images/wenti.png'></image>
       </view>
       <view class='column_text_1'>常见问题</view>
       <view class='column_text_2'></view>
@@ -105,7 +105,7 @@
 
     <view class='column' bindtap='address'>
       <view class='column_icon_1'>
-        <image class='column_icon_1_img' src='/images/icn-question@3x.png'></image>
+        <image class='column_icon_1_img' src='/images/shouhuo.png'></image>
       </view>
       <view class='column_text_1'>收获地址</view>
       <view class='column_text_2'></view>
@@ -118,7 +118,7 @@
 
     <view class='column' bindtap='go_to_advice'>
       <view class='column_icon_1'>
-        <image class='column_icon_1_img' src='/images/icn-mini-program@3x.png'></image>
+        <image class='column_icon_1_img' src='/images/tousu.png'></image>
       </view>
       <view class='column_text_1'>投诉管理</view>
       <view class='column_text_2'></view>
@@ -223,7 +223,7 @@
       <view class='public_text1'>
         — 珞云顶科技出品 —
       </view>
-      <view class='public_text2'>抽奖超过 913,000,000,000 人次</view>
+      <view class='public_text2'>抽奖超过一百万人次</view>
     </view>
   </view>
 
