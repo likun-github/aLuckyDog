@@ -1,0 +1,11 @@
+<navBar title-text="中奖者信息" back-icon="/images/back@3x.png" background="white" bindback="back" />
+
+
+<!-- 配置 自定义的title -->
+<view style='height: {{height}}px;'></view>
+
+
+
+<view class='text_view1'>
+  已告知中奖者中奖，中奖者信息已经公布如下；开奖7天后中奖者将不能填写地址，届时无法获取信息的中奖用户将不需要您发送奖品。
+</view>

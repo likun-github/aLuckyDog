@@ -1,6 +1,9 @@
 {
   "pages": [
+    
+
     "pages/index/index",
+        "pages/look_lucky_user/look_lucky_user",
     "pages/awardconfirm/awardconfirm",
     "pages/question/question",
     "pages/advice/advice",

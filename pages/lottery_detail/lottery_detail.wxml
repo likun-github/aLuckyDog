@@ -1,6 +1,6 @@
 <!--pages/lottery_detail/lottery_detail.wxml-->
 
-  <navBar title-text="抽奖详情" back-icon="/images/back@3x.png" background="#f2f2f2" bindback="back" />
+  <navBar title-text="抽奖详情" back-icon="/images/back@3x.png" background="white" bindback="back" />
 
 
   <!-- 配置 自定义的title -->
