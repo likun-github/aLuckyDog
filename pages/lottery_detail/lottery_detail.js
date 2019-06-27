@@ -57,7 +57,7 @@ Page({
       //   scrollHeight: scrollHeight + app.globalData.top_height
     })
     console.log(options.id)
-    var that = this
+   
     var awardid=options.id;
     that.setData({
       awardid:awardid
@@ -201,20 +201,23 @@ Page({
    */
   onShareAppMessage: function(res) {
 
-    this.begainDrawShareImage()
-    
 
-    let users = wx.getStorageSync('user');
+
+    // let users = wx.getStorageSync('user');
 
     var that = this;
 
     return {
       // title: '转发',
       path: '/pages/awardconfirm/awardconfirm?awardid=' + that.data.data_lottery.id,
-      // title: that.data.data_lottery.name1 + '等你来抽',
-      imageUrl: '/images/share1.jpg',
+      title: that.data.data_lottery.wechat_name+'发起了抽奖【'+that.data.data_lottery.name1 + '等你来抽】',
+      imageUrl: that.data.data_lottery.pic1,
 
-      // success: function(res) {}
+      success: function(res) {
+        wx.showToast({
+          title: '已转发',
+        })
+      }
 
     }
 
@@ -326,5 +329,11 @@ Page({
   },
 
 
+
+  go_to_more:function(){
+    wx.redirectTo({
+      url: '/pages/index/index',
+    })
+  }
 
 })

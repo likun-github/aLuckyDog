@@ -408,7 +408,21 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    var that = this;
+    console.log('data:', that.data)
+    return {
+      // title: '转发',
+      path: '/pages/awardconfirm/awardconfirm?awardid=' + that.data.awardid,
+      title: that.data.name + '邀你参与[' + that.data.jpname[0] + '等]抽奖！',
+      imageUrl: that.data.imgurls[0],
 
+      success: function (res) {
+        wx.showToast({
+          title: '已转发',
+        })
+      }
+
+    }
   },
   // 返回事件
 
@@ -529,6 +543,7 @@ Page({
       url: '/pages/index/index',
     })
   },
+
   share_lottery: function (res) {
     if (this.data.awardid) {
       if (res.from === 'button') {
