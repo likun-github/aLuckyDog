@@ -6,6 +6,67 @@ Page({
    * 页面的初始数据
    */
   data: {
+
+    number: 1,//奖项数量 
+    user1: [//一等奖获奖状况
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+
+
+
+    ],
+    user2: [//二等奖获奖状况
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+      {
+
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+
+
+
+    ],
+    user3: [//三等奖获奖状况
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+      {
+
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+
+
+
+    ],
     a:true,
     name: '',
     pic: '',

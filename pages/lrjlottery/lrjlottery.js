@@ -6,6 +6,105 @@ Page({
    * 页面的初始数据
    */
   data: {
+
+    number: 2,//奖项数量 
+    user1: [//一等奖获奖状况
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      }
+
+
+
+
+    ],
+    user2: [//二等奖获奖状况
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+      {
+
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+
+
+
+    ],
+    user3: [//三等奖获奖状况
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+      {
+
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+
+
+
+    ],
     a: true,
     name: '',
     pic: '',
@@ -79,8 +178,8 @@ Page({
     wx.hideShareMenu();
     //options.awardid
     var awardid = options.awardid;
-    console.log(awardid)
     var userid = app.globalData.userid;
+
     that.setData({
       awardid: awardid
     })
@@ -92,6 +191,7 @@ Page({
       },
       method: 'GET',
       success: function (res) {
+        
         var cd = [];
         for (var i = 0; i < res.data.data.length; i++) {
           cd[i] = res.data.data[i].user__picture
@@ -192,7 +292,6 @@ Page({
         console.log('fail');
       },
     })
-
     var timer = setInterval(function () {
       userid = app.globalData.userid
       if (that.data.jpname == '') {
@@ -271,7 +370,7 @@ Page({
             that.setData({
               state: state,
             })
-            if (state == 0)
+            if (state == 1)
               that.setData({
                 could_join: false,
               })
@@ -284,7 +383,6 @@ Page({
 
       else clearInterval(timer);
     }, 2500);
-
 
 
   },
@@ -489,6 +587,10 @@ Page({
           title: res.data.interpret,
           content: '',
         })
+        that.setData({
+          could_join: true
+        })
+        wx.startPullDownRefresh()
       },
       fail: function (res) {
         console.log('fail')
@@ -543,7 +645,6 @@ Page({
       url: '/pages/index/index',
     })
   },
-
   share_lottery: function (res) {
     if (this.data.awardid) {
       if (res.from === 'button') {

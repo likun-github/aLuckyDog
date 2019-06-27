@@ -1,6 +1,8 @@
 <navBar title-text="抽奖详情" background="white" back-icon="/images/back@3x.png" bindback="back" />
 
 
+<!-- 配置 自定义的title -->
+
 <view style='height: {{top_height}}px;'></view>
 
 <scroll-view wx:if="{{!share_flag}}">
@@ -54,9 +56,9 @@
     </view>
     <view class='join_text_view' bindtap='whole'>已有{{cd}}人参与，查看全部 ></view>
 
-    
+
     <view class='join_pic_view'>
-      
+
       <view class='image_view' wx:for="{{canyu}}">
         <image src="{{item}}" style='height:50rpx;width:50rpx;'></image>
       </view>
@@ -66,12 +68,53 @@
   </view>
 
 
-  <view wx:if='{{status==2}}' class='join'>
-    <view wx:if='{{level==1}}'>恭喜你中了一等奖：{{jpname[0]}}</view>
-    <view wx:if='{{level==2}}'>恭喜你中了二等奖: {{jpname[1]}}</view>
-    <view wx:if='{{level==3}}'>恭喜你中了三等奖: {{jpname[2]}}</view>
-    <view wx:if='{{level==4}}'>很遗憾你没有中奖</view>
-    <view wx:if='{{!level}}'>该抽奖已结束</view>
+  <view wx:if='{{status==2}}'>
+    <view class='join'>
+      <view wx:if='{{level==1}}'>恭喜你中了一等奖：{{jpname[0]}}</view>
+      <view wx:if='{{level==2}}'>恭喜你中了二等奖: {{jpname[1]}}</view>
+      <view wx:if='{{level==3}}'>恭喜你中了三等奖: {{jpname[2]}}</view>
+      <view wx:if='{{level==4}}'>很遗憾你没有中奖</view>
+      <view wx:if='{{!level}}'>该抽奖已结束</view>
+
+    </view>
+
+
+
+
+    <view class="awardlist">中奖者名单</view>
+    <view class="Firstprize" wx:if="{{number>=1}}">
+      <view class="top"> 奖品： 一等奖×5</view>
+      <view class="middle">
+        <block wx:for="{{user1}}">
+          <view class="showlist">
+            <image src="{{pic}}" class="pic"></image>
+            <view>li.kun</view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="Firstprize" wx:if="{{number>=2}}">
+      <view class="top"> 奖品： 一等奖×5</view>
+      <view class="middle">
+        <block wx:for="{{user2}}">
+          <view class="showlist">
+            <image src="{{pic}}" class="pic"></image>
+            <view>li.kun</view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="Firstprize" wx:if="{{number>=3}}">
+      <view class="top"> 奖品： 一等奖×5</view>
+      <view class="middle">
+        <block wx:for="{{user3}}">
+          <view class="showlist">
+            <image src="{{pic}}" class="pic"></image>
+            <view>li.kun</view>
+          </view>
+        </block>
+      </view>
+    </view>
   </view>
 
 
