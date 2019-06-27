@@ -14,6 +14,7 @@ Page({
   data: {
     height:0,
     awardid:'',
+    data_list:[],
   },
 
   /**
@@ -24,7 +25,24 @@ Page({
       height: app.globalData.top_height,
       awardid:options.awardid
     })
-    
+
+
+    var that =this
+    //获取参与人员
+    wx.request({
+      url: app.globalData.url + 'getAwardPeople',
+      data: {
+        'id': options.awardid
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log("打印数据")
+        console.log(res)
+        that.setData({
+          data_list:res.data.data
+        })
+      }
+    })
   },
 
   /**
