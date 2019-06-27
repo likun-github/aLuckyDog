@@ -2,7 +2,7 @@
 App({
   onLaunch: function () {
    var that=this;
-   wx.clearStorage()
+  //  wx.clearStorage()
 
    var information=wx.getStorageSync('information');
     if(information){

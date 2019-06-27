@@ -1,0 +1,12 @@
+/* pages/look_lucky_user/look_lucky_user.wxss */
+
+page{
+  background: #f0f0f0;
+
+
+}
+
+
+.text_view1{
+  
+}

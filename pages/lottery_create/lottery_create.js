@@ -240,7 +240,21 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    var that = this;
+    console.log('data:', that.data)
+    return {
+      // title: '转发',
+      path: '/pages/awardconfirm/awardconfirm?awardid=' + that.data.awardid,
+      title: that.data.name + '发起了抽奖,' + that.data.jpname[0] + '等你来抽！',
+      imageUrl: that.data.imgurls[0],
 
+      success: function (res) {
+        wx.showToast({
+          title: '已转发',
+        })
+      }
+
+    }
   },
   // 返回事件
   back: function () {

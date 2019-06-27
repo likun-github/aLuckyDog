@@ -1,13 +1,15 @@
 {
   "pages": [
+    
+
     "pages/index/index",
+        "pages/look_lucky_user/look_lucky_user",
     "pages/awardconfirm/awardconfirm",
     "pages/question/question",
     "pages/advice/advice",
     "pages/list/list",
     "pages/try/try",
     "pages/lottery_view_1/lottery_view_1",
-    "pages/award/award",
     "pages/awardprofile/awardprofile",
     "pages/lottery_create/lottery_create",
     "pages/selfpage/selfpage",
