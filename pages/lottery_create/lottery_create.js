@@ -143,6 +143,12 @@ Page({
   },
   handopen: function () {
     var that = this;
+    
+    if (that.data.into_number == 0) wx.showToast({
+      title: '没有人参与',
+      icon: "loading"
+    })
+    else
     wx.showModal({
       title: '提示',
       content: '你确定你要开奖了？',
@@ -170,7 +176,7 @@ Page({
 
 
 
-                wx.stopPullDownRefresh();
+              wx.stopPullDownRefresh();
 
 
               }, 800)

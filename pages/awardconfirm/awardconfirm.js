@@ -272,7 +272,7 @@ Page({
             that.setData({
               state: state,
             })
-            if (state == 0)
+            if (state == 1)
               that.setData({
                 could_join: false,
               })
@@ -475,7 +475,7 @@ Page({
     var that = this
     var state=that.data.state;
     console.log(state);
-    
+
     wx.request({
       url: app.globalData.url + 'intoLottery',
       data: {
@@ -489,6 +489,10 @@ Page({
           title: res.data.interpret,
           content: '',
         })
+        that.setData({
+          could_join: true
+        })
+        wx.startPullDownRefresh()
       },
       fail: function(res) {
         console.log('fail')
