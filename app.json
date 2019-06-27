@@ -1,12 +1,16 @@
 {
   "pages": [
+<<<<<<< HEAD
     "pages/index/index",
     "pages/look_lucky_user/look_lucky_user",
+=======
+    "pages/try/try",
+    "pages/index/index",
+>>>>>>> 81569b34ff8313c467a12b2c047c7c5ba95c3ad5
     "pages/awardconfirm/awardconfirm",
     "pages/question/question",
     "pages/advice/advice",
     "pages/list/list",
-    "pages/try/try",
     "pages/lottery_view_1/lottery_view_1",
     "pages/awardprofile/awardprofile",
     "pages/lottery_create/lottery_create",
@@ -21,8 +25,7 @@
     "pages/joinaward/joinaward",
     "pages/input_id/input_id",
     "pages/chakanrenshu/chakanrenshu",
-    "pages/lrjlottery/lrjlottery",
-    "pages/look_address/look_address"
+    "pages/lrjlottery/lrjlottery"
   ],
   "window": {
     "backgroundTextStyle": "light",
