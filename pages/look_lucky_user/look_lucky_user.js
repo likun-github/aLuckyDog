@@ -13,6 +13,7 @@ Page({
    */
   data: {
     height:0,
+    awardid:'',
   },
 
   /**
@@ -21,8 +22,9 @@ Page({
   onLoad: function (options) {
     this.setData({
       height: app.globalData.top_height,
-     
+      awardid:options.awardid
     })
+    
   },
 
   /**
