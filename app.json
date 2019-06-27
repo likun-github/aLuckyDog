@@ -1,12 +1,10 @@
 {
   "pages": [
-<<<<<<< HEAD
+
     "pages/index/index",
     "pages/look_lucky_user/look_lucky_user",
-=======
     "pages/try/try",
     "pages/index/index",
->>>>>>> 81569b34ff8313c467a12b2c047c7c5ba95c3ad5
     "pages/awardconfirm/awardconfirm",
     "pages/question/question",
     "pages/advice/advice",
