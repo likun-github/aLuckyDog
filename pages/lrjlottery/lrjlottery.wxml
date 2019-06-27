@@ -67,7 +67,7 @@
 
   </view>
 
-
+  <view bindtap='oook' >dwadwdwad</view>
   <view wx:if='{{status==2}}'>
     <view class='join'>
       <view wx:if='{{level==1}}'>恭喜你中了一等奖：{{jpname[0]}}</view>

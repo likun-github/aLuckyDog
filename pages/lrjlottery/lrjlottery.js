@@ -667,6 +667,12 @@ Page({
     wx.navigateTo({
       url: '/pages/advice/advice',
     })
+  },
+
+  oook:function(){
+    wx.navigateTo({
+      url: '/pages/look_lucky_user/look_lucky_user',
+    })
   }
 
 })

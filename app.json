@@ -1,9 +1,7 @@
 {
   "pages": [
-    
-
+    "pages/look_lucky_user/look_lucky_user",
     "pages/index/index",
-        "pages/look_lucky_user/look_lucky_user",
     "pages/awardconfirm/awardconfirm",
     "pages/question/question",
     "pages/advice/advice",
@@ -23,7 +21,8 @@
     "pages/joinaward/joinaward",
     "pages/input_id/input_id",
     "pages/chakanrenshu/chakanrenshu",
-    "pages/lrjlottery/lrjlottery"
+    "pages/lrjlottery/lrjlottery",
+    "pages/look_address/look_address"
   ],
   "window": {
     "backgroundTextStyle": "light",

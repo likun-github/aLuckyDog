@@ -12,7 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    height:0,
+    height: 0,
   },
 
   /**
@@ -21,9 +21,10 @@ Page({
   onLoad: function (options) {
     this.setData({
       height: app.globalData.top_height,
-     
+
     })
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -72,11 +73,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  look_address:function(){
-    wx.navigateTo({
-      url: '/pages/look_address/look_address',
-    })
   }
 })
