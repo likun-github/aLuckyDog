@@ -13,97 +13,19 @@ Page({
         pic: "/static/2.jpg",
         name: "李坤",
       },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      }
-
-
-
-
     ],
     user2: [//二等奖获奖状况
       {
         pic: "/static/2.jpg",
         name: "李坤",
       },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-      {
-
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-
-
 
     ],
     user3: [//三等奖获奖状况
       {
         pic: "/static/2.jpg",
         name: "李坤",
-      },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-      {
-
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-
-
-
+      }
     ],
     a: true,
     name: '',
@@ -191,15 +113,44 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-        
+        console.log("打印数据")
+        console.log(res.data.data)
+        var data1=[];
+        var data2=[];
+        var data3=[];
+        var number=1;
         var cd = [];
         for (var i = 0; i < res.data.data.length; i++) {
-          cd[i] = res.data.data[i].user__picture
+          cd[i] = res.data.data[i].user__picture;
+          var middle={};
+          if(res.data.data[i].level==1){
+            middle.pic = res.data.data[i].user__picture;
+            middle.name = res.data.data[i].user__nickname;
+            data1.push(middle);
+          }
+          if (res.data.data[i].level == 2) {
+            middle.pic = res.data.data[i].user__picture;
+            middle.name = res.data.data[i].user__nickname;
+            data2.push(middle);
+            if(number!=3){
+              number=2;
+            }
+          }
+          if (res.data.data[i].level == 3) {
+            middle.pic = res.data.data[i].user__picture;
+            middle.name = res.data.data[i].user__nickname;
+            data3.push(middle);
+            number=3;
+          }
         }
         //先默认为7
         that.setData({
           canyu: cd,
-          cd: cd.length
+          cd: cd.length,
+          user1:data1,
+          user2:data2,
+          user3:data3,
+          number:number,
         })
       },
       fail: function (res) {
@@ -240,6 +191,9 @@ Page({
           name: f3.nickname,
           pic: f3.picture,
         })
+        that.setData({
+          number:that.data.s
+        })
         var index = that.data.index;
         var status = that.data.status;
         var fuser = f3.userid;
@@ -254,6 +208,7 @@ Page({
           level: 0
         })
         var s = f1[0].number;
+
         var image = that.data.imgurls;
         if (s == 1) image = [app.globalData.iurl + image[0]];
         else if (s == 2) image = [app.globalData.iurl + image[0], app.globalData.iurl + image[1]];
@@ -342,6 +297,9 @@ Page({
               level: 0
             })
             var s = f1[0].number;
+            that.setData({
+              number: that.data.s
+            })
             var image = that.data.imgurls;
             if (s == 1) image = [app.globalData.iurl + image[0]];
             else if (s == 2) image = [app.globalData.iurl + image[0], app.globalData.iurl + image[1]];
