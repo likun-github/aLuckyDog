@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    a: true,
     name: '',
     pic: '',
     height_screen: 0,
@@ -76,7 +77,7 @@ Page({
     })
     this.attached()
     wx.hideShareMenu();
-    
+    //options.awardid
     var awardid = options.awardid;
     var userid = app.globalData.userid;
 
@@ -139,6 +140,12 @@ Page({
           name: f3.nickname,
           pic: f3.picture,
         })
+        var index = that.data.index;
+        var status = that.data.status;
+        var fuser = f3.userid;
+        if (index == 3 && status == 1 && fuser == userid) that.setData({ a: false });
+        else that.setData({ a: true });
+
         if (f4 != '')
           that.setData({
             level: f4[0].level
@@ -160,6 +167,7 @@ Page({
       },
 
     })
+
     //判断是否可以抽奖
     var state = 0;
     wx.request({
@@ -220,8 +228,12 @@ Page({
               status: f1[0].status, //抽奖状态
               name: f3.nickname,
               pic: f3.picture,
-
             })
+            var index = that.data.index;
+            var status = that.data.status;
+            var fuser = f3.userid;
+            if (index == 3 && status == 1 && fuser == userid) that.setData({ a: false });
+            else that.setData({ a: true });
             if (f4 != '')
               that.setData({
                 level: f4[0].level
@@ -391,23 +403,9 @@ Page({
   },
 
   /**
-  * 用户点击右上角分享
-  */
-  onShareAppMessage: function (res) {
-    let users = wx.getStorageSync('user');
-
-    var that = this;
-
-    return {
-      // title: '转发',
-      path: '/pages/awardconfirm/awardconfirm?awardid=' + that.data.data_lottery.id,
-      title: that.data.data_lottery.name1 + '等你来抽',
-      imgUrl: '/images/share.jpg',
-
-      // success: function(res) {}
-
-    }
-
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
 
   },
   // 返回事件
@@ -461,6 +459,7 @@ Page({
     var that = this
     var state = that.data.state;
     console.log(state);
+
     wx.request({
       url: app.globalData.url + 'intoLottery',
       data: {
@@ -502,7 +501,8 @@ Page({
             },
             method: 'GET',
             success: function (res) {
-              console.log(res)
+
+              console.log('lalalalalalal' + res)
               wx.startPullDownRefresh();
               setTimeout(function () {
 
