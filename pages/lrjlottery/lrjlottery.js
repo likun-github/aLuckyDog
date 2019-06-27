@@ -79,8 +79,8 @@ Page({
     wx.hideShareMenu();
     //options.awardid
     var awardid = options.awardid;
+    console.log(awardid)
     var userid = app.globalData.userid;
-
     that.setData({
       awardid: awardid
     })
@@ -192,6 +192,7 @@ Page({
         console.log('fail');
       },
     })
+<<<<<<< HEAD
     var timer = setInterval(function () {
       userid = app.globalData.userid
       if (that.data.jpname == '') {
@@ -285,6 +286,9 @@ Page({
     }, 2500);
 
 
+=======
+    
+>>>>>>> a00921a655dd86e2b5df142a08a14af00de99ca8
   },
 
 
