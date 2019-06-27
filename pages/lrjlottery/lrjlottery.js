@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    a: true,
     name: '',
     pic: '',
     height_screen: 0,
@@ -139,6 +140,11 @@ Page({
           name: f3.nickname,
           pic: f3.picture,
         })
+        var index = that.data.index;
+        var status = that.data.status;
+        var fuser = f3.userid;
+        if (index == 3 && status == 1 && fuser == userid) that.setData({ a: false });
+        else that.setData({ a: true });
         if (f4 != '')
           that.setData({
             level: f4[0].level
@@ -175,7 +181,7 @@ Page({
         that.setData({
           state: state,
         })
-        if (state == 0)
+        if (state == 1)
           that.setData({
             could_join: false,
           })
@@ -386,17 +392,26 @@ Page({
           title: res.data.interpret,
           content: '',
         })
+        that.setData({
+          could_join:true
+        })
+        wx.startPullDownRefresh()
       },
       fail: function (res) {
         console.log('fail')
       },
     })
-
+    
 
   },
 
   handopen: function () {
     var that = this;
+    if(that.data.cd==0)wx.showToast({
+      title: '没有人参与',
+      icon: "loading" 
+    })
+    else
     wx.showModal({
       title: '提示',
       content: '你确定你要开奖了？',
@@ -406,7 +421,6 @@ Page({
       cancelColor: 'darkgray',
       success(res) {
         if (res.confirm) {
-
           wx.request({
             url: app.globalData.url + 'openlottery',
             data: {
@@ -417,13 +431,7 @@ Page({
               console.log(res)
               wx.startPullDownRefresh();
               setTimeout(function () {
-
-
-
-
                 wx.stopPullDownRefresh();
-
-
               }, 800)
             }
           })

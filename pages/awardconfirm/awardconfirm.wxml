@@ -72,6 +72,7 @@
     <view wx:if='{{level==2}}'>恭喜你中了二等奖: {{jpname[1]}}</view>
     <view wx:if='{{level==3}}'>恭喜你中了三等奖: {{jpname[2]}}</view>
     <view wx:if='{{level==4}}'>很遗憾你没有中奖</view>
+    <view wx:if='{{!level}}'>该抽奖已结束</view>
   </view>
 
 

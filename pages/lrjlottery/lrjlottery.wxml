@@ -1,14 +1,9 @@
 <navBar title-text="抽奖详情" background="white" back-icon="/images/back@3x.png" bindback="back" />
 
 
-<!-- 配置 自定义的title -->
-
 <view style='height: {{top_height}}px;'></view>
 
-
-
-
-<scroll-view>
+<scroll-view wx:if="{{!share_flag}}">
 
 
   <view class='lottery_list_wait' style='height:{{500+(s-1)*100}}rpx'>
@@ -44,7 +39,7 @@
   </view>
 
   <view style='height:30rpx;width:100%;background:#f0f0f0;'></view>
-  <view class='Everday_Lottery_view' wx:if="{{jpms}}">
+  <view class='Everday_Lottery_view' wx:if='{{jpms}}'>
     <view>
       <image class=' toast_view_1_img' src='/images/yinghao.svg' mode='aspectFill'></image>
     </view>
@@ -59,9 +54,9 @@
     </view>
     <view class='join_text_view' bindtap='whole'>已有{{cd}}人参与，查看全部 ></view>
 
-
+    
     <view class='join_pic_view'>
-
+      
       <view class='image_view' wx:for="{{canyu}}">
         <image src="{{item}}" style='height:50rpx;width:50rpx;'></image>
       </view>
@@ -76,6 +71,7 @@
     <view wx:if='{{level==2}}'>恭喜你中了二等奖: {{jpname[1]}}</view>
     <view wx:if='{{level==3}}'>恭喜你中了三等奖: {{jpname[2]}}</view>
     <view wx:if='{{level==4}}'>很遗憾你没有中奖</view>
+    <view wx:if='{{!level}}'>该抽奖已结束</view>
   </view>
 
 
@@ -86,8 +82,8 @@
 
 <view class='bottom_btn_view'>
   <button class='btn_1' bindtap='share_lottery' open-type="share">分享该抽奖</button>
-  <button wx:if='{{status!=1}}' class='btn_2' bindtap='go_to_lotteryCreate'>更多抽奖福利</button>
-  <button wx:if='{{status==1&&index==3}}' class='btn_2' bindtap='handopen'>手动开奖</button>
+  <button wx:if="{{a}}" class='btn_2' bindtap='go_to_lotteryCreate'>更多抽奖福利</button>
+  <button wx:if="{{!a}}" class='btn_2' bindtap='handopen'>手动开奖</button>
 </view>
 <!-- 
 
