@@ -20,6 +20,12 @@ Page({
     canyu:[],
     state:0,
     awardid:'',
+
+
+    
+
+
+
   },
 
   /**
@@ -31,6 +37,19 @@ Page({
     })
   },
   onLoad: function(options) {
+
+    let that = this
+    // 获取到屏幕的宽高等信息
+    wx: wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          windowWidth: res.windowWidth,
+          windowHeight: res.windowHeight
+        })
+      }
+    })
+
+
     // let scrollHeight = wx.getSystemInfoSync().windowHeight;
 
     this.setData({
@@ -181,6 +200,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(res) {
+
+    this.begainDrawShareImage()
+    
+
     let users = wx.getStorageSync('user');
 
     var that = this;
@@ -188,8 +211,8 @@ Page({
     return {
       // title: '转发',
       path: '/pages/awardconfirm/awardconfirm?awardid=' + that.data.data_lottery.id,
-      title: that.data.data_lottery.name1 + '等你来抽',
-      imgUrl: '/images/share.jpg',
+      // title: that.data.data_lottery.name1 + '等你来抽',
+      imageUrl: '/images/share1.jpg',
 
       // success: function(res) {}
 
@@ -301,5 +324,7 @@ Page({
       }　　　　
     })
   },
+
+
 
 })
