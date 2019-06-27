@@ -357,6 +357,13 @@ page {
   margin: auto;
 }
 
+.image_view{
+  height: 60rpx;
+  width: 60rpx;
+  padding:auto;
+
+}
+
 .join_text_view {
   font-size: 27rpx;
   display: flex;
@@ -428,4 +435,30 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.canvas-content{
+  display: flex;
+  top: 0;
+  left: 0;
+  /* left: 500%;  分享图不显示在页面上面，就将画布设置在页面之外*/
+}
+
+.save-button {
+  position: fixed;
+  width: 80rpx;
+  height: 80rpx;
+  bottom: 40rpx;
+  right: 40rpx;
+  border-radius: 50rpx;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.save-button .share-image {
+  position: absolute;
+  top: 22rpx;
+  left: 22rpx;
+  width: 36rpx;
+  height: 36rpx;
 }

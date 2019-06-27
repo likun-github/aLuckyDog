@@ -20,6 +20,12 @@ Page({
     canyu:[],
     state:0,
     awardid:'',
+
+
+    
+
+
+
   },
 
   /**
@@ -31,6 +37,19 @@ Page({
     })
   },
   onLoad: function(options) {
+
+    let that = this
+    // 获取到屏幕的宽高等信息
+    wx: wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          windowWidth: res.windowWidth,
+          windowHeight: res.windowHeight
+        })
+      }
+    })
+
+
     // let scrollHeight = wx.getSystemInfoSync().windowHeight;
 
     this.setData({
@@ -38,7 +57,7 @@ Page({
       //   scrollHeight: scrollHeight + app.globalData.top_height
     })
     console.log(options.id)
-    var that = this
+   
     var awardid=options.id;
     that.setData({
       awardid:awardid
@@ -181,17 +200,24 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(res) {
-    let users = wx.getStorageSync('user');
+
+
+
+    // let users = wx.getStorageSync('user');
 
     var that = this;
 
     return {
       // title: '转发',
       path: '/pages/awardconfirm/awardconfirm?awardid=' + that.data.data_lottery.id,
-      title: that.data.data_lottery.name1 + '等你来抽',
-      imgUrl: '/images/share.jpg',
+      title: that.data.data_lottery.wechat_name+'发起了抽奖【'+that.data.data_lottery.name1 + '等你来抽】',
+      imageUrl: that.data.data_lottery.pic1,
 
-      // success: function(res) {}
+      success: function(res) {
+        wx.showToast({
+          title: '已转发',
+        })
+      }
 
     }
 
@@ -301,5 +327,13 @@ Page({
       }　　　　
     })
   },
+
+
+
+  go_to_more:function(){
+    wx.redirectTo({
+      url: '/pages/index/index',
+    })
+  }
 
 })

@@ -2,7 +2,7 @@
 App({
   onLaunch: function () {
    var that=this;
-   wx.clearStorage()
+  //  wx.clearStorage()
 
    var information=wx.getStorageSync('information');
     if(information){
@@ -14,9 +14,9 @@ App({
   },
 
   globalData: {
-    iurl:'https://xiaoyibang.top:8002/uploads/',
-    url: 'https://xiaoyibang.top:8002/lottery/',
-    url_uploads: 'https://xiaoyibang.top:8002/uploads/',
+    iurl:'http://1397608894-qq.vicp.io:42685/uploads/',
+    url: 'http://1397608894-qq.vicp.io:42685/lottery/',
+    url_uploads: 'http://1397608894-qq.vicp.io:42685/uploads/',
     userInfo: null,
     top_height:0,
  

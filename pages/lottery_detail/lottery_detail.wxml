@@ -1,9 +1,16 @@
 <!--pages/lottery_detail/lottery_detail.wxml-->
-<navBar title-text="抽奖详情" back-icon="/images/back@3x.png" background="#f2f2f2" bindback="back" />
+
+  <navBar title-text="抽奖详情" back-icon="/images/back@3x.png" background="white" bindback="back" />
 
 
-<!-- 配置 自定义的title -->
-<view style='height: {{height}}px;'></view>
+  <!-- 配置 自定义的title -->
+  <view style='height: {{height}}px;'></view>
+
+
+
+
+
+
 
 <!-- <view style='height: {{88}}px;'></view> -->
 
@@ -121,7 +128,9 @@
     <view class='black_text1'>分享</view>
   </button>
 
-  <view class='black_text2'>更多奖品在等你</view>
+  <view class='black_text2' bindtap='go_to_more'>更多奖品在等你</view>
 
 
 </view>
+
+

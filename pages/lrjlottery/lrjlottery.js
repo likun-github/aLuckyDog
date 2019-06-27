@@ -6,6 +6,28 @@ Page({
    * 页面的初始数据
    */
   data: {
+
+    number: 2,//奖项数量 
+    user1: [//一等奖获奖状况
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+    ],
+    user2: [//二等奖获奖状况
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      },
+
+    ],
+    user3: [//三等奖获奖状况
+      {
+        pic: "/static/2.jpg",
+        name: "李坤",
+      }
+    ],
+    a: true,
     name: '',
     pic: '',
     height_screen: 0,
@@ -76,7 +98,7 @@ Page({
     })
     this.attached()
     wx.hideShareMenu();
-    
+    //options.awardid
     var awardid = options.awardid;
     var userid = app.globalData.userid;
 
@@ -91,14 +113,44 @@ Page({
       },
       method: 'GET',
       success: function (res) {
+        console.log("打印数据")
+        console.log(res.data.data)
+        var data1=[];
+        var data2=[];
+        var data3=[];
+        var number=1;
         var cd = [];
         for (var i = 0; i < res.data.data.length; i++) {
-          cd[i] = res.data.data[i].user__picture
+          cd[i] = res.data.data[i].user__picture;
+          var middle={};
+          if(res.data.data[i].level==1){
+            middle.pic = res.data.data[i].user__picture;
+            middle.name = res.data.data[i].user__nickname;
+            data1.push(middle);
+          }
+          if (res.data.data[i].level == 2) {
+            middle.pic = res.data.data[i].user__picture;
+            middle.name = res.data.data[i].user__nickname;
+            data2.push(middle);
+            if(number!=3){
+              number=2;
+            }
+          }
+          if (res.data.data[i].level == 3) {
+            middle.pic = res.data.data[i].user__picture;
+            middle.name = res.data.data[i].user__nickname;
+            data3.push(middle);
+            number=3;
+          }
         }
         //先默认为7
         that.setData({
           canyu: cd,
-          cd: cd.length
+          cd: cd.length,
+          user1:data1,
+          user2:data2,
+          user3:data3,
+          number:number,
         })
       },
       fail: function (res) {
@@ -139,6 +191,15 @@ Page({
           name: f3.nickname,
           pic: f3.picture,
         })
+        that.setData({
+          number:that.data.s
+        })
+        var index = that.data.index;
+        var status = that.data.status;
+        var fuser = f3.userid;
+        if (index == 3 && status == 1 && fuser == userid) that.setData({ a: false });
+        else that.setData({ a: true });
+
         if (f4 != '')
           that.setData({
             level: f4[0].level
@@ -147,6 +208,7 @@ Page({
           level: 0
         })
         var s = f1[0].number;
+
         var image = that.data.imgurls;
         if (s == 1) image = [app.globalData.iurl + image[0]];
         else if (s == 2) image = [app.globalData.iurl + image[0], app.globalData.iurl + image[1]];
@@ -160,6 +222,7 @@ Page({
       },
 
     })
+
     //判断是否可以抽奖
     var state = 0;
     wx.request({
@@ -220,8 +283,12 @@ Page({
               status: f1[0].status, //抽奖状态
               name: f3.nickname,
               pic: f3.picture,
-
             })
+            var index = that.data.index;
+            var status = that.data.status;
+            var fuser = f3.userid;
+            if (index == 3 && status == 1 && fuser == userid) that.setData({ a: false });
+            else that.setData({ a: true });
             if (f4 != '')
               that.setData({
                 level: f4[0].level
@@ -230,6 +297,9 @@ Page({
               level: 0
             })
             var s = f1[0].number;
+            that.setData({
+              number: that.data.s
+            })
             var image = that.data.imgurls;
             if (s == 1) image = [app.globalData.iurl + image[0]];
             else if (s == 2) image = [app.globalData.iurl + image[0], app.globalData.iurl + image[1]];
@@ -258,7 +328,7 @@ Page({
             that.setData({
               state: state,
             })
-            if (state == 0)
+            if (state == 1)
               that.setData({
                 could_join: false,
               })
@@ -391,24 +461,24 @@ Page({
   },
 
   /**
-  * 用户点击右上角分享
-  */
-  onShareAppMessage: function (res) {
-    let users = wx.getStorageSync('user');
-
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
     var that = this;
-
+    console.log('data:', that.data)
     return {
       // title: '转发',
-      path: '/pages/awardconfirm/awardconfirm?awardid=' + that.data.data_lottery.id,
-      title: that.data.data_lottery.name1 + '等你来抽',
-      imgUrl: '/images/share.jpg',
+      path: '/pages/awardconfirm/awardconfirm?awardid=' + that.data.awardid,
+      title: that.data.name + '邀你参与[' + that.data.jpname[0] + '等]抽奖！',
+      imageUrl: that.data.imgurls[0],
 
-      // success: function(res) {}
+      success: function (res) {
+        wx.showToast({
+          title: '已转发',
+        })
+      }
 
     }
-
-
   },
   // 返回事件
 
@@ -461,6 +531,7 @@ Page({
     var that = this
     var state = that.data.state;
     console.log(state);
+
     wx.request({
       url: app.globalData.url + 'intoLottery',
       data: {
@@ -474,6 +545,10 @@ Page({
           title: res.data.interpret,
           content: '',
         })
+        that.setData({
+          could_join: true
+        })
+        wx.startPullDownRefresh()
       },
       fail: function (res) {
         console.log('fail')
@@ -502,7 +577,8 @@ Page({
             },
             method: 'GET',
             success: function (res) {
-              console.log(res)
+
+              console.log('lalalalalalal' + res)
               wx.startPullDownRefresh();
               setTimeout(function () {
 
@@ -548,6 +624,12 @@ Page({
   go_to_advice: function () {
     wx.navigateTo({
       url: '/pages/advice/advice',
+    })
+  },
+
+  oook:function(){
+    wx.navigateTo({
+      url: '/pages/look_lucky_user/look_lucky_user',
     })
   }
 
