@@ -7,67 +7,28 @@ Page({
    */
   data: {
 
-    number: 1,//奖项数量 
+    number: 2,//奖项数量 
     user1: [//一等奖获奖状况
       {
         pic: "/static/2.jpg",
         name: "李坤",
       },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-
-
-
     ],
     user2: [//二等奖获奖状况
       {
         pic: "/static/2.jpg",
         name: "李坤",
       },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-      {
-
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-
-
 
     ],
     user3: [//三等奖获奖状况
       {
         pic: "/static/2.jpg",
         name: "李坤",
-      },
-      {
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-      {
-
-        pic: "/static/2.jpg",
-        name: "李坤",
-      },
-
-
-
-
+      }
     ],
-    a:true,
+    a: true,
+    b: false,
     name: '',
     pic: '',
     height_screen: 0,
@@ -93,7 +54,7 @@ Page({
       "/images/icn-zu@3x.png",
       "/images/icn-zu@3x.png",
     ],
-    level:'',//几等奖
+    level: '',//几等奖
     state: '', //个人对于奖项的状态
     awardid: '',
     imgurls: [],
@@ -152,18 +113,48 @@ Page({
         'id': awardid
       },
       method: 'GET',
-      success: function(res) {
+      success: function (res) {
+        console.log("打印数据")
+        console.log(res.data.data)
+        var data1 = [];
+        var data2 = [];
+        var data3 = [];
+        var number = 1;
         var cd = [];
         for (var i = 0; i < res.data.data.length; i++) {
-          cd[i] = res.data.data[i].user__picture
+          cd[i] = res.data.data[i].user__picture;
+          var middle = {};
+          if (res.data.data[i].level == 1) {
+            middle.pic = res.data.data[i].user__picture;
+            middle.name = res.data.data[i].user__nickname;
+            data1.push(middle);
+          }
+          if (res.data.data[i].level == 2) {
+            middle.pic = res.data.data[i].user__picture;
+            middle.name = res.data.data[i].user__nickname;
+            data2.push(middle);
+            if (number != 3) {
+              number = 2;
+            }
+          }
+          if (res.data.data[i].level == 3) {
+            middle.pic = res.data.data[i].user__picture;
+            middle.name = res.data.data[i].user__nickname;
+            data3.push(middle);
+            number = 3;
+          }
         }
         //先默认为7
         that.setData({
           canyu: cd,
-          cd: cd.length
+          cd: cd.length,
+          user1: data1,
+          user2: data2,
+          user3: data3,
+          number: number,
         })
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log('fail')
       },
     })
@@ -181,8 +172,8 @@ Page({
         var f1 = res.data.award_data;
         var f2 = res.data.interpret;
         var f4 = res.data.userWithaward;
-        console.log(f1, f2, f3,f4)
-        
+        console.log(f1, f2, f3, f4)
+
         var jpname = [f1[0].name1, f1[0].name2, f1[0].name3];
         var jpnum = [f1[0].num1, f1[0].num2, f1[0].num3];
         var images = [f1[0].pic1, f1[0].pic2, f1[0].pic3];
@@ -201,20 +192,29 @@ Page({
           name: f3.nickname,
           pic: f3.picture,
         })
-       var index=that.data.index;
-       var status=that.data.status;
-       var fuser=f3.userid;
-        if (index == 3 && status == 1 && fuser == userid)that.setData({a:false});
-        else that.setData({ a: true });
-
-        if(f4!='')
         that.setData({
-          level: f4[0].level
+          number: that.data.s
         })
+        var index = that.data.index;
+        var status = that.data.status;
+        var fuser = f3.userid;
+        if (index == 3 && status == 1 && fuser == userid) that.setData({ a: false });
+        else that.setData({ a: true });
+        //判断是否可以手动开奖
+
+        if (status == 2 && fuser == userid) that.setData({ b: true });
+        else that.setData({ b: false });
+        //判断是否展示给发起人中奖者名单的联系方式
+
+        if (f4 != '')
+          that.setData({
+            level: f4[0].level
+          })
         else that.setData({
           level: 0
         })
         var s = f1[0].number;
+
         var image = that.data.imgurls;
         if (s == 1) image = [app.globalData.iurl + image[0]];
         else if (s == 2) image = [app.globalData.iurl + image[0], app.globalData.iurl + image[1]];
@@ -253,11 +253,9 @@ Page({
         console.log('fail');
       },
     })
-    var timer = setInterval(function() 
-    {
-      userid=app.globalData.userid
-      if (that.data.jpname == '')
-      {
+    var timer = setInterval(function () {
+      userid = app.globalData.userid
+      if (that.data.jpname == '') {
 
         wx: wx.request({
           url: app.globalData.url + 'getUserAwardState',
@@ -305,6 +303,9 @@ Page({
               level: 0
             })
             var s = f1[0].number;
+            that.setData({
+              number: that.data.s
+            })
             var image = that.data.imgurls;
             if (s == 1) image = [app.globalData.iurl + image[0]];
             else if (s == 2) image = [app.globalData.iurl + image[0], app.globalData.iurl + image[1]];
@@ -343,7 +344,7 @@ Page({
           },
         })
       }
-     
+
       else clearInterval(timer);
     }, 2500);
 
