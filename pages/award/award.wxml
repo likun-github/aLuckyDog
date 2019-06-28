@@ -76,7 +76,7 @@
 
   <view style='width:100%;height:80rpx;display:flex;flex-direction:row;background:rgba(80,80,80,0.1)'>
     <text class='input11' style='font-size:24rpx;color:rgb(100,100,100);line-height:80rpx;'>{{methord}}</text>
-    <view class='input1' bindtap='showModal' style='font-size:24rpx;color:rgb(107,170,223);line-height:80rpx;'>修改开奖条件 ></view>
+    <view class='input1' bindtap='showModal' style='font-size:24rpx;color:rgb(107,170,223);line-height:80rpx;'>修改开奖条件 ➤</view>
     <!--弹框-->
     <view class='maskLayer' wx:if="{{showModalStatus}}">
       <view bindtap='hideModal' style='width:100%;height:100%;position:absolute;top:0;left:0'></view>
@@ -116,7 +116,7 @@
   </view>
   <view wx:if="{{index==1||index==3}}" style='width:100%;height:auto;display:flex;flex-direction:row'>
     <text class='input11'>{{z}}</text>
-    <picker class='input1' style='margin-top:30rpx;font-size:28rpx;color:rgb(100,100,100)' mode="multiSelector" bindchange="bindStartMultiPickerChange" bindtap='pickerTap' bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">{{startDate}} ></picker>
+    <picker class='input1' style='margin-top:30rpx;font-size:28rpx;color:rgb(100,100,100)' mode="multiSelector" bindchange="bindStartMultiPickerChange" bindtap='pickerTap' bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">{{startDate}} ➤</picker>
   </view>
   <view style='width:100%;height:80rpx;display:flex;flex-direction:row;background:rgba(80,80,80,0.1)'>
     <text class='input11' style='font-size:24rpx;color:rgb(100,100,100);line-height:80rpx;'>抽奖说明</text>
@@ -129,7 +129,7 @@
 
   <view  style='width:100%;height:auto;display:flex;flex-direction:row'>
     <text class='input11'>发起人信息</text>
-    <text class='input1' style='margin-top:30rpx;font-size:28rpx;color:rgb(100,100,100)' bindchange="bindStartMultiPickerChange" bindtap='input_id'>请输入需要关注的账号ID ></text>
+    <text class='input1' style='margin-top:30rpx;font-size:28rpx;color:rgb(100,100,100)' bindchange="bindStartMultiPickerChange" bindtap='input_id'>请输入需要关注的账号ID ➤</text>
   </view>
 
   <view style='height:50rpx;background:#f0f0f0;'></view>

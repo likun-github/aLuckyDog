@@ -30,7 +30,7 @@
 
     <view class='lottery_list' bindtap='show_answer' data-index="{{index}}">
       <view class='img_list'>
-        <image src='/images/icn-warning@3x.png' style='height:40rpx;width:36rpx;'> </image>
+        <image src='/images/question.svg' style='height:40rpx;width:36rpx;'> </image>
       </view>
       <view class='lottery_list_2'>
         <text class='lottery_list_2_text'>{{item.ask}}</text>
@@ -43,7 +43,7 @@
 
     <view class='lottery_list_answer' wx:if="{{item.look}}">
       <view class='img_list_answer'>
-        <image src='/images/icn-success@3x.png' style='height:40rpx;width:36rpx;'> </image>
+        <image src='/images/answer.svg' style='height:40rpx;width:36rpx;'> </image>
       </view>
       <view class='lottery_list_2_answer'>
         <text class='lottery_list_2_text_answer'>{{item.answer}}</text>

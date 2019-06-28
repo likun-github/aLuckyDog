@@ -14,9 +14,9 @@ App({
   },
 
   globalData: {
-    iurl:'http://1397608894-qq.vicp.io:42685/uploads/',
-    url: 'http://1397608894-qq.vicp.io:42685/lottery/',
-    url_uploads: 'http://1397608894-qq.vicp.io:42685/uploads/',
+    iurl:'https://xiaoyibang.top:8002/uploads/',
+    url: 'https://xiaoyibang.top:8002/lottery/',
+    url_uploads: 'https://xiaoyibang.top:8002/uploads/',
     userInfo: null,
     top_height:0,
  
