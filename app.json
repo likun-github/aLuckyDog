@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/try/try",
     "pages/index/index",
+    "pages/try/try",
     "pages/awardconfirm/awardconfirm",
     "pages/question/question",
     "pages/advice/advice",
