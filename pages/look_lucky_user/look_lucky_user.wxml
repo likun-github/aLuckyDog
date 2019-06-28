@@ -13,13 +13,13 @@
 </view>
 <view style='background:white;height:50rpx;'></view>
 
-<view wx:for="{{[1,2,3,4,5]}}">
+<view wx:for="{{data_list}}">
   <view style='background:#f0f0f0;height:1rpx;width:100%;'></view>
   <view   bindtap='look_address' class='user_view'>
     <view class='view_1'>
-      <image src='/images/559-3@3x.png' style='height:50rpx;width:50rpx;'></image>
+      <image src='{{item.user__picture}}' style='height:50rpx;width:50rpx;'></image>
     </view>
-    <view class='view_2'>li.kun.</view>
+    <view class='view_2'>{{item.user__nickname}}</view>
     <view class='view_3'>></view>
   </view>
   <view style='background:#f0f0f0;height:1rpx;width:100%;'></view>

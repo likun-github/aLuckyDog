@@ -28,6 +28,7 @@ Page({
       }
     ],
     a: true,
+    b:false,
     name: '',
     pic: '',
     height_screen: 0,
@@ -199,7 +200,12 @@ Page({
         var fuser = f3.userid;
         if (index == 3 && status == 1 && fuser == userid) that.setData({ a: false });
         else that.setData({ a: true });
+        //判断是否可以手动开奖
 
+        if ( status == 2 && fuser == userid) that.setData({ b: true });
+        else that.setData({ b: false });
+        //判断是否展示给发起人中奖者名单的联系方式
+  
         if (f4 != '')
           that.setData({
             level: f4[0].level
@@ -629,7 +635,7 @@ Page({
 
   oook:function(){
     wx.navigateTo({
-      url: '/pages/look_lucky_user/look_lucky_user',
+      url: '/pages/look_lucky_user/look_lucky_user?awardid='+this.data.awardid,
     })
   }
 

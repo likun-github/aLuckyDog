@@ -79,12 +79,11 @@ Page({
   },
 
   onShow: function() {
-
-
-
   },
 
-
+  onReady:function(){
+    console.log("ready")
+  },  
 
 
   // 通过获取系统信息计算导航栏高度

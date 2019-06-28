@@ -67,7 +67,7 @@
 
   </view>
 
-  <view bindtap='oook' >dwadwdwad</view>
+
   <view wx:if='{{status==2}}'>
     <view class='join'>
       <view wx:if='{{level==1}}'>恭喜你中了一等奖：{{jpname[0]}}</view>
@@ -116,6 +116,23 @@
       </view>
     </view>
   </view>
+
+  <!-- <view bindtap='oook' wx:if="{{b}}">dwadwdwad</view> -->
+
+  <view style='background:white;' class='bottom_view'>
+
+    <view class="pinfor" bindtap='oook' wx:if="{{b}}"> 查看中奖者收获信息
+      <image src="/static/right.svg" class="right"></image>
+    </view>
+
+    <view class="line"></view>
+    <view class="need">
+      <view> 抽奖开奖后，请根据中将人联系信息于7日内发奖。</view>
+      <view>若中奖人不满足发奖要求时，建议短信告知</view>
+
+    </view>
+  </view>
+
 
 
   <view class='bottom_text' bindtap='go_to_advice'>意见反馈 | 免责声明 | 我要投诉</view>
